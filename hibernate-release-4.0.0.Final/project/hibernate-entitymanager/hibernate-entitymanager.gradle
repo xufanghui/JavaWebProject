@@ -1,0 +1,88 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+apply plugin: 'java'
+apply plugin: org.hibernate.gradle.testing.matrix.MatrixTestingPlugin
+
+dependencies {
+
+    compile( project(':hibernate-core') )
+    compile( libraries.dom4j )
+    compile( libraries.commons_annotations )
+    compile( libraries.jpa )
+    compile( libraries.jta )
+    compile( libraries.javassist )
+    testCompile( project(':hibernate-testing') )
+    testCompile( libraries.junit )
+    testCompile( libraries.shrinkwrap_api )
+    testCompile( libraries.shrinkwrap )
+    testCompile( libraries.validation )
+    testRuntime( libraries.validator )
+}
+
+aptDumpDir = file( buildDirName + "/tmp/apt" )
+
+sourceSets.test {
+    originalJavaSrcDirs = java.srcDirs
+    generatedJpaMetamodelSrcDir = file( "${buildDir}/generated-src/jpamodelgen/${name}" )
+    java.srcDir generatedJpaMetamodelSrcDir
+}
+compileMatrixJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+sourceSets {
+    matrix {
+        java {
+            srcDir 'src/matrix/java'
+        }
+        resources {
+            srcDir 'src/matrix/resources'
+        }
+    }
+}
+ideaModule {
+    excludeDirs += file("$buildDir/bundles")
+    testSourceDirs += file( 'src/matrix/java')
+    testSourceDirs += file( 'src/matrix/resources')
+}
+
+task generateJpaMetamodelClasses(type: Compile) {
+    classpath = compileTestJava.classpath + configurations.hibernateJpaModelGenTool
+    source = sourceSets.test.originalJavaSrcDirs
+    destinationDir = aptDumpDir
+    options.define(
+            compilerArgs: [
+                    "-proc:only",
+                    "-processor", "org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor",
+                    "-s", "$sourceSets.test.generatedJpaMetamodelSrcDir.absolutePath"
+            ]
+    );
+    outputs.dir sourceSets.test.generatedJpaMetamodelSrcDir;
+    doFirst {
+        sourceSets.test.generatedJpaMetamodelSrcDir.mkdirs()
+    }
+}
+
+// for the time being eat the annoying output from running the annotation processors
+generateJpaMetamodelClasses.logging.captureStandardError(LogLevel.INFO)
+
+compileTestJava.dependsOn generateJpaMetamodelClasses
+compileTestJava.options.define(compilerArgs: ["-proc:none"])
+
+
+bundlesTargetDir = file( "$buildDirName/bundles" )
+task copyBundleResources (type: Copy) {
+    from file('src/test/bundles') 
+    into bundlesTargetDir
+    filter(ReplaceTokens, tokens: [
+            buildDirName: buildDir.absolutePath,
+            'db.dialect': 'org.hibernate.dialect.H2Dialect',
+            'jdbc.driver': 'org.h2.Driver',
+            'jdbc.user': 'sa',
+            'jdbc.pass': '',
+            'jdbc.url': 'jdbc:h2:mem:db1;DB_CLOSE_DELAY=-1;MVCC=TRUE',
+    ]);
+    doFirst {
+        bundlesTargetDir.mkdirs()
+    }
+}
+
+// make sure that the bundles for the packaged test (PackagingTestCase) are copied as well
+processTestResources.dependsOn copyBundleResources

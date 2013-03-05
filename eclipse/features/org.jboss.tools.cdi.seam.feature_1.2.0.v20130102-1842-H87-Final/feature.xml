@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="org.jboss.tools.cdi.seam.feature" label="%featureName" version="1.2.0.v20130102-1842-H87-Final" provider-name="%featureProvider">
+
+	<description>
+      %description
+   </description>
+
+	<copyright>
+      %copyright
+   </copyright>
+
+	<license url="%licenseURL">
+      %license
+   </license>
+
+	<requires>
+		<import feature="org.jboss.tools.common.feature" version="3.3.0" match="greaterOrEqual" />
+		<import feature="org.jboss.tools.jst.feature" version="3.3.0" match="greaterOrEqual" />
+	</requires>
+
+	<plugin id="org.jboss.tools.cdi.seam.core" download-size="37" install-size="75" version="1.2.0.v20130102-1842-H87-Final" unpack="false" />
+	<plugin id="org.jboss.tools.cdi.seam.solder.core" download-size="58" install-size="128" version="1.2.0.v20130102-1842-H87-Final" unpack="false" />
+	<plugin id="org.jboss.tools.cdi.seam.config.core" download-size="66" install-size="138" version="1.2.0.v20130102-1842-H87-Final" unpack="false" />
+	<plugin id="org.jboss.tools.cdi.seam.config.ui" download-size="27" install-size="51" version="1.2.0.v20130102-1842-H87-Final" unpack="false" />
+	<plugin id="org.jboss.tools.cdi.seam.faces.core" download-size="6" install-size="6" version="1.2.0.v20130102-1842-H87-Final" unpack="false" />
+	<plugin id="org.jboss.tools.cdi.seam.text.ext" download-size="34" install-size="69" version="1.2.0.v20130102-1842-H87-Final" unpack="false" />
+</feature>

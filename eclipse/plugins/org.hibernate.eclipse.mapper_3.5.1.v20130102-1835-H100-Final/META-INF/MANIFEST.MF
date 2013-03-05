@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: hudson
+Build-Jdk: 1.6.0_38
+Export-Package: org.hibernate.eclipse.mapper,org.hibernate.eclipse.map
+ per.editors,org.hibernate.eclipse.mapper.editors.reveng,org.hibernate
+ .eclipse.mapper.editors.reveng.xpl,org.hibernate.eclipse.mapper.edito
+ rs.xpl,org.hibernate.eclipse.mapper.extractor,org.hibernate.eclipse.m
+ apper.factory,org.hibernate.eclipse.mapper.model,org.hibernate.eclips
+ e.mapper.modelhandler,org.hibernate.eclipse.mapper.registry,org.hiber
+ nate.eclipse.mapper.views.contentoutline
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: org.hibernate.eclipse.mapper.jar
+Bundle-Name: %Bundle-Name.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.ui
+ .editors,org.eclipse.jface.text,org.eclipse.jdt.ui,org.eclipse.jdt.co
+ re,org.eclipse.core.resources,org.eclipse.ui.ide,org.eclipse.wst.xml.
+ core,org.eclipse.wst.sse.core,org.eclipse.wst.xml.ui,org.eclipse.wst.
+ sse.ui,org.eclipse.ui.views,org.hibernate.eclipse,org.eclipse.ui.form
+ s,org.eclipse.ui.workbench.texteditor,org.hibernate.eclipse.console,o
+ rg.eclipse.wst.dtd.core,org.eclipse.wst.common.ui,org.eclipse.pde.cor
+ e,org.hibernate.eclipse.libs;bundle-version="3.4.0"
+Bundle-Vendor: %Bundle-Vendor.0
+Bundle-Version: 3.5.1.v20130102-1835-H100-Final
+Bundle-ManifestVersion: 2
+Bundle-Activator: org.hibernate.eclipse.mapper.MapperPlugin
+Bundle-SymbolicName: org.hibernate.eclipse.mapper; singleton:=true
+

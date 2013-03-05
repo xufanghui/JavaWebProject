@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: hudson
+Build-Jdk: 1.6.0_38
+Export-Package: org.jboss.tools.common.projecttemplates
+Bundle-ActivationPolicy: lazy
+Eclipse-BundleShape: dir
+Bundle-Name: %pluginName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.7.0",org.ec
+ lipse.ui;bundle-version="3.7.0",org.jboss.tools.common
+Bundle-Vendor: %providerName
+Bundle-Version: 3.3.1.v20130102-1651-H83-Final
+Bundle-Activator: org.jboss.tools.common.projecttemplates.ProjectTempl
+ atesPlugin
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.jboss.tools.common.projecttemplates;singleton
+ :=true
+

@@ -1,0 +1,70 @@
+Signature-Version: 1.0
+SHA1-Digest-Manifest: Pj9nIPxCv4x3qcipRhPdkkd2C6w=
+Created-By: 1.6.0 (IBM Corporation)
+SHA1-Digest-Manifest-Main-Attributes: auK9NV4vAfEwTCUGsWn6P5eBOqY=
+
+Name: about_files/LICENSE-1.1.txt
+SHA1-Digest: azB4TwJeDrkEw94Jv8Pe5lOZmrM=
+
+Name: about_files/LICENSE-2.0.txt
+SHA1-Digest: DMnZPrY7w/ZEOj0YI/l8KoozuvM=
+
+Name: META-INF/plexus/.gitignore
+SHA1-Digest: zWJJx/hV8IVYiwPoqwNFFJMxxU8=
+
+Name: jars/jdom-1.0.jar
+SHA1-Digest: WtYeDlICz0JsCYuDTKDKSUnHMIE=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: QdryQvJlVywlE0MGLuwYCkmkyWk=
+
+Name: about_files/dom4j-LICENSE.txt
+SHA1-Digest: VC4K5CTg08sDx9LiBDifKg/ESIM=
+
+Name: OSGI-INF/l10n/bundle.properties
+SHA1-Digest: 4rsIhh9iUoNI7A1u9W+htEGhByo=
+
+Name: about_files/MPL-1.1.txt
+SHA1-Digest: R7vjJduoLOplud0HRjSwvqhRUck=
+
+Name: jars/velocity-1.5.jar
+SHA1-Digest: FLKlOZiEYeRFiuaBa8s2JK9MSok=
+
+Name: about.html
+SHA1-Digest: ckl3uIkL625c6mwRd4WAPlV5Hvg=
+
+Name: jars/commons-collections-3.2.jar
+SHA1-Digest: qGoZx7R8Zj/yLC5oauxm/HNdK8o=
+
+Name: META-INF/maven/org.eclipse.m2e/org.eclipse.m2e.archetype.common/
+ pom.xml
+SHA1-Digest: EXYybdv7g3p363AcFmSAyedwfGQ=
+
+Name: jars/archetype-common-2.0-alpha-4.jar
+SHA1-Digest: 3o2WBOwmlEdFx5kKYwLfarFPCyQ=
+
+Name: jars/oro-2.0.8.jar
+SHA1-Digest: ia79E3iDNVDwMIq50GNzt4Baoq4=
+
+Name: about_files/jdom-LICENSE.txt
+SHA1-Digest: qOTFm9ZmroG1k5fAUc51ybOQ8m8=
+
+Name: META-INF/maven/org.eclipse.m2e/org.eclipse.m2e.archetype.common/
+ pom.properties
+SHA1-Digest: oE7C9JueoY28EPtsxF7bXoa6Kxk=
+
+Name: jars/commons-io-1.3.2.jar
+SHA1-Digest: l9hGrv7RweN7tlGJdn2Uv+oPo74=
+
+Name: jars/jchardet-1.0.jar
+SHA1-Digest: NJ+6NSGsQDqeM+GhsyH3cKyqrQU=
+
+Name: jars/dom4j-1.6.1.jar
+SHA1-Digest: 1nlAemYD/njetwQ9BjL30z+QNp0=
+
+Name: jars/commons-lang-2.1.jar
+SHA1-Digest: 4aji5rBV47mjj/5CJv9alU4/1oY=
+
+Name: jars/plexus-velocity-1.1.3.jar
+SHA1-Digest: xPAMXj3iVR5d0rbtrsXnChh9usA=
+

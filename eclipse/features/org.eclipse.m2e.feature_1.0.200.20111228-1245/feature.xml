@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.m2e.feature"
+      label="%featureName"
+      version="1.0.200.20111228-1245"
+      provider-name="%providerName"
+      plugin="org.eclipse.m2e.core">
+   <install-handler/>
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.eclipse.emf.edit"/>
+      <import plugin="org.eclipse.emf.ecore.edit"/>
+      <import plugin="org.eclipse.wst.common.emf"/>
+      <import plugin="org.eclipse.wst.sse.core"/>
+      <import plugin="org.eclipse.wst.xml.core"/>
+      <import plugin="org.eclipse.jem.util"/>
+      <import feature="org.eclipse.platform" version="3.6.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.rcp" version="3.6.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.jdt" version="3.6.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.m2e.archetype.common"
+         download-size="1840"
+         install-size="2068"
+         version="1.0.200.20111228-1245"/>
+
+   <plugin
+         id="org.eclipse.m2e.maven.indexer"
+         download-size="1027"
+         install-size="1137"
+         version="1.0.200.20111228-1245"/>
+
+   <plugin
+         id="org.eclipse.m2e.model.edit"
+         download-size="375"
+         install-size="1285"
+         version="1.0.200.20111228-1245"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.m2e.core"
+         download-size="423"
+         install-size="965"
+         version="1.0.200.20111228-1245"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.m2e.launching"
+         download-size="79"
+         install-size="154"
+         version="1.0.200.20111228-1245"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.m2e.jdt"
+         download-size="96"
+         install-size="219"
+         version="1.0.200.20111228-1245"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.m2e.editor"
+         download-size="268"
+         install-size="517"
+         version="1.0.200.20111228-1245"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.m2e.editor.xml"
+         download-size="187"
+         install-size="394"
+         version="1.0.200.20111228-1245"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.m2e.maven.runtime"
+         download-size="2894"
+         install-size="3275"
+         version="1.0.200.20111228-1245"/>
+
+   <plugin
+         id="org.eclipse.m2e.refactoring"
+         download-size="63"
+         install-size="132"
+         version="1.0.200.20111228-1245"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.m2e.lifecyclemapping.defaults"
+         download-size="4"
+         install-size="13"
+         version="1.0.200.20111228-1245"/>
+
+   <plugin
+         id="org.eclipse.m2e.discovery"
+         download-size="102"
+         install-size="242"
+         version="1.0.200.20111228-1245"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.m2e.core.ui"
+         download-size="608"
+         install-size="1231"
+         version="1.0.200.20111228-1245"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.m2e.scm"
+         download-size="61"
+         install-size="124"
+         version="1.0.200.20111228-1245"
+         unpack="false"/>
+
+     <plugin id="org.eclipse.m2e.usagedata"
+         download-size="7"
+         install-size="10"
+         version="1.0.200.20111228-1245"
+         unpack="false"/>
+              
+     <plugin id="com.ning.async-http-client"
+              download-size="291"
+         install-size="334"
+         version="1.6.3.201112281337"
+         unpack="false"/>
+         
+     <plugin id="org.jboss.netty"
+              download-size="691"
+         install-size="793"
+         version="3.2.4.Final-201112281337"
+         unpack="false"/>       
+</feature>

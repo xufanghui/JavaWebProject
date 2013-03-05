@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.jboss.tools.vpe.feature"
+      label="%featureName"
+      version="3.3.2.v20130112-0117-H111-Final"
+      provider-name="%providerName">
+
+   <description url="http://www.jboss.org/tools">
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.jboss.tools.vpe"
+         download-size="779"
+         install-size="884"
+         version="3.3.2.v20130112-0117-H111-Final"/>
+
+   <plugin
+         id="org.jboss.tools.vpe.docbook"
+         download-size="19"
+         install-size="94"
+         version="3.3.2.v20130112-0117-H111-Final"/>
+
+   <plugin
+         id="org.jboss.tools.vpe.html"
+         download-size="20"
+         install-size="116"
+         version="3.3.2.v20130112-0117-H111-Final"/>
+
+   <plugin
+         id="org.jboss.tools.vpe.jsp"
+         download-size="5"
+         install-size="9"
+         version="3.3.2.v20130112-0117-H111-Final"/>
+
+   <plugin
+         id="org.jboss.tools.vpe.resref"
+         download-size="54"
+         install-size="98"
+         version="3.3.2.v20130112-0117-H111-Final"
+         unpack="false"/>
+
+   <plugin
+         id="org.jboss.tools.vpe.ui.palette"
+         download-size="55"
+         install-size="99"
+         version="3.3.2.v20130112-0117-H111-Final"
+         unpack="false"/>
+
+   <plugin
+         id="org.jboss.tools.vpe.xulrunner"
+         download-size="76"
+         install-size="186"
+         version="3.3.2.v20130112-0117-H111-Final"
+         unpack="false"/>
+
+   <plugin
+         id="org.jboss.tools.vpe.spring"
+         download-size="11"
+         install-size="29"
+         version="3.3.2.v20130112-0117-H111-Final"
+         unpack="false"/>
+
+   <plugin
+         id="org.jboss.tools.xulrunner.initializer"
+         download-size="9"
+         install-size="10"
+         version="3.3.2.v20130112-0117-H111-Final"
+         fragment="true"
+         unpack="false"/>
+
+</feature>

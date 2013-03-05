@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.jboss.tools.vpe.templates">
+      <templates
+            name="Web Deployment Descriptor"
+            path="templates/vpe-templates-docbook.xml"></templates>
+      <templates
+            name="XInclude"
+            path="templates/vpe-templates-xinclude.xml">
+      </templates>
+   </extension>
+   <extension
+         point="org.eclipse.wst.xml.core.catalogContributions">
+      <catalogContribution
+            id="docbook-4.1.2">
+         <public
+               publicId="-//OASIS//DTD DocBook XML V4.1.2//EN"
+               uri="dtds/docbookx-4.1.2.dtd">
+         </public>
+      </catalogContribution>
+   </extension>
+
+</plugin>

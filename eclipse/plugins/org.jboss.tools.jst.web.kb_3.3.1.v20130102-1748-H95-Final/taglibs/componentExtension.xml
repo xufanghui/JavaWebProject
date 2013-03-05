@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE customExtension PUBLIC "-//Red Hat, Inc//DTD Knowledge Base 2.0//EN" "http://anonsvn.jboss.org/repos/jbosstools/trunk/jst/plugins/org.jboss.tools.jst.web.kb/resources/kbCustomTagLibSchema-1.0.dtd">
+<component-extension>
+	<attribute name="action">
+		<proposal type="viewActions" />
+	</attribute>
+	<attribute name="immediate">
+		<proposal type="enumeration">
+			<param value="true" />
+			<param value="false" />
+		</proposal>
+	</attribute>
+	<attribute name="rendered">
+		<proposal type="enumeration">
+			<param value="true" />
+			<param value="false" />
+		</proposal>
+	</attribute>
+	<attribute name="dir">
+		<proposal type="enumeration">
+			<param value="ltr" />
+			<param value="rtl" />
+		</proposal>
+	</attribute>
+	<attribute name="disabled">
+		<proposal type="enumeration">
+			<param value="true" />
+			<param value="false" />
+		</proposal>
+	</attribute>
+	<attribute name="enabled">
+		<proposal type="enumeration">
+			<param value="true" />
+			<param value="false" />
+		</proposal>
+	</attribute>
+	<attribute name="readonly">
+		<proposal type="enumeration">
+			<param value="true" />
+			<param value="false" />
+		</proposal>
+	</attribute>
+	<attribute name="required">
+		<proposal type="enumeration">
+			<param value="true" />
+			<param value="false" />
+		</proposal>
+	</attribute>
+	<attribute name="escape">
+		<proposal type="enumeration">
+			<param value="true" />
+			<param value="false" />
+		</proposal>
+	</attribute>
+	<attribute name="validatorId">
+		<proposal type="validatorID"/>
+	</attribute>
+	<attribute name="validator">
+		<proposal type="validatorID"/>
+	</attribute>
+	<attribute name="converterId">
+		<proposal type="converterID"/>
+	</attribute>
+	<attribute name="converter">
+		<proposal type="converterID"/>
+	</attribute>
+	<attribute name="class">
+		<proposal type="cssclass"/>
+	</attribute>
+	<attribute name="styleClass">
+		<proposal type="cssclass"/>
+	</attribute>
+	<attribute name="captionClass">
+		<proposal type="cssclass"/>
+	</attribute>
+	<attribute name="columnClasses">
+		<proposal type="cssclass"/>
+	</attribute>
+	<attribute name="rowClasses">
+		<proposal type="cssclass"/>
+	</attribute>
+	<attribute name="bodyClass">
+		<proposal type="cssclass"/>
+	</attribute>
+	<attribute name="headerClass">
+		<proposal type="cssclass"/>
+	</attribute>
+	<attribute name="footerClass">
+		<proposal type="cssclass"/>
+	</attribute>
+</component-extension>

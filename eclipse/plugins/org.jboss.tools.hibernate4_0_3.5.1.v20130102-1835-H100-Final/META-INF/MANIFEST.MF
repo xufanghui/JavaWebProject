@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: hudson
+Build-Jdk: 1.6.0_38
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.hibernate.
+ eclipse;bundle-version="3.4.0",org.eclipse.datatools.connectivity;bun
+ dle-version="1.2.2",org.hibernate.eclipse.console;bundle-version="3.4
+ .0",org.eclipse.jface.text;bundle-version="3.7.0",org.eclipse.debug.c
+ ore;bundle-version="3.7.0",org.eclipse.core.variables;bundle-version=
+ "3.2.500",org.eclipse.jdt.core;bundle-version="3.7.0",org.eclipse.ui.
+ views;bundle-version="3.6.0"
+Bundle-Vendor: JBoss by Red Hat
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: lib/jpa/hibernate-entitymanager-4.0.0.CR6.jar,lib/re
+ quired/antlr-2.7.7.jar,lib/required/classmate-0.5.4.jar,lib/required/
+ commons-collections-3.2.1.jar,lib/required/dom4j-1.6.1.jar,lib/requir
+ ed/hibernate-commons-annotations-4.0.0.Final.jar,lib/required/hiberna
+ te-core-4.0.0.CR6.jar,lib/required/hibernate-jpa-2.0-api-1.0.1.Final.
+ jar,lib/required/jandex-1.0.3.Final.jar,lib/required/javassist-3.12.1
+ .GA.jar,lib/required/jboss-logging-3.1.0.CR1.jar,lib/required/jboss-t
+ ransaction-api_1.1_spec-1.0.0.Final.jar,lib/tools/freemarker.jar,lib/
+ tools/hibernate-tools-4.0.0.jar,lib/tools/jtidy-r8-20060801.jar,lib/b
+ sh-core-2.0b4.jar,lib/required/slf4j-api-1.5.8.jar,lib/log4j-1.2.15.j
+ ar,lib/slf4j-log4j12-1.5.8.jar,.
+Bundle-Version: 3.5.1.v20130102-1835-H100-Final
+Bundle-Localization: plugin
+Bundle-Name: Hibernate4_0
+Bundle-Activator: org.jboss.tools.hibernate4_0.Hibernate4_0Plugin
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.jboss.tools.hibernate4_0;singleton:=true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+

@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-Vendor: mozilla.org
+Eclipse-BundleShape: dir
+Bundle-Version: 1.9.2.16b
+Built-By: hudson
+Build-Jdk: 1.6.0_30
+Eclipse-PlatformFilter: (& (osgi.ws=gtk)(osgi.os=linux)(osgi.arch=x86)
+ )
+Bundle-Name: Mozilla Xulrunner
+Bundle-ManifestVersion: 2
+Created-By: Apache Maven
+Bundle-SymbolicName: org.mozilla.xulrunner.gtk.linux.x86;singleton:=tr
+ ue
+Archiver-Version: Plexus Archiver
+

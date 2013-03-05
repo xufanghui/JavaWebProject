@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory">Chapter 3. Persistence Contexts</title><link rel="stylesheet" href="css/hibernate.css" type="text/css"/><meta xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" name="generator" content="DocBook XSL Stylesheets V1.72.0"/><link rel="start" href="index.html" title="Hibernate Developer Guide"/><link rel="up" href="index.html" title="Hibernate Developer Guide"/><link rel="prev" href="ch02.html" title="Chapter 2. Transactions and concurrency control"/><link rel="next" href="ch04.html" title="Chapter 4. Batch Processing"/></head><body><p id="title"><a href="http://www.hibernate.org" class="site_href"><strong>Hibernate.org</strong></a><a href="http://hibernate.org/Documentation/DocumentationOverview" class="doc_href"><strong>Community Documentation</strong></a></p><ul class="docnav"><li class="previous"><a accesskey="p" href="ch02.html"><strong>Prev</strong></a></li><li class="next"><a accesskey="n" href="ch04.html"><strong>Next</strong></a></li></ul><div class="chapter" lang="en-US"><div class="titlepage"><div><div><h2 class="title"><a id="d0e1540"/>Chapter 3. Persistence Contexts</h2></div></div></div><div class="toc"><dl><dt><span class="section"><a href="ch03.html#d0e1602">3.1. Making entities persistent</a></span></dt><dt><span class="section"><a href="ch03.html#d0e1660">3.2. Deleting entities</a></span></dt><dt><span class="section"><a href="ch03.html#d0e1686">3.3. Obtain an entity reference without initializing its data</a></span></dt><dt><span class="section"><a href="ch03.html#d0e1702">3.4. Obtain an entity with its data initialized</a></span></dt><dt><span class="section"><a href="ch03.html#d0e1716">3.5. Refresh entity state</a></span></dt><dt><span class="section"><a href="ch03.html#d0e1737">3.6. Modifying managed/persistent state</a></span></dt><dt><span class="section"><a href="ch03.html#d0e1749">3.7. Working with detached data</a></span></dt><dd><dl><dt><span class="section"><a href="ch03.html#d0e1756">3.7.1. Reattaching detached data</a></span></dt><dt><span class="section"><a href="ch03.html#d0e1799">3.7.2. Merging detached data</a></span></dt></dl></dd><dt><span class="section"><a href="ch03.html#d0e1818">3.8. Checking persistent state</a></span></dt><dt><span class="section"><a href="ch03.html#d0e1850">3.9. Accessing Hibernate APIs from JPA</a></span></dt></dl></div><p>
+        Both the <code class="interfacename">org.hibernate.Session</code> API and
+        <code class="interfacename">javax.persistence.EntityManager</code> API represent a context for dealing with
+        persistent data.  This concept is called a <code class="literal">persistence context</code>.  Persistent data has a
+        state in relation to both a persistence context and the underlying database.
+    </p><div class="itemizedlist"><p class="title"><b>Entity states</b></p><ul><li><p>
+                <code class="literal">new</code>, or <code class="literal">transient</code> - the entity has just been instantiated and is
+                not associated with a persistence context.  It has no persistent representation in the database and no
+                identifier value has been assigned.
+            </p></li><li><p>
+                <code class="literal">managed</code>, or <code class="literal">persistent</code> - the entity has an associated identifier
+                and is associated with a persistence context.
+            </p></li><li><p>
+                <code class="literal">detached</code> - the entity has an associated identifier, but is no longer associated with
+                a persistence context (usually because the persistence context was closed or the instance was evicted
+                from the context)
+            </p></li><li><p>
+                <code class="literal">removed</code> - the entity has an associated identifier and is associated with a persistence
+                context, however it is scheduled for removal from the database.
+            </p></li></ul></div><p>
+        In Hibernate native APIs, the persistence context is defined as the
+        <code class="interfacename">org.hibernate.Session</code>.  In JPA, the persistence context is defined by
+        <code class="interfacename">javax.persistence.EntityManager</code>.  Much of the
+        <code class="interfacename">org.hibernate.Session</code> and
+        <code class="interfacename">javax.persistence.EntityManager</code> methods deal with moving entities between these
+        states.
+    </p><div class="section" lang="en-US"><div class="titlepage"><div><div><h2 class="title"><a id="d0e1602"/>3.1. Making entities persistent</h2></div></div></div><p>
+            Once you've created a new entity instance (using the standard <code class="literal">new</code> operator) it is in
+            <code class="literal">new</code> state.   You can make it persistent by associating it to either a
+            <code class="interfacename">org.hibernate.Session</code> or
+            <code class="interfacename">javax.persistence.EntityManager</code>
+        </p><div class="example"><a id="d0e1619"/><p class="title"><b>Example 3.1. Example of making an entity persistent</b></p><div class="example-contents"><pre class="programlisting">
+DomesticCat fritz = new DomesticCat();
+fritz.setColor(Color.GINGER);
+fritz.setSex('M');
+fritz.setName("Fritz");
+session.save(fritz);
+            </pre><pre class="programlisting">
+DomesticCat fritz = new DomesticCat();
+fritz.setColor(Color.GINGER);
+fritz.setSex('M');
+fritz.setName("Fritz");
+entityManager.persist(fritz);
+            </pre></div></div><br class="example-break"/><p>
+            <code class="interfacename">org.hibernate.Session</code> also has a method named <code class="methodname">persist</code>
+            which follows the exact semantic defined in the JPA specification for the <code class="methodname">persist</code>
+            method.  It is this method on <code class="interfacename">org.hibernate.Session</code> to which the
+            Hibernate <code class="interfacename">javax.persistence.EntityManager</code> implementation delegates.
+        </p><p>
+            If the <code class="classname">DomesticCat</code> entity type has a generated identifier, the value is associated
+            to the instance when the <code class="methodname">save</code> or <code class="methodname">persist</code> is called.  If the
+            identifier is not automatically generated, the application-assigned (usually natural) key value has to be
+            set on the instance before <code class="methodname">save</code> or <code class="methodname">persist</code> is called.
+        </p></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h2 class="title"><a id="d0e1660"/>3.2. Deleting entities</h2></div></div></div><p>
+            Entities can also be deleted.
+        </p><div class="example"><a id="d0e1665"/><p class="title"><b>Example 3.2. Example of deleting an entity</b></p><div class="example-contents"><pre class="programlisting">
+session.delete( anAuthor );
+            </pre><pre class="programlisting">
+entityManager.remove( anAuthor );
+            </pre></div></div><br class="example-break"/><p>
+            It is important to note that Hibernate itself can handle deleting detached state.  JPA, however, disallows
+            it.  The implication here is that the entity instance passed to the
+            <code class="interfacename">org.hibernate.Session</code> <code class="methodname">delete</code> method can be either
+            in managed or detached state, while the entity instance passed to <code class="methodname">remove</code> on
+            <code class="interfacename">javax.persistence.EntityManager</code> must be in managed state.
+        </p></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h2 class="title"><a id="d0e1686"/>3.3. Obtain an entity reference without initializing its data</h2></div></div></div><p>
+            Sometimes referred to as lazy loading, the ability to obtain a reference to an entity without having to
+            load its data is hugely important.  The most common case being the need to create an association between
+            an entity and another, existing entity.
+        </p><div class="example"><a id="d0e1691"/><p class="title"><b>Example 3.3. Example of obtaining an entity reference without initializing its data</b></p><div class="example-contents"><pre class="programlisting">
+Book book = new Book();
+book.setAuthor( session.load( Author.class, authorId ) );
+            </pre><pre class="programlisting">
+Book book = new Book();
+book.setAuthor( entityManager.getReference( Author.class, authorId ) );
+            </pre></div></div><br class="example-break"/><p>
+            The above works on the assumption that the entity is defined to allow lazy loading, generally through
+            use of runtime proxies.  For more information see <a href="devguide-mappingEntities.html" title="Chapter 9. Mapping entities">Chapter 9, <i xmlns:xlink="http://www.w3.org/1999/xlink">Mapping entities</i></a>.  In both
+            cases an exception will be thrown later if the given entity does not refer to actual database state if and
+            when the application attempts to use the returned proxy.
+        </p></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h2 class="title"><a id="d0e1702"/>3.4. Obtain an entity with its data initialized</h2></div></div></div><p>
+            It is also quite common to want to obtain an entity along with with its data, for display for example.
+        </p><div class="example"><a id="d0e1707"/><p class="title"><b>Example 3.4. Example of obtaining an entity reference with its data initialized</b></p><div class="example-contents"><pre class="programlisting">
+return session.get( Author.class, authorId );
+            </pre><pre class="programlisting">
+return entityManager.find( Author.class, authorId );
+            </pre></div></div><br class="example-break"/><p>
+            In both cases null is returned if no matching database row was found.
+        </p></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h2 class="title"><a id="d0e1716"/>3.5. Refresh entity state</h2></div></div></div><p>
+            You can reload an entity instance and it's collections at any time.
+        </p><div class="example"><a id="d0e1721"/><p class="title"><b>Example 3.5. Example of refreshing entity state</b></p><div class="example-contents"><pre class="programlisting">
+Cat cat = session.get( Cat.class, catId );
+...
+session.refresh( cat );
+            </pre><pre class="programlisting">
+Cat cat = entityManager.find( Cat.class, catId );
+...
+entityManager.refresh( cat );
+            </pre></div></div><br class="example-break"/><p>
+            One case where this is useful is when it is known that the database state has changed since the data was
+            read.  Refreshing allows the current database state to be pulled into the entity instance and the
+            persistence context.
+        </p><p>
+            Another case where this might be useful is when database triggers are used to initialize some of the
+            properties of the entity.  Note that only the entity instance and its collections are refreshed unless you
+            specify <code class="literal">REFRESH</code> as a cascade style of any associations.  However, please note that
+            Hibernate has the capability to handle this automatically through its notion of generated properties.
+            See <a href="devguide-mappingEntities.html" title="Chapter 9. Mapping entities">Chapter 9, <i xmlns:xlink="http://www.w3.org/1999/xlink">Mapping entities</i></a> for information.
+        </p></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h2 class="title"><a id="d0e1737"/>3.6. Modifying managed/persistent state</h2></div></div></div><p>
+            Entities in managed/persistent state may be manipulated by the application and any changes will be
+            automatically detected and persisted when the persistence context is flushed. There is no need to call a
+            particular method to make your modifications persistent.
+        </p><div class="example"><a id="d0e1742"/><p class="title"><b>Example 3.6. Example of modifying managed state</b></p><div class="example-contents"><pre class="programlisting">
+Cat cat = session.get( Cat.class, catId );
+cat.setName( "Garfield" );
+session.flush(); // generally this is not explicitly needed
+            </pre><pre class="programlisting">
+Cat cat = entityManager.find( Cat.class, catId );
+cat.setName( "Garfield" );
+entityManager.flush(); // generally this is not explicitly needed
+            </pre></div></div><br class="example-break"/></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h2 class="title"><a id="d0e1749"/>3.7. Working with detached data</h2></div></div></div><p>
+            Detachment is the process of working with data outside the scope of any persistence context.  Data becomes
+            detached in a number of ways.  Once the persistence context is closed, all data that was associated with it
+            becomes detached.  Clearing the persistence context has the same effect.  Evicting a particular entity
+            from the persistence context makes it detached.  And finally, serialization will make the deserialized form
+            be detached (the original instance is still managed).
+        </p><p>
+            Detached data can still be manipulated, however the persistence context will no longer automatically know
+            about these modification and the application will need to intervene to make the changes persistent.
+        </p><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a id="d0e1756"/>3.7.1. Reattaching detached data</h3></div></div></div><p>
+                Reattachment is the process of taking an incoming entity instance that is in detached state
+                and re-associating it with the current persistence context.
+            </p><div xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="important"><h2>Important</h2><p>
+                    JPA does not provide for this model.  This is only available through Hibernate
+                    <code class="interfacename">org.hibernate.Session</code>.
+                </p></div><div class="example"><a id="d0e1767"/><p class="title"><b>Example 3.7. Example of reattaching a detached entity</b></p><div class="example-contents"><pre class="programlisting">
+    session.update( someDetachedCat );
+                </pre><pre class="programlisting">
+    session.saveOrUpdate( someDetachedCat );
+                </pre></div></div><br class="example-break"/><p>
+                The method name <code class="methodname">update</code> is a bit misleading here.  It does not mean that an
+                <code class="literal">SQL</code> <code class="literal">UPDATE</code> is immediately performed.  It does, however, mean that an
+                <code class="literal">SQL</code> <code class="literal">UPDATE</code> will be performed when the persistence context is flushed
+                since Hibernate does not know its previous state against which to compare for changes.
+            </p><p>
+                Provided the entity is detached, <code class="methodname">update</code> and <code class="methodname">saveOrUpdate</code>
+                operate exactly the same.
+            </p></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h3 class="title"><a id="d0e1799"/>3.7.2. Merging detached data</h3></div></div></div><p>
+                Merging is the process of taking an incoming entity instance that is in detached state and copying its
+                data over onto a new instance that is in managed state.
+            </p><div class="example"><a id="d0e1804"/><p class="title"><b>Example 3.8. Visualizing merge</b></p><div class="example-contents"><pre class="programlisting">
+Object detached = ...;
+Object managed = entityManager.find( detached.getClass(), detached.getId() );
+managed.setXyz( detached.getXyz() );
+...
+return managed;
+                </pre></div></div><br class="example-break"/><p>
+                That is not exactly what happens, but its a good visualization.
+            </p><div class="example"><a id="d0e1811"/><p class="title"><b>Example 3.9. Example of merging a detached entity</b></p><div class="example-contents"><pre class="programlisting">
+Cat theManagedInstance = session.merge( someDetachedCat );
+                </pre><pre class="programlisting">
+Cat theManagedInstance = entityManager.merge( someDetachedCat );
+                </pre></div></div><br class="example-break"/></div></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h2 class="title"><a id="d0e1818"/>3.8. Checking persistent state</h2></div></div></div><p>
+            An application can verify the state of entities and collections in relation to the persistence context.
+        </p><div class="example"><a id="d0e1823"/><p class="title"><b>Example 3.10. Examples of verifying managed state</b></p><div class="example-contents"><pre class="programlisting">assert session.contains( cat );</pre><pre class="programlisting">assert entityManager.contains( cat );</pre></div></div><br class="example-break"/><div class="example"><a id="d0e1830"/><p class="title"><b>Example 3.11. Examples of verifying laziness</b></p><div class="example-contents"><pre class="programlisting">
+if ( Hibernate.isInitialized( customer.getAddress() ) {
+    //display address if loaded
+}
+if ( Hibernate.isInitialized( customer.getOrders ) ) {
+    //display orders if loaded
+}
+if (Hibernate.isPropertyInitialized(customer, "detailedBio") ) {
+    //display property detailedBio if loaded
+}
+            </pre><pre class="programlisting">
+javax.persistence.PersistenceUnitUtil jpaUtil = entityManager.getEntityManagerFactory().getPersistenceUnitUtil();
+if ( jpaUtil.isLoaded( customer.getAddress() ) {
+    //display address if loaded
+}
+if ( jpaUtil.isLoaded( customer.getOrders ) ) {
+    //display orders if loaded
+}
+if (jpaUtil.isLoaded(customer, "detailedBio") ) {
+    //display property detailedBio if loaded
+}
+            </pre></div></div><br class="example-break"/><p>
+            In JPA there is an alternative means to check laziness using the following
+            <code class="interfacename">javax.persistence.PersistenceUtil</code> pattern.  However, the
+            <code class="interfacename">javax.persistence.PersistenceUnitUtil</code> is recommended where ever possible
+        </p><div class="example"><a id="d0e1845"/><p class="title"><b>Example 3.12. Alternative JPA means to verify laziness</b></p><div class="example-contents"><pre class="programlisting">
+javax.persistence.PersistenceUtil jpaUtil = javax.persistence.Persistence.getPersistenceUtil();
+if ( jpaUtil.isLoaded( customer.getAddress() ) {
+    //display address if loaded
+}
+if ( jpaUtil.isLoaded( customer.getOrders ) ) {
+    //display orders if loaded
+}
+if (jpaUtil.isLoaded(customer, "detailedBio") ) {
+    //display property detailedBio if loaded
+}
+            </pre></div></div><br class="example-break"/></div><div class="section" lang="en-US"><div class="titlepage"><div><div><h2 class="title"><a id="d0e1850"/>3.9. Accessing Hibernate APIs from JPA</h2></div></div></div><p>
+            JPA defines an incredibly useful method to allow applications access to the APIs of the underlying provider.
+        </p><div class="example"><a id="d0e1855"/><p class="title"><b>Example 3.13. Usage of EntityManager.unwrap</b></p><div class="example-contents"><pre class="programlisting">
+Session session = entityManager.unwrap( Session.class );
+SessionImplementor sessionImplementor = entityManager.unwrap( SessionImplementor.class );
+            </pre></div></div><br class="example-break"/></div></div><HR xmlns=""/><a xmlns="" href=""><p xmlns="http://www.w3.org/1999/xhtml" class="copyright">Copyright © 2011 Red Hat, Inc.</p></a><ul class="docnav"><li class="previous"><a accesskey="p" href="ch02.html"><strong>Prev</strong>Chapter 2. Transactions and concurrency control</a></li><li class="up"><a accesskey="u" href="#"><strong>Top of page</strong></a></li><li class="home"><a accesskey="h" href="index.html"><strong>Front page</strong></a></li><li class="next"><a accesskey="n" href="ch04.html"><strong>Next</strong>Chapter 4. Batch Processing</a></li></ul></body></html>

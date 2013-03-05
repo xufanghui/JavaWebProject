@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: hudson
+Build-Jdk: 1.6.0_38
+Require-Bundle: org.jboss.tools.common,org.eclipse.jface.text;bundle-v
+ ersion="3.7.0",org.eclipse.ui.workbench.texteditor;bundle-version="3.
+ 7.0",org.eclipse.ui.editors;bundle-version="3.7.0",org.eclipse.ui.ide
+ ;bundle-version="3.7.0",org.eclipse.swt;bundle-version="3.7.0",org.ec
+ lipse.ui;bundle-version="3.7.0",org.eclipse.ui.views;bundle-version="
+ 3.6.0",org.eclipse.draw2d;bundle-version="3.7.0",org.eclipse.gef;bund
+ le-version="3.7.0",org.eclipse.core.runtime;bundle-version="3.7.0",or
+ g.eclipse.core.resources;bundle-version="3.7.100"
+Export-Package: org.jboss.tools.common.gef,org.jboss.tools.common.gef.
+ action,org.jboss.tools.common.gef.alignment.xpl,org.jboss.tools.commo
+ n.gef.edit,org.jboss.tools.common.gef.edit.xpl,org.jboss.tools.common
+ .gef.editor.xpl,org.jboss.tools.common.gef.figures,org.jboss.tools.co
+ mmon.gef.figures.xpl,org.jboss.tools.common.gef.outline.xpl,org.jboss
+ .tools.common.gef.xpl
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Eclipse-BundleShape: dir
+Bundle-Version: 3.3.1.v20130102-1651-H83-Final
+Bundle-Localization: plugin
+Bundle-Name: %pluginName
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.jboss.tools.common.gef
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+

@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension-point id="templates" name="Path to xml file with templates definitionj" schema="schema/templates.exsd"/>
+
+   <extension point="org.jboss.tools.common.model.meta">
+      <meta path="meta/vpe.meta"/>
+   </extension>
+
+   <extension point="org.jboss.tools.common.model.keys">
+      <keys path="help/keys-vpe.properties"/>
+      <keys path="help/keys-vpe-attrs.properties"/>
+      <keys path="help/keys-vpe-menu.properties"/>
+      <keys path="help/keys-vpe-lists.properties"/>
+   </extension>
+   <extension
+         point="org.jboss.tools.common.model.resourceMapping">
+      <mapping
+          loader="org.jboss.tools.vpe"
+          priority="1"
+          kind="class"
+          paths=".vpe."
+      />
+   </extension>
+	<extension point="org.eclipse.ui.preferencePages">
+      <page category="org.jboss.tools.common.xstudio.editors" class="org.jboss.tools.vpe.editor.preferences.VpeEditorPreferencesPage" id="org.jboss.tools.vpe.editor" 
+            name="%PreferencePage_VpeEditor">
+      </page>
+      <page
+            category="org.jboss.tools.el.ui"
+            class="org.jboss.tools.vpe.editor.preferences.ELVariablesPreferencePage"
+            id="org.jboss.tools.common.xstudio.elvariables"
+            name="%PreferencePage_ElVariables">
+      </page>
+   	</extension>
+   	<extension
+       	point="org.eclipse.ui.contexts">
+    	<context
+          description="%vpe.editor.binding.context.description"
+          id="org.jboss.tools.vpe.editorContext"
+          name="%editor.binding.context.name"
+          parentId="org.eclipse.ui.textEditorScope">
+    	</context>
+    </extension>
+    <extension id="org.jboss.tools.vpe.commands" point="org.eclipse.ui.commands">
+		<category id="org.jboss.tools.vpe.category" name="%vpe.category"/>
+		<command categoryId="org.jboss.tools.vpe.category"
+			id="org.jboss.tools.vpe.source.maxmin"
+			name="%source.maxmin"/>
+		<command categoryId="org.jboss.tools.vpe.category"
+			id="org.jboss.tools.vpe.visual.maxmin"
+			name="%visual.maxmin"/>
+		<command categoryId="org.jboss.tools.vpe.category"
+			id="org.jboss.tools.vpe.jumping"
+			name="%visual.jumping"/>
+		<command categoryId="org.jboss.tools.vpe.category"
+			id="org.jboss.tools.vpe.commands.preferencesCommand"
+		    name="%vpe.toolbar.preferences"/>
+		<command categoryId="org.jboss.tools.vpe.category"
+			id="org.jboss.tools.vpe.commands.refreshCommand"
+		    name="%vpe.toolbar.refresh"/>
+		<command categoryId="org.jboss.tools.vpe.category"
+			id="org.jboss.tools.vpe.commands.pageDesignOptionsCommand"
+		    name="%vpe.toolbar.page_design_options"/>
+		<command categoryId="org.jboss.tools.vpe.category"
+			id="org.jboss.tools.vpe.commands.rotateEditorsCommand"
+		    name="%vpe.toolbar.rotate_editors"/>
+		<command categoryId="org.jboss.tools.vpe.category"
+			id="org.jboss.tools.vpe.commands.showBorderCommand"
+		    name="%vpe.toolbar.show_border">		    
+           <state
+                 class="org.eclipse.ui.handlers.RegistryToggleState:false"
+                 id="org.eclipse.ui.commands.toggleState">
+           </state>
+        </command>
+		<command categoryId="org.jboss.tools.vpe.category"
+			id="org.jboss.tools.vpe.commands.showNonVisualTagsCommand"
+		    name="%vpe.toolbar.show_non_visual_tags">		    
+           <state
+                 class="org.eclipse.ui.handlers.RegistryToggleState:false"
+                 id="org.eclipse.ui.commands.toggleState">
+           </state>
+        </command>
+		<command categoryId="org.jboss.tools.vpe.category"
+			id="org.jboss.tools.vpe.commands.showTextFormattingCommand"
+		    name="%vpe.toolbar.show_text_formatting">		    
+           <state
+                 class="org.eclipse.ui.handlers.RegistryToggleState:false"
+                 id="org.eclipse.ui.commands.toggleState">
+           </state>
+        </command>
+		<command categoryId="org.jboss.tools.vpe.category"
+			id="org.jboss.tools.vpe.commands.showBundleAsELCommand"
+		    name="%vpe.toolbar.show_bundle_as_el">
+           <state
+                 class="org.eclipse.ui.handlers.RegistryToggleState:false"
+                 id="org.eclipse.ui.commands.toggleState">
+           </state>
+        </command>
+        <command categoryId="org.jboss.tools.vpe.category"
+			id="org.jboss.tools.vpe.commands.scrollLockSourceVisual"
+		    name="%vpe.toolbar.scroll_lock">		    
+           <state
+                 class="org.eclipse.ui.handlers.RegistryToggleState:false"
+                 id="org.eclipse.ui.commands.toggleState">
+           </state>
+        </command>
+	</extension>
+ 	<extension point="org.eclipse.ui.bindings">
+		<key commandId="org.jboss.tools.vpe.source.maxmin"
+			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+			contextId="org.jboss.tools.vpe.editorContext"
+			sequence="M2+F6"/>
+		<key commandId="org.jboss.tools.vpe.visual.maxmin"
+			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+			contextId="org.jboss.tools.vpe.editorContext"
+			sequence="M2+M3+F6"/>
+		<key commandId="org.jboss.tools.vpe.jumping"
+			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+			contextId="org.jboss.tools.vpe.editorContext"
+			sequence="M1+M2+Tab"/>
+		<key commandId="org.jboss.tools.vpe.commands.refreshCommand"
+			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+			contextId="org.jboss.tools.vpe.editorContext"
+			sequence="M1+R"/>
+		<key commandId="org.jboss.tools.vpe.commands.refreshCommand"
+			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+			contextId="org.jboss.tools.vpe.editorContext"
+			sequence="F5"/>
+	</extension>
+  <extension
+        point="org.jboss.tools.jst.jsp.visulaEditorImplementations"  id="org.jboss.tools.vpe.editor.VpeEditorPartFactory">
+        	<visualEditorImplementation name="%visualEditorImpl_name" class="org.jboss.tools.vpe.editor.VpeEditorPartFactory"/>
+  </extension>
+  	<extension point="org.eclipse.core.expressions.definitions">
+			<definition id="org.jboss.tools.ui.vpe.editor">
+			<and>
+					<with variable="activeEditorId">
+                                 <or>
+	                                 <equals value="org.jboss.tools.jst.jsp.jspeditor.JSPTextEditor"/>
+	                                 <equals value="org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor"/>
+	                                 <equals value="org.jboss.tools.jst.jsp.jspeditor.DocBookEditor"/>
+                                 </or>
+                    </with>
+					<with variable="selection">
+                        <test property="org.jboss.tools.vpe.showiconsonmaintoolbar" />
+                	</with>
+			</and>
+			</definition>
+		</extension>
+   <extension
+        point="org.eclipse.ui.menus">
+        <menuContribution
+              locationURI="popup:org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor.source.EditorContext?after=paste">
+             	<separator
+                    name="org.jboss.tools.insertGroup" visible="true" >
+             	</separator>
+              <dynamic
+                    class="org.jboss.tools.vpe.editor.menu.InsertContributionItem"
+                    id="org.jboss.tools.vpe.editor.menu.InsertContributionItem">
+              </dynamic>
+        </menuContribution>        
+        <menuContribution
+              locationURI="popup:org.jboss.tools.jst.jsp.jspeditor.JSPTextEditor.source.EditorContext?after=paste">
+             	<separator
+                    name="org.jboss.tools.insertGroup" visible="true" >
+             	</separator>
+              <dynamic
+                    class="org.jboss.tools.vpe.editor.menu.InsertContributionItem"
+                    id="org.jboss.tools.vpe.editor.menu.InsertContributionItem">
+              </dynamic>
+        </menuContribution>
+        <menuContribution
+              locationURI="popup:org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor.source.EditorContext?after=org.jboss.tools.vpe.editor.menu.InsertContributionItem">
+        	<dynamic
+               class="org.jboss.tools.vpe.editor.menu.SetupTemplateContributionItem"
+               id="org.jboss.tools.vpe.editor.menu.SetupTemplateContributionItem">
+        	</dynamic>
+        </menuContribution>
+        <menuContribution
+              locationURI="popup:org.jboss.tools.jst.jsp.jspeditor.JSPTextEditor.source.EditorContext?after=org.jboss.tools.vpe.editor.menu.InsertContributionItem">
+        	<dynamic
+               class="org.jboss.tools.vpe.editor.menu.SetupTemplateContributionItem"
+               id="org.jboss.tools.vpe.editor.menu.SetupTemplateContributionItem">
+        	</dynamic>
+        </menuContribution>
+        <menuContribution
+              locationURI="toolbar:org.jboss.tools.jst.jsp.toolbars.sampleToolbar?before=org.jboss.tools.jst.jsp.toolbars.i18">
+            <command
+	            	commandId="org.jboss.tools.vpe.commands.preferencesCommand"
+	                icon="icons/preferences.gif"
+	                id="org.jboss.tools.vpe.toolbars.preferencesCommand"
+	                tooltip="%vpe.toolbar.preferences">
+				<visibleWhen checkEnabled="false">
+	            	<reference definitionId="org.jboss.tools.ui.vpe.editor"/>
+	            </visibleWhen>
+            </command>
+            <command
+	            	commandId="org.jboss.tools.vpe.commands.refreshCommand"
+	                icon="icons/refresh.gif"
+	                id="org.jboss.tools.vpe.toolbars.refreshCommand"
+	                tooltip="%vpe.toolbar.refresh">
+				<visibleWhen checkEnabled="false">
+	            	<reference definitionId="org.jboss.tools.ui.vpe.editor"/>
+	            </visibleWhen>
+            </command>
+            <command
+	            	commandId="org.jboss.tools.vpe.commands.pageDesignOptionsCommand"
+	                icon="icons/point_to_css.gif"
+	                id="org.jboss.tools.vpe.toolbars.pageDesignOptionsCommand"
+	                tooltip="%vpe.toolbar.page_design_options">
+				<visibleWhen checkEnabled="false">
+	            	<reference definitionId="org.jboss.tools.ui.vpe.editor"/>
+	            </visibleWhen>
+            </command>
+            <command
+	            	commandId="org.jboss.tools.vpe.commands.rotateEditorsCommand"
+	            	icon=""
+	                id="org.jboss.tools.vpe.toolbars.rotateEditorsCommand">
+				<visibleWhen checkEnabled="false">
+	            	<reference definitionId="org.jboss.tools.ui.vpe.editor"/>
+	            </visibleWhen>
+            </command>
+            <command
+	            	commandId="org.jboss.tools.vpe.commands.showBorderCommand"
+	                icon="icons/border.gif"
+	                style="toggle"
+	                id="org.jboss.tools.vpe.toolbars.showBorderCommand"
+	                tooltip="%vpe.toolbar.show_border">
+				<visibleWhen checkEnabled="false">
+	            	<reference definitionId="org.jboss.tools.ui.vpe.editor"/>
+	            </visibleWhen>
+            </command>
+            <command
+	            	commandId="org.jboss.tools.vpe.commands.showNonVisualTagsCommand"
+	                icon="icons/non-visual-tags.gif"
+	                style="toggle"
+	                id="org.jboss.tools.vpe.toolbars.showNonVisualTagsCommand"
+	                tooltip="%vpe.toolbar.show_non_visual_tags">
+				<visibleWhen checkEnabled="false">
+	            	<reference definitionId="org.jboss.tools.ui.vpe.editor"/>
+	            </visibleWhen>
+            </command>
+            <command
+	            	commandId="org.jboss.tools.vpe.commands.showTextFormattingCommand"
+	                icon="icons/text-formatting.gif"
+	                style="toggle"
+	                id="org.jboss.tools.vpe.toolbars.showTextFormattingCommand"
+	                tooltip="%vpe.toolbar.show_text_formatting">
+            <visibleWhen
+                     checkEnabled="false">
+                     <reference definitionId="org.jboss.tools.ui.vpe.editor"/>
+               </visibleWhen>
+            </command>
+            <command
+	            	commandId="org.jboss.tools.vpe.commands.showBundleAsELCommand"
+	                icon="icons/bundle-as-el.gif"
+	                style="toggle"
+	                id="org.jboss.tools.vpe.toolbars.showBundleAsELCommand"
+	                tooltip="%vpe.toolbar.show_bundle_as_el">
+				<visibleWhen checkEnabled="false">
+	            	<reference definitionId="org.jboss.tools.ui.vpe.editor"/>
+	            </visibleWhen>
+            </command>
+            <command
+	            	commandId="org.jboss.tools.vpe.commands.scrollLockSourceVisual"
+	                icon="icons/scroll_lock.gif"
+	                style="toggle"
+	                id="org.jboss.tools.vpe.toolbars.scrollLockSourceVisual"
+	                tooltip="%vpe.toolbar.scroll_lock">
+				<visibleWhen checkEnabled="false">
+	            	<reference definitionId="org.jboss.tools.ui.vpe.editor"/>
+	            </visibleWhen>
+            </command>
+        </menuContribution>
+  </extension>
+  <extension
+        point="org.eclipse.ui.exportWizards">
+     <wizard
+           id="org.jboss.tools.vpe.editor.wizards.ExportUserTagsTemplatesMenuWizard"
+           class="org.jboss.tools.vpe.editor.wizards.ExportUserTagsTemplatesMenuWizard"
+           name="%exportUserTagsTemplatesWizardName"
+           icon="$nl$/resources/org/jboss/tools/vpe/wizards/icons/export_wizard.gif">
+        <description>
+              %exportUserTagsTemplatesWizardDescription
+        </description>
+     </wizard>
+  </extension>  
+  <extension
+        point="org.eclipse.ui.importWizards">
+     <wizard
+           id="org.jboss.tools.vpe.editor.wizards.ImportUserTagsTemplatesMenuWizard"
+           class="org.jboss.tools.vpe.editor.wizards.ImportUserTagsTemplatesMenuWizard"
+           name="%importUserTagsTemplatesWizardName"
+           icon="resources/org/jboss/tools/vpe/wizards/icons/import_wizard.gif">
+        <description>
+              %importUserTagsTemplatesWizardDescription
+        </description>
+     </wizard>
+  </extension>
+    <extension
+          point="org.eclipse.ui.handlers">
+       <handler
+             class="org.jboss.tools.vpe.handlers.PreferencesHandler"
+             commandId="org.jboss.tools.vpe.commands.preferencesCommand"/>
+       <handler
+             class="org.jboss.tools.vpe.handlers.RefreshHandler"
+             commandId="org.jboss.tools.vpe.commands.refreshCommand"/>
+       <handler
+             class="org.jboss.tools.vpe.handlers.PageDesignOptionsHandler"
+             commandId="org.jboss.tools.vpe.commands.pageDesignOptionsCommand"/>
+       <handler
+             class="org.jboss.tools.vpe.handlers.RotateEditorsHandler"
+             commandId="org.jboss.tools.vpe.commands.rotateEditorsCommand"/>
+       <handler
+             class="org.jboss.tools.vpe.handlers.ShowBorderHandler"
+             commandId="org.jboss.tools.vpe.commands.showBorderCommand"/>
+       <handler
+             class="org.jboss.tools.vpe.handlers.ShowNonVisualTagsHandler"
+             commandId="org.jboss.tools.vpe.commands.showNonVisualTagsCommand"/>
+       <handler
+             class="org.jboss.tools.vpe.handlers.ShowTextFormattingHandler"
+             commandId="org.jboss.tools.vpe.commands.showTextFormattingCommand"/>
+       <handler
+             class="org.jboss.tools.vpe.handlers.ShowBundleAsELHandler"
+             commandId="org.jboss.tools.vpe.commands.showBundleAsELCommand"/>
+       <handler
+             class="org.jboss.tools.vpe.handlers.ScrollLockSourceVisualHandler"
+             commandId="org.jboss.tools.vpe.commands.scrollLockSourceVisual"/>
+    </extension>
+    <extension
+          point="org.eclipse.core.expressions.propertyTesters">
+       <propertyTester
+             class="org.jboss.tools.vpe.editor.toolbar.VPEPropertyTester"
+             id="org.jboss.tools.vpe.toolbar"
+             namespace="org.jboss.tools.vpe"
+             properties="showiconsonmaintoolbar"
+             type="java.lang.Object">
+       </propertyTester>
+    </extension>
+    	
+	<extension point="org.eclipse.wst.common.snippets.SnippetProvider">
+		<provider
+				class="org.eclipse.wst.common.snippets.ui.TextSnippetProvider"
+				priority="100">
+			<enablement>
+				<instanceof value="org.jboss.tools.vpe.editor.VpeEditorPart"/>
+			</enablement>		
+		</provider>
+	</extension>
+    
+</plugin>

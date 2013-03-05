@@ -1,0 +1,43 @@
+Signature-Version: 1.0
+SHA1-Digest-Manifest: cJDJ9nOHF/uzcfaj2Zs6BDubQ9Q=
+Created-By: 1.6.0 (IBM Corporation)
+SHA1-Digest-Manifest-Main-Attributes: APPqfZxpbDjaSGDU5t22jvlFV+0=
+
+Name: about_files/LICENSE-2.0.txt
+SHA1-Digest: DMnZPrY7w/ZEOj0YI/l8KoozuvM=
+
+Name: local-patches.jar
+SHA1-Digest: 734EQeLRfbvP8pig0yTvpy9MnfE=
+
+Name: META-INF/plexus/.gitignore
+SHA1-Digest: zWJJx/hV8IVYiwPoqwNFFJMxxU8=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: QdryQvJlVywlE0MGLuwYCkmkyWk=
+
+Name: jars/lucene-highlighter-2.4.1.jar
+SHA1-Digest: 80Sxrnd0ixKqzGIfzf7X0rKsgX4=
+
+Name: OSGI-INF/l10n/bundle.properties
+SHA1-Digest: SUxnzBFlP/EOorM8UN3ypjQ/Bxk=
+
+Name: META-INF/maven/org.eclipse.m2e/org.eclipse.m2e.maven.indexer/pom
+ .xml
+SHA1-Digest: LHOFmiSmBNJIcWU5gsdmmYozuck=
+
+Name: about.html
+SHA1-Digest: aE3ZBn70jsE5yHlBsUWSlXyeVmE=
+
+Name: jars/indexer-core-3.1.0.jar
+SHA1-Digest: ffk3kjAHROYXfzmVVZIVRsB0lVc=
+
+Name: jars/lucene-core-2.4.1.jar
+SHA1-Digest: +4boHAt1ZGZ8tKymJcT4Q5ORDuc=
+
+Name: jars/indexer-artifact-3.1.0.jar
+SHA1-Digest: UZTV5/JYpZvNxE/Ktrt9+U/9k2A=
+
+Name: META-INF/maven/org.eclipse.m2e/org.eclipse.m2e.maven.indexer/pom
+ .properties
+SHA1-Digest: 7D7emzp2qlW/a/b9NRoFrhEJhUo=
+

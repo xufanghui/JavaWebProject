@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="org.jboss.tools.seam.feature" label="%featureName" version="3.3.0.v20130112-0336-H148-Final" provider-name="%providerName" plugin="org.jboss.tools.seam.core">
+
+	<description url="http://www.jboss.org/tools">
+      %description
+   </description>
+
+	<copyright>
+      %copyright
+   </copyright>
+
+	<license url="%licenseURL">
+      %license
+   </license>
+
+	<requires>
+		<import feature="org.jboss.ide.eclipse.as.feature" version="1.0.0" match="greaterOrEqual" />
+		<import feature="org.hibernate.eclipse.feature" version="3.2.0" match="greaterOrEqual" />
+		<import feature="org.jboss.tools.common.feature" version="3.3.0" match="greaterOrEqual" />
+		<import feature="org.jboss.tools.jst.feature" version="3.3.0" match="greaterOrEqual" />
+		<import feature="org.jboss.tools.jsf.feature" version="3.3.0" match="greaterOrEqual" />
+		<import feature="org.eclipse.datatools.connectivity.feature" version="1.6.1" match="greaterOrEqual" />
+		<import feature="org.eclipse.datatools.enablement.jdbc.feature" version="1.6.1" match="greaterOrEqual" />
+
+   		<!-- JBIDE-11844 - include AS feature when installing Seam -->
+		<import feature="org.jboss.ide.eclipse.as.feature" version="2.3.0.qualifier" match="greaterOrEqual"/>
+	</requires>
+
+	<plugin id="org.jboss.tools.seam.core" download-size="470" install-size="1055" version="3.3.0.v20130112-0336-H148-Final" unpack="false" />
+	<plugin id="org.jboss.tools.seam.ui" download-size="493" install-size="1042" version="3.3.0.v20130112-0336-H148-Final" unpack="false" />
+	<plugin id="org.jboss.tools.seam.xml" download-size="246" install-size="1683" version="3.3.0.v20130112-0336-H148-Final" unpack="false" />
+	<plugin id="org.jboss.tools.seam.xml.ui" download-size="33" install-size="59" version="3.3.0.v20130112-0336-H148-Final" unpack="false" />
+	<plugin id="org.jboss.tools.seam.text.ext" download-size="26" install-size="63" version="3.3.0.v20130112-0336-H148-Final" unpack="false" />
+	<plugin id="org.jboss.tools.seam.pages.xml" download-size="121" install-size="530" version="3.3.0.v20130112-0336-H148-Final" unpack="false" />
+	<plugin id="org.jboss.tools.seam.ui.pages" download-size="212" install-size="428" version="3.3.0.v20130112-0336-H148-Final" unpack="false" />
+</feature>

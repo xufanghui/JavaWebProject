@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Export-Package: org.mozilla.interfaces,org.mozilla.xpcom
+Bundle-ClassPath: MozillaGlue.jar,MozillaInterfaces.jar
+Built-By: hudson
+Eclipse-BundleShape: dir
+Bundle-Name: Mozilla XPCOM Eclipse plugin
+Created-By: Apache Maven
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.jboss.tools.usage;bundle-version="1.0.0";resolutio
+ n:=optional;x-installation:=greedy,org.eclipse.core.runtime;bundle-ve
+ rsion="3.7.0"
+Bundle-Vendor: mozilla.org
+Build-Jdk: 1.6.0_30
+Bundle-Version: 1.9.2.16
+Eclipse-BuddyPolicy: registered
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.mozilla.xpcom;singleton:=true
+Archiver-Version: Plexus Archiver
+

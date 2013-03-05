@@ -1,0 +1,55 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: hudson
+Build-Jdk: 1.6.0_38
+Export-Package: org.hibernate.eclipse.builder,org.hibernate.eclipse.co
+ nsole,org.hibernate.eclipse.console.actions,org.hibernate.eclipse.con
+ sole.ext,org.hibernate.eclipse.console.model,org.hibernate.eclipse.co
+ nsole.model.impl,org.hibernate.eclipse.console.preferences,org.hibern
+ ate.eclipse.console.properties,org.hibernate.eclipse.console.utils,or
+ g.hibernate.eclipse.console.utils.xpl,org.hibernate.eclipse.console.v
+ iewers.xpl,org.hibernate.eclipse.console.views,org.hibernate.eclipse.
+ console.views.navigator,org.hibernate.eclipse.console.views.propertie
+ s,org.hibernate.eclipse.console.wizards,org.hibernate.eclipse.console
+ .workbench,org.hibernate.eclipse.console.workbench.xpl,org.hibernate.
+ eclipse.criteriaeditor,org.hibernate.eclipse.facet,org.hibernate.ecli
+ pse.graph,org.hibernate.eclipse.graph.actions,org.hibernate.eclipse.g
+ raph.anchor,org.hibernate.eclipse.graph.command,org.hibernate.eclipse
+ .graph.figures,org.hibernate.eclipse.graph.layout,org.hibernate.eclip
+ se.graph.layout.xpl,org.hibernate.eclipse.graph.model,org.hibernate.e
+ clipse.graph.parts,org.hibernate.eclipse.graph.policy,org.hibernate.e
+ clipse.hqleditor,org.hibernate.eclipse.hqleditor.preferences,org.hibe
+ rnate.eclipse.launch,org.hibernate.eclipse.launch.core.refactoring,or
+ g.hibernate.eclipse.nature,org.hibernate.eclipse.util.xpl
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: org.hibernate.eclipse.console.jar
+Bundle-Name: %Bundle-Name.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.hibernate.eclipse.libs;bundle-version="3.4.0",org.
+ hibernate.eclipse,org.eclipse.jdt.ui,org.eclipse.jdt.core,org.eclipse
+ .core.runtime,org.eclipse.jface,org.eclipse.ui,org.eclipse.ui.editors
+ ,org.eclipse.ui.views,org.eclipse.ui.workbench,org.eclipse.ui.workben
+ ch.texteditor,org.eclipse.jface.text,org.eclipse.ui.ide,org.eclipse.h
+ elp,org.eclipse.ui.console,org.eclipse.gef,org.eclipse.debug.core;bun
+ dle-version="3.4.0",org.eclipse.debug.ui,org.eclipse.ui.forms,org.ecl
+ ipse.wst.common.project.facet.core,org.eclipse.wst.common.project.fac
+ et.ui,org.eclipse.ui.navigator,org.eclipse.jdt.launching,org.eclipse.
+ jdt.debug.ui,org.eclipse.core.filesystem,org.eclipse.datatools.connec
+ tivity.ui,org.eclipse.datatools.connectivity,org.eclipse.ltk.core.ref
+ actoring,org.eclipse.jdt.launching,org.eclipse.jdt.debug.ui,org.eclip
+ se.core.filesystem,org.eclipse.core.variables,org.eclipse.datatools.c
+ onnectivity.ui,org.eclipse.datatools.connectivity,org.eclipse.jpt.com
+ mon.core,org.eclipse.jpt.jpa.core,org.eclipse.jpt.jpa.db,org.eclipse.
+ jdt,org.apache.ant;bundle-version="1.7.1",org.eclipse.ant.core;bundle
+ -version="3.2.200",org.eclipse.ant.launching;bundle-version="1.0.0",o
+ rg.eclipse.ant.ui;bundle-version="3.5.0",org.eclipse.core.externaltoo
+ ls;bundle-version="1.0.0",org.eclipse.jst.j2ee.web;bundle-version="1.
+ 1.500"
+Bundle-Vendor: %Bundle-Vendor.0
+Bundle-Version: 3.5.1.v20130102-1835-H100-Final
+Bundle-ManifestVersion: 2
+Bundle-Activator: org.hibernate.eclipse.console.HibernateConsolePlugin
+Bundle-SymbolicName: org.hibernate.eclipse.console; singleton:=true
+

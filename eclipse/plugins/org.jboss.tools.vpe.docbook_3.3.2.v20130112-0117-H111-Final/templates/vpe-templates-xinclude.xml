@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vpe:templates  xmlns:vpe="http://org.jboss.org/tools/vpe/template"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<vpe:template-taglib uri="http://www.w3.org/2001/XInclude" prefix="xi" />
+
+	<vpe:tag name="xi:include" case-sensitive="yes" docbook="yes">
+			    <vpe:template children="yes" file="{@href}" class="org.jboss.tools.vpe.editor.template.VpeIncludeTemplate"/>
+	</vpe:tag>
+</vpe:templates>

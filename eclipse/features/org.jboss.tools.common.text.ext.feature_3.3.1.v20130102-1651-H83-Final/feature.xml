@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.jboss.tools.common.text.ext.feature"
+      label="%featureName"
+      version="3.3.1.v20130102-1651-H83-Final"
+      provider-name="%providerName">
+
+   <description url="http://www.jboss.org/tools">
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license>
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.jboss.tools.common.core.feature" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.wst.common_core.feature" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.wst.common_ui.feature" version="0.0.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="org.jboss.tools.common.text.ext"
+         download-size="130"
+         install-size="287"
+         version="3.3.1.v20130102-1651-H83-Final"
+         unpack="false"/>
+
+   <plugin
+         id="org.jboss.tools.common.text.xml"
+         download-size="117"
+         install-size="241"
+         version="3.3.1.v20130102-1651-H83-Final"
+         unpack="false"/>
+
+</feature>

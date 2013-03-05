@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.jboss.tools.common.verification.feature"
+      label="%featureName"
+      version="3.3.1.v20130102-1651-H83-Final"
+      provider-name="%providerName">
+
+   <description url="http://www.jboss.org/tools">
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license>
+      %license
+   </license>
+
+   <plugin
+         id="org.jboss.tools.common.verification"
+         download-size="87"
+         install-size="197"
+         version="3.3.1.v20130102-1651-H83-Final"
+         unpack="false"/>
+
+   <plugin
+         id="org.jboss.tools.common.verification.ui"
+         download-size="73"
+         install-size="138"
+         version="3.3.1.v20130102-1651-H83-Final"
+         unpack="false"/>
+
+</feature>

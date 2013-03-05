@@ -1,0 +1,35 @@
+apply plugin: 'java'
+apply plugin: org.hibernate.gradle.testing.matrix.MatrixTestingPlugin
+
+dependencies {
+    compile( project( ':hibernate-core' ) )
+    compile( project( ':hibernate-entitymanager' ) )
+    compile( libraries.commons_annotations )
+    provided( [group: 'org.hibernate', name: 'hibernate-tools', version: '3.2.0.ga'] )
+    compile( libraries.dom4j ) {
+        trasitive = false
+    }
+    provided( libraries.ant )
+    testCompile( libraries.junit )
+    testCompile( project(':hibernate-testing') )
+    testCompile( libraries.jpa )
+    testRuntime( libraries.h2 )
+    testRuntime( libraries.javassist )
+}
+
+sourceSets {
+    matrix {
+        java {
+            srcDir 'src/matrix/java'
+        }
+        resources {
+            srcDir 'src/matrix/resources'
+            srcDir 'src/matrix/java'
+        }
+    }
+}
+compileMatrixJava.options.define(compilerArgs: ["-proc:none", "-encoding", "UTF-8"])
+ideaModule {
+    testSourceDirs += file( 'src/matrix/java')
+    testSourceDirs += file( 'src/matrix/resources')
+}

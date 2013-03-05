@@ -1,0 +1,2286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vpe:templates  xmlns:vpe="http://org.jboss.org/tools/vpe/template"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!--vpe:template-taglib uri="-//OASIS//DTD DocBook XML V4.3CR3//EN"/-->
+
+	<vpe:tag name="authorgroup" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="author" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<p id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="editor" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<p id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="personname" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="firstname" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<label>
+				<vpe:value expr="{tagtext()} " />
+			</label>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="surname" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="othername" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="lineage" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="honorific" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="email" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>	
+	<vpe:tag name="indexterm" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>	
+	<vpe:tag name="chapter" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="chapterinfo" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<!-- vpe:any display="none" icon="no" value="{name()}" /-->
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="keywordset" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="keyword" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+
+	<vpe:tag name="section" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="sectioninfo" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+
+	<vpe:tag name="sect[0-9]*" matching-mode="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="sect[0-9]*info" matching-mode="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="book" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="bookinfo" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="title" case-sensitive="yes" docbook="yes">
+		<vpe:if test="parentname() = 'step'">
+			<vpe:template children="no" modify="yes">
+				<li>
+					<h1>
+						<vpe:value expr="{tagtext()}" />
+					</h1>
+				</li>
+			</vpe:template>
+		</vpe:if>
+		<vpe:template children="yes" modify="yes">
+			<h1/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="subtitle" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<h2>
+				<vpe:value expr="{tagtext()}" />
+			</h2>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="copyright" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="Copyright (c) " />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="year" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="holder" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<label>
+				<vpe:value expr="{tagtext()}" />
+			</label>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="releaseinfo" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="toc" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="tocfront" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="tocpart" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<table width="100%"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="tocentry" case-sensitive="yes" docbook="yes">
+		<vpe:if test="attrpresent('pagenum')">
+			<vpe:template children="no" modify="yes">
+			<tr>
+				<td>
+					<vpe:value expr="{tagtext()}" />
+				</td>
+				<td>
+					<vpe:value expr="{@pagenum}" />
+				</td>
+			</tr>
+			</vpe:template>
+		</vpe:if>
+		<vpe:template children="no" modify="yes">
+			<tr>
+				<td colspan="2">
+					<vpe:value expr="{tagtext()}" />
+				</td>
+			</tr>
+		</vpe:template>		
+	</vpe:tag>
+	<vpe:tag name="tocchap" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="toclevel[0-9]*" matching-mode="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="tocback" case-sensitive="yes" docbook="yes">
+		<vpe:if test="attrpresent('pagenum')">
+			<vpe:template children="no" modify="yes">
+			<tr>
+				<td>
+					<vpe:value expr="{tagtext()}" />
+				</td>
+				<td>
+					<vpe:value expr="{@pagenum}" />
+				</td>
+			</tr>
+			</vpe:template>
+		</vpe:if>
+		<vpe:template children="no" modify="yes">
+			<tr>
+				<td colspan="2">
+					<vpe:value expr="{tagtext()}" />
+				</td>
+			</tr>
+		</vpe:template>		
+	</vpe:tag>
+	<vpe:tag name="productname" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="productnumber" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="edition" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<label>
+				<vpe:value expr=" (v.{tagtext()})" />
+			</label>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="pubsnumber" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="pubsnumber: {tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="abstract" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="para" case-sensitive="yes" docbook="yes">
+		<vpe:if test="parentname() = 'answer' | parentname() = 'question'">			
+			<vpe:template children="yes" modify="yes">
+				<span id="{@id}" />
+			</vpe:template>
+		</vpe:if>
+		<vpe:template children="yes" modify="yes">
+			<p id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="simpara" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<p id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="formalpara" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<p id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="corpauthor" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="inlinemediaobject" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="itemizedlist" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<ul />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="variablelist" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<ul />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="listitem" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<li />
+		</vpe:template>
+	</vpe:tag>
+
+	<vpe:tag name="ulink" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<a href="{@url}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="link" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<a />
+		</vpe:template>
+	</vpe:tag>
+
+	<vpe:tag name="programlisting" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes"
+					class="org.jboss.tools.vpe.docbook.template.DocbookProgramlistingTemplate"/>
+	</vpe:tag>
+	<vpe:tag name="programlistingco" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<pre />
+		</vpe:template>
+	</vpe:tag>
+
+	<vpe:tag name="emphasis" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<em />
+		</vpe:template>
+	</vpe:tag>
+
+	<vpe:tag name="tgroup" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<table border="1px" />
+		</vpe:template>
+	</vpe:tag>
+
+	<vpe:tag name="row" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<tr />
+		</vpe:template>
+	</vpe:tag>
+
+	<vpe:tag name="entry" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<td />
+		</vpe:template>
+	</vpe:tag>
+
+	<vpe:tag name="property" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<i />
+		</vpe:template>
+	</vpe:tag>
+
+	<vpe:tag name="imagedata" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<img src="{src(@fileref)}" />
+		</vpe:template>
+	</vpe:tag>
+
+	<vpe:tag name="mediaobject" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="imageobject" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="imageobjectco" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="figure" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="orderedlist" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<ol />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="note" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes"
+					class="org.jboss.tools.vpe.docbook.template.DocbookNoteTemplate"/>
+	</vpe:tag>
+	<vpe:tag name="tip" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes"
+					class="org.jboss.tools.vpe.docbook.template.DocbookTipTemplate"/>
+	</vpe:tag>
+	<vpe:tag name="preface" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="appendix" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="revhistory" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="revision" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<p id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="revdescription" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="varlistentry" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="simplelist" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="member" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="revnumber" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="Revision {tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="date" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="textobject" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="literal" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="phrase" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="guilabel" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="guibutton" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="keycombo" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="keycap" case-sensitive="yes" docbook="yes">
+		<vpe:if test="parentname() = 'keycombo' and not(isLastChild())">			
+			<vpe:template children="no" modify="yes">
+				<span id="{@id}">
+					<b><vpe:value expr="{tagtext()} + " /></b>
+				</span>
+			</vpe:template>
+		</vpe:if>
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<b><vpe:value expr="{tagtext()}" /></b>
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="mousebutton" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="citetitle" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<i><vpe:value expr="{tagtext()}" /></i>
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="term" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="filename" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>	
+	<vpe:tag name="menuchoice" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="guimenu" case-sensitive="yes" docbook="yes">
+		<vpe:if test="parentname() = 'menuchoice' and not(isLastChild())">
+			<vpe:template children="no" modify="yes">
+				<span id="{@id}">
+					<vpe:value expr="{tagtext()}->" />
+				</span>
+			</vpe:template>
+		</vpe:if>
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="guisubmenu" case-sensitive="yes" docbook="yes">
+		<vpe:if test="parentname() = 'menuchoice' and not(isLastChild())">
+			<vpe:template children="no" modify="yes">
+				<span id="{@id}">
+					<vpe:value expr="{tagtext()}->" />
+				</span>
+			</vpe:template>
+		</vpe:if>
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="guimenuitem" case-sensitive="yes" docbook="yes">
+		<vpe:if test="parentname() = 'menuchoice' and not(isLastChild())">
+			<vpe:template children="no" modify="yes">
+				<span id="{@id}">
+					<vpe:value expr="{tagtext()}->" />
+				</span>
+			</vpe:template>
+		</vpe:if>
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="colspec" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes"/>
+	</vpe:tag>
+	<vpe:tag name="application" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<b><vpe:value expr="{tagtext()}" /></b>
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="screen" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<pre />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="varname" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="article" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<p id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="articleinfo" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="important" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes"
+					class="org.jboss.tools.vpe.docbook.template.DocbookImportantTemplate"/>
+	</vpe:tag>
+	<vpe:tag name="warning" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes"
+					class="org.jboss.tools.vpe.docbook.template.DocbookWarningTemplate" />
+	</vpe:tag>
+	<vpe:tag name="exceptionname" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="xref" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes"
+					class="org.jboss.tools.vpe.docbook.template.DocbookXrefTemplate" />
+	</vpe:tag>
+	<vpe:tag name="legalnotice" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>	
+	<vpe:tag name="pob" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="issuenum" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="pubdate" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="bridgehead" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="procedure" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<ol/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="step" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="substeps" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<ul/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="abbrev" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="accel" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}" style="text-decoration: underline;">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="ackno" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="acronym" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="action" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="address" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<p id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="street" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="city" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()} " />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="state" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="postcode" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()} " />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="country" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="phone" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="fax" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="affiliation" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="alt" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="anchor" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="answer" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}">
+				<b><vpe:value expr="A: " /></b>
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="question" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}">
+				<b><vpe:value expr="Q: " /></b>
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="appendixinfo" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<p id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="area" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="areaset" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="areaspec" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="arg" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="artpagenums" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="attribution" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="audioobject" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="audiodata" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="authorblurb" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="authorinitials" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="beginpage" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="bibliocoverage" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="bibliodiv" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="biblioentry" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="bibliography" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="bibliographyinfo" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="biblioid" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="bibliolist" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="bibliomisc" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="bibliomixed" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="bibliomset" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="biblioref" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="bibliorelation" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="biblioset" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="bibliosource" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="blockinfo" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="blockquote" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="callout" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="calloutlist" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="caption" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="caution" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes"
+					class="org.jboss.tools.vpe.docbook.template.DocbookCautionTemplate"/>
+	</vpe:tag>
+	<vpe:tag name="citation" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="[{tagtext()}]" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="citebiblioid" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="citerefentry" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="classname" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="classsynopsis" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="classsynopsisinfo" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="cmdsynopsis" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="[{tagtext()}]" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="co" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="code" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="col" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="colgroup" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="collab" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="collabname" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="colophon" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="command" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<b><vpe:value expr="{tagtext()}" /></b>
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="computeroutput" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="confdates" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="confgroup" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="confnum" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="confsponsor" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="conftitle" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="constant" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="constraint" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="constraintdef" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="constructorsynopsis" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="contractnum" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="contractsponsor" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="contrib" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="coref" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="corpcredit" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="corpname" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="database" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="dedication" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="destructorsynopsis" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="entrytbl" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<table />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="envar" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="epigraph" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="equation" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="errorcode" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="errorname" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="errortext" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="errortype" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="example" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="fieldsynopsis" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="firstterm" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="footnote" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="footnoteref" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="foreignphrase" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<i><vpe:value expr="{tagtext()}" /></i>
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="funcdef" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="funcparams" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="funcprototype" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="funcsynopsis" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="funcsynopsisinfo" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="function" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="glossary" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="glossaryinfo" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="glossdef" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="glossdiv" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="glossentry" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="glosslist" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="glosssee" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="glossseealso" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="glossterm" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="graphic" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<img src="{src(@fileref)}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="graphicco" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="group" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="guiicon" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="hardware" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="highlights" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="html:form" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="index" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="indexdiv" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="indexentry" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="indexinfo" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="indexterm" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="informalequation" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="informalexample" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="informalfigure" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="informaltable" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<table/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="initializer" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="inlineequation" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="inlinegraphic" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<img src="{src(@fileref)}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="interface" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="interfacename" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="invpartnumber" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="isbn" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="issn" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="itermset" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="jobtitle" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="keycode" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="keysym" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="label" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="lhs" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="lineannotation" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<i><vpe:value expr="{tagtext()}" /></i>
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="literallayout" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="lot" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="lotentry" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="manvolnum" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="({tagtext()})" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="markup" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="mathphrase" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="medialabel" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="mediaobjectco" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="methodname" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()} " />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="methodparam" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()} " />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="methodsynopsis" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="modespec" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="modifier" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="msg" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="msgaud" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()} " />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="msgentry" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="msgexplan" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="msginfo" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="msglevel" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="msgmain" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="msgorig" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="msgrel" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="msgset" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="msgsub" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="msgtext" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="nonterminal" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="objectinfo" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="olink" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()} " />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="ooclass" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="ooexception" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="oointerface" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="option" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="optional" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="orgdiv" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="orgname" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="otheraddr" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="othercredit" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="package" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="pagenums" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="paramdef" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="parameter" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="part" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="partinfo" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="partintro" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="personblurb" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="prefaceinfo" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="primary" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="primaryie" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="printhistory" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="prompt" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="publisher" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="publishername" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="qandadiv" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="qandaentry" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="qandaset" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="quote" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<i/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="refclass" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="refdescriptor" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="refentry" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="refentryinfo" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="refentrytitle" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="reference" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="refmeta" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="refmeta" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="refmiscinfo" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="refname" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="refnamediv" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="refpurpose" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="refsect[0-9]*" matching-mode="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="refsect[0-9]*info" matching-mode="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="refsection" matching-mode="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="refsectioninfo" matching-mode="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="refsynopsisdiv" matching-mode="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="refsynopsisdivinfo" matching-mode="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="remark" matching-mode="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="replaceable" matching-mode="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="returnvalue" matching-mode="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="revremark" matching-mode="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="sbr" matching-mode="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="screenco" matching-mode="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="screeninfo" matching-mode="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="screenshot" matching-mode="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}" />
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="secondary" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="secondaryie" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="see" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="seealso" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="seealsoie" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="seeie" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="seg" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="seglistitem" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="segtitle" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="seriesvolnums" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="set" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="setindex" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="setindexinfo" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="setinfo" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="sgmltag" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="shortaffil" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="shortcut" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="sidebar" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="sidebarinfo" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="simplemsgentry" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="simplesect" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="spanspec" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="stepalternatives" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="structfield" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="structname" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="subject" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="subjectset" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="subjectterm" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="subscript" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="superscript" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="symbol" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="synopfragment" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="synopfragmentref" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="synopsis" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<pre/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="systemitem" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="table" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<table/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="task" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="taskprerequisites" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="taskrelated" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="tasksummary" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="tbody" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="td" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<td/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="term" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="termdef" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="tertiary" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="tertiaryie" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="textdata" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="textobject" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="tfoot" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="th" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="thead" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="titleabbrev" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="token" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="tr" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<tr/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="trademark" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="type" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="uri" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="userinput" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="varargs" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="videodata" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<div id="{@id}">
+				<vpe:value expr="{tagtext()}" />
+			</div>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="videoobject" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<div id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="void" case-sensitive="yes" docbook="yes">
+		<vpe:template children="no" modify="yes">
+			<span id="{@id}">()</span>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="volumenum" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	<vpe:tag name="wordasword" case-sensitive="yes" docbook="yes">
+		<vpe:template children="yes" modify="yes">
+			<span id="{@id}"/>
+		</vpe:template>
+	</vpe:tag>
+	
+	<vpe:tag name="#text" case-sensitive="no">
+		 <vpe:template children="no" modify="yes"
+		 		 class="org.jboss.tools.vpe.docbook.template.DocbookTextTemplate">
+		 </vpe:template>
+	</vpe:tag>
+</vpe:templates>

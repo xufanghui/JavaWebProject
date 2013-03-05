@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.jboss.ide.eclipse.freemarker.feature"
+      label="%featureName"
+      version="1.2.0.v20130102-1731-H97-Final"
+      provider-name="%providerName"
+      plugin="org.jboss.ide.eclipse.freemarker">
+
+   <description url="http://www.jboss.org/tools">
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.jboss.ide.eclipse.freemarker"
+         download-size="1002"
+         install-size="1110"
+         version="1.2.0.v20130102-1731-H97-Final"/>
+
+</feature>

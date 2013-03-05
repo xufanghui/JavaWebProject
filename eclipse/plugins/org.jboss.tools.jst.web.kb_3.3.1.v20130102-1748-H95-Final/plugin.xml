@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension-point id="tagLib" name="Kb Custom Tag Lib" schema="schema/tagLib.exsd"/>
+   <extension-point id="KbIncludeContext" name="Kb Include Context Buillder" schema="schema/include.exsd" />
+   <extension-point id="elValidationDelegate" name="EL Validation Delegate" schema="schema/elValidationDelegate.exsd"/>
+   <extension-point id="KbRequire" name="KB Builder Requirement" schema="schema/KbRequire.exsd"/>
+   <extension-point id="elProjectSet" name="EL Project Set" schema="schema/elProjectSet.exsd"/>
+ 
+   <extension
+         id="kbbuilder"
+         name="JBoss Knowledge Base Builder"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            hasNature="false">
+         <run
+               class="org.jboss.tools.jst.web.kb.internal.KbBuilder">
+         </run>
+      </builder>
+   </extension>
+   <extension
+         id="kbnature"
+         name="KB Project Nature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="org.jboss.tools.jst.web.kb.internal.KbProject">
+         </run>
+      </runtime>
+      <builder
+            id="org.jboss.tools.jst.web.kb.kbbuilder">
+      </builder>
+   </extension>
+   <extension
+         point="org.jboss.tools.jst.web.kb.tagLib">
+      <tag-lib
+            location="platform:/plugin/org.jboss.tools.jst.web.kb/taglibs/Ajax4jsf.xml"
+            name="JBoss Ajax4jsf"
+            uri="http://richfaces.org/a4j"/>
+      <tag-lib
+            location="platform:/plugin/org.jboss.tools.jst.web.kb/taglibs/Richfaces.xml"
+            name="JBoss RichFaces"
+            uri="http://richfaces.org/rich"/>
+      <tag-lib
+            location="platform:/plugin/org.jboss.tools.jst.web.kb/taglibs/JsfCore.xml"
+            name="JSF Core"
+            uri="http://java.sun.com/jsf/core"/>
+      <tag-lib
+            location="platform:/plugin/org.jboss.tools.jst.web.kb/taglibs/JsfHtmlBasic.xml"
+            name="JSF HTML Basic"
+            uri="http://java.sun.com/jsf/html"/>
+      <tag-lib
+            location="platform:/plugin/org.jboss.tools.jst.web.kb/taglibs/Facelets.xml"
+            name="Facelets UI"
+            uri="http://java.sun.com/jsf/facelets"/>
+      <tag-lib
+            location="platform:/plugin/org.jboss.tools.jst.web.kb/taglibs/FaceletsHtml.xml"
+            name="Facelets Html"
+            uri="http://www.w3.org/1999/xhtml/facelets"/>
+      <tag-lib
+            location="platform:/plugin/org.jboss.tools.jst.web.kb/taglibs/JBossSeam.xml"
+            name="JBoss Seam"
+            uri="http://jboss.com/products/seam/taglib"/>
+      <tag-lib
+            location="platform:/plugin/org.jboss.tools.jst.web.kb/taglibs/Jsp.xml"
+            name="JSP"
+            uri="http://java.sun.com/JSP/Page"/>
+      <tag-lib
+            name="Struts HTML"
+            location="platform:/plugin/org.jboss.tools.jst.web.kb/taglibs/StrutsHtml.xml"
+            uri="http://struts.apache.org/tags-html"/>
+      <tag-lib
+            location="platform:/plugin/org.jboss.tools.jst.web.kb/taglibs/SeamPdf.xml"
+            name="Seam PDF"
+            uri="http://jboss.com/products/seam/pdf"/>
+      <tag-lib
+            location="platform:/plugin/org.jboss.tools.jst.web.kb/taglibs/SeamMail.xml"
+            name="Seam Mail"
+            uri="http://jboss.com/products/seam/mail"/>
+            
+      <component-extension
+            location="platform:/plugin/org.jboss.tools.jst.web.kb/taglibs/componentExtension.xml"/>
+   </extension>
+   
+   <extension point="org.jboss.tools.jst.web.kb.KbIncludeContext">
+	<include uri="jsp">
+		<tag name="directive.include">
+        	<attribute name="file" />
+		</tag>
+		<tag name="include">
+        	<attribute name="page" />
+		</tag>
+	</include>
+
+	<contexttype id="JSP_PAGE_CONTEXT_TYPE">
+		<contenttype id="org.eclipse.jst.jsp.core.jspsource" />
+		<contenttype id="org.jboss.tools.jst.jsp.jspincludesource" />
+        <contenttype id="org.eclipse.jst.jsp.core.jspfragmentsource"/>
+        <contenttype id="org.eclipse.jst.jsp.core.tagsource"/>
+	</contexttype>
+
+	<contexttype id="FACELETS_PAGE_CONTEXT_TYPE">
+		<contenttype id="org.eclipse.wst.html.core.htmlsource" />
+		<contenttype id="org.jboss.tools.jst.jsp.phpsource" />
+		<contenttype id="org.eclipse.php.core.phpsource" />
+		<contenttype id="jsf.facelet" />
+		<contenttype id="jsf.facelet.composite" />
+	</contexttype>
+
+	<contexttype id="XML_PAGE_CONTEXT_TYPE">
+		<contenttype id="org.eclipse.wst.xml.core.xmlsource" />
+		<contenttype id="org.eclipse.jst.jsf.facesconfig.facesConfigFile" />
+		<contenttype id="org.eclipse.core.runtime.xml" />
+    	<contenttype id="org.eclipse.jst.j2ee.webDD" />
+    	<contenttype id="org.eclipse.jst.jee.ee5webDD" />
+		<contenttype id="org.jboss.tools.common.model.ui.xml" />
+		<contenttype id="org.eclipse.jst.jsp.core.tldsource" />
+		<contenttype id="org.jboss.tools.seam.xml.ui.pages12xmlsource" />
+		<contenttype id="org.jboss.tools.seam.xml.ui.page12xmlsource" />
+		<contenttype id="org.jboss.tools.seam.xml.ui.pages20xmlsource" />
+		<contenttype id="org.jboss.tools.seam.xml.ui.page20xmlsource" />
+		<contenttype id="org.jboss.tools.seam.xml.ui.pages21xmlsource" />
+		<contenttype id="org.jboss.tools.seam.xml.ui.page21xmlsource" />
+	</contexttype>
+		
+	<cssholder uri="">
+       <tag name="style" />
+       <tag name="link">
+       	<attribute name="href" />
+       </tag>
+	</cssholder>
+   </extension>
+
+   <extension id="kbBuilderProblemMarker" name="%KBBuilderProblemName" point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.problemmarker">
+      </super>
+      <persistent value="true">
+      </persistent>
+   </extension>
+
+   <extension id="builderOrderProblem" name="%BuilderOrderProblemName" point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.problemmarker">
+      </super>
+      <persistent value="true">
+      </persistent>
+      <attribute name="builder">
+      </attribute>
+      <attribute name="validator">
+      </attribute>
+   </extension>
+
+   <extension point="org.eclipse.ui.ide.markerResolution">
+		<markerResolutionGenerator
+			markerType="org.jboss.tools.jst.web.kb.kbBuilderProblemMarker"
+			class="org.jboss.tools.jst.web.kb.action.KBProblemMarkerResolutionGenerator">
+		</markerResolutionGenerator>
+   </extension>
+
+  	<extension point="org.eclipse.ui.ide.markerResolution">
+		<markerResolutionGenerator
+			markerType="org.jboss.tools.jst.web.kb.builderOrderProblem"
+			class="org.jboss.tools.jst.web.kb.internal.validation.BuilderOrderResolutionGenerator"/>
+	</extension>
+
+   <extension point="org.eclipse.core.runtime.preferences">
+      <initializer class="org.jboss.tools.jst.web.kb.preferences.ELPreferenceInitializer"/>
+   </extension>
+
+   <extension id="elproblem" name="%KBProblemName" point="org.eclipse.core.resources.markers">
+      <super type="org.jboss.tools.common.validation.JBTValidationProblem">
+      </super>
+      <persistent value="true">
+      </persistent>
+      <attribute
+            name="kind">
+      </attribute>
+   </extension>
+
+   <extension
+         id="ELValidator"
+         point="org.jboss.tools.common.validation.validator">
+         <validator
+               class="org.jboss.tools.jst.web.kb.internal.validation.ELValidator"
+               id="org.jboss.tools.jst.web.kb.ELValidator"
+               name="%ELValidator"
+               dependent="true">
+         </validator>
+   </extension>
+
+   <extension
+   		 id="ELWarnings"
+         point="org.jboss.tools.common.validation.warnings">
+         <map
+               class="org.jboss.tools.jst.web.kb.internal.validation.ELSuppressWarningsMap"
+               warningGroupID="el"
+               preferenceGroupID="org.jboss.tools.jst.web.kb.validator.problem">
+         </map>
+   </extension>
+
+   <extension point="org.eclipse.wst.xml.core.catalogContributions">
+      <catalogContribution id="default">
+         <uri 
+            name="http://java.sun.com/jsf/html" 
+            uri="platform:/plugin/org.jboss.tools.jst.web.kb/taglibs/tld/html_basic.taglib.xml"/>
+         <uri 
+            name="http://java.sun.com/jsf/core" 
+            uri="platform:/plugin/org.jboss.tools.jst.web.kb/taglibs/tld/facelets_jsf_core.taglib.xml"/>
+         <uri 
+            name="http://richfaces.org/rich" 
+            uri="platform:/plugin/org.jboss.tools.jst.web.kb/taglibs/tld/rich.taglib.xml"/>
+         <uri 
+            name="http://richfaces.org/a4j" 
+            uri="platform:/plugin/org.jboss.tools.jst.web.kb/taglibs/tld/a4j.taglib.xml"/>
+         <uri 
+            name="http://jboss.com/products/seam/taglib" 
+            uri="platform:/plugin/org.jboss.tools.jst.web.kb/taglibs/tld/s.tld"/>
+      </catalogContribution>
+   </extension>
+
+   <extension point="org.eclipse.jdt.ui.javaCompletionProposalComputer"
+   		id="kb_el_proposals"
+			name="KB EL Proposals">
+	   	<proposalCategory icon="$nl$/icons/ca/el.png"/>
+ 	</extension>
+
+	<extension point="org.eclipse.jdt.ui.javaCompletionProposalComputer"
+   		id="CDIJavaELCompletionProposalComputer" 
+   		name="CDI EL Java Completion Proposal Computer">
+	   	<javaCompletionProposalComputer
+	      		class="org.jboss.tools.jst.web.kb.el.KbELProposalComputer"
+	      		categoryId="org.jboss.tools.jst.web.kb.kb_el_proposals"
+	      		activate="true">
+				<partition type="__java_string"/>
+	   	</javaCompletionProposalComputer>
+	</extension>
+
+   <extension
+         point="org.eclipse.ui.propertyPages">
+       <page
+            name="%PreferencePage_KBSettings"
+            class="org.jboss.tools.jst.web.kb.preferences.KBSettingsPreferencePage"
+            id="org.jboss.tools.jst.web.kb.propertyPages.KBSettingsPreferencePage">
+         <enabledWhen>
+		     	<adapt type="org.eclipse.core.resources.IProject">
+		     		<test property="org.eclipse.core.resources.projectNature" value="org.eclipse.jdt.core.javanature"/>
+				</adapt>
+         </enabledWhen>
+      </page>
+       <page
+            name="%PreferencePage_KBValidator"
+            class="org.jboss.tools.jst.web.kb.preferences.KBValidationPreferencePage"
+            id="org.jboss.tools.jst.web.kb.propertyPages.KBValidationPreferencePage"
+            category="org.jboss.tools.jst.web.kb.propertyPages.KBSettingsPreferencePage">
+         <enabledWhen>
+		     	<adapt type="org.eclipse.core.resources.IProject">
+		     		<test property="org.eclipse.core.resources.projectNature" value="org.eclipse.jdt.core.javanature"/>
+				</adapt>
+         </enabledWhen>
+      </page>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages">
+      <page 
+         category="org.jboss.tools.common.model.ui.kb" 
+         class="org.jboss.tools.jst.web.kb.preferences.KBValidationPreferencePage" 
+         id="org.jboss.tools.jst.web.kb.preferences.KBValidationPreferencePage" 
+         name="%PreferencePage_KBValidator">
+      </page>
+      <page
+            category="org.jboss.tools.common.model.ui"
+            class="org.jboss.tools.jst.web.kb.preferences.KBPreferencePage"
+            id="org.jboss.tools.common.model.ui.kb"
+            name="%PreferencePage_KB">
+      </page>
+   </extension>
+
+	<extension
+		point="org.eclipse.ui.popupMenus">
+
+		<objectContribution
+			id="org.jboss.tools.web.kb.project.configure.enable"
+			objectClass="org.eclipse.core.resources.IProject"
+			adaptable="true">
+			<visibility>
+				<and>
+					<objectState 
+						name="projectNature"
+						value="org.eclipse.jdt.core.javanature"/>
+					<not>
+						<objectState 
+							name="projectNature"
+							value="org.jboss.tools.jst.web.kb.kbnature"/>
+					</not>
+				</and>
+			</visibility>
+
+			<action
+				id="org.jboss.tools.web.kb.AddKBSupport"
+				label="%ConfigureMenu_AddKBSupport"
+				class="org.jboss.tools.jst.web.kb.preferences.AddKBSupportAction"
+				enablesFor="1"
+				menubarPath="org.eclipse.ui.projectConfigure/additions"/>
+
+		</objectContribution>
+
+		<objectContribution
+			id="org.jboss.tools.web.kb.project.configure.disable"
+			objectClass="org.eclipse.core.resources.IProject"
+			adaptable="true">
+			<visibility>
+				<objectState 
+					name="projectNature"
+					value="org.jboss.tools.jst.web.kb.kbnature"/>
+			</visibility>
+
+			<action
+				id="org.jboss.tools.web.kb.RemoveKBSupport"
+				label="%ConfigureMenu_RemoveKBSupport"
+				class="org.jboss.tools.jst.web.kb.preferences.RemoveKBSupportAction"
+				enablesFor="1"
+				menubarPath="org.eclipse.ui.projectConfigure/additions"/>
+
+		</objectContribution>
+
+	</extension>
+	
+	<extension
+        point="org.eclipse.jdt.ui.queryParticipants">
+     <queryParticipant
+           class="org.jboss.tools.jst.web.kb.refactoring.ELReferencesQueryParticipant"
+           id="org.jboss.tools.jst.web.kb.refactoring.ELReferencesQueryParticipant"
+           name="SearchELReferencesParticipant"
+           nature="org.eclipse.jdt.core.javanature">
+     </queryParticipant>
+  </extension>
+ 
+</plugin>

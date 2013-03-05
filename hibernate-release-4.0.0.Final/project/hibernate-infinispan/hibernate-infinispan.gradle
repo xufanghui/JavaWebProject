@@ -1,0 +1,41 @@
+apply plugin: 'java'
+
+configurations {
+    all*.exclude group: 'org.jboss.logging', module: 'jboss-logging-spi'
+}
+
+dependencies {
+   infinispanVersion = '5.1.0.CR1'
+   jnpVersion = '5.0.3.GA'
+
+   compile(project(':hibernate-core'))
+   compile([group: 'org.rhq.helpers', name: 'rhq-pluginAnnotations', version: '3.0.4'])
+   compile([group: 'org.infinispan', name: 'infinispan-core', version: infinispanVersion])
+   testCompile([group: 'org.infinispan', name: 'infinispan-core', version: infinispanVersion]) {
+      artifact {
+         name = "infinispan-core"
+         type = 'jar'
+      }
+      artifact {
+         name = "infinispan-core"
+         classifier = 'tests'
+         type = 'jar'
+      }
+   }
+   testCompile( project(':hibernate-testing') )
+   testCompile([group: 'org.jboss', name: 'jboss-common-core', version: '2.2.14.GA'])
+   testCompile([group: 'org.jboss.naming', name: 'jnp-client', version: jnpVersion])
+   testCompile([group: 'org.jboss.naming', name: 'jnpserver', version: jnpVersion])
+   testCompile([group: 'org.rhq.helpers', name: 'rhq-pluginAnnotations', version: '1.4.0.B01'])
+}
+
+test {
+   systemProperties['java.net.preferIPv4Stack'] = true
+   systemProperties['jgroups.ping.timeout'] = 500
+   systemProperties['jgroups.ping.num_initial_members'] = 1
+   systemProperties['jgroups.udp.enable_bundling'] = false
+   systemProperties['jgroups.bind_addr'] = 'localhost'
+   //   systemProperties['log4j.configuration'] = 'file:/log4j/log4j-infinispan.xml'
+   enabled = true
+}
+

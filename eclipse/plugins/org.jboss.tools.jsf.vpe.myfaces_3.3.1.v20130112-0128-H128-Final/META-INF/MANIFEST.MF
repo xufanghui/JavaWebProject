@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: hudson
+Build-Jdk: 1.6.0_38
+Export-Package: org.jboss.tools.jsf.vpe.myfaces,org.jboss.tools.jsf.vp
+ e.myfaces.template
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: jsf-vpe-myfaces.jar
+Eclipse-BundleShape: dir
+Bundle-Name: %Bundle-Name.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.eclipse.ui;bundle-version="3.7.0",org.eclipse.core
+ .runtime;bundle-version="3.7.0",org.jboss.tools.common,org.jboss.tool
+ s.vpe,org.mozilla.xpcom,org.jboss.tools.jst.jsp,org.eclipse.jface.tex
+ t;bundle-version="3.7.0"
+Bundle-Vendor: %Bundle-Vendor.0
+Bundle-Version: 3.3.1.v20130112-0128-H128-Final
+Bundle-ManifestVersion: 2
+Bundle-Activator: org.jboss.tools.jsf.vpe.myfaces.MyFacesTemplatesPlugin
+Bundle-SymbolicName: org.jboss.tools.jsf.vpe.myfaces;singleton:=true
+

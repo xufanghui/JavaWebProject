@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="org.jboss.tools.cdi.feature" label="%featureName" version="1.2.0.v20130102-1842-H87-Final" provider-name="%featureProvider">
+
+	<description>%description</description>
+	<copyright>%copyright</copyright>
+	<license url="%licenseURL">%license</license>
+
+	<requires>
+		<import feature="org.jboss.tools.common.feature" version="3.3.0" match="greaterOrEqual" />
+		<import feature="org.jboss.tools.jst.feature" version="3.3.0" match="greaterOrEqual" />
+	</requires>
+
+	<plugin id="org.jboss.tools.cdi.core" download-size="357" install-size="773" version="1.2.0.v20130102-1842-H87-Final" unpack="false" />
+	<plugin id="org.jboss.tools.cdi.ui" download-size="285" install-size="605" version="1.2.0.v20130102-1842-H87-Final" unpack="false" />
+	<plugin id="org.jboss.tools.cdi.xml" download-size="34" install-size="93" version="1.2.0.v20130102-1842-H87-Final" unpack="false" />
+	<plugin id="org.jboss.tools.cdi.xml.ui" download-size="16" install-size="18" version="1.2.0.v20130102-1842-H87-Final" unpack="false" />
+	<plugin id="org.jboss.tools.cdi.text.ext" download-size="108" install-size="216" version="1.2.0.v20130102-1842-H87-Final" unpack="false" />
+</feature>

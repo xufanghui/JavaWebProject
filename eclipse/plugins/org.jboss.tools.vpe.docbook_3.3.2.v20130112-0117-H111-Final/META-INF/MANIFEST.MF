@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: hudson
+Build-Jdk: 1.6.0_38
+Require-Bundle: org.eclipse.ui;bundle-version="3.7.0",org.eclipse.core
+ .runtime;bundle-version="3.7.0",org.jboss.tools.jst.jsp,org.mozilla.x
+ pcom,org.eclipse.jface.text;bundle-version="3.7.0",org.jboss.tools.vpe
+Bundle-Vendor: %Bundle-Vendor.0
+Bundle-ActivationPolicy: lazy
+Eclipse-BundleShape: dir
+Bundle-Version: 3.3.2.v20130112-0117-H111-Final
+Bundle-Localization: plugin
+Bundle-Name: %Bundle-Name.0
+Bundle-Activator: org.jboss.tools.vpe.docbook.DocbookTemplatePlugin
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.jboss.tools.vpe.docbook;singleton:=true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+
