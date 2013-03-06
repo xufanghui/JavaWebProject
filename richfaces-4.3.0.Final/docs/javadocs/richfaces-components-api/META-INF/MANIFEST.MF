@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: bleathem
+Build-Jdk: 1.6.0_37
+Specification-Title: Richfaces UI Components API
+Specification-Version: 4.3.0.Final
+Specification-Vendor: JBoss by Red Hat
+Implementation-Title: Richfaces UI Components API
+Implementation-Version: 4.3.0.Final
+Implementation-Vendor-Id: org.richfaces.ui
+Implementation-Vendor: JBoss by Red Hat
+Implementation-URL: http://richfaces.org/richfaces-root-parent/richfac
+ es-ui-parent/richfaces-components-api
+Java-Vendor: Sun Microsystems Inc.
+Java-Version: 1.6.0_37
+Os-Arch: amd64
+Os-Name: Linux
+Os-Version: 3.2.0-36-generic
+Scm-Url: https://github.com/richfaces/components
+

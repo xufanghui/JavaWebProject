@@ -1,0 +1,10 @@
+org.richfaces
+org.richfaces.application
+org.richfaces.component
+org.richfaces.el
+org.richfaces.event
+org.richfaces.exception
+org.richfaces.javascript
+org.richfaces.model
+org.richfaces.renderkit.util
+org.richfaces.validator
