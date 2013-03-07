@@ -1,0 +1,525 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Appendix&nbsp;B.&nbsp;Upgrade Notes and Known Issues</title><link rel="stylesheet" href="css/html.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.73.2"><link rel="start" href="index.html" title="Spring Roo - Reference Documentation"><link rel="up" href="appendices.html" title="Part&nbsp;V.&nbsp;Appendices"><link rel="prev" href="command-index.html" title="Appendix&nbsp;A.&nbsp;Command Index"><link rel="next" href="background.html" title="Appendix&nbsp;C.&nbsp;Project Background"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div xmlns:fo="http://www.w3.org/1999/XSL/Format" style="background-color:white;border:none;height:73px;border:1px solid black;"><a style="border:none;" href="http://www.springsource.org/roo/" title="The Spring Framework - Spring Roo"><img style="border:none;" src="images/xdev-spring_logo.jpg"></a><a style="border:none;" href="http://www.springsource.com/" title="SpringSource - Spring from the Source"><img style="border:none;position:absolute;padding-top:0px;right:2em;" src="images/banner.png"></a></div><div class="appendix" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="upgrade"></a>Appendix&nbsp;B.&nbsp;Upgrade Notes and Known Issues</h2></div></div></div>
+  
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="upgrade-known-issues"></a>B.1.&nbsp;Known Issues</h2></div></div></div>
+    
+
+    <p>Because Spring Roo integrates a large number of other technologies,
+    invariably some people using Roo may experience issues when using certain
+    combinations of technologies together. This section aims to list such
+    known issues in an effort to help you avoid experiencing any problems. If
+    you are able to contribute further information, a solution or workaround
+    to any of these known issues, we'd certainly appreciate hearing from you
+    via the <a class="link" href="resources.html#resources-forums" title="D.3.&nbsp;Community Forums">community forums</a>.</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p><span class="emphasis"><em>JDK compatibility</em></span>: Spring Roo has been
+        tested with Sun, IBM, JRockit and Apache Harmony JVMs for Java 5 and
+        Java 6. We do not formally support other JVMs or other versions of
+        JVMs. We have also had an <a class="ulink" href="https://jira.springsource.org/browse/ROO-347" target="_top">issue</a>
+        reported with versions of Java 6 before 1.6.0_17 due to Java bug <a class="ulink" href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6506304" target="_top">6506304</a>
+        and therefore recommend you always use the latest released version of
+        Java 6 for your platform. There is also a known issue with OpenJDK.
+        You can read about our testing of different JDKs in issue <a class="ulink" href="https://jira.springsource.org/browse/ROO-106" target="_top">ROO-106</a>.</p>
+      </li><li>
+        <p><span class="emphasis"><em>Human language support</em></span>: Pluralisation
+        within Roo delegates to the <a class="ulink" href="https://inflector.dev.java.net/" target="_top">Inflector</a> library.
+        Due to some issues with Inflector, only English pluralisation is
+        supported. If you wish to override the plural selected by Inflector
+        (and in turn used by Roo), you can specify a particular plural for
+        either a Java type or Java field by using the <code class="code">@RooPlural</code>
+        annotation. Longer term it would be nice if someone ported the
+        Inflector code into the Roo pluralisation add-on so that we can fix
+        these issues and support other languages. We are receptive to
+        contributions from the community along these lines.</p>
+      </li><li>
+        <p><span class="emphasis"><em>Shell wrapping</em></span>: In certain cases typing a
+        long command into the shell that wraps over a single line may prevent
+        you from being able to backspace to the prior line. This is caused by
+        the JLine library (not Roo). We expect to rewrite the shell at some
+        future time and will likely stop using JLine at that point.</p>
+      </li><li>
+        <p><span class="emphasis"><em>Hibernate issues</em></span>: Hibernate is one of the
+        JPA providers we test with, however, Hibernate has issues with
+        <code class="code">--mappedSuperclass</code> as detailed in <a class="ulink" href="https://jira.springsource.org/browse/ROO-292" target="_top">ROO-292</a>
+        and <a class="ulink" href="https://jira.springsource.org/browse/ROO-747" target="_top">ROO-747</a>.
+        We recommend you do not use <code class="code">--mappedSuperclass</code> in
+        combination with Hibernate. We have found OpenJPA works reliably in
+        all cases, so you might want to consider switching to OpenJPA if you
+        are seriously impacted by this issue (the "<a class="link" href="command-index.html#command-index-jpa-setup" title="A.18.6.&nbsp;jpa setup">jpa setup</a>" command can be
+        used multiple times, which is useful for experimentally switching
+        between different JPA providers).</p>
+      </li><li>
+        <p><span class="emphasis"><em>Integration testing limitations</em></span>: The data
+        on demand mechanism (which is used for integration tests) has limited
+        JSR 303 (Bean Validator) compatibility. Roo supports fields using
+        @NotNull, @Past and @Future, @Size, @Min, and @Max. No other validator
+        annotations are formally supported, although many will work. To use
+        other validator annotations, you may need to edit your
+        DataOnDemand.java file and add a manual
+        <code class="code">getNewTransientEntity(int)</code> method. Refer to a generated
+        <code class="code">*_Roo_DataOnDemand.aj</code> file for an example. Alternately,
+        do not use the integration test functionality in Roo unless you have
+        relatively simple validation constraints or you are willing to provide
+        this data on demand method.</p>
+      </li><li>
+        <p><span class="emphasis"><em>Tomcat 5.5</em></span>: Tomcat 5.5 can not be supported
+        by the scaffolded Spring MVC Web UI. Tomcat 5.5 does not support the
+        JSP 2.1 API. Roo makes extensive use of the JSP 2.1 API in the
+        scaffolded Web UI (specifically expression language features).
+        Furthermore, the JSP 2.0 API does not support JDK 5 enums (a feature
+        that Roo would need). See <a class="ulink" href="https://jira.springsource.org/browse/ROO-680" target="_top">ROO-680</a>
+        for more details. The following <a class="ulink" href="http://forum.springsource.org/showpost.php?s=10e2df3cc266c9a85f8d473716d9b0c3&amp;p=287652&amp;postcount=15" target="_top">
+        forum post</a> offers a workaround for the JSP 2.1 incompatibility
+        issue. Please be aware that this has not been tested by the Roo team
+        and Tomcat 5.5 does officially support the JSP 2.0 API.</p>
+      </li><li>
+        <p>Applications with a scaffolded Spring MVC UI are currently not
+        deployable to Google App Engine due to incompatibilities in the JSP
+        support and JSTL. See <a class="ulink" href="https://jira.springframework.org/browse/ROO-1006" target="_top">ROO-1006</a>
+        for details.</p>
+      </li><li>
+        <p>Applications with a scaffolded GWT UI require a manual
+        adjustment in
+        <code class="code">src/main/webapp/WEB-INF/spring/webmvc-config.xml</code> (this
+        will not be required when using Spring Framework 3.0.5+):</p>
+
+        <pre class="programlisting">&lt;mvc:default-servlet-handler <span class="bold"><strong>default-servlet-name="_ah_default"</strong></span> /&gt;</pre>
+      </li></ul></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e6640"></a>B.2.&nbsp;Version Numbering Approach</h2></div></div></div>
+    
+
+    <p>Spring Roo observes version number standards based on the <a class="ulink" href="http://apr.apache.org/versioning.html" target="_top">Apache Portable Runtime
+    (APR) versioning guidelines</a> as well as the <a class="ulink" href="http://www.osgi.org" target="_top">OSGi</a> specifications. In summary
+    this means all Roo releases adopt the format of MAJOR.MINOR.PATCH.TYPE.
+    Each segment is separated by a period without any spaces. The
+    MAJOR.MINOR.PATCH are always integer numbers, and TYPE is an alphanumeric
+    value. For example, Roo 1.0.3.M1 means major version 1, minor version 0,
+    patch number 3 and release type M1.</p>
+
+    <p>You can always rely on the natural sort order of the version numbers
+    to arrive at the latest available version. For example, 1.0.4.RELEASE is
+    more recent than 1.0.4.RC2. This is because "RELEASE" sorts alphabetically
+    lower than "RC2". The TYPE segment can generally be broken into two
+    further undelimited portions, being the release type and a numeric
+    increment. For example, RC1 means release candidate 1 and RC4 means
+    release candidate 4. One exception to this is RELEASE means the final
+    general availability of that release. Other common release types include
+    "A" for alpha and "M" for milestone.</p>
+
+    <p>We make no guarantees regarding the compatibility of any release
+    that has a TYPE other than "RELEASE". However, for "RELEASE" releases we
+    aim to ensure you can use a given "RELEASE" with any other "RELEASE" which
+    has the same MAJOR.MINOR version number. As such you should be able to
+    switch from 1.0.4.RELEASE to 1.0.9.RELEASE without any changes. However,
+    you might have trouble with 1.0.4.RELEASE to 1.0.9.RC1 as RC1 is a
+    work-in-progress and we may not have identified all regression issues.
+    Obviously this version portability is only our objective, and sometimes we
+    need to make exceptions or may inadvertently overlook an issue. We
+    appreciate you logging a <a class="link" href="resources.html#resources-issue-tracking" title="D.5.&nbsp;Issue Tracking">bug
+    report</a> if you identify a version regression that violates the
+    conventions expressed in this section, so that at least we can confirm it
+    and either attempt to remedy it on the next release of that MAJOR.MINOR
+    version range or bring it to people's attention in the other sections of
+    this appendix.</p>
+
+    <p>When upgrading you should review the <a class="link" href="resources.html#resources-issue-tracking" title="D.5.&nbsp;Issue Tracking">issue tracker</a> for what has
+    changed since the last version. Because most releases include a large
+    number of issues in the release notes, we attempt to highlight any major
+    issues that may require your attention in the sections below. These notes
+    are not all-encompassing but simply pointers to the main upgrade-related
+    issues that most people should be aware of. They are also written assuming
+    you are maintaining currency with the latest public releases of Spring Roo
+    and therefore the changes you may need to make to your project are
+    cumulative.</p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="upgrade-any"></a>B.3.&nbsp;Upgrading To Any New Release</h2></div></div></div>
+    
+
+    <p>Before upgrading any project to the next release of Spring Roo, you
+    should always:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>Run the <a class="link" href="command-index.html#command-index-backup" title="A.2.1.&nbsp;backup">backup</a>
+        command using your currently-installed (i.e. existing) version of
+        Spring Roo. This will help create a ZIP of your project, which may
+        help if you need to revert. Don't install the new version of Roo until
+        you've firstly completed this backup. Naturally you can skip this step
+        if you have an alternate backup technique and have confidence in
+        it.</p>
+      </li><li>
+        <p>Edit your project's <code class="code">pom.xml</code> and verify the Spring
+        Roo annotations JAR matches the new Roo release you are installing.
+        Spring Roo 1.1.0.M3 and above will do this automatically on your
+        behalf when you load it on an existing project.</p>
+      </li><li>
+        <p>Edit your project's <code class="code">pom.xml</code> and verify that major
+        libraries match the new versions that are now used by Roo. The
+        simplest approach to doing this is to create a new directory and use
+        "<code class="code">roo script clinic.roo</code>" and then <code class="code">diff</code> your
+        existing <code class="code">pom.xml</code> against the newly-created Petclinic
+        <code class="code">pom.xml</code>.</p>
+      </li><li>
+        <p>After modifying the <code class="code">pom.xml</code> as described above, you
+        will need to update your Eclipse <code class="code">.classpath</code> file. The
+        simplest way to achieve this is to use <code class="code">mvn eclipse:clean
+        eclipse:eclipse</code> from the command prompt, or use the <a class="link" href="command-index.html#command-index-perform-eclipse" title="A.24.10.&nbsp;perform eclipse">perform eclipse</a> command
+        at the <code class="code">roo&gt;</code> shell prompt. You can skip this step if
+        you use m2eclipse, as would be the case for any SpringSource Tool
+        Suite user.</p>
+      </li></ul></div>
+
+    <p>Please refer to the specific upgrade section of this appendix for
+    further instructions concerning upgrading to a particular version of
+    Roo.</p>
+
+    <p>If you experience any difficulty with upgrading your projects,
+    please use the <a class="link" href="resources.html#resources-forums" title="D.3.&nbsp;Community Forums">community support
+    forum</a> for assistance.</p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e6677"></a>B.4.&nbsp;Upgrading to 1.2.0.RC1</h2></div></div></div>
+    
+
+    <p>The main changes you need to be aware of when upgrading from Spring
+    Roo 1.2.0.M1 to Spring Roo 1.2.0.RC1 are as follows:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>To align with the new persistence and repository choices
+        introduced with Roo 1.2.0.M1 the entity command has been adjusted to
+        take the target persistence type into account. Please change your
+        log.roo scripts to use the new <a class="link" href="command-index.html#command-index-entity-jpa" title="A.18.5.&nbsp;entity jpa">entity jpa</a> command. More
+        details about the new entity JPA command as well as related annotation
+        changes please refer to <a class="ulink" href="https://jira.springsource.org/browse/ROO-2833" target="_top">ROO-2833</a>:</p>
+
+        <div class="table"><a name="d4e6685"></a><p class="title"><b>Table&nbsp;B.1.&nbsp;Old Annotations &amp; Commands</b></p><div class="table-contents">
+          
+
+          <table summary="Old Annotations &amp; Commands" border="1"><colgroup><col><col><col><col><col></colgroup><thead><tr><th align="center">&nbsp;</th><th align="center">Active Record</th><th align="center">Repository</th><th align="center">Entity</th><th align="center">Command</th></tr></thead><tbody><tr><td>JPA</td><td>@RooEntity</td><td>&nbsp;</td><td>&nbsp;</td><td>entity</td></tr><tr><td>Spring Data JPA</td><td>&nbsp;</td><td>@RooRepositoryJpa</td><td>@RooJpaEntity</td><td>entity --activeRecord false + repository jpa</td></tr><tr><td>Spring Data MongoDB</td><td>&nbsp;</td><td>@RooRepositoryMongo</td><td>@RooMongoEntity</td><td>entity mongo + repository mongo</td></tr></tbody></table>
+        </div></div><br class="table-break">
+
+        <p></p>
+
+        <div class="table"><a name="d4e6716"></a><p class="title"><b>Table&nbsp;B.2.&nbsp;New Annotations &amp; Commands</b></p><div class="table-contents">
+            
+
+            <table summary="New Annotations &amp; Commands" border="1"><colgroup><col><col><col><col><col></colgroup><thead><tr><th align="center">&nbsp;</th><th align="center">Active Record</th><th align="center">Repository</th><th align="center">Entity</th><th align="center">Command</th></tr></thead><tbody><tr><td>JPA</td><td><span class="bold"><strong>@RooJpaActiveRecord</strong></span></td><td>&nbsp;</td><td>&nbsp;</td><td>entity <span class="bold"><strong>jpa</strong></span></td></tr><tr><td>Spring Data JPA</td><td>&nbsp;</td><td><span class="bold"><strong>@RooJpaRepository</strong></span></td><td>@RooJpaEntity</td><td>entity <span class="bold"><strong>jpa</strong></span>
+                  --activeRecord false + repository jpa</td></tr><tr><td>Spring Data MongoDB</td><td>&nbsp;</td><td><span class="bold"><strong>@RooMongoRepository</strong></span></td><td>@RooMongoEntity</td><td>entity mongo + repository mongo</td></tr></tbody></table>
+          </div></div><p><br class="table-break"></p>
+      </li></ul></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e6750"></a>B.5.&nbsp;Upgrading to 1.2.0.M1</h2></div></div></div>
+    
+
+    <p>The main changes you need to be aware of when upgrading from Spring
+    Roo 1.1.5.RELEASE to Spring Roo 1.2.0.M1 are as follows:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>The presence of @RooWebScaffold does not automatically trigger
+        Spring MVC JSON integration any more. The exposeJson attribute in this
+        annotation has been deprecated and will be removed for subsequent
+        releases. To create Spring MVC JSON integration please see the <a class="link" href="base-json.html" title="Chapter&nbsp;15.&nbsp;JSON Add-On">JSON chapter</a> or simply use the <a class="link" href="command-index.html#command-index-web-mvc-json-all" title="A.43.2.&nbsp;web mvc json all">web mvc json all</a>
+        command.</p>
+      </li><li>
+        <p>The presence of @RooWebScaffold does not automatically trigger
+        Spring MVC Finder integration any more. The exposeFinders attribute in
+        this annotation has been deprecated and will be removed for subsequent
+        releases. To create Spring MVC Finder integration please see <a class="link" href="base-web.html" title="Chapter&nbsp;11.&nbsp;Web MVC Add-On">MVC chapter</a> or simply use the <a class="link" href="command-index.html#command-index-web-mvc-finder-all" title="A.41.2.&nbsp;web mvc finder all">web mvc finder all</a>
+        command.</p>
+      </li><li>
+        <p>To update a Roo GWT project please run <a class="link" href="command-index.html#command-index-web-gwt-setup" title="A.13.11.&nbsp;web gwt setup">web gwt setup</a></p>
+      </li></ul></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="upgrade-1.1.3.RELEASE"></a>B.6.&nbsp;Upgrading to 1.1.3.RELEASE</h2></div></div></div>
+    
+
+    <p>The main changes you need to be aware of when upgrading from Spring
+    Roo 1.1.2.RELEASE to Spring Roo 1.1.3.RELEASE are as follows:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>Complete the steps recommended in the <a class="link" href="upgrade.html#upgrade-any" title="B.3.&nbsp;Upgrading To Any New Release">Upgrading To Any New Release</a>
+        section.</p>
+      </li><li>
+        <p>For MVC scaffolded applications it is recommended to manually
+        replace the list.tagx in your application by creating a dummy project
+        and copying the list.tagx file into your project. This process will be
+        automated through a new 'web mvc update tags' command in Roo
+        1.1.4+.</p>
+      </li></ul></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="upgrade-1.1.2.RELEASE"></a>B.7.&nbsp;Upgrading to 1.1.2.RELEASE</h2></div></div></div>
+    
+
+    <p>The main changes you need to be aware of when upgrading from Spring
+    Roo 1.1.1.RELEASE to Spring Roo 1.1.2.RELEASE are as follows:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>Complete the steps recommended in the <a class="link" href="upgrade.html#upgrade-any" title="B.3.&nbsp;Upgrading To Any New Release">Upgrading To Any New Release</a>
+        section.</p>
+      </li></ul></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="upgrade-1.1.1.RELEASE"></a>B.8.&nbsp;Upgrading to 1.1.1.RELEASE</h2></div></div></div>
+    
+
+    <p>The main changes you need to be aware of when upgrading from Spring
+    Roo 1.1.0.RELEASE to Spring Roo 1.1.1.RELEASE are as follows:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>Complete the steps recommended in the <a class="link" href="upgrade.html#upgrade-any" title="B.3.&nbsp;Upgrading To Any New Release">Upgrading To Any New Release</a>
+        section.</p>
+      </li><li>
+        <p>Converters for displaying related entities on JSP pages are now
+        registered from a centralized ConversionService artifact rather than
+        from individual controllers. The change is transparent if you've never
+        set <code class="code">@RooWebScaffold(registerConverters=false)</code> or plugged
+        in a custom ConversionService through <code class="code">&lt;mvc:annotation-driven
+        conversion-service="myConversionService"/&gt;</code>. If you have then
+        read on.</p>
+
+        <p>Remove all "registerConverters" attributes from
+        <code class="code">@RooWebScaffold</code> annotations and make sure the
+        "conversion-service" attribute from &lt;mvc:annotation-driven
+        conversion-service="applicationConversionService"/&gt; is set. Then
+        run the Spring Roo 1.1.1 shell and let it install the new
+        ConversionService. When Roo is done making changes, manually move any
+        custom <code class="code">getXxxConverter()</code> methods to the new
+        ConversionService, delete the GenericConversionService field from all
+        controllers that have it, and delete any <code class="code">@PostContruct</code>
+        methods used to register the converters. If you had previously
+        configured your own ConversionService, move any converters or
+        formatter registrations to the new ConversionService installed by
+        Spring Roo.</p>
+      </li></ul></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="upgrade-1.1.0.RELEASE"></a>B.9.&nbsp;Upgrading to 1.1.0.RELEASE</h2></div></div></div>
+    
+
+    <p>The main changes you need to be aware of when upgrading from Spring
+    Roo 1.1.0.RC1 to Spring Roo 1.1.0.RELEASE are as follows:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>Complete the steps recommended in the <a class="link" href="upgrade.html#upgrade-any" title="B.3.&nbsp;Upgrading To Any New Release">Upgrading To Any New Release</a>
+        section.</p>
+      </li></ul></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="upgrade-1.1.0.RC1"></a>B.10.&nbsp;Upgrading to 1.1.0.RC1</h2></div></div></div>
+    
+
+    <p>The main changes you need to be aware of when upgrading from Spring
+    Roo 1.1.0.M3 to Spring Roo 1.1.0.RELEASE are as follows:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>Complete the steps recommended in the <a class="link" href="upgrade.html#upgrade-any" title="B.3.&nbsp;Upgrading To Any New Release">Upgrading To Any New Release</a>
+        section.</p>
+      </li></ul></div>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>There have been changes made to the <code class="code">web.xml</code>
+        configuration to allow deployment of GWT scaffolded applications to
+        GAE. Please compare a <code class="code">web.xml</code> produced in a new Spring
+        Roo project with your current project's <code class="code">web.xml</code> to
+        identify differences.</p>
+      </li><li>
+        <p>The GWT maven artifacts in your local maven repository should be
+        removed so they can be replaced with the latest versions. Make sure to
+        delete ~/.m2/repository/com/google/gwt and
+        org/codehaus/mojo/gwt-maven-plugin.</p>
+      </li></ul></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="upgrade-1.1.0.M3"></a>B.11.&nbsp;Upgrading to 1.1.0.M3</h2></div></div></div>
+    
+
+    <p>The main changes you need to be aware of when upgrading from Spring
+    Roo 1.1.0.M2 to Spring Roo 1.1.0.M3 are as follows:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>Complete the steps recommended in the <a class="link" href="upgrade.html#upgrade-any" title="B.3.&nbsp;Upgrading To Any New Release">Upgrading To Any New Release</a>
+        section.</p>
+      </li><li>
+        <p>There have been changes made to the <code class="code">web.xml</code>
+        configuration following the adoption of Spring Framework 3.0.4
+        improvements around root servlet mapping of
+        <code class="code">DispatcherServlet</code>. Please compare a <code class="code">web.xml
+        </code>produced in a new Spring Roo project with your current
+        project's <code class="code">web.xml</code> to identify differences.</p>
+      </li><li>
+        <p>If you are trying the early-access Google Web Toolkit (GWT)
+        support, please be aware that from Spring Roo 1.1.0.M3 until Spring
+        Roo 1.1.0.RELEASE we will be using GWT 2.1 "snapshot" JARs. This
+        enables you to have access to the latest improvements in GWT
+        2.1.</p>
+      </li></ul></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="upgrade-1.1.0.M2"></a>B.12.&nbsp;Upgrading to 1.1.0.M2</h2></div></div></div>
+    
+
+    <p>The main changes you need to be aware of when upgrading from Spring
+    Roo 1.1.0.M1 to Spring Roo 1.1.0.M2 are as follows:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>Complete the steps recommended in the <a class="link" href="upgrade.html#upgrade-any" title="B.3.&nbsp;Upgrading To Any New Release">Upgrading To Any New Release</a>
+        section.</p>
+      </li></ul></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="upgrade-1.1.0.M1"></a>B.13.&nbsp;Upgrading to 1.1.0.M1</h2></div></div></div>
+    
+
+    <p>The main changes you need to be aware of when upgrading from Spring
+    Roo 1.0.2.RELEASE to Spring Roo 1.1.0.M1 are as follows:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>Complete the steps recommended in the <a class="link" href="upgrade.html#upgrade-any" title="B.3.&nbsp;Upgrading To Any New Release">Upgrading To Any New Release</a>
+        section.</p>
+      </li><li>
+        <p>If you used Roo 1.0.2's web MVC scaffolding, be aware there are
+        considerable changes to the web tier to support our new MVC features
+        (such as JSPX round-tripping and easy tags). The recommended approach
+        is therefore to start a new project with Roo 1.1.0.M1 to identify the
+        changes that are needed to <code class="code">src/main/webapp</code>.</p>
+      </li></ul></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="upgrade-1.0.2.RELEASE"></a>B.14.&nbsp;Upgrading to 1.0.2.RELEASE</h2></div></div></div>
+    
+
+    <p>The main changes you need to be aware of when upgrading from Spring
+    Roo 1.0.1.RELEASE to Spring Roo 1.0.2.RELEASE are as follows:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>Complete the steps recommended in the <a class="link" href="upgrade.html#upgrade-any" title="B.3.&nbsp;Upgrading To Any New Release">Upgrading To Any New Release</a>
+        section.</p>
+      </li><li>
+        <p>If you are using Spring Security in your Roo application, it is
+        recommended you review issue <a class="ulink" href="http://jira.springframework.org/browse/ROO-579" target="_top">ROO-579</a>
+        and consider disabling the <code class="code">ShallowEtagHeaderFilter</code> filter
+        in your <code class="code">web.xml</code>.</p>
+      </li></ul></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="upgrade-1.0.1.RELEASE"></a>B.15.&nbsp;Upgrading to 1.0.1.RELEASE</h2></div></div></div>
+    
+
+    <p>The main changes you need to be aware of when upgrading from Spring
+    Roo 1.0.0.RELEASE to Spring Roo 1.0.1.RELEASE are as follows:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>Complete the steps recommended in the <a class="link" href="upgrade.html#upgrade-any" title="B.3.&nbsp;Upgrading To Any New Release">Upgrading To Any New Release</a>
+        section.</p>
+      </li></ul></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="upgrade-1.0.0.RELEASE"></a>B.16.&nbsp;Upgrading to 1.0.0.RELEASE</h2></div></div></div>
+    
+
+    <p>The main changes you need to be aware of when upgrading from Spring
+    Roo 1.0.0.RC4 to Spring Roo 1.0.0.RELEASE are as follows:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>Complete the steps recommended in the <a class="link" href="upgrade.html#upgrade-any" title="B.3.&nbsp;Upgrading To Any New Release">Upgrading To Any New Release</a>
+        section.</p>
+      </li><li>
+        <p>Due to CSS issues discovered in the Roo RC4 release (<a class="ulink" href="http://jira.springframework.org/browse/ROO-480" target="_top">ROO-480</a>),
+        the <code class="code">standard.css</code>, <code class="code">alt.css</code> and the
+        <code class="code">layout.jspx</code> files required adjustment. To update these
+        three files, please replace them with the same files generated in a
+        dummy project using Roo 1.0.0.RELEASE.</p>
+      </li></ul></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="upgrade-1.0.0.RC4"></a>B.17.&nbsp;Upgrading to 1.0.0.RC4</h2></div></div></div>
+    
+
+    <p>When upgrading from Spring Roo 1.0.0.RC3 to Spring Roo 1.0.0.RC4 you
+    should be aware that a large number of changes have been applied to the
+    web scaffolding functionality. This has impacted the Web layer. We
+    therefore recommend the following:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>Complete the steps recommended in the <a class="link" href="upgrade.html#upgrade-any" title="B.3.&nbsp;Upgrading To Any New Release">Upgrading To Any New Release</a>
+        section.</p>
+      </li><li>
+        <p>Roo 1.0.0.RC4 takes advantage of the new type conversion API
+        introduced in Spring Framework 3.0.0.RC3 (see <a class="ulink" href="http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/ch05.html" target="_top">chapter
+        5</a> of the Spring reference documentation) which is aimed to
+        replace property editors. To remove existing property editors from
+        your current project you can issue the following command: <code class="code">rm -rf
+        src/main/java/com/foo/domain/*Editor.java</code> (depending on your
+        package naming convention)</p>
+      </li><li>
+        <p>The easiest way to update the web artifacts is to delete the old
+        ones completely. You can use the following command from a *nix prompt
+        to achieve this: <code class="code">rm -rf src/main/webapp/*</code></p>
+      </li><li>
+        <p>Another (optional) step is to replace the web controllers. This
+        step is only required if you have used the dateFormat
+        <code class="code">@RooWebScaffold(dateFormat="..")</code> attribute in the
+        @RooWebScaffold annotation: <code class="code">rm -rf
+        src/main/java/com/foo/web/*</code> (depending on your package naming
+        convention). Alternatively, you can simply remove this attribute from
+        the @RooWebScaffold annotation. Note, date formats can now be defined
+        via the <code class="code">field date</code> command (see <a class="ulink" href="https://jira.springsource.org/browse/ROO-453" target="_top">ROO-453</a>
+        for further information).</p>
+      </li><li>
+        <p>Run the controller command again to regenerate all necessary web
+        artifacts. You might wish to use either the <a class="link" href="command-index.html#command-index-controller-all" title="A.4.1.&nbsp;controller all">controller all</a> or <a class="link" href="command-index.html#command-index-controller-scaffold" title="A.4.2.&nbsp;controller scaffold">controller scaffold</a>
+        command. This will recreate all web artifacts.</p>
+      </li></ul></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="upgrade-1.0.0.RC3"></a>B.18.&nbsp;Upgrading to 1.0.0.RC3</h2></div></div></div>
+    
+
+    <p>The main changes you need to be aware of when upgrading from Spring
+    Roo 1.0.0.RC2 to Spring Roo 1.0.0.RC3 are as follows:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>Complete the steps recommended in the <a class="link" href="upgrade.html#upgrade-any" title="B.3.&nbsp;Upgrading To Any New Release">Upgrading To Any New Release</a>
+        section.</p>
+      </li><li>
+        <p>Edit your project's
+        <code class="code">src/main/webapp/WEB-INF/urlrewrite.xml</code> and ensure it
+        protects the resources as discussed in the <a class="ulink" href="https://jira.springsource.org/browse/ROO-271" target="_top">ROO-271</a>.</p>
+      </li><li>
+        <p>If you had previously used the "<code class="code">test mock</code>" or
+        "<code class="code">persistence exception translation</code>" commands, we have
+        moved the resulting AspectJ files to the Spring Aspects project (which
+        has always been a dependency of all Roo projects). This will mean you
+        automatically receive improvements made to these features in the
+        future as part of the Spring Framework release cycle. You should
+        therefore delete the following files if your project contains them:
+        <code class="code">Jpa_Exception_Translator.aj</code>,
+        <code class="code">AbstractMethodMockingControl.aj</code>,
+        <code class="code">JUnitStaticEntityMockingControl.aj</code> and
+        <code class="code">MockStaticEntityMethods.aj</code>. You must also ensure you use
+        Spring Framework 3.0.0.RC2 or above (which is the project which
+        contains the Spring Aspects project). See <a class="ulink" href="https://jira.springsource.org/browse/ROO-315" target="_top">ROO-315</a>
+        and <a class="ulink" href="https://jira.springsource.org/browse/ROO-314" target="_top">ROO-316</a>
+        for further information.</p>
+      </li><li>
+        <p>Do not attempt to use the Spring Roo integration built into
+        SpringSource Tool Suite (STS) 2.2.0 or earlier with Spring Roo
+        1.0.0.RC3 or above. You must upgrade to STS 2.2.1 or above if you wish
+        to use Roo 1.0.0.RC3 with the STS integration. This is due to an
+        internal API change made to support third-party add-on development. If
+        you are using STS 2.2.0 (or earlier) and are unable to upgrade, you
+        can of course use Roo outside of any version of STS without any issue.
+        The upgrade requirement is simply to access the STS integration, such
+        as CTRL + R commands and STS' embedded Roo shell.</p>
+      </li></ul></div>
+  </div>
+</div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="command-index.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="background.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Appendix&nbsp;A.&nbsp;Command Index&nbsp;</td><td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.springsource.com/" title="SpringSource - Spring from the Source">Sponsored by SpringSource
+                                        </a></span></td><td width="40%" align="right" valign="top">&nbsp;Appendix&nbsp;C.&nbsp;Project Background</td></tr></table></div></body></html>

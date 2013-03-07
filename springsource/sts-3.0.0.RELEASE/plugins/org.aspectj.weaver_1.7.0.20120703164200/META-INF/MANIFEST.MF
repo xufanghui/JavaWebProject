@@ -1,0 +1,36 @@
+Manifest-Version: 1.0
+Export-Package: org.aspectj.apache.bcel;version="1.6.4",org.aspectj.ap
+ ache.bcel.classfile;version="1.6.4",org.aspectj.apache.bcel.classfile
+ .annotation;version="1.6.4",org.aspectj.apache.bcel.generic;version="
+ 1.6.4",org.aspectj.apache.bcel.util;version="1.6.4",org.aspectj.asm;v
+ ersion="1.6.4",org.aspectj.asm.internal;version="1.6.4",org.aspectj.b
+ ridge;version="1.6.4",org.aspectj.bridge.context;version="1.6.4",org.
+ aspectj.util;version="1.6.4",org.aspectj.weaver;version="1.6.4",org.a
+ spectj.weaver.ast;version="1.6.4",org.aspectj.weaver.bcel;version="1.
+ 6.4",org.aspectj.weaver.internal.tools;version="1.6.4",org.aspectj.we
+ aver.loadtime;version="1.6.4",org.aspectj.weaver.loadtime.definition;
+ version="1.6.4",org.aspectj.weaver.model;version="1.6.4",org.aspectj.
+ weaver.patterns;version="1.6.4",org.aspectj.weaver.reflect;version="1
+ .6.4",org.aspectj.weaver.tools;version="1.6.4"
+Require-Bundle: org.aspectj.runtime;bundle-version="1.5.3";visibility:
+ =reexport
+Bundle-Vendor: %providerName
+Bundle-ClassPath: aspectjweaver.jar
+Bundle-Version: 1.7.0.20120703164200
+Bundle-Localization: plugin
+Bundle-Name: %pluginName
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.aspectj.weaver
+
+Name: aspectjweaver.jar
+SHA1-Digest: wny4YmWQlv+NLIcJE/OS6/mRT+o=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: 09gN05tobgS/MdtqyTNQhOhB73M=
+
+Name: about.html
+SHA1-Digest: H7er0NoPAMGYUVZw6m40nGg4VaI=
+
+Name: plugin.properties
+SHA1-Digest: iGaMlr6c+Hn/OB/IHjNW27EAZZU=
+

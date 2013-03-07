@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.maven.ide.eclipse.wtp.feature"
+      label="%featureName"
+      version="0.15.2.20120306-2040"
+      provider-name="%providerName"
+      plugin="org.maven.ide.eclipse.wtp">
+
+   <description url="http://m2eclipse.sonatype.org/">
+      %description
+   </description>
+
+   <copyright url="http://sonatype.com/">
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <update label="%featureName" url="http://download.jboss.org/jbosstools/updates/m2eclipse-wtp/"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.wst.common.frameworks"/>
+      <import plugin="org.eclipse.wst.common.modulecore"/>
+      <import plugin="org.eclipse.wst.common.project.facet.core"/>
+      <import plugin="org.eclipse.jst.common.frameworks"/>
+      <import plugin="org.eclipse.jst.common.project.facet.core"/>
+      <import plugin="org.eclipse.jst.j2ee.web"/>
+      <import plugin="org.eclipse.jst.j2ee"/>
+      <import plugin="org.eclipse.jst.j2ee.core"/>
+      <import feature="org.eclipse.platform" version="3.6.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.rcp" version="3.6.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.jdt" version="3.6.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.m2e.feature" version="1.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.wst.web_ui.feature" version="3.2.0" match="greaterOrEqual"/>
+      <import feature="org.sonatype.m2e.mavenarchiver.feature" version="0.14.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="org.maven.ide.eclipse.wtp"
+         download-size="266"
+         install-size="505"
+         version="0.15.2.20120306-2040"
+         unpack="false"/>
+
+   <plugin
+         id="org.maven.ide.eclipse.wtp.overlay"
+         download-size="41"
+         install-size="83"
+         version="0.15.2.20120306-2040"
+         unpack="false"/>
+
+   <plugin
+         id="org.maven.ide.eclipse.wtp.overlay.ui"
+         download-size="5"
+         install-size="5"
+         version="0.15.2.20120306-2040"
+         unpack="false"/>
+
+</feature>

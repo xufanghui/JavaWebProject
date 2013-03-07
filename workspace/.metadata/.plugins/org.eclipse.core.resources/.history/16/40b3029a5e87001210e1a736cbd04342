@@ -1,0 +1,5 @@
+package com.hibernate.costumer;
+
+public class Costumer {
+
+}

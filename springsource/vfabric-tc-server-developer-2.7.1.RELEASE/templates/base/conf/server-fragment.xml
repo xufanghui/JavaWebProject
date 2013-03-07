@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<add:Server port="${shutdown.port:-1}" shutdown="SHUTDOWN">
+	<Listener className="org.apache.catalina.core.JasperListener"/>
+	<Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener"/>
+	<Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener"/>
+	<Listener className="com.springsource.tcserver.serviceability.deploy.TcContainerDeployer"/>
+	<Listener className="com.springsource.tcserver.serviceability.rmi.JmxSocketListener"
+			port="${jmx.port:6969}"
+			bind="127.0.0.1"
+			useSSL="false"
+			passwordFile="${catalina.base}/conf/jmxremote.password"
+			accessFile="${catalina.base}/conf/jmxremote.access"
+			authenticate="true"/>
+
+	<GlobalNamingResources>
+		<Resource name="UserDatabase" auth="Container"
+				type="org.apache.catalina.UserDatabase"
+				description="User database that can be updated and saved"
+				factory="org.apache.catalina.users.MemoryUserDatabaseFactory"
+				pathname="conf/tomcat-users.xml" />
+
+	</GlobalNamingResources>
+
+	<Service name="Catalina">
+		<Executor name="tomcatThreadPool" namePrefix="tomcat-http--" maxThreads="300" minSpareThreads="50"/>
+		<Engine name="Catalina" defaultHost="localhost">
+			<Realm className="org.apache.catalina.realm.LockOutRealm">
+				<Realm className="org.apache.catalina.realm.UserDatabaseRealm"
+						resourceName="UserDatabase"/>
+			</Realm>
+
+			<Host name="localhost"  appBase="webapps"
+					unpackWARs="true" autoDeploy="true" deployOnStartup="true" deployXML="true">
+				<Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
+						prefix="localhost_access_log." suffix=".txt"
+						pattern="%h %l %u %t &quot;%r&quot; %s %b"/>
+
+			</Host>
+
+		</Engine>
+
+	</Service>
+
+</add:Server>

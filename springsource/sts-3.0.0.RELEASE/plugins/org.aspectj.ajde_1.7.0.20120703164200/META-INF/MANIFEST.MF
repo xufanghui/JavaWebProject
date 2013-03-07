@@ -1,0 +1,1850 @@
+Manifest-Version: 1.0
+Require-Bundle: org.apache.ant,org.eclipse.core.resources,org.eclipse.
+ core.runtime,org.eclipse.core.runtime.compatibility,org.eclipse.text,
+ org.aspectj.weaver;bundle-version="1.7.0.20120703164200";visibility:=
+ reexport
+Export-Package: org.aspectj.ajde.core,org.aspectj.ajde.core.internal,o
+ rg.aspectj.ajdt.ajc,org.aspectj.ajdt.compiler,org.aspectj.ajdt.core,o
+ rg.aspectj.ajdt.core.dom,org.aspectj.ajdt.internal.compiler,org.aspec
+ tj.ajdt.internal.compiler.ast,org.aspectj.ajdt.internal.compiler.look
+ up,org.aspectj.ajdt.internal.compiler.parser,org.aspectj.ajdt.interna
+ l.compiler.problem,org.aspectj.ajdt.internal.core.builder,org.aspectj
+ .org.eclipse.jdt.core,org.aspectj.org.eclipse.jdt.core.compiler,org.a
+ spectj.org.eclipse.jdt.core.dom,org.aspectj.org.eclipse.jdt.core.dom.
+ rewrite,org.aspectj.org.eclipse.jdt.core.eval,org.aspectj.org.eclipse
+ .jdt.core.formatter,org.aspectj.org.eclipse.jdt.core.jdom,org.aspectj
+ .org.eclipse.jdt.core.search,org.aspectj.org.eclipse.jdt.core.util,or
+ g.aspectj.org.eclipse.jdt.internal.codeassist,org.aspectj.org.eclipse
+ .jdt.internal.codeassist.complete,org.aspectj.org.eclipse.jdt.interna
+ l.codeassist.impl,org.aspectj.org.eclipse.jdt.internal.codeassist.sel
+ ect,org.aspectj.org.eclipse.jdt.internal.compiler,org.aspectj.org.ecl
+ ipse.jdt.internal.compiler.ast,org.aspectj.org.eclipse.jdt.internal.c
+ ompiler.batch,org.aspectj.org.eclipse.jdt.internal.compiler.classfmt,
+ org.aspectj.org.eclipse.jdt.internal.compiler.codegen,org.aspectj.org
+ .eclipse.jdt.internal.compiler.env,org.aspectj.org.eclipse.jdt.intern
+ al.compiler.flow,org.aspectj.org.eclipse.jdt.internal.compiler.impl,o
+ rg.aspectj.org.eclipse.jdt.internal.compiler.lookup,org.aspectj.org.e
+ clipse.jdt.internal.compiler.parser,org.aspectj.org.eclipse.jdt.inter
+ nal.compiler.parser.diagnose,org.aspectj.org.eclipse.jdt.internal.com
+ piler.problem,org.aspectj.org.eclipse.jdt.internal.compiler.util,org.
+ aspectj.org.eclipse.jdt.internal.core,org.aspectj.org.eclipse.jdt.int
+ ernal.core.builder,org.aspectj.org.eclipse.jdt.internal.core.dom.rewr
+ ite,org.aspectj.org.eclipse.jdt.internal.core.eval,org.aspectj.org.ec
+ lipse.jdt.internal.core.hierarchy,org.aspectj.org.eclipse.jdt.interna
+ l.core.index,org.aspectj.org.eclipse.jdt.internal.core.jdom,org.aspec
+ tj.org.eclipse.jdt.internal.core.search,org.aspectj.org.eclipse.jdt.i
+ nternal.core.search.indexing,org.aspectj.org.eclipse.jdt.internal.cor
+ e.search.matching,org.aspectj.org.eclipse.jdt.internal.core.search.pr
+ ocessing,org.aspectj.org.eclipse.jdt.internal.core.util,org.aspectj.o
+ rg.eclipse.jdt.internal.eval,org.aspectj.org.eclipse.jdt.internal.for
+ matter,org.aspectj.org.eclipse.jdt.internal.formatter.align,org.aspec
+ tj.org.eclipse.jdt.internal.formatter.comment,org.aspectj.org.eclipse
+ .jdt.internal.formatter.old,org.aspectj.tools.ajc,org.aspectj.tools.a
+ jdoc,org.aspectj.tools.ant.taskdefs,org.aspectj.tools.ant.taskdefs.co
+ mpilers
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: ajde.jar
+Bundle-Version: 1.7.0.20120703164200
+Bundle-Localization: plugin
+Bundle-Name: %pluginName
+Bundle-Activator: org.eclipse.core.internal.compatibility.PluginActiva
+ tor
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.aspectj.ajde; singleton:=true
+
+Name: doc/examples/tracing/version2/TraceMyClasses.java
+SHA1-Digest: KQTPMMvfsjPxvB5EqbZi3jW8kbc=
+
+Name: icons/structure/inheritanceBack.gif
+SHA1-Digest: sGASyMx3pJHbjq2Pc0JbCXgVFf8=
+
+Name: doc/runtime-api/org/aspectj/lang/Signature.html
+SHA1-Digest: 9GS9kSuytNWz2mLy6adsIXsuOkA=
+
+Name: doc/examples/bean/BoundPoint.java
+SHA1-Digest: lVd9Y7a2nLoF+pXiLxLCf7eegEQ=
+
+Name: doc/examples/coordination/Selfex.java
+SHA1-Digest: 0/iNFCqjPIdQAjCQYfet//ax3kE=
+
+Name: doc/examples/tracing/lib/TraceMyClasses.java
+SHA1-Digest: bHD2lbKHh0xlA5ruYXlr48j1Dds=
+
+Name: icons/structure/class.gif
+SHA1-Digest: zN/v8Zygk3e5X+V1dwWb1b25wQQ=
+
+Name: doc/README-154.html
+SHA1-Digest: +uN3mqRcTBtCjYtB9rG/AR19KXY=
+
+Name: doc/devguide/rn01.html
+SHA1-Digest: Nn3uYjRu/3Gy2BbGmt8aB2HjaL0=
+
+Name: doc/quickA4.pdf
+SHA1-Digest: tRNPVYKTXdTs7u7QTNvngOysAsI=
+
+Name: doc/weaver-api/org/aspectj/weaver/loadtime/Options.html
+SHA1-Digest: 6ZwYT4W2tvdzbErHwOUsbyNyeYc=
+
+Name: doc/runtime-api/index-all.html
+SHA1-Digest: J1nQHqwMD+1nquLrNcahOzrRWgw=
+
+Name: doc/devguide/printable.html
+SHA1-Digest: JtoU6ogdWxU1AHy5aiXfB8eKy8s=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/package-frame.html
+SHA1-Digest: CVOJgEJf4S5b0+I6bVCG1KRBCh4=
+
+Name: icons/structure/declareWarning.gif
+SHA1-Digest: 375jgf+/kW0EMFAZKIBqvQPK4ww=
+
+Name: doc/doc/devguide/openConfig.gif
+SHA1-Digest: ygfKbnmq0i181raXVjvnAw23P2o=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/PointcutBasedPerClau
+ se.html
+SHA1-Digest: PLDsMtDU6Coq5PR0fXz0i1Y7Jks=
+
+Name: doc/examples/tracing/version1/TraceMyClasses.java
+SHA1-Digest: ELpWi4BspAehdPGOcAKMCSKXJGc=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/package-tree.html
+SHA1-Digest: ZL431Kk0VRkhID6bb8ioCRKUKs0=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/Trace.html
+SHA1-Digest: /NkJv9WnquVDsIwfSrwIQX9HW4c=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/DefaultMatchingContext.h
+ tml
+SHA1-Digest: VtcAqclkcWEXTHeMVrEii2ciJis=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/WeavingClassLoader.html
+SHA1-Digest: nSUoIZCheWCXYs7w9+nw0ufGjAg=
+
+Name: doc/api/index-all.html
+SHA1-Digest: 59D+9R0WkTYNFLbxj0/cdAqYzCc=
+
+Name: doc/pdguide/ltwdump.html
+SHA1-Digest: ndvMAo0D2SPe4FiaX4t7zgvKjAQ=
+
+Name: doc/progguide/idioms.html
+SHA1-Digest: NYteiGwYRir3fSFdep1X3+pdlVk=
+
+Name: doc/progguide/pitfalls.html
+SHA1-Digest: +ERiVKgvhik2TpPZTpQ85L1CqZM=
+
+Name: doc/api/org/aspectj/lang/package-tree.html
+SHA1-Digest: pNbDeeF8icm5s123VkAAZYJ+WcY=
+
+Name: doc/adk15notebook/ataspectj-aspects.html
+SHA1-Digest: 43tgW9iMqEIT1rlZrgek9zC/KSk=
+
+Name: doc/quick.pdf
+SHA1-Digest: ez+CWnYutJWwyn63GY4dn0cQjmw=
+
+Name: doc/adk15notebook/ataspectj-pcadvice.html
+SHA1-Digest: /VtcExihkbqCrbMc+Ar0+QL+N90=
+
+Name: doc/weaver-api/serialized-form.html
+SHA1-Digest: oRAC0IPqo8wcnEMtA3hLlB1pWfw=
+
+Name: doc/api/org/aspectj/weaver/tools/package-tree.html
+SHA1-Digest: 7zv3ea4MgZmG92tenXLla+cS2bA=
+
+Name: doc/doc/quickA4.pdf
+SHA1-Digest: tRNPVYKTXdTs7u7QTNvngOysAsI=
+
+Name: icons/actions/outputWindow.gif
+SHA1-Digest: pkKC9nrMyxhJpiDHGEi8kb4OXak=
+
+Name: doc/weaver-api/org/aspectj/weaver/loadtime/package-tree.html
+SHA1-Digest: AEoJKNhNHRMHs5cy0kAPHg373NY=
+
+Name: doc/weaver-api/index-all.html
+SHA1-Digest: RipKJMc0xXNGA1NaRK0OQgrdzUw=
+
+Name: doc/api/org/aspectj/weaver/tools/WeavingClassLoader.html
+SHA1-Digest: ltlUFT/CdPUZOoarjGvB1sWs4ck=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/annotation/DeclareImplements
+ .html
+SHA1-Digest: ZRYgQVMb9vEV5LSUnNseNcbfn8c=
+
+Name: doc/progguide/language-anatomy.html
+SHA1-Digest: hBT4I6gB+Xd/5uK8HPMSp+OjPxU=
+
+Name: doc/weaver-api/org/aspectj/weaver/loadtime/definition/Definition
+ .Pointcut.html
+SHA1-Digest: CprCCBOVYMbP1XiCW35U3Sh2df4=
+
+Name: doc/api/constant-values.html
+SHA1-Digest: BjKrRe0mg/GKfyV1vIADLgsS+HI=
+
+Name: doc/examples/ltw/HelloWorld.java
+SHA1-Digest: PbyX6dhXBhYVGsxlswynJxoCyjM=
+
+Name: doc/api/allclasses-noframe.html
+SHA1-Digest: Q6OYWcoHFTbSLTN2izXQpKfVO6k=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/NoSuchPointcutExcept
+ ion.html
+SHA1-Digest: 4dPozIOC+Vd7meTw7z/YplX4fhU=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/DeclareAnnotation.ht
+ ml
+SHA1-Digest: c800zeV+ywTmkliiUgwJj8U6QEY=
+
+Name: doc/adk15notebook/autoboxing-and-method-dispatch.html
+SHA1-Digest: S6YiLvpvDWwsDxpBb86RTEoR4rw=
+
+Name: doc/adk15notebook/annotations-pointcuts-and-advice.html
+SHA1-Digest: 4GjD4B6dOgILhWhecjgG8pjdNc4=
+
+Name: doc/adk15notebook/annotations-aspectmembers.html
+SHA1-Digest: Kxmz/GG2n+QGGEGwcRMKkO6+oik=
+
+Name: toc_ajpdguide.xml
+SHA1-Digest: JimsYAv0dWCTqZNetgY5QgYPZPY=
+
+Name: doc/pdguide/messages-xlint.html
+SHA1-Digest: 0PuXyXPuN48ubsQWm5nk5OQaBL4=
+
+Name: doc/runtime-api/org/aspectj/lang/reflect/SourceLocation.html
+SHA1-Digest: ioKWn4mXV9aqN1ySRKdRAIpXziA=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/annotation/DeclarePrecedence
+ .html
+SHA1-Digest: tSEbMfm8QatiRQnSeH9pYHui2QA=
+
+Name: doc/progguide/semantics-advice.html
+SHA1-Digest: vz4/3b67UYnEhS/LqFMHK9cJX0Y=
+
+Name: doc/progguide/language-advice.html
+SHA1-Digest: XjjW8rUz3e767sEMSBRf7QaLcN0=
+
+Name: doc/progguide/semantics-joinPoints.html
+SHA1-Digest: 0wUw8DJ6xlEwHrWwrePaLHAV1BM=
+
+Name: doc/examples/telecom/BasicSimulation.java
+SHA1-Digest: PhZeYqFaUKJTfMIvYhDNZPj2oIY=
+
+Name: doc/examples/tracing/Circle.java
+SHA1-Digest: +DuYM4dtQ1sFCHD0okQ+HwRTq7w=
+
+Name: doc/adk15notebook/ltw-agents.html
+SHA1-Digest: JwUpjivPXYURGXkSOn8BEt3mSKQ=
+
+Name: icons/structure/declareError.gif
+SHA1-Digest: rP2SMgZgHEsgw/kaYOePw/3hh4I=
+
+Name: doc/examples/spacewar/debug.lst
+SHA1-Digest: Eme4R9novHk8XDP0GH3xfOMzNo8=
+
+Name: doc/examples/telecom/TimerLog.java
+SHA1-Digest: vfG5IEWwnOfV4G+UFOgKs7BRr/4=
+
+Name: doc/api/org/aspectj/lang/reflect/FieldSignature.html
+SHA1-Digest: BDbwr7rMb03IDvPl/61yUiQnn2M=
+
+Name: icons/structure/introduction.gif
+SHA1-Digest: pwSbjfzUGsqAUxhhDanG9BnxMLg=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/AbstractTrace.html
+SHA1-Digest: XawfT8s4Htxsg4n2h3pCqfxoP80=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/annotation/Aspect.html
+SHA1-Digest: ZSb1qK5VHspJC/pJCTfA4miiBus=
+
+Name: doc/adk15notebook/join-point-signatures.html
+SHA1-Digest: 7cfk5R6kfdbfCJ7q/a1Q9W0agVM=
+
+Name: icons/actions/splitStructureView.gif
+SHA1-Digest: VJLyMePlHfjW1DXxfBUS8CPATSg=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/ContextBasedMatcher.html
+SHA1-Digest: z3uCUDjkPbiUngz2dmZCKtsUNtQ=
+
+Name: doc/examples/tracing/version1/Trace.java
+SHA1-Digest: wVpRs7e6ZZXoAZKdAlosvUaJp/g=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/GeneratedClassHandler.ht
+ ml
+SHA1-Digest: CjyDnHDC7OGoTCEUGq/Bxb8As68=
+
+Name: doc/adk15notebook/enumeratedtypes.html
+SHA1-Digest: aoEuKraS7Re13DAuMnnjEngHeYk=
+
+Name: doc/runtime-api/overview-tree.html
+SHA1-Digest: Z6DwGk7n7IIUqyOr5OcmMMQ3S3o=
+
+Name: doc/examples/ltw/Tracing.aj
+SHA1-Digest: L+ohO9/2wtqZyHJoLRI2fTIMd9A=
+
+Name: icons/structure/code.gif
+SHA1-Digest: 8ys6VpFR6SgowYOVgJLmA1UbU2I=
+
+Name: doc/examples/tjp/files.lst
+SHA1-Digest: wogqV/wSoXOj8aSQ9jP4ZWHv9UY=
+
+Name: icons/structure/advice.gif
+SHA1-Digest: Gvu00/2iTTrt6VFFivK/laNA2VI=
+
+Name: doc/examples/ltw/aj.bat
+SHA1-Digest: dVM4E0lhKgNB6fghFTtfAWX2HEU=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/SignaturePattern.htm
+ l
+SHA1-Digest: xcHuZa1jDWxoJdEz80TQ9Hi6DLE=
+
+Name: doc/api/deprecated-list.html
+SHA1-Digest: G4wHbTP1wTVw8t2dmtxtpJ37Oao=
+
+Name: doc/examples/introduction/Point.java
+SHA1-Digest: O5eBiqBf9MFnnqMHeE6c4xR4Daw=
+
+Name: doc/runtime-api/constant-values.html
+SHA1-Digest: QClmGmqRiAXkWrK+684n26+dUl4=
+
+Name: doc/examples/coordination/MethodState.java
+SHA1-Digest: 2emOiUoVTaJX5zZdFq5Mj+z/4O0=
+
+Name: doc/runtime-api/org/aspectj/lang/reflect/LockSignature.html
+SHA1-Digest: 2md7qGyMDZbeKOar2fXhOJ90Ot8=
+
+Name: icons/structure/accessibility-privileged.gif
+SHA1-Digest: jNuiarlQErl4I0nFCMd1oa+OBT4=
+
+Name: icons/actions/save.gif
+SHA1-Digest: ptodwmp/j2V9yoWAPTINy7IxOOA=
+
+Name: doc/runtime-api/overview-summary.html
+SHA1-Digest: lok7heR1qtbnKLNVbLkWtPPSm+Y=
+
+Name: doc/weaver-api/org/aspectj/weaver/loadtime/DefaultMessageHandler
+ .html
+SHA1-Digest: O1gSUS9PHUEHlWOsf5JHlDteGUc=
+
+Name: doc/examples/tracing/README
+SHA1-Digest: QC4D6MC0pjbQFbh2At2u9wwjJM0=
+
+Name: doc/progguide/apcs04.html
+SHA1-Digest: p+knyYF6IS45ntfYP8ibNNgGEso=
+
+Name: doc/runtime-api/org/aspectj/lang/reflect/AdviceSignature.html
+SHA1-Digest: gokI1cc+1xG1xntqrVu0s1vsfbI=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/ISupportsMessageContext.
+ html
+SHA1-Digest: rMwglXC4VZthJ3Cv8YCwJbCXkh8=
+
+Name: icons/structure/referenceBack.gif
+SHA1-Digest: drejdz6jr61lbaUdnI0IWSAfzDg=
+
+Name: doc/adk15notebook/annotations-declare.html
+SHA1-Digest: ToRoyX/PPW/z5ERVuPyFd8Md4xE=
+
+Name: doc/api/org/aspectj/lang/reflect/CodeSignature.html
+SHA1-Digest: QS956KuCAejgAI8Yb1LiCSz7QIQ=
+
+Name: doc/devguide/rn01re02.html
+SHA1-Digest: jdWEX0NNd1x1/TdpIaXpiUOHKDQ=
+
+Name: doc/weaver-api/org/aspectj/weaver/loadtime/definition/package-tr
+ ee.html
+SHA1-Digest: FkJyrRtW9BcC4Il9T3UorHUKQFY=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/DeclareSoft.html
+SHA1-Digest: sx19se4vex6nUA0HKGG96959dok=
+
+Name: doc/api/org/aspectj/weaver/tools/package-frame.html
+SHA1-Digest: EjiV3IpuNz3rgm9NZ5QHRQHRi5s=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/PointcutParameter.html
+SHA1-Digest: WdxeRBUSuN8dI32ZLnJiFhkoaPk=
+
+Name: icons/structure/inheritanceForward.gif
+SHA1-Digest: JIJJefsxELoMH13wlBmHY9SwAkE=
+
+Name: plugin.properties
+SHA1-Digest: 0ntReDZf+BNa5IK+okLuCdyukiI=
+
+Name: icons/actions/default.gif
+SHA1-Digest: izgAsJvnTRq/gAaUjmCCpt5Cu5c=
+
+Name: icons/actions/browseroptions.gif
+SHA1-Digest: q/oSRjwVtqc4CGChIazXRkIIEhQ=
+
+Name: doc/devguide/openConfig.gif
+SHA1-Digest: ygfKbnmq0i181raXVjvnAw23P2o=
+
+Name: doc/runtime-api/org/aspectj/lang/package-summary.html
+SHA1-Digest: t1nTkt1WmwhOCjeyxrvjgypDvC0=
+
+Name: doc/examples/observer/SubjectObserverProtocol.java
+SHA1-Digest: iDFZYgXZQMjYReDw0g+8h0RJqJs=
+
+Name: icons/actions/hideNonAJ.gif
+SHA1-Digest: T8PVCYc1DVu9fJmG6mk+c0IWJBU=
+
+Name: doc/progguide/overview.gif
+SHA1-Digest: BsTj9Lih8/KA7dLKdwJfy9/Iluo=
+
+Name: doc/org_aspectj_ajde.html
+SHA1-Digest: IHpbdHuTJJ4JiP1B5OXBN1f6Asg=
+
+Name: icons/actions/stopAjde.gif
+SHA1-Digest: fibooLltsXS0ItuTdNWFu6LNM9s=
+
+Name: doc/progguide/language-joinPoints.html
+SHA1-Digest: fXZwfTUrYCXs8yO7j/UlJq35RNU=
+
+Name: icons/structure/project.gif
+SHA1-Digest: iFUfwoKoQg0nI+kdkZzxWzE0Dc4=
+
+Name: doc/devguide/ltw-agents.html
+SHA1-Digest: qCRZfU0aAupflwVjGmnsdUuwsSo=
+
+Name: doc/doc/quick.pdf
+SHA1-Digest: ez+CWnYutJWwyn63GY4dn0cQjmw=
+
+Name: doc/runtime-api/allclasses-noframe.html
+SHA1-Digest: nqkI7Zw8jHRPdlKbBNZPOhDzCi8=
+
+Name: doc/api/org/aspectj/lang/reflect/MemberSignature.html
+SHA1-Digest: VLp9lMVAgTEqe8lIeYOYhLKse1s=
+
+Name: doc/examples/tracing/ExampleMain.java
+SHA1-Digest: CeRpejtcCfHmdDJ7b9dRbcKFLCw=
+
+Name: doc/progguide/examples-development.html
+SHA1-Digest: U1BrVZYVyFJzIeXOMHY1yTqFxHg=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/annotation/Pointcut.html
+SHA1-Digest: 26NWkUjcJWbTp5Hn+ZfSHcwGz9U=
+
+Name: doc/images/ajdoc2.JPG
+SHA1-Digest: VsEC95Rqig2Ih4KjtkCOPM7QhIU=
+
+Name: doc/weaver-api/org/aspectj/weaver/loadtime/definition/package-fr
+ ame.html
+SHA1-Digest: xc7Vziq7iEMY5sUlqQ+s9aYOAZ0=
+
+Name: doc/adk15notebook/annotations.html
+SHA1-Digest: B1IlGO31zp8Xh1LNqYrsAVQ3nTc=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/PointcutDesignatorHandle
+ r.html
+SHA1-Digest: hqupd85p6q+71LqVtcqyKB2TNwM=
+
+Name: doc/README-152.html
+SHA1-Digest: Wwa2UJadg18xB9m7MoC56KieJaQ=
+
+Name: doc/runtime-api/org/aspectj/lang/JoinPoint.html
+SHA1-Digest: kekqBlhgohmYhNGdevzg310SWHE=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/InterTypeFieldDeclar
+ ation.html
+SHA1-Digest: ZrcMao83RlxfbS6Gs0wUki9upYw=
+
+Name: doc/progguide/figureUML.gif
+SHA1-Digest: rZVY3NIBTA1QE8PpbK9KvAWB2Ww=
+
+Name: doc/devguide/ajbrowser-building.gif
+SHA1-Digest: 0abcSkfL7QOwOceyFLeap/wKzAM=
+
+Name: doc/devguide/compatibility.html
+SHA1-Digest: 2h2rUhOdWo+Ygau8UW0IakydK30=
+
+Name: doc/examples/spacewar/GameSynchronization.java
+SHA1-Digest: 8WgPOD2AZhO+7Aem1xo5WBTGZJA=
+
+Name: doc/weaver-api/deprecated-list.html
+SHA1-Digest: grYwtZ0eXpGkTIVvfMElTXFR8vE=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/AdviceKind.html
+SHA1-Digest: hJFDDgU/eY9T368kwlMNTejIuDE=
+
+Name: doc/progguide/quick-interType.html
+SHA1-Digest: Z6Ohrky0ag+xwPuKfOLoQrKwNDI=
+
+Name: doc/devguide/command-line-tools.html
+SHA1-Digest: U792KZx5g9XPhZTtTSgx7w2XSwU=
+
+Name: doc/examples/spacewar/Pilot.java
+SHA1-Digest: ck86xCUZ9QTYx/oY/K66PcJ4X1M=
+
+Name: doc/devguide/build.gif
+SHA1-Digest: hv2wigvdwBCVl6MDlLY/yaYgEW0=
+
+Name: doc/devguide/ltw-configuration.html
+SHA1-Digest: ihNnOObvsuTmGgEd1REvBPfyGOI=
+
+Name: doc/examples/tracing/TwoDShape.java
+SHA1-Digest: 31xoEo28nQMt/78PLGJYL1qAD00=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/NoSuchAdviceExceptio
+ n.html
+SHA1-Digest: mKHxItAH6jl1YEikgPUUjy+j6+0=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/InterTypeDeclaration
+ .html
+SHA1-Digest: RX3ia4t1Jqr/SEGvzZQYobEo6YM=
+
+Name: doc/adk15notebook/varargs-in-pcds.html
+SHA1-Digest: CQ/bq96TTJvqXLyREJoHxMnSnVE=
+
+Name: doc/runtime-api/allclasses-frame.html
+SHA1-Digest: oXIN8kO/Q6nyxpq1ZMIGC6nXUvU=
+
+Name: doc/pdguide/trace.html
+SHA1-Digest: dcjXQK9kb9i5PEzSE5yXPULBdOk=
+
+Name: doc/adk15notebook/ltw-configuration.html
+SHA1-Digest: 3IH8MVSHdRrw+hc11QGR9MJ/cKA=
+
+Name: icons/structure/pointcut.gif
+SHA1-Digest: ySEAsdP6YxU/7eHd75sfQAKqmSs=
+
+Name: doc/api/org/aspectj/weaver/tools/GeneratedClassHandler.html
+SHA1-Digest: Jh3AqikcakxXS8JUqCggQyJCnjU=
+
+Name: doc/adk15notebook/join-point-matching-summary.html
+SHA1-Digest: tZoXJO2emyuuGuaaiTXtnQvtyyA=
+
+Name: doc/images/AspectJ11v12.JPG
+SHA1-Digest: iMFEYqcczJxFXGQKSOi3IKkmOi0=
+
+Name: doc/examples/tjp/GetInfo.java
+SHA1-Digest: ub+aIGD+0P8tWB54EdMFz4RGEBI=
+
+Name: doc/examples/telecom/timing.lst
+SHA1-Digest: BygYYksaTk/I5KpiPXxjQ0C9D+Y=
+
+Name: doc/examples/introduction/files.lst
+SHA1-Digest: stGM840hT0E5DrcCj3KvWssDpCI=
+
+Name: doc/api/org/aspectj/lang/JoinPoint.StaticPart.html
+SHA1-Digest: qymy2V8gPH4yArPTepMm9/a7KWo=
+
+Name: doc/examples/spacewar/Display1.java
+SHA1-Digest: phbsuThNclzwvcutEbuB1hyRNBA=
+
+Name: doc/examples/bean/Point.java
+SHA1-Digest: h9R4SzyL/yTKoJdZDYpSQEi9Ljc=
+
+Name: doc/adk15notebook/ltw-specialcases.html
+SHA1-Digest: V4esuEgq34SqaI4aZytRW8i1hfg=
+
+Name: doc/examples/spacewar/Player.java
+SHA1-Digest: 6DJlGuou4x427ZUD8oUmKCz7xBs=
+
+Name: doc/progguide/quick-other.html
+SHA1-Digest: gpIpvRu2uKwCgbJDiVjS4cXiFfM=
+
+Name: doc/pdguide/index.html
+SHA1-Digest: /jaohpHtoaTFJKJzNaeVxADZtKo=
+
+Name: doc/runtime-api/help-doc.html
+SHA1-Digest: oTq98ncJ02uZVY7H5ENlPnvG/NU=
+
+Name: doc/aspectj5rt-api/index-all.html
+SHA1-Digest: 6rpk+OnpE3qRVlyK8yj0v7bbwlc=
+
+Name: icons/structure/file-java.gif
+SHA1-Digest: 7/UHsB1RFcw/Sb2w36VAGgUG5U4=
+
+Name: doc/examples/spacewar/README.html
+SHA1-Digest: YXegpIAtVqA4565BvIp9I+hAwi0=
+
+Name: doc/progguide/examples-production.html
+SHA1-Digest: nwCeHJpxEgTE8AAK1tu+W5WYILo=
+
+Name: doc/README-11.html
+SHA1-Digest: BMvzqup6PtlMuYz0ADuN5OGSvaE=
+
+Name: doc/runtime-api/org/aspectj/lang/reflect/FieldSignature.html
+SHA1-Digest: VM58SJW45bXNqb05SbKHXi/cN5M=
+
+Name: doc/api/org/aspectj/weaver/tools/package-summary.html
+SHA1-Digest: VVvFlGvYbcbAxJC6amEFsXC3qPQ=
+
+Name: doc/doc/api/resources/inherit.gif
+SHA1-Digest: 42+8XxPTdk4LcKDh/HbbyXG+EKI=
+
+Name: icons/actions/saveAll.gif
+SHA1-Digest: jC5nIMtttJrvb3WO/LxBNTTjD0Y=
+
+Name: doc/README-121.html
+SHA1-Digest: aIZ+jCc4rC8qZOy+NJ6PRS+jnd4=
+
+Name: doc/devguide/tools-intro.html
+SHA1-Digest: hLWpYdXI7CvwMpp9BCMPCpjaUMg=
+
+Name: doc/runtime-api/org/aspectj/runtime/reflect/FieldSignatureImpl.h
+ tml
+SHA1-Digest: FhoatgDuJPeLYTFeRgCy6LgN0JM=
+
+Name: doc/devguide/Picasa.ini
+SHA1-Digest: NW/RKMuceHFJ2dfhSE5kbTwpEJM=
+
+Name: icons/actions/new.gif
+SHA1-Digest: 7c6ZegBLaSIdANIGqHB07Vu7aAk=
+
+Name: doc/progguide/language-thisJoinPoint.html
+SHA1-Digest: Xev2/jIzu1cSJP9/a2DR6lu28H0=
+
+Name: doc/weaver-api/overview-summary.html
+SHA1-Digest: 6kGsfVLD5TbNV4naW+J3bN4XDYQ=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/annotation/Around.html
+SHA1-Digest: Vb4Gp1NOeKFyuGm1o3E6KGW6Ubs=
+
+Name: doc/runtime-api/org/aspectj/runtime/reflect/package-frame.html
+SHA1-Digest: ULgE74gwT2wEPkjUO1HU9ip9sKM=
+
+Name: icons/structure/annotation.gif
+SHA1-Digest: LL4Q/r6hF8pgvg6rm9R9KzWoQlI=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/DefaultTrace.html
+SHA1-Digest: ALCXs02NLiBNS0F9Kj3SY+2S8Ew=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/CommonsTrace.html
+SHA1-Digest: X1+wdBGHirOhc9s08WJTNLBDIL4=
+
+Name: doc/devguide/aj-ref-top.html
+SHA1-Digest: FUPG4gbRShD5PM6IiNeox/vt/tA=
+
+Name: doc/examples/telecom/LongDistance.java
+SHA1-Digest: nsFgqALOaYvYM160+SbHiQzWbEc=
+
+Name: doc/examples/spacewar/Ship.java
+SHA1-Digest: BBXtRNhIjgWIKqVma+ALbTqh5f4=
+
+Name: doc/devguide/ajbrowser-problems.html
+SHA1-Digest: 1WtOBWzQA3AHmmsqZr6WDvpxvcQ=
+
+Name: doc/runtime-api/deprecated-list.html
+SHA1-Digest: EzLk+W7kmNiWEtZ+L19NZj0qugk=
+
+Name: doc/progguide/semantics-aspects.html
+SHA1-Digest: EkR2LW9ITBACJRePnZF5+YinBzE=
+
+Name: doc/devguide/ch01s04.html
+SHA1-Digest: uCboxlAqs6k3bwRiurNjluHbS94=
+
+Name: doc/devguide/ltw-packaging.html
+SHA1-Digest: BHv7ytvVID7IbAwUfrZ4F/C5iko=
+
+Name: doc/examples/observer/ColorLabel.java
+SHA1-Digest: ChTukCy5le3fCutgeTplpAsBzpE=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/TypePatternMatcher.html
+SHA1-Digest: luhoqnWrHc3Ew653EknjYXRvVTY=
+
+Name: doc/aspectj5rt-api/deprecated-list.html
+SHA1-Digest: 7T9Ozpm89I/EjzlnahodTLAwGgc=
+
+Name: doc/runtime-api/org/aspectj/lang/reflect/CatchClauseSignature.ht
+ ml
+SHA1-Digest: A+G29dNMInmnSUbQAMjWblvSgy8=
+
+Name: doc/aspectj5rt-api/package-list
+SHA1-Digest: XOZqYRjgu74i6/LZhP9cxbwA25Q=
+
+Name: doc/adk15notebook/jpsigs.html
+SHA1-Digest: 5gBpDYH5MXobajOqX4eVH3KbS+E=
+
+Name: doc/README-12.html
+SHA1-Digest: Tm+JYbWuch3f9Dz5385nBJ+iaxw=
+
+Name: doc/devguide/dd_arrow.gif
+SHA1-Digest: YXxU67J9WwKT/foFkkP3IBtQd7I=
+
+Name: doc/weaver-api/org/aspectj/weaver/loadtime/JRockitAgent.html
+SHA1-Digest: BPe5EuYYgkwuT6iAYX+i5ngfWy0=
+
+Name: doc/examples/telecom/Billing.java
+SHA1-Digest: HaZsQeq3B1hbDw0x2sC7aurI3Gs=
+
+Name: doc/examples/spacewar/SWFrame.java
+SHA1-Digest: qMWuyDss6/aUiJBdRvAh9UV7l+E=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/WeavingAdaptor.html
+SHA1-Digest: vPGmNlO4xP7CJG3ACblztqtqaI8=
+
+Name: doc/devguide/ajbrowser-options.gif
+SHA1-Digest: WqU6hTCSoJChhzOEGIgoqWs8lJ8=
+
+Name: icons/actions/openConfig.gif
+SHA1-Digest: ygfKbnmq0i181raXVjvnAw23P2o=
+
+Name: doc/devguide/ajc-ref.html
+SHA1-Digest: wBSnFwAWhsAZ8ho/ftc5RN5tR1s=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/package-tree.html
+SHA1-Digest: Cn+PVLf6nb7DrfpW/0tw4Im7mBY=
+
+Name: toc.xml
+SHA1-Digest: CPgDDOA5taLDqxDrG3q7eDCGj6M=
+
+Name: doc/progguide/semantics-pointcuts.html
+SHA1-Digest: SZNbXtH9WcWUMtdmNBnCtK+gxic=
+
+Name: doc/adk15notebook/autoboxing-in-aspectj5.html
+SHA1-Digest: aFpIEgWCkQf9WsfHzm7soLXSA+M=
+
+Name: doc/pdguide/ajcore.html
+SHA1-Digest: oC4YzjfpciaWvPASRlYKw1lVKB4=
+
+Name: doc/api/org/aspectj/lang/reflect/MethodSignature.html
+SHA1-Digest: JyqMgeC9KFiaTJ/1K86+R1pNcm0=
+
+Name: doc/images/ajdoc1.JPG
+SHA1-Digest: U728Wg1AdH1onsKomR/W1es3dbk=
+
+Name: doc/api/overview-frame.html
+SHA1-Digest: X1pTRCPeXS+J2yknFznLycT8ywM=
+
+Name: doc/examples/coordination/Condition.java
+SHA1-Digest: YiWVaWaHLgVK1OYhb9JeV0+dvww=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/annotation/DeclareAnnotation
+ .html
+SHA1-Digest: /W/Aess7QkLjDKijBQzLOKizJ4I=
+
+Name: doc/aspectj5rt-api/allclasses-noframe.html
+SHA1-Digest: rCkFZ+wRY7wq+dQ+RS1KENJZoWg=
+
+Name: doc/examples/spacewar/Makefile
+SHA1-Digest: 9onFIjeQmWaRuMXO3neswmIHJtw=
+
+Name: doc/api/serialized-form.html
+SHA1-Digest: uajppEikvw0tn0Jvq1lfAbOx/CI=
+
+Name: doc/examples/coordination/Coordinator.java
+SHA1-Digest: 8F1HheSyLSWVFbUsJLOdI02MZm0=
+
+Name: doc/adk15notebook/printable.html
+SHA1-Digest: r4KftEvztWY0l4f2e8BvTTB1JDA=
+
+Name: toc_adk15notebook.xml
+SHA1-Digest: 999D1LhaK3L7uuv3JWmRqmDF7iQ=
+
+Name: doc/doc/progguide/aspects.gif
+SHA1-Digest: 0PIKqBlH7AFXMDTRxGy1iYxp1s4=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/TypePatternBasedPerC
+ lause.html
+SHA1-Digest: 3AHdu8chYjQRWwdxy1QwhTI4MEU=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/TypePattern.html
+SHA1-Digest: CbI8jmfD7axYzcqwE3MBNW8G3co=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/annotation/Before.html
+SHA1-Digest: MzTJt/Yz5ugY5ahzSfenLyEZ/lI=
+
+Name: doc/progguide/starting-production.html
+SHA1-Digest: fcgOPn4SKGKu/MQb5AbbE+l5Jys=
+
+Name: doc/aspectj-faq.css
+SHA1-Digest: zcBqYYmHX+L1hV5Yddbfi3Lc8hk=
+
+Name: doc/examples/build.xml
+SHA1-Digest: bX9imhZ1PvIuq6PLRQ9rFfThK8U=
+
+Name: doc/progguide/apcs02.html
+SHA1-Digest: f0/2vPhp/wtqbbWDiXM9IphL7Pk=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/DeclareParents.html
+SHA1-Digest: 1yGuS89n0ss3AYeEK4XUAIMsDfU=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/DeclareAnnotation.Ki
+ nd.html
+SHA1-Digest: 5PesYC0qxyADRuyHSEwzxIydZ5k=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/annotation/AdviceName.html
+SHA1-Digest: fEGUbhLPGuV8qBLZ1506s9fK2hQ=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/CommonsTraceFactory.html
+SHA1-Digest: IdCo7OdVAXRbUCeV+I9Y29BauyY=
+
+Name: doc/adk15notebook/generics-inAspectJ5.html
+SHA1-Digest: 4zguEkfdFInvBRTK1vSRIYn6OQo=
+
+Name: doc/adk15notebook/autoboxing.html
+SHA1-Digest: eV6AKYjBniP03U5D7qi4/8cB15E=
+
+Name: doc/faq.html
+SHA1-Digest: fxRM3syuvpZgCpBoUdBWC3uUtZA=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/annotation/package-tree.html
+SHA1-Digest: g5RzyvkkLy6ugWQkwGZlxy6aQus=
+
+Name: doc/weaver-api/org/aspectj/weaver/loadtime/ClassLoaderWeavingAda
+ ptor.html
+SHA1-Digest: vXq5V6xH3H8ifH1eEM2DwBjgl+M=
+
+Name: doc/examples/telecom/Timing.java
+SHA1-Digest: YGys0iSeFNvnX1XYrqf8RKv7LYc=
+
+Name: doc/devguide/ajbrowser-navigating.html
+SHA1-Digest: +9cgxjXTz8gl2ChFM4z2Ty6VWeg=
+
+Name: doc/progguide/aspectj-docs.css
+SHA1-Digest: lQJnG5haB6d97CyeCkmWbPsyUzk=
+
+Name: doc/runtime-api/overview-frame.html
+SHA1-Digest: ZY5hVZTOSajk7GGB4/anZGz4BoY=
+
+Name: doc/runtime-api/org/aspectj/lang/reflect/package-frame.html
+SHA1-Digest: TFRSzeNo2Xp55HRbzWBQ3RaRYQM=
+
+Name: doc/adk15notebook/varargs.html
+SHA1-Digest: zcelRaWgU90auGn0wrlMKX9EFtg=
+
+Name: doc/api/org/aspectj/lang/reflect/package-tree.html
+SHA1-Digest: 5eqXbdevOK3kfEz+wg0WBr+yRRw=
+
+Name: icons/actions/closeConfig.gif
+SHA1-Digest: zz1QiJjkkJTWqN9oprfB/6ZuFEk=
+
+Name: icons/actions/hideAssociations.gif
+SHA1-Digest: L44u5ahjxOZfJG9c1vqWW/S/S+E=
+
+Name: doc/api/org/aspectj/lang/reflect/package-summary.html
+SHA1-Digest: 1C6RkBJYecZsxp4U1c9ZooxaUWQ=
+
+Name: doc/devguide/ajdoc-ref.html
+SHA1-Digest: jQiJavURrjSi4LlYJqZNfGGlHUY=
+
+Name: doc/examples/coordination/TimeoutException.java
+SHA1-Digest: 0BKTgQmege+TA8lSO0iExeMfS7I=
+
+Name: doc/examples/bean/Demo.java
+SHA1-Digest: H5QXaiZJL1WOWB6XkJyfXjXXZSk=
+
+Name: doc/examples/coordination/CoordinationAction.java
+SHA1-Digest: UpvsVB2lJL0iHBjLzQ/KVLIGQm4=
+
+Name: doc/weaver-api/org/aspectj/weaver/loadtime/WeavingURLClassLoader
+ .html
+SHA1-Digest: Z8hdL1j0TLC5XrDdnEVKCAr7r9g=
+
+Name: doc/devguide/antTasks-adapter.html
+SHA1-Digest: 99NFzrNRZhkn//xTqwpY4LVJ2To=
+
+Name: ajde.jardesc
+SHA1-Digest: 0sKfhPgZraaCv0od+mpyLPIoXfo=
+
+Name: icons/actions/refresh.gif
+SHA1-Digest: GyiLWV/2tDv1Wvum1AKcRHoxyn8=
+
+Name: doc/examples/spacewar/Display2.java
+SHA1-Digest: 6NJnFmaB7K+I1zwp2LEqXUPIjgs=
+
+Name: doc/weaver-api/resources/inherit.gif
+SHA1-Digest: 42+8XxPTdk4LcKDh/HbbyXG+EKI=
+
+Name: doc/examples/coordination/Exclusion.java
+SHA1-Digest: cD7u5R5V29iL5mXwmHUMI371zCQ=
+
+Name: doc/progguide/quick.html
+SHA1-Digest: djQH7JCXsiF82M8uoUd6dVOjERI=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/ShadowMatch.html
+SHA1-Digest: WsatuTy7IcKAeiw4ZuToysZnHJ0=
+
+Name: doc/runtime-api/org/aspectj/runtime/reflect/package-tree.html
+SHA1-Digest: dsjU7JC8ppwgRSSOuusYf9myGeQ=
+
+Name: doc/doc/progguide/overview.gif
+SHA1-Digest: BsTj9Lih8/KA7dLKdwJfy9/Iluo=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/InterTypeConstructor
+ Declaration.html
+SHA1-Digest: qVhdkhwgwA9CpkvJCYFqZy4d7DA=
+
+Name: doc/devguide/ltw.html
+SHA1-Digest: Pe1UeA0mxfMRow9qyALwAzWDekU=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/JoinPointMatch.html
+SHA1-Digest: I6/P2+3MsuSTdavxVRLnhNYjqUU=
+
+Name: doc/examples/coordination/Mutex.java
+SHA1-Digest: od5htCAIlVU2fYGSJbp0ikWoXUM=
+
+Name: doc/pdguide/pointcuts-debugging.html
+SHA1-Digest: keUaN6kzlI0IxSbNB85Wp1YNLiU=
+
+Name: doc/examples/tjp/Demo.class
+SHA1-Digest: WC4lmPeHw3HVtWz98yZx2kdrA4s=
+
+Name: doc/progguide/examples.html
+SHA1-Digest: qsSmBNXHRo+oYCPVq54GRJt2Djk=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/annotation/DeclareParents.ht
+ ml
+SHA1-Digest: ah4MramFwj4J4dowLSHYNuVBvNA=
+
+Name: icons/actions/execute.gif
+SHA1-Digest: 16LiOOR/KFczOycVSSsVSHekCWA=
+
+Name: doc/examples/spacewar/Bullet.java
+SHA1-Digest: xzslJufjeawScEb/NsMvAxEI8Lo=
+
+Name: doc/progguide/language.html
+SHA1-Digest: /P6mS+Ew7NVQvPa6VPBZPipPBMk=
+
+Name: icons/actions/order.gif
+SHA1-Digest: WmOCxjDAPubp9gX80zBo8rVzlto=
+
+Name: doc/devguide/antTasks-iajc.html
+SHA1-Digest: T07J99RhQ5UCg8Eut/wsPc+tt6U=
+
+Name: doc/examples/observer/Button.java
+SHA1-Digest: gx8Wrn4eMN8zN1GqiAkW2PIDSoI=
+
+Name: doc/examples/bean/files.lst
+SHA1-Digest: fZhjY+5l+CbEtUGst6Tk9zxa+J4=
+
+Name: doc/examples/telecom/AbstractSimulation.java
+SHA1-Digest: sMtmiosIi4o/R8fmBipTMqW+Ghs=
+
+Name: doc/api/org/aspectj/lang/SoftException.html
+SHA1-Digest: 2OUeZ94fLwJzkHDgOrc5HYKVtYo=
+
+Name: doc/api/org/aspectj/lang/reflect/CatchClauseSignature.html
+SHA1-Digest: ZJq1Oo/Og85Mbw5jX2atcrpD0z0=
+
+Name: doc/weaver-api/org/aspectj/weaver/loadtime/IWeavingContext.html
+SHA1-Digest: tnc6EsaE82tQ7b8i/WS6sVTSMMY=
+
+Name: doc/adk15notebook/covariance-and-join-point-matching.html
+SHA1-Digest: MpE0cW4Tu5Uf/bD9auRiOtGX0wQ=
+
+Name: doc/README-153.html
+SHA1-Digest: 9asJb3AzSjuU8skR3tAi3tyGV58=
+
+Name: doc/api/org/aspectj/lang/reflect/SourceLocation.html
+SHA1-Digest: X/wpzmLJGoRlRsZM7e3tmUibLr0=
+
+Name: toc_ajprogguide.xml
+SHA1-Digest: osow4volNRKivizFinkvjrk7MtU=
+
+Name: doc/weaver-api/index.html
+SHA1-Digest: N8EU74TMoMdhyEp0iSza+EMU3gM=
+
+Name: doc/adk15notebook/grammar.html
+SHA1-Digest: DyaZf0KglmIydiKA1+N7v+NDd04=
+
+Name: doc/adk15notebook/ataspectj-aspectof.html
+SHA1-Digest: +XzJvfgss4hBHuPerT982NJJvW8=
+
+Name: icons/structure/enum.gif
+SHA1-Digest: 6uxGXTmxdnAIWcIv6J8JjL3Qclc=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/WeavingAdaptor.WeavingAd
+ aptorMessageWriter.html
+SHA1-Digest: aZW+jNYZpSsGXWxY4YLWA25Pfy0=
+
+Name: doc/devguide/ajbrowser.html
+SHA1-Digest: j9SHi6yXToFBU98stJaIgjXDXts=
+
+Name: doc/api/org/aspectj/lang/JoinPoint.html
+SHA1-Digest: MDDltiSGQ+GOUIVuN/coWX26cz4=
+
+Name: doc/aspectj5rt-api/constant-values.html
+SHA1-Digest: 6dF3QYZj8lh7LF8CEXFXMUxfYO4=
+
+Name: icons/actions/zoomStructureToFileMode.gif
+SHA1-Digest: iHrNfckT5LzumRskKqL6Gxr3XXo=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/annotation/DeclareError.html
+SHA1-Digest: v5yVkOAyHxs6sg6KkHmo5hVerdg=
+
+Name: icons/structure/field.gif
+SHA1-Digest: 2Zk9OGA9KZkn9mrsfqd4ESPanHw=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/UnsupportedPointcutPrimi
+ tiveException.html
+SHA1-Digest: XXuziJmiq/i+8S5zVbQdxRaqfao=
+
+Name: doc/examples/ltw/README
+SHA1-Digest: nQUQoaEiXdZXFw0mnCVoSnxHZdU=
+
+Name: doc/examples/observer/SubjectObserverProtocolImpl.java
+SHA1-Digest: dgPROE814xPMa8PZVkxh/657j/g=
+
+Name: doc/weaver-api/constant-values.html
+SHA1-Digest: qukcNgORHMHNPC36nEen5Ij+auk=
+
+Name: doc/weaver-api/overview-frame.html
+SHA1-Digest: RiuEt9NWizIdMo10E7wdUk3onCI=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/package-summary.html
+SHA1-Digest: lnTodYaJcJntRK6Zjg5xdtZYBcg=
+
+Name: doc/progguide/implementation.html
+SHA1-Digest: yzJ/ixMM/4eovvPbpGnLehK+8gg=
+
+Name: doc/runtime-api/org/aspectj/lang/reflect/UnlockSignature.html
+SHA1-Digest: AXNwC2vmmaesUlLDHVRMrfRh1gU=
+
+Name: doc/progguide/starting-aspectj.html
+SHA1-Digest: QUIBQtv0tZi728tps8hVdCYGcJw=
+
+Name: doc/devguide/antTasks-install.html
+SHA1-Digest: 3HRDaSVnhVj0WIO2hiknlrS2cJA=
+
+Name: doc/runtime-api/org/aspectj/lang/JoinPoint.StaticPart.html
+SHA1-Digest: jyS1M7ZNl7QAthpz/hmEgQ+jIhI=
+
+Name: doc/examples/spacewar/EnergyPacketProducer.java
+SHA1-Digest: HU8rjnHAIXp6EzJaH7plHxMXcwQ=
+
+Name: doc/progguide/quick-aspectAssociations.html
+SHA1-Digest: IHMrAgHUroNk8pa2gJVXo50eJEk=
+
+Name: icons/actions/options.gif
+SHA1-Digest: 01JKyt9o93Cg35HiQ21nv7PENvk=
+
+Name: icons/actions/zoomStructureToGlobalMode.gif
+SHA1-Digest: jCiZOe2AwaxVp4XXVArSOhByFZ8=
+
+Name: doc/aspectj5rt-api/index.html
+SHA1-Digest: w1i+GvftEskfV5BXpUn03fvM6d8=
+
+Name: doc/examples/tracing/notrace.lst
+SHA1-Digest: rABnd3lJO51+6R1vrJ3fpgJXYyI=
+
+Name: doc/examples/telecom/BillingSimulation.java
+SHA1-Digest: 5UxZIiFw02fVXCIFADmfWUUArEE=
+
+Name: doc/runtime-api/package-list
+SHA1-Digest: kBDX3sEy4fpNETyZ/EHm5YpCjjc=
+
+Name: doc/weaver-api/org/aspectj/weaver/loadtime/package-summary.html
+SHA1-Digest: 6s6oVVuiOerDhpA+82ceB5ZHHCM=
+
+Name: doc/examples/observer/Display.java
+SHA1-Digest: ftEa+WKMdxOlZ/rMN9BHGYB+zuU=
+
+Name: doc/examples/tracing/tracelib.lst
+SHA1-Digest: PXjrsNwphSjT2SAEQrLkw/Bjj6Q=
+
+Name: doc/examples/tracing/tracev1.lst
+SHA1-Digest: HHnf1clpAKrbRFJF1plVAKhd9XU=
+
+Name: doc/examples/tjp/Demo.java
+SHA1-Digest: CM4SbNdXvuYHFHf+po77r8a2bW8=
+
+Name: doc/devguide/antTasks-problems.html
+SHA1-Digest: jLdF+12n89jwXAV/2BTr2jtltrc=
+
+Name: doc/examples/tracing/version3/Trace.java
+SHA1-Digest: 8SIYVv73EajkIofpjnV8x4rmpw4=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/MatchingContext.html
+SHA1-Digest: 8Syru07IlTNM9Xj3wscv+5i0UNw=
+
+Name: doc/README-150.html
+SHA1-Digest: bzyKb1f4pyC60DNuJCBZeDLpAkE=
+
+Name: doc/examples/observer/files.lst
+SHA1-Digest: 6BXMHgFnk0xu5j5JgOgsoZhWtb8=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/annotation/After.html
+SHA1-Digest: dYp6wg6BotfLCTUiA0+wcGaubZI=
+
+Name: doc/api/package-list
+SHA1-Digest: ShZvqPYtC0AQyUvzPZPGwCMUZq4=
+
+Name: doc/examples/spacewar/EnsureShipIsAlive.java
+SHA1-Digest: 7UI90ZmSc80Dj4vDisN7G6T0k9s=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/Pointcut.html
+SHA1-Digest: neEEYAvs5Gl3Yfm1km3d5Y3WDfc=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/AjTypeSystem.html
+SHA1-Digest: GsQtTdyRG8NSI0y6cLD8HuSIwLI=
+
+Name: about.html
+SHA1-Digest: UsFBKQL29s2SBlFWtgsRDxqOpFU=
+
+Name: doc/doc/devguide/ajbrowser-building.gif
+SHA1-Digest: 0abcSkfL7QOwOceyFLeap/wKzAM=
+
+Name: icons/actions/startAjde.gif
+SHA1-Digest: +iLrVGZ6umA5DTI46VGhUJteenI=
+
+Name: doc/adk15notebook/ltw-rules.html
+SHA1-Digest: cw4FwHzEkpIwEZV8oumTd+qQX2o=
+
+Name: doc/examples/telecom/Call.java
+SHA1-Digest: SVAYoPkjAVfx4P+2V1sWHbqoaTE=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/DeclareErrorOrWarnin
+ g.html
+SHA1-Digest: XadB3o8/gs4aOj6OwHfzBLqoqlc=
+
+Name: doc/devguide/ajbrowser-running.html
+SHA1-Digest: kOhpwaZaDPmhtvX0t7apPCEn0JU=
+
+Name: doc/runtime-api/org/aspectj/lang/JoinPoint.EnclosingStaticPart.h
+ tml
+SHA1-Digest: GumH/Kr6XmiXGq7N3ot3qGO7XnM=
+
+Name: doc/weaver-api/org/aspectj/weaver/loadtime/package-frame.html
+SHA1-Digest: PTSxbPlFt460bGnZCKLDsVnyQJA=
+
+Name: doc/adk15notebook/ltw-packaging.html
+SHA1-Digest: EYh58b29Gc2uvH2Onpdc5jr1lqo=
+
+Name: doc/api/org/aspectj/lang/reflect/package-frame.html
+SHA1-Digest: QmfLykVXV4UCqjIcavKujQgm7tk=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/Advice.html
+SHA1-Digest: oK8BCBv1GXqQcG5AEfuQXtCxRCs=
+
+Name: doc/runtime-api/org/aspectj/lang/package-tree.html
+SHA1-Digest: Ndpr+vCQzQnQOwkXOnVxSecE0e0=
+
+Name: icons/actions/search.gif
+SHA1-Digest: HNpJ/+vE2bVDsHqGLEE88ecrp00=
+
+Name: doc/images/Picasa.ini
+SHA1-Digest: XMYynr+6WEXpIS7NA/faQeC4N+8=
+
+Name: doc/api/help-doc.html
+SHA1-Digest: uEPPAiR6usmw+kG3Z0t6n0s8UAU=
+
+Name: doc/progguide/semantics-declare.html
+SHA1-Digest: AGakJ7cbatPhMue55tnNjAju5sE=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/PointcutParser.html
+SHA1-Digest: l8ncikf2HYOkITs4X/QKqdk6nOc=
+
+Name: doc/examples/telecom/Customer.java
+SHA1-Digest: 06a2aLA/ygNi1FEw51Mnd2h2lYM=
+
+Name: doc/README-162.html
+SHA1-Digest: fLP4Gk06irbxWEBQAxvNC2xdh9k=
+
+Name: doc/api/packages.html
+SHA1-Digest: QP708EouvKnAyo5lbbaSHjawCw0=
+
+Name: doc/adk15notebook/pertypewithin.html
+SHA1-Digest: t6Ui1M/h7vJFjgTFZhdbmx+FU/Q=
+
+Name: doc/aspectj5rt-api/resources/inherit.gif
+SHA1-Digest: 42+8XxPTdk4LcKDh/HbbyXG+EKI=
+
+Name: icons/structure/error.gif
+SHA1-Digest: nZRrEF9C7giKyXvEQJyagGyvvTI=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/FuzzyBoolean.html
+SHA1-Digest: 0yfHVlF7wwlr74I7YqsxvZ/AKus=
+
+Name: doc/adk15notebook/annotations-itds.html
+SHA1-Digest: cBsaXcqhPSkqmUQ2wO0PTo4dp1Y=
+
+Name: doc/adk15notebook/ch11s03.html
+SHA1-Digest: JMI1KpsJj3kZmECsgPZv2YtINMU=
+
+Name: doc/progguide/quick-typePatterns.html
+SHA1-Digest: aWuWTMe6dvoAV5khS/MxhmT69ZY=
+
+Name: icons/structure/search.gif
+SHA1-Digest: HNpJ/+vE2bVDsHqGLEE88ecrp00=
+
+Name: icons/actions/browserDisabled.gif
+SHA1-Digest: FfUMN3zGURFVz9vGj6BT/uqWJhg=
+
+Name: doc/weaver-api/stylesheet.css
+SHA1-Digest: XZYLdj3x+TZJjCIWGztBIFe+oe4=
+
+Name: doc/weaver-api/org/aspectj/weaver/loadtime/ConcreteAspectCodeGen
+ .html
+SHA1-Digest: N1xX48Ooq995txQK3ii4uCSjxAw=
+
+Name: doc/adk15notebook/aspectj-docs.css
+SHA1-Digest: 85k+luAPfDHOIDsRnYCAFDfEvhU=
+
+Name: doc/doc/devguide/ajbrowser-options.gif
+SHA1-Digest: WqU6hTCSoJChhzOEGIgoqWs8lJ8=
+
+Name: doc/adk15notebook/enums-in-aspectj5.html
+SHA1-Digest: n2kWlbzziyiJiUkzoJQFvYVBijo=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/WeavingAdaptor.WeavingAd
+ aptorMessageHandler.html
+SHA1-Digest: NNegeFhUnUkh+OLE27fJCXaLIjI=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/PointcutExpression.h
+ tml
+SHA1-Digest: XxZR3PAQaeAqDIlpATJwYaty2bk=
+
+Name: doc/api/org/aspectj/lang/package-summary.html
+SHA1-Digest: wiYh0Lg0F8Tac3L7bHiC3jboQrA=
+
+Name: doc/aspectj5rt-api/allclasses-frame.html
+SHA1-Digest: dbQeo2ayd9cw+S6jgqeBM4CrfnI=
+
+Name: doc/runtime-api/org/aspectj/lang/reflect/MemberSignature.html
+SHA1-Digest: wrdNmRlxYmgVUekRI7MxwmCDsYM=
+
+Name: icons/structure/info.gif
+SHA1-Digest: MJW8KvTfr0S9XaU8nGNvxTPmlKs=
+
+Name: doc/README-AspectJ.html
+SHA1-Digest: slNQUA3vFNtVFl0r8UkgXTMDEQs=
+
+Name: doc/examples/spacewar/SpaceObject.java
+SHA1-Digest: mq82UV8MgsvcHPBSvI50Z88q5Ag=
+
+Name: doc/aspectj5rt-api/overview-summary.html
+SHA1-Digest: GqeToOnC82D2d6/9uytdD7YmUrs=
+
+Name: doc/adk15notebook/annotations-decp.html
+SHA1-Digest: Qj0J0xvB9aEmJHjAN0/4hO8JzWQ=
+
+Name: doc/examples/spacewar/EnergyPacket.java
+SHA1-Digest: 14U+sCyHDg09NeWWnKeIMMzawV0=
+
+Name: doc/runtime-api/resources/inherit.gif
+SHA1-Digest: 42+8XxPTdk4LcKDh/HbbyXG+EKI=
+
+Name: icons/actions/mergeStructureView.gif
+SHA1-Digest: +lIkho6dURonN57g1P/uVI3c6Mk=
+
+Name: doc/pdguide/messages-scenarios.html
+SHA1-Digest: Nbh5fYgQYg0TVbpIfsY4E6raV4I=
+
+Name: doc/devguide/bytecode-concepts.html
+SHA1-Digest: BNxAmxjQYtXpskM3cQ6vff4tpms=
+
+Name: doc/api/org/aspectj/lang/reflect/ConstructorSignature.html
+SHA1-Digest: T3djCzLi1QcaLR4WakkV/3Qa7jY=
+
+Name: doc/quick5A4.pdf
+SHA1-Digest: pIxyz7ILzaBzjl4W/Mez7EZYybg=
+
+Name: doc/examples/introduction/HashablePoint.java
+SHA1-Digest: Z0swedGrGdGNMgX3aX2TtLenRUY=
+
+Name: doc/pdguide/pointcuts.html
+SHA1-Digest: grz5qpXdqv2HSnW+wBmI9NxesE8=
+
+Name: doc/api/allclasses-frame.html
+SHA1-Digest: sRomZkjGVHROJ58qS5YmjSHreEc=
+
+Name: doc/doc/images/ajdoc2.JPG
+SHA1-Digest: VsEC95Rqig2Ih4KjtkCOPM7QhIU=
+
+Name: doc/examples/observer/Demo.java
+SHA1-Digest: v3YM0bzG960LlErPYEuwQ7a2OJ8=
+
+Name: doc/adk15notebook/join-point-modifiers.html
+SHA1-Digest: IoYjEGz68v2XexV9ye7Ztz+4npY=
+
+Name: doc/weaver-api/org/aspectj/weaver/loadtime/Options.WeaverOption.
+ html
+SHA1-Digest: Lug/wcUzITq/2DYua9pzi0B84xQ=
+
+Name: doc/quick5.pdf
+SHA1-Digest: 1BjqgucHcUMLmxaB/EMxmdGBwF0=
+
+Name: icons/actions/relations.gif
+SHA1-Digest: OaZ3miSo19F6iXojCL4d0vpKOeQ=
+
+Name: doc/runtime-api/org/aspectj/lang/reflect/package-summary.html
+SHA1-Digest: Et+B1PtF45JBM+rEbM76uHcXASg=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/PerClauseKind.html
+SHA1-Digest: XNhNEtxNwGv6pAgIp5tS8PcPkPc=
+
+Name: doc/doc/images/AspectJ11v12.JPG
+SHA1-Digest: iMFEYqcczJxFXGQKSOi3IKkmOi0=
+
+Name: doc/devguide/ch01s02.html
+SHA1-Digest: /M56puit4fMsmpieWhDEoVhAb+g=
+
+Name: doc/api/org/aspectj/weaver/tools/PointcutExpression.html
+SHA1-Digest: LHAAmLFyoL95x38c4J4Na3cGzJY=
+
+Name: doc/porting.html
+SHA1-Digest: PQFz0BXyupmQ6LCdMgTWZZB+OoI=
+
+Name: doc/progguide/examples-basic.html
+SHA1-Digest: Ui/yEBSqSkLFPQWCRQlFwydOtX8=
+
+Name: doc/api/overview-tree.html
+SHA1-Digest: NE65+JQosKhejSyEZ9eNuROqdqo=
+
+Name: doc/pdguide/messages.html
+SHA1-Digest: J6mFs8W/2mQTdWE8TBjEtBsFoVI=
+
+Name: doc/progguide/aspects.gif
+SHA1-Digest: 0PIKqBlH7AFXMDTRxGy1iYxp1s4=
+
+Name: doc/runtime-api/org/aspectj/lang/reflect/package-tree.html
+SHA1-Digest: gZZ9OO6wzZg7fb2MIs48bv5rX4I=
+
+Name: doc/changes.html
+SHA1-Digest: kZS9ohhzVIA7DMFV0IH7Zww5DHM=
+
+Name: doc/runtime-api/org/aspectj/lang/reflect/ConstructorSignature.ht
+ ml
+SHA1-Digest: /KKIo8+62L5MMbOSCj8Hn1vJ6o8=
+
+Name: doc/examples/spacewar/RegistrySynchronization.java
+SHA1-Digest: 2ssFZ0zqNZCS8/51e4sFES4Sw4g=
+
+Name: doc/examples/spacewar/Timer.java
+SHA1-Digest: Lg10Ax7lTQpGNuvxf62zbMh23qc=
+
+Name: doc/adk15notebook/ltw.html
+SHA1-Digest: oaKs3xvxyzXxjQyB/QQKwEZYmYs=
+
+Name: doc/pdguide/printable.html
+SHA1-Digest: MnAro4UUdWz0QCbtr92XxzB0A/U=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/PointcutPrimitive.html
+SHA1-Digest: r9ZIv1oPpXkGky0uBbruUanCiZE=
+
+Name: doc/api/org/aspectj/weaver/tools/WeavingAdaptor.html
+SHA1-Digest: 9O/fv6AllgYuus1i01/qrjnLwG4=
+
+Name: doc/examples/spacewar/Display.java
+SHA1-Digest: /+LxK+CnZddFR6LXWAtZGneHjwU=
+
+Name: doc/examples/tracing/tracev2.lst
+SHA1-Digest: zcbTAso1ImOc74d6LLYcC26iNZM=
+
+Name: doc/api/org/aspectj/lang/package-frame.html
+SHA1-Digest: bS2YhaCPII5Sh4uSWgtkmUjYxp4=
+
+Name: doc/progguide/preface.html
+SHA1-Digest: Q/VLNMIEiU4R8ftOORU2VrkujBw=
+
+Name: doc/progguide/pitfalls-infiniteLoops.html
+SHA1-Digest: SS7ShQ7mrRIvdz+TJsu2m5/kvvU=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/DefaultTraceFactory.html
+SHA1-Digest: +NmhW1sUopvGgekkdgewtQuRJmg=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/PerClause.html
+SHA1-Digest: /SGFxSGfn/GJvJ3ysSEOEEx9XfE=
+
+Name: doc/progguide/quick-advice.html
+SHA1-Digest: /JRqUWLUTK1v+VTnj/ovkFeOWuM=
+
+Name: icons/structure/declareParents.gif
+SHA1-Digest: 6ftab4iiIKLN53BKqRNmaW+bt60=
+
+Name: doc/aspectj5rt-api/help-doc.html
+SHA1-Digest: pX49vK9V2JZ/2YHivrJIEv50aU0=
+
+Name: doc/weaver-api/org/aspectj/weaver/loadtime/Aj.html
+SHA1-Digest: CgqRjGlJD+o+MHv0uy0Vp0ecI/Y=
+
+Name: doc/LICENSE-AspectJ.html
+SHA1-Digest: ji2mf8UmYYgg2lp0I7YA4GTzhYc=
+
+Name: doc/examples/introduction/ComparablePoint.java
+SHA1-Digest: Y1iCMh2Rlqun7MfR0AUhh4GP3o0=
+
+Name: doc/pdguide/aspectj-docs.css
+SHA1-Digest: lQJnG5haB6d97CyeCkmWbPsyUzk=
+
+Name: doc/examples/injar.jar
+SHA1-Digest: cRW+owTOfyfuQiyXOOHEoZtGg5s=
+
+Name: icons/actions/granularity.gif
+SHA1-Digest: H3kuMbzHEAT1QsBpl3OWBxSST/Y=
+
+Name: doc/runtime-api/index.html
+SHA1-Digest: ihoA3o/6zM0vVkVna5hJSx21mxw=
+
+Name: doc/examples/tracing/tracev3.lst
+SHA1-Digest: SCHZqChSC4HnQnezHZw3BabWUng=
+
+Name: doc/adk15notebook/generics.html
+SHA1-Digest: bfwJwKiIrR0rsyQEwfxr8WgcQMo=
+
+Name: doc/doc/images/ajdoc1.JPG
+SHA1-Digest: U728Wg1AdH1onsKomR/W1es3dbk=
+
+Name: doc/runtime-api/org/aspectj/lang/ProceedingJoinPoint.html
+SHA1-Digest: gbwPyTyMdp79+sCBgVbPnOe1hcU=
+
+Name: doc/runtime-api/org/aspectj/runtime/reflect/package-summary.html
+SHA1-Digest: S0gxU6XHO25eUxZavmkC+mUMfOY=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/TraceFactory.html
+SHA1-Digest: Ur6mQ7E3prFBRv10P3dvulBKgI8=
+
+Name: doc/api/stylesheet.css
+SHA1-Digest: XZYLdj3x+TZJjCIWGztBIFe+oe4=
+
+Name: doc/devguide/antTasks-ajc.html
+SHA1-Digest: R7n46v+TRAH3WaAgmQ38Rhr7+tY=
+
+Name: doc/README-160.html
+SHA1-Digest: GOrRkkg908CJml/VTJtF05g0tKI=
+
+Name: doc/examples/spacewar/Game.java
+SHA1-Digest: L7HMbXIDI4eBKpfy61+qoH7Mr2k=
+
+Name: doc/weaver-api/package-list
+SHA1-Digest: X5iGuNygAe+n6mIFO4wI03XTZGk=
+
+Name: doc/api/org/aspectj/lang/Signature.html
+SHA1-Digest: GXUJOIc9hDhnlTkJIzkhuKHHxRc=
+
+Name: icons/structure/interface.gif
+SHA1-Digest: AOFGGCv3AMyPLnFYWmXfadIi2rA=
+
+Name: doc/aspectj5rt-api/overview-frame.html
+SHA1-Digest: YwrB/SZB0dhm2ez1EEmrWi3Rems=
+
+Name: doc/examples/spacewar/Debug.java
+SHA1-Digest: s2PVjCx/wEl/umFikxae0DHZibs=
+
+Name: doc/aspectj5rt-api/overview-tree.html
+SHA1-Digest: DPzfWmjWZ2mgoFv+CmmMtoQTly0=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/annotation/AfterReturning.ht
+ ml
+SHA1-Digest: DPuhPXqcdlWYUHLE6WCZ669mtw0=
+
+Name: doc/progguide/apcs03.html
+SHA1-Digest: 7LMD3wc75WSy+3Mq2MdTUNvugN8=
+
+Name: doc/adk15notebook/ataspectj-itds.html
+SHA1-Digest: PaU9DfTQ8iR9IxPbBSVvvAJbjM0=
+
+Name: doc/examples/telecom/Timer.java
+SHA1-Digest: 1AWb3/1KxMeqo2hNCYQEBXdbzS0=
+
+Name: doc/examples/tjp/GetInfo.class
+SHA1-Digest: /1+jc3GmsOL4HGjJtXPm2aK0twY=
+
+Name: icons/actions/build.gif
+SHA1-Digest: hv2wigvdwBCVl6MDlLY/yaYgEW0=
+
+Name: icons/actions/back.gif
+SHA1-Digest: EmrtV5KRiCAyD7sPWpFt8J5yJRY=
+
+Name: doc/examples/coordination/lib.lst
+SHA1-Digest: eMovto378agAbco0qEHFpG9/Zzk=
+
+Name: doc/runtime-api/packages.html
+SHA1-Digest: KOL3A2ifNlxCs62QWhfKXDOo9WY=
+
+Name: icons/structure/file.gif
+SHA1-Digest: DAA9T8DRGf1csf2aMFZgqad7yZc=
+
+Name: icons/structure/aspect.gif
+SHA1-Digest: JF0y7CigcWru3AWHgb+FnE6eJiw=
+
+Name: doc/runtime-api/org/aspectj/lang/Aspects14.html
+SHA1-Digest: bt83aiPiGJX+AkyoNvVSTHGblLQ=
+
+Name: icons/structure/package.gif
+SHA1-Digest: A46qxsGkcgU6b5idnI3IL5xysao=
+
+Name: doc/weaver-api/overview-tree.html
+SHA1-Digest: KlHuNj88znQBQjKu0dqU+izZ1xc=
+
+Name: doc/README-161.html
+SHA1-Digest: JTrvX/dyodNYhLQF+jSEOiGE90w=
+
+Name: doc/adk15notebook/index.html
+SHA1-Digest: djwl+jff/uu/f1/pdcgcqqgy0j8=
+
+Name: doc/examples/tracing/lib/AbstractTrace.java
+SHA1-Digest: 7OofKFctftzpuwDJoSpc5/V/gsE=
+
+Name: doc/progguide/dd_arrow.gif
+SHA1-Digest: YXxU67J9WwKT/foFkkP3IBtQd7I=
+
+Name: doc/aspectj5rt-api/serialized-form.html
+SHA1-Digest: J0UF5YiudUdlgWB2UrV0V5nHGsg=
+
+Name: doc/progguide/starting.html
+SHA1-Digest: KNOR70dt1kVN1UjjulHjLNtaQXA=
+
+Name: doc/devguide/index.html
+SHA1-Digest: HPkMAKRcqlsn/3oEvZt3Me/J/Rc=
+
+Name: doc/runtime-api/org/aspectj/lang/reflect/InitializerSignature.ht
+ ml
+SHA1-Digest: c1vTDl6iGZBWa8ER+DIXIeuz/F0=
+
+Name: icons/actions/forward.gif
+SHA1-Digest: r86MlICEAdiB4YExnZ6isTCHSG0=
+
+Name: doc/weaver-api/org/aspectj/weaver/loadtime/definition/Definition
+ .ConcreteAspect.html
+SHA1-Digest: F3/7KuObJVwPaQVzNsSYn82ojXc=
+
+Name: doc/runtime-api/org/aspectj/lang/reflect/MethodSignature.html
+SHA1-Digest: ee8M8zoBiid968UcHmtD5vSYyTM=
+
+Name: ajde.jar
+SHA1-Digest: zbMGECt5V02PxIgTlNwxHsFqtYs=
+
+Name: doc/examples/introduction/CloneablePoint.java
+SHA1-Digest: 2Hr856+blbflY/Gsrk+pJ0oZcAg=
+
+Name: doc/progguide/starting-conclusion.html
+SHA1-Digest: r/vVkqRMgT7SNAmc6seJFrOTnas=
+
+Name: doc/devguide/aj-ref.html
+SHA1-Digest: V39f39hZacuS1xeViDgkiqtfPJA=
+
+Name: doc/devguide/aspectj-docs.css
+SHA1-Digest: lQJnG5haB6d97CyeCkmWbPsyUzk=
+
+Name: doc/runtime-api/org/aspectj/lang/package-frame.html
+SHA1-Digest: QlU6qvTCEskq9JemmMtKfksUG/Q=
+
+Name: doc/doc/devguide/build.gif
+SHA1-Digest: hv2wigvdwBCVl6MDlLY/yaYgEW0=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/annotation/SuppressAjWarning
+ s.html
+SHA1-Digest: 4Ur4nXKnsbdf7T1uKuMCSE7Vg2I=
+
+Name: doc/doc/devguide/browseroptions.gif
+SHA1-Digest: q/oSRjwVtqc4CGChIazXRkIIEhQ=
+
+Name: doc/examples/tracing/version3/TraceMyClasses.java
+SHA1-Digest: 5vrVHJf5xfWW1fU06U2RjQSKaLw=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/package-summary.html
+SHA1-Digest: y6TOTMNhtqT1AAPL+6ELw6z8/Qw=
+
+Name: doc/examples/observer/Subject.java
+SHA1-Digest: XURETTuCofVFlmG3LjSoPitFLF4=
+
+Name: icons/structure/accessibility-package.gif
+SHA1-Digest: KzRE3o/KfFnmszAeJmlQJmvKB+k=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/WeavingAdaptor.WeavingAd
+ aptorMessageHolder.html
+SHA1-Digest: S19WbS5Fohe0B0gO68qhF/y3IBo=
+
+Name: icons/actions/debug.gif
+SHA1-Digest: D9CJwcgw9lYlMqGdqLmo/86MXOM=
+
+Name: icons/structure/referenceForward.gif
+SHA1-Digest: 6lWzp4O8E7FH0Ze+Pxvnq5gZVOg=
+
+Name: doc/weaver-api/org/aspectj/weaver/loadtime/DefaultWeavingContext
+ .html
+SHA1-Digest: eb/1sAqOZLBEPw5UU6t45UNV12w=
+
+Name: doc/aspectj5rt-api/stylesheet.css
+SHA1-Digest: XZYLdj3x+TZJjCIWGztBIFe+oe4=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/annotation/package-summary.h
+ tml
+SHA1-Digest: 9O9v8DN4wYMt+3hBmqXb5PBS7WM=
+
+Name: doc/adk15notebook/dd_arrow.gif
+SHA1-Digest: YXxU67J9WwKT/foFkkP3IBtQd7I=
+
+Name: doc/README-163.html
+SHA1-Digest: HYDPLAey+H05qq2iNaHV/5KLbx8=
+
+Name: doc/progguide/printable.html
+SHA1-Digest: 1r/COXVucUtYzY2q4lWeOi0Wz4c=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/annotation/package-frame.htm
+ l
+SHA1-Digest: KEELSKq63DdqyEnOuuOY3RWwFoE=
+
+Name: doc/runtime-api/org/aspectj/lang/SoftException.html
+SHA1-Digest: MZWS5fzro2G/ZlFIXX2FPWwo7oM=
+
+Name: doc/api/org/aspectj/lang/reflect/InitializerSignature.html
+SHA1-Digest: 89FD6/3FoO6Tt1TvlOlZboKWEy0=
+
+Name: icons/structure/adviceBack.gif
+SHA1-Digest: fx17VI+N5gdVxEHRi94FjvNWjOI=
+
+Name: doc/api/resources/inherit.gif
+SHA1-Digest: 42+8XxPTdk4LcKDh/HbbyXG+EKI=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/Traceable.html
+SHA1-Digest: AR/FDte3+KRTeBCQqV6n3hnR2iE=
+
+Name: doc/doc/progguide/figureUML.gif
+SHA1-Digest: rZVY3NIBTA1QE8PpbK9KvAWB2Ww=
+
+Name: icons/actions/find.gif
+SHA1-Digest: EhvW3Md+7C2ZV5iTQoGHOMaIdnI=
+
+Name: doc/api/org/aspectj/weaver/tools/PointcutPrimitives.html
+SHA1-Digest: NPXEdH8Pt9ZVGwqD/5hpUCOfpvE=
+
+Name: doc/examples/telecom/TimingSimulation.java
+SHA1-Digest: D7Spuekt8w6yHJvhgzr1CUz2gKg=
+
+Name: doc/examples/telecom/billing.lst
+SHA1-Digest: Z2PiDQTbfXDOLj61DquF0E6cJBI=
+
+Name: doc/runtime-api/org/aspectj/runtime/reflect/Factory.html
+SHA1-Digest: djeZDHkea9JgpFtueDZApeZAp8s=
+
+Name: doc/devguide/ajbrowser-building.html
+SHA1-Digest: aKY+CBhCy/gV06xoNw7RKdPizCg=
+
+Name: doc/adk15notebook/ataspectj.html
+SHA1-Digest: spAtaHw6DtYn/oET6WTBQrtTJi0=
+
+Name: doc/examples/telecom/basic.lst
+SHA1-Digest: RSoiawXCmfLFh6pAXT1+0CIPsyE=
+
+Name: icons/actions/open.gif
+SHA1-Digest: 9w1qa7QPySzCGKDn/UFqy5qIfnU=
+
+Name: doc/api/org/aspectj/lang/NoAspectBoundException.html
+SHA1-Digest: p6fT9NIHgVSjgJlCgHs2ylYDyUg=
+
+Name: icons/structure/file-aspectj.gif
+SHA1-Digest: O0HG/tj6C8fm7Ah6NLcqytWgPac=
+
+Name: doc/api/org/aspectj/weaver/tools/PointcutParser.html
+SHA1-Digest: 4Sq2PlS97usCL0/qKxQ7t5qWDUE=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/annotation/AfterThrowing.htm
+ l
+SHA1-Digest: QjaW+PSBia5o5prsmlmjZihf6F8=
+
+Name: icons/actions/popup.gif
+SHA1-Digest: gPtoOMBeTKWMdxhERmGj7cIzha0=
+
+Name: doc/api/org/aspectj/lang/reflect/AdviceSignature.html
+SHA1-Digest: mSGIt2VPWgkT4o+jkK7acVIMR98=
+
+Name: doc/api/resources/Picasa.ini
+SHA1-Digest: w500fFJh2mBFSLqDV1L0eH3lrIg=
+
+Name: doc/adk15notebook/declare-soft.html
+SHA1-Digest: lUpi5XPSIiQtrt4sZzIXv4jzqNw=
+
+Name: doc/weaver-api/help-doc.html
+SHA1-Digest: cyTvQtlLX1qWYh6RKSQA0rrNZWM=
+
+Name: plugin.xml
+SHA1-Digest: 4YZwV9DKA5yuh67muJ5x/nrpCbQ=
+
+Name: doc/adk15notebook/reflection.html
+SHA1-Digest: wt0BQLo3730sHIXE2mmV/AhLOlQ=
+
+Name: toc_ajdevguide.xml
+SHA1-Digest: BhtEWbNpEsrdLVrV4ex8tYua4JQ=
+
+Name: icons/actions/ajdeSmall.gif
+SHA1-Digest: P/ygNyW8+a6NzD1mdbT7gJkZJmM=
+
+Name: doc/examples/spacewar/Robot.java
+SHA1-Digest: j9pdLW0HaDSFuEKoe5WrDdOe66o=
+
+Name: doc/examples/spacewar/Registry.java
+SHA1-Digest: /tVppK17xItA3UAanEgg4EA0808=
+
+Name: doc/examples/tracing/Square.java
+SHA1-Digest: zypGJyuQGjSD7Hm36/0fivyMBQA=
+
+Name: doc/devguide/browseroptions.gif
+SHA1-Digest: q/oSRjwVtqc4CGChIazXRkIIEhQ=
+
+Name: doc/runtime-api/org/aspectj/lang/reflect/CodeSignature.html
+SHA1-Digest: hxbizS/Jy38PjTrr3dlG3ZlDudY=
+
+Name: doc/devguide/ltw-rules.html
+SHA1-Digest: 8sKmK8ulpS1BzaaBKaD6Y2NbK+0=
+
+Name: doc/devguide/antTasks.html
+SHA1-Digest: 1jdMOyD2CFoqF93DEDxP23Atd40=
+
+Name: doc/examples/observer/Observer.java
+SHA1-Digest: VxMNvey+w+cSxR2PDm9WeFPIOAk=
+
+Name: doc/index.html
+SHA1-Digest: GFvIZ9inEhMLZ5CVTWMetEOHVFU=
+
+Name: doc/examples/telecom/Connection.java
+SHA1-Digest: Li4tOIuBO+V5/UtqSceFc0MfBuo=
+
+Name: doc/adk15notebook/ataspectj-declare.html
+SHA1-Digest: hKg34kyMkmVpxioghmGV+rhMfgk=
+
+Name: doc/runtime-api/org/aspectj/lang/Aspects.html
+SHA1-Digest: Bgc2Fo/4OIPSCLDielli13IZ7JI=
+
+Name: icons/structure/accessibility-protected.gif
+SHA1-Digest: rsaGWtFn6zm5MeSLBeaHvtokeME=
+
+Name: doc/runtime-api/org/aspectj/lang/NoAspectBoundException.html
+SHA1-Digest: EBwGckg09myRy/LNrTS/CtTgdu4=
+
+Name: icons/actions/browserEnabled.gif
+SHA1-Digest: gRO2gZlYqhmEVkGwiZEsqnbSUzk=
+
+Name: doc/progguide/Picasa.ini
+SHA1-Digest: V2Tdq/ET6BjGHs8lXuLi7DZqLaM=
+
+Name: icons/structure/accessibility-private.gif
+SHA1-Digest: Hh1HHvPLzLS0z9BO0RXP+aWzZ2k=
+
+Name: doc/adk15notebook/covariance.html
+SHA1-Digest: 7Vs9I6MZTYX2ma546BbO615fLAw=
+
+Name: doc/weaver-api/org/aspectj/weaver/loadtime/definition/Definition
+ .html
+SHA1-Digest: i/qkL/YRWMrFe27qKEBS4Hn3028=
+
+Name: doc/progguide/examples-reusable.html
+SHA1-Digest: 3QllCfmwji3Yql5O8K2ZnZzteKY=
+
+Name: icons/actions/structureView.gif
+SHA1-Digest: iFUfwoKoQg0nI+kdkZzxWzE0Dc4=
+
+Name: doc/examples/spacewar/demo.lst
+SHA1-Digest: tAZaNeuUsf7dCwVvx73kpv4C6A0=
+
+Name: doc/examples/tracing/version2/Trace.java
+SHA1-Digest: LLTrXMIyG7X5+Ut1V0a44wMdwJI=
+
+Name: doc/progguide/examples-howto.html
+SHA1-Digest: TcunzqT1LdIx+ADLk511cPnDAZc=
+
+Name: doc/weaver-api/packages.html
+SHA1-Digest: mylIC9Y5uVH0qvJ1oOZfv0CcO4A=
+
+Name: icons/structure/warning.gif
+SHA1-Digest: McTq4X1gOAphG8SrweUwvXFk+mI=
+
+Name: doc/README-151.html
+SHA1-Digest: IzIbUGR95G6gdHKLYKkh+D1CXhk=
+
+Name: icons/structure/method.gif
+SHA1-Digest: cNWcv4exWuz02IA1ToirFCTAMlI=
+
+Name: doc/weaver-api/allclasses-frame.html
+SHA1-Digest: H17C9Ipsfmlr71okbuVI2MlbtUo=
+
+Name: doc/devguide/ltw-specialcases.html
+SHA1-Digest: agyjae/nhMid5uqfzfug7fyx58A=
+
+Name: doc/weaver-api/org/aspectj/weaver/loadtime/definition/DocumentPa
+ rser.html
+SHA1-Digest: 6ZwgKHJDQXcQr7l36A9w9g2ftd8=
+
+Name: doc/progguide/starting-development.html
+SHA1-Digest: 0RwneFUjhiPwBI9c0J0DU+wDdTg=
+
+Name: doc/api/org/aspectj/weaver/tools/FuzzyBoolean.html
+SHA1-Digest: pFrQ0pryffs7CiFPmSGlt7vjsuI=
+
+Name: doc/runtime-api/stylesheet.css
+SHA1-Digest: XZYLdj3x+TZJjCIWGztBIFe+oe4=
+
+Name: doc/devguide/ch01s03.html
+SHA1-Digest: beWaHEANxDH1izkTZfctNnsPBTE=
+
+Name: doc/weaver-api/allclasses-noframe.html
+SHA1-Digest: P7RMWht93hXBZsrvIcismmIqtuA=
+
+Name: icons/actions/clean.gif
+SHA1-Digest: e0CPbaFl8zcA3SIh384/NSTTZ3Y=
+
+Name: doc/weaver-api/org/aspectj/weaver/loadtime/definition/package-su
+ mmary.html
+SHA1-Digest: ZNYGKyo2lCw04hkA+nsbf5whvEg=
+
+Name: doc/progguide/telecom.gif
+SHA1-Digest: xrRA8It7H8qFkMsL3M14fU65k3M=
+
+Name: doc/api/index.html
+SHA1-Digest: 8VPQR/zfsvDeBwWX7tFjbl+Fy1M=
+
+Name: icons/structure/accessibility-public.gif
+SHA1-Digest: u5Jr2UI6FK9Kcact+X4Uud33hrw=
+
+Name: doc/runtime-api/serialized-form.html
+SHA1-Digest: Vw0RXF040hkC96ggu/fJxn9MuZQ=
+
+Name: icons/actions/filter.gif
+SHA1-Digest: xj3EB+0qHh1TZ5YRjN+LzPRs5cs=
+
+Name: doc/adk15notebook/miscellaneous.html
+SHA1-Digest: tGvpL41/Zwj5nNs8Eyn6HUB+N5Q=
+
+Name: icons/structure/declareSoft.gif
+SHA1-Digest: L5f5qP/a2grKVSREbkY/+diiZ5g=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/IsAtAspectAnnotationVisi
+ tor.html
+SHA1-Digest: FD64b4cneaw15zyPSSGILR0une8=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/InterTypeMethodDecla
+ ration.html
+SHA1-Digest: KTwysnQndNs2D/cINsJrEUIq76Y=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: 09gN05tobgS/MdtqyTNQhOhB73M=
+
+Name: doc/weaver-api/org/aspectj/weaver/loadtime/ClassPreProcessor.htm
+ l
+SHA1-Digest: avbKBzC9YGrRAPnTuQYSxYBnUDo=
+
+Name: doc/devguide/ajdoc-ref-top.html
+SHA1-Digest: r1vgOH2WNBiyTmlXM5OSm4VreKA=
+
+Name: doc/progguide/semantics.html
+SHA1-Digest: lWXUsMb1HN86K92EBY4CHBMlEEw=
+
+Name: icons/structure/file-lst.gif
+SHA1-Digest: 8UgExwbB0YgEGCxPym4UX5IUPek=
+
+Name: icons/structure/adviceForward.gif
+SHA1-Digest: 96M5p77nuHpWbMrimTy1wsbq3ac=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/PointcutExpression.html
+SHA1-Digest: dPRxsWm0g482Eh+z3JlnBgYfjuA=
+
+Name: doc/examples/telecom/Local.java
+SHA1-Digest: n7B5zA3E/J+gL/jWz3XCdy2BauA=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/DeclarePrecedence.ht
+ ml
+SHA1-Digest: onXulWr+R9pLt4e4x74/7Yxgj18=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/reflect/AjType.html
+SHA1-Digest: EHfmtG+vHLlvqJ3IJYhHCVJQlJI=
+
+Name: doc/doc/progguide/telecom.gif
+SHA1-Digest: xrRA8It7H8qFkMsL3M14fU65k3M=
+
+Name: doc/weaver-api/org/aspectj/weaver/tools/package-frame.html
+SHA1-Digest: PLQc/EABPXJuetZ0+lvk0HhEbl4=
+
+Name: doc/api/overview-summary.html
+SHA1-Digest: 0iUsNJ2uSb6CYWfHmTrTpaVyktQ=
+
+Name: doc/progguide/language-interType.html
+SHA1-Digest: FDZ90mMsjLzzNkkcSFaA7hzSigA=
+
+Name: doc/progguide/index.html
+SHA1-Digest: NS1/hsCdpxW5s549Pk+HsW3w2DE=
+
+Name: doc/aspectj5rt-api/org/aspectj/lang/annotation/DeclareWarning.ht
+ ml
+SHA1-Digest: Ob6jP89Zk6A1b8nlwZaqVKayLtE=
+

@@ -1,0 +1,13 @@
+package com.hibernate.kiss;
+
+import org.hibernate.cfg.AnnotationConfiguration;
+
+public class TestEmployee {
+
+	public static void main(String[] args){
+		AnnotationConfiguration config = new AnnotationConfiguration();
+		config.addAnnotatedClass(Employee.class);
+		config.configure();
+		
+	}
+}

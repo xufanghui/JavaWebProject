@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Server>
+	<Service name="Catalina">
+		<Connector protocol="org.apache.coyote.http11.Http11AprProtocol"
+                           SSLEnabled="true"
+                           add:SSLProtocol="SSLv3+TLSv1"/>
+	</Service>
+</Server>

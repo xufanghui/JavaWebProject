@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?compositeMetadataRepository version='1.0.0'?>
+<repository name='JBoss Tools Requirements - Composite Indigo Mirror - Extras' type='org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository' version='1.0.0'>
+<properties size='2'>
+<property name='p2.compressed' value='true'/>
+<property name='p2.timestamp' value='1347138004000'/>
+</properties>
+<children size='7'>
+<child location='../../../requirements/eclipsecs/5.4.0.201109110000/'/>
+<child location='../../../requirements/findbugs/1.3.9/'/>
+<!-- JBDS-2189 remove <child location='../../../requirements/jslint/1.5/'/> -->
+<!-- JBIDE-12562 use pmd 3.2.6 instead of 3.2.4 -->
+<child location='../../../requirements/pmd/3.2.6/'/>
+<child location='../../../requirements/springide/2.7.2.201109122348/'/>
+
+<child location='../../../requirements/subclipse/1.6_1.3/'/>
+<child location='../../../requirements/subversive/0.7.9_2.2.2_1.3/'/>
+<child location='../../../requirements/testng/6.1.1.20110823_1537/'/>
+</children>
+</repository>
+

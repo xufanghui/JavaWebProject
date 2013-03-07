@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*******************************************************************************
+ * Copyright (c) 2005, 2010 Spring IDE Developers
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Spring IDE Developers - initial API and implementation
+ *******************************************************************************/
+ -->
+<feature
+      id="org.springframework.ide.eclipse.feature"
+      label="%featureName"
+      version="2.7.2.201109122348-patched_JBDS-1838"
+      provider-name="%providerName"
+      plugin="org.springframework.ide.eclipse">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseUrl">
+      %license
+   </license>
+
+   <includes
+         id="org.springframework.ide.eclipse.uaa.feature"
+         version="2.7.2.201109122348-RELEASE"
+         optional="true"/>
+
+   <requires>
+      <import feature="org.eclipse.wst.xml_ui.feature" match="greaterOrEqual"/>
+      <import feature="org.eclipse.jdt" version="3.3.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="org.springframework.ide.eclipse"
+         download-size="16"
+         install-size="36"
+         version="2.7.2.201109122348-patched_JBDS-1838"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.ide.eclipse.core"
+         download-size="1501"
+         install-size="2050"
+         version="2.7.2.201109122348-RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.ide.eclipse.doc"
+         download-size="4"
+         install-size="6"
+         version="2.7.2.201109122348-RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.ide.eclipse.ui"
+         download-size="172"
+         install-size="368"
+         version="2.7.2.201109122348-RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.ide.eclipse.beans.core"
+         download-size="384"
+         install-size="920"
+         version="2.7.2.201109122348-RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.ide.eclipse.beans.core.metadata"
+         download-size="45"
+         install-size="104"
+         version="2.7.2.201109122348-RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.ide.eclipse.beans.ui"
+         download-size="372"
+         install-size="807"
+         version="2.7.2.201109122348-RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.ide.eclipse.beans.ui.graph"
+         download-size="86"
+         install-size="188"
+         version="2.7.2.201109122348-RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.ide.eclipse.beans.ui.editor"
+         download-size="261"
+         install-size="552"
+         version="2.7.2.201109122348-RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.ide.eclipse.beans.ui.search"
+         download-size="53"
+         install-size="113"
+         version="2.7.2.201109122348-RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.ide.eclipse.beans.ui.refactoring"
+         download-size="75"
+         install-size="172"
+         version="2.7.2.201109122348-RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.osgi.core"
+         download-size="580"
+         install-size="1345"
+         version="2.0.0.M2-SNAPSHOT"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.osgi.io"
+         download-size="39"
+         install-size="77"
+         version="2.0.0.M2-SNAPSHOT"
+         unpack="false"/>
+
+   <plugin
+         id="edu.emory.mathcs.backport"
+         download-size="358"
+         install-size="755"
+         version="3.1.0.v200902251154"
+         unpack="false"/>
+
+   <plugin
+         id="com.springsource.org.antlr"
+         download-size="560"
+         install-size="1306"
+         version="3.0.1"
+         unpack="false"/>
+
+   <plugin
+         id="javax.annotation"
+         download-size="27"
+         install-size="51"
+         version="1.1.1.v201006150915"
+         unpack="false"/>
+
+   <plugin
+         id="com.springsource.javax.jms"
+         download-size="31"
+         install-size="46"
+         version="1.1.0"
+         unpack="false"/>
+
+   <plugin
+         id="javax.xml.stream"
+         download-size="38"
+         install-size="69"
+         version="1.0.1.v201004272200"
+         unpack="false"/>
+
+   <plugin
+         id="org.aopalliance"
+         download-size="13"
+         install-size="18"
+         version="1.0.0.v200905130917"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.commons.collections"
+         download-size="596"
+         install-size="1209"
+         version="3.2.0.v201005080500"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.commons.logging"
+         download-size="70"
+         install-size="145"
+         version="1.1.1.v201005080502"
+         unpack="false"/>
+
+   <plugin
+         id="com.springsource.org.aspectj.weaver"
+         download-size="1681"
+         install-size="3749"
+         version="1.6.10.RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="com.springsource.org.objectweb.asm"
+         download-size="38"
+         install-size="79"
+         version="2.2.3"
+         unpack="false"/>
+
+   <plugin
+         id="com.springsource.org.objectweb.asm.commons"
+         download-size="18"
+         install-size="36"
+         version="2.2.3"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.aop"
+         download-size="333"
+         install-size="687"
+         version="3.0.5.RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.asm"
+         download-size="55"
+         install-size="114"
+         version="3.0.5.RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.beans"
+         download-size="565"
+         install-size="1296"
+         version="3.0.5.RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.context"
+         download-size="692"
+         install-size="1438"
+         version="3.0.5.RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.context.support"
+         download-size="106"
+         install-size="217"
+         version="3.0.5.RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.core"
+         download-size="394"
+         install-size="787"
+         version="3.0.5.RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.expression"
+         download-size="174"
+         install-size="373"
+         version="3.0.5.RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.jdbc"
+         download-size="398"
+         install-size="860"
+         version="3.0.5.RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.jms"
+         download-size="192"
+         install-size="423"
+         version="3.0.5.RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.orm"
+         download-size="343"
+         install-size="741"
+         version="3.0.5.RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.oxm"
+         download-size="66"
+         install-size="138"
+         version="3.0.5.RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.transaction"
+         download-size="244"
+         install-size="505"
+         version="3.0.5.RELEASE"
+         unpack="false"/>
+
+</feature>

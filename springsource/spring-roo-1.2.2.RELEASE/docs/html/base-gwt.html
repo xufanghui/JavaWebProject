@@ -1,0 +1,481 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;14.&nbsp;Google Web Toolkit Add-On</title><link rel="stylesheet" href="css/html.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.73.2"><link rel="start" href="index.html" title="Spring Roo - Reference Documentation"><link rel="up" href="base.html" title="Part&nbsp;II.&nbsp;Base Add-Ons"><link rel="prev" href="base-cloud-foundry.html" title="Chapter&nbsp;13.&nbsp;Cloud Foundry Add-On"><link rel="next" href="base-json.html" title="Chapter&nbsp;15.&nbsp;JSON Add-On"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div xmlns:fo="http://www.w3.org/1999/XSL/Format" style="background-color:white;border:none;height:73px;border:1px solid black;"><a style="border:none;" href="http://www.springsource.org/roo/" title="The Spring Framework - Spring Roo"><img style="border:none;" src="images/xdev-spring_logo.jpg"></a><a style="border:none;" href="http://www.springsource.com/" title="SpringSource - Spring from the Source"><img style="border:none;position:absolute;padding-top:0px;right:2em;" src="images/banner.png"></a></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="base-gwt"></a>Chapter&nbsp;14.&nbsp;Google Web Toolkit Add-On</h2></div></div></div>
+  
+
+  <p>Google Web Toolkit (GWT) is a technolgy developed by Google to allow
+  the use of existing Java knowledge and tools to build high performance,
+  desktop-esk web applications. Whilst GWT abstracts away many complexities of
+  web application development by not requiring you to learn Javascript and
+  HTML nor worry about browser quirks and memory leaks <span class="bold"><strong>there is still a start-up cost associated with GWT</strong></span>
+  and the combination of Roo and GWT doesn&#8217;t absolve you completely from
+  getting your hands a little dirty. This chapter aims to explain how Roo can
+  reduce the time cost involved with getting started with GWT and does not
+  attempt to provide a complete guide on GWT or its use. The GWT team has
+  written <a class="ulink" href="http://code.google.com/webtoolkit/doc/latest/DevGuide.html" target="_top">excellent
+  documentation</a> to help you in understanding and using GWT in your
+  project, the GWT documentation is especially useful when it comes to
+  customising your application.</p>
+
+  <p>The GWT add-on enables you to create a complete web application for
+  your domain model with a single command. Once enabled, the GWT add-on will
+  maintain your application to ensure it reflects changes to the domain model.
+  Currently the add-on only has a single command, which can be used to setup
+  GWT in any Roo project. As such, <a class="link" href="beginning.html" title="Chapter&nbsp;2.&nbsp;Beginning With Roo: The Tutorial">Beginning With
+  Roo: The Tutorial</a> can be leveraged when starting out with Roo and
+  GWT.</p>
+
+  <p>The first iteration of the add-on allowed you to generate a fully
+  fledged GWT web application in under a minute via the expenses script (to
+  run the expenses script just execute the command <span class="bold"><strong>script expenses.roo</strong></span> from the Roo shell). The
+  resulting application incorporated several hot new features found in GWT
+  2.1, these include:</p>
+
+  <div class="itemizedlist"><ul type="disc"><li>
+      <p>the new lightweight <a class="ulink" href="http://code.google.com/webtoolkit/doc/latest/DevGuideRequestFactory.html" target="_top">RequestFactory</a>
+      infrastructure for client-server communication;</p>
+    </li><li>
+      <p>the built-in best practice <a class="ulink" href="http://code.google.com/webtoolkit/doc/latest/DevGuideMvpActivitiesAndPlaces.html" target="_top">MVP</a>
+      (Model View Presenter) framework;</p>
+    </li><li>
+      <p>ultra efficient new <a class="ulink" href="http://code.google.com/webtoolkit/doc/latest/DevGuideUiCellWidgets.html" target="_top">data
+      presentation widgets</a>; and,</p>
+    </li><li>
+      <p><a class="ulink" href="http://code.google.com/webtoolkit/doc/latest/DevGuideUiEditors.html" target="_top">data-binding</a>
+      support.</p>
+    </li></ul></div>
+
+  <p>In Roo 1.1.1 we have built upon this by:</p>
+
+  <div class="itemizedlist"><ul type="disc"><li>
+      <p>making the add-on more Roo-like, via a faux-ITD model;</p>
+    </li><li>
+      <p>incorporating all the improvements and fixes found in GWT 2.1.1,
+      such as support for inheritance in proxied entities; and,</p>
+    </li><li>
+      <p>ensuring that user customisation remains intact upon each launch
+      of Roo.</p>
+    </li></ul></div>
+
+  <p>This chapter will outline each of these improvements in more
+  detail.</p>
+
+  <p></p>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e2530"></a>14.1.&nbsp;GWT Add-On Commands</h2></div></div></div>
+    
+
+    <p>The main GWT add-on commands are as follows:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p><span class="bold"><strong>web gwt setup</strong></span> - turn an
+        existing Roo project it a GWT web application.</p>
+      </li><li>
+        <p><span class="bold"><strong>web gwt all</strong></span> - create GWT
+        request and proxy classes for all domain types in your project</p>
+
+        <p>If your project has a domain model, which is currently
+        represented by Roo&#8217;s JPA support via the entity and related field
+        commands, additional views will be created to mirror entities in the
+        domain. (A full run down of how to implement your domain model via the
+        Roo shell can be found in <a class="link" href="beginning.html#beginning-step-2" title="2.5.&nbsp;Step 2: Creating Entities and Fields">section
+        2.5</a> of <a class="link" href="beginning.html" title="Chapter&nbsp;2.&nbsp;Beginning With Roo: The Tutorial">Beginning With Roo: The
+        Tutorial</a>)</p>
+      </li><li>
+        <p><span class="bold"><strong>web gwt gae update</strong></span> - to be run
+        when the database is changed to Google App Engine from an SQL database
+        or back again</p>
+      </li></ul></div>
+
+    <p>To demostrate the basic structure of the conjured GWT application a
+    new Roo project, with a very basic domain model, will be created using the
+    following commands:</p>
+
+    <pre class="programlisting">project --topLevelPackage com.springsource.roo.zoo
+
+jpa setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY
+
+enum type --class ~.shared.domain.Species
+enum constant --name Fish
+enum constant --name Bird
+enum constant --name Mammal
+enum constant --name Reptile
+enum constant --name Amphibian
+
+entity jpa --class ~.server.domain.Animal
+field string --fieldName name --notNull
+field enum --fieldName species --type ~.shared.domain.Species</pre>
+
+    <p></p>
+
+    <p>This will create project with a layout as presented in Figure
+    GWT.1.</p>
+
+    <p></p>
+
+    <div class="figure"><a name="d4e2551"></a><div class="figure-contents">
+      
+
+      <div class="mediaobject" align="center"><table border="0" summary="manufactured viewport for HTML img" cellspacing="0" cellpadding="0" width="0"><tr><td align="center"><img src="images/gwt/GwtInitialZooProjectLayout.png" align="middle" width="0" alt="Figure GWT.1: Basic Roo project"></td></tr></table></div>
+    </div><p class="title"><b>Figure&nbsp;14.1.&nbsp;Figure GWT.1: Basic Roo project</b></p></div><br class="figure-break">
+
+    <p></p>
+
+    <p>Upon running the gwt setup command, regardless of the presence of a
+    domain model, a number of static scaffold files will be copied into your
+    project. Figure GWT.2 displays the new files and directories
+    (highlighted).</p>
+
+    <p></p>
+
+    <div class="figure"><a name="d4e2559"></a><div class="figure-contents">
+      
+
+      <div class="mediaobject"><img src="images/gwt/GwtAfterGwtSetupZooProjectLayout.png" alt="Figure GWT.2: New packages and files created from running &#8220;gwt setup&#8221;"></div>
+    </div><p class="title"><b>Figure&nbsp;14.2.&nbsp;Figure GWT.2: New packages and files created from running &#8220;gwt
+      setup&#8221;</b></p></div><br class="figure-break">
+
+    <p></p>
+
+    <p>Most of the interesting stuff happens in the client package so we
+    will concentrate on its sub-packages and files. The two sub-packages of
+    interest are:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>managed</p>
+
+        <div class="itemizedlist"><ul type="circle"><li>
+            <p>this package contains all the files that are maintained by
+            Roo. These are files that are created and updated to reflect
+            changes in the domain model. The GWT add-on enforces a number of
+            rules that mean that the add-on will not touch source. As GWT
+            doesn&#8217;t currently support AspectJ the standard definition of what
+            constitutes source is different than in other add-ons, such as the
+            entity add-on. This will be expanded upon in the section ITDs: GWT
+            Style below.</p>
+          </li></ul></div>
+      </li><li>
+        <p>scaffold</p>
+
+        <div class="itemizedlist"><ul type="circle"><li>
+            <p>this package contains static files that provide a framework
+            for the other parts of the application. The files in this package
+            are never updated or changed, they are copied to the Roo project
+            upon running the gwt setup command.</p>
+          </li></ul></div>
+      </li></ul></div>
+
+    <p></p>
+
+    <p>After initial setup all the action occurs in the managed package.
+    The managed package is comprised of:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>activity</p>
+
+        <div class="itemizedlist"><ul type="circle"><li>
+            <p>contains all classes that leverage the Activity
+            infrastructure which is part of the new MVP framework in GWT.
+            These files are changed as new entities are added or removed from
+            the domain model.</p>
+          </li></ul></div>
+      </li><li>
+        <p>request</p>
+
+        <div class="itemizedlist"><ul type="circle"><li>
+            <p>contains all classes that revolve around the use of
+            RequestFactory. For each entity in the domain model a *Proxy and
+            *Request class is created as highlighted in Figure GWT.3. More
+            information can be found on RequestFactory via the GWT
+            documentation, a basic synopsis is: a *Proxy class represents a
+            server-side entity and a *Request class represents a server-side
+            service.</p>
+
+            <p></p>
+
+            <div class="figure"><a name="d4e2591"></a><div class="figure-contents">
+              
+
+              <div class="mediaobject"><img src="images/gwt/GwtProxyRequestClasses.png" alt="Figure GWT.3: *Proxy and *Request classes"></div>
+            </div><p class="title"><b>Figure&nbsp;14.3.&nbsp;Figure GWT.3: *Proxy and *Request classes</b></p></div><br class="figure-break">
+          </li></ul></div>
+      </li><li>
+        <p>ui</p>
+
+        <div class="itemizedlist"><ul type="circle"><li>
+            <p>contains all the managed view and ui related classes and
+            files. When an entity is added to the domain model 8 view sets are
+            created (a set generally includes a concrete-abstract type pair
+            and a ui.xml file, an example of two file sets appear in Figure
+            GWT.4) and a ProxyRenderer class. The file sets are as
+            follows:</p>
+
+            <div class="orderedlist"><ol type="1"><li>
+                <p>*DetailsView</p>
+              </li><li>
+                <p>*EditView</p>
+              </li><li>
+                <p>*ListEditor</p>
+              </li><li>
+                <p>*ListView</p>
+              </li><li>
+                <p>*MobileDetailsView</p>
+              </li><li>
+                <p>*MobileEditView</p>
+              </li><li>
+                <p>*MobileListView</p>
+              </li><li>
+                <p>*SetEditor</p>
+
+                <p></p>
+
+                <div class="figure"><a name="d4e2619"></a><div class="figure-contents">
+                  
+
+                  <div class="mediaobject"><img src="images/gwt/GwtViewFiles.png" alt="Figure GWT.4: *View classes and *.ui.xml files"></div>
+                </div><p class="title"><b>Figure&nbsp;14.4.&nbsp;Figure GWT.4: *View classes and *.ui.xml
+                  files</b></p></div><br class="figure-break">
+              </li></ol></div>
+          </li></ul></div>
+      </li></ul></div>
+
+    <p></p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e2625"></a>14.2.&nbsp;Running and Compiling</h2></div></div></div>
+    
+
+    <p>A GWT application can be run in two ways it can be run via
+    Development Mode or once compiled to JavaScript from a standard
+    application server such as Jetty.</p>
+
+    <p></p>
+
+    <p><span class="bold"><strong>Development Mode</strong></span></p>
+
+    <p>Development mode allows you to make changes to your application
+    without having to recompile to JavaScript, a time consuming operation, it
+    also lets you to debug your application as if it were a standard Java
+    application. More can be found on Development Mode via the GWT team&#8217;s
+    documentation <a class="ulink" href="http://code.google.com/webtoolkit/doc/latest/DevGuideCompilingAndDebugging.html" target="_top">here</a>.
+    To run the application in Development Mode from the command line execute
+    the Maven goal <span class="bold"><strong>mvn gwt:run</strong></span>, this will
+    open the Development Mode console where you can launch the application by
+    clicking &#8220;Launch Default Browser&#8221;.</p>
+
+    <p></p>
+
+    <div class="screenshot">
+      
+
+      <div class="mediaobject"><img src="images/gwt/GwtDevMode.png"></div>
+    </div>
+
+    <p>Development Mode requires that you are using a browser that supports
+    the Development Mode plug-in, you should be prompted to install the
+    plug-in upon first launch of the application if the browser that doesn&#8217;t
+    currently have the plug-in installed. Alternatively you can check to see
+    whether your browser is supported and download the plug-in from <a class="ulink" href="http://gwt.google.com/missing-plugin/" target="_top">here</a>.</p>
+
+    <p></p>
+
+    <p><span class="bold"><strong>Jetty</strong></span></p>
+
+    <p>To compile the application to JavaScript and run it in Jetty execute
+    the Maven goal <span class="bold"><strong>mvn jetty:run-exploded</strong></span>
+    from the command line. For larger applications compilation can take some
+    time, so running the application outside of Development Mode is often not
+    practical but can be beneficial when wanting to test the speed and size of
+    the compiled application or to run the application in browsers that are
+    not currently supported by the Development Mode plug-in.</p>
+
+    <p></p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e2648"></a>14.3.&nbsp;Desktop and Mobile Views</h2></div></div></div>
+    
+
+    <p>The application created via GWT add-on comes in two flavours:
+    Desktop and Mobile. The default view depends on the device accessing the
+    application. If you are viewing the application from a desktop browser
+    then the following Desktop view would be displayed:</p>
+
+    <div class="screenshot">
+      
+
+      <div class="mediaobject"><img src="images/gwt/GwtDesktopView.png"></div>
+    </div>
+
+    <p></p>
+
+    <p>If you are viewing the application from a smartphone such as an
+    Android device or an iPhone the following Mobile views would be
+    displayed:</p>
+
+    <div class="screenshot">
+      
+
+      <div class="mediaobject"><img src="images/gwt/GwtMobileViews.png"></div>
+    </div>
+
+    <p>To force the desktop browser to display the Mobile view instead of
+    the Desktop the &#8220;m=true&#8221; query string needs to be added to the URL used to
+    access the application. For example to access the Mobile view from a
+    desktop browser whilst using Development Mode the URL would be:</p>
+
+    <p><code class="uri">
+    http://127.0.0.1:8888/ApplicationScaffold.html?gwt.codesvr=127.0.0.1:9997&amp;m=true</code></p>
+
+    <p></p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e2667"></a>14.4.&nbsp;ITDs: GWT Style</h2></div></div></div>
+    
+
+    <p>One of the critical technologies that underpin Roo is AspectJ with
+    Roo relying heavily on its inter-type declaration (ITD) features. GWT
+    doesn&#8217;t currently support ITDs, but will in the future (please vote here
+    to register your support), due to this a different approach had to be
+    created which mimics how ITDs works albeit with an impact on class
+    hierarchy. To achieve the same end as ITDs an abstract-concrete model has
+    been introduced in Roo 1.1.1, this replicates how ITDs are used within Roo
+    and provides clear separation between Roo and end-user
+    modifications.</p>
+
+    <p>To demonstrate the changes a view class that is created, as part of
+    running the expenses script, will be examined,
+    EmployeedMobileEditView.java. Prior to 1.1.1, only Roo managed source
+    files were created, so upon running expenses.roo a singular
+    EmployeedMobileEditView.java was created. Any changes that Roo needed to
+    make to this file as result of modifying the server-side Employee entity
+    would cause user made changes to be overwritten.</p>
+
+    <p>As of Roo 1.1.1 two class files are created for each class that Roo
+    may need to manage as a result of changes to entities. In addition to the
+    singular EmployeedMobileEditView.java a
+    EmployeedMobileEditView_Roo_Gwt.java file is also created from which
+    EmployeedMobileEditView extends. All changes that Roo needs to make to
+    will occur <span class="bold"><strong>ONLY</strong></span> in
+    EmployeedMobileEditView_Roo_Gwt and the end-user has the ability to
+    leverage the Roo managed code or override it.</p>
+
+    <p>Following Roo convention a managed abstract class from which a
+    concrete class extends is suffixed with &#8220;_Roo_Gwt&#8221;, a warning is also
+    placed at the top of the source file. If a class is not referenced by
+    another type only a warning is placed at the top of the source file. These
+    naming conventions and warnings serve to highlight that this file is
+    &#8220;owned&#8221; by Roo and a user shouldn&#8217;t make changes to the file.</p>
+
+    <p></p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e2675"></a>14.5.&nbsp;UiBinder ui.xml Files</h2></div></div></div>
+    
+
+    <p>In addition to Roo respecting user modifications to GWT client-side
+    types changes made to UiBinder xml files are also preserved. The current
+    implementation is fairly basic and round-tripping support will be added in
+    a future release.</p>
+
+    <p>The management of ui.xml file works in the following way:</p>
+
+    <div class="orderedlist"><ol type="1"><li>
+        <p>Roo looks for an element that has an &#8220;id=boundElementHolder&#8221;
+        attribute, if a &#8220;boundElementHolder&#8221; element is not found Roo leaves
+        the file.</p>
+      </li><li>
+        <p>If a &#8220;boundElementHolder&#8221; element is found each element
+        contained within the &#8220;boundElementHolder&#8221; element is examined to see
+        if there is an element which has an id attribute which corresponds to
+        each bound field declared in the bound type. If an element is not
+        found it is added based upon what has been specified as part of the
+        original scaffolded application.</p>
+
+        <div class="itemizedlist"><ul type="disc"><li>
+            <p>To stop the add-on recreating a field just create an
+            invisible element with an id attribute equal to the field not be
+            displayed. For example if the field &#8220;supervisor&#8221; wasn&#8217;t to be
+            displayed the declared element in &#8220;boundElementHolder&#8221; would need
+            to be replaced by &lt;div id=&#8221;supervisor&#8221;
+            style=&#8221;display:none&#8221;/&gt;. Alternatively a adding &#8220;display:none&#8221;
+            to the standard declared element&#8217;s style attribute can just be
+            added.</p>
+          </li></ul></div>
+      </li></ol></div>
+
+    <p>Roo will re-order elements based on the order found in the
+    underlying entity.</p>
+
+    <p></p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e2689"></a>14.6.&nbsp;Expected GWT Add-On Behaviour</h2></div></div></div>
+    
+
+    <p>Prior to Roo 1.1.1 the behaviour of the GWT add-on was largely
+    undefined, the following clarifies what can be expected of the add-on in
+    Roo 1.1.1.</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>The add-on will only make changes to the abstract class, never
+        the concrete type. NEVER.</p>
+      </li><li>
+        <p>Roo managed files are suffixed with _Roo_Gwt and have a warning
+        comment in the first line notifying the user should not edit the
+        file.</p>
+      </li><li>
+        <p>When a user adds/deletes/edits a field in a monitored Entity the
+        addon will make appropriate changes in the mirrored types abstract
+        classes.</p>
+      </li><li>
+        <p>When an entity is deleted, or the @RooJpaActiveRecord annotation
+        is removed, the mirrored types will remain in play as to remain
+        consistent with not touch user source.</p>
+      </li><li>
+        <p>Roo non-destructively manages a UiBinder xml file, thought
+        formatting is lost in the process.</p>
+
+        <p></p>
+      </li></ul></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e2704"></a>14.7.&nbsp;Migrating a Roo GWT project (1.1 -&gt; 1.1.1+)</h2></div></div></div>
+    
+
+    <p>Unfortunately a number of breaking API changes in GWT happened with
+    the release of GWT 2.1.1. Like any application built against an external
+    library, you will need to refactor your application to deal with these
+    changes.</p>
+
+    <p>The transition to the new abstract-concrete model and its associated
+    benefits is not automatic. To take advantage of the new abstract-concrete
+    model used by the GWT add-on, you will need to inherit from the
+    respective *_Roo_Gwt files and optionally remove the methods in the
+    concrete type that have been declared in the *_Roo_Gwt file.</p>
+
+    <p></p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e2709"></a>14.8.&nbsp;Troubleshooting</h2></div></div></div>
+    
+
+    <p><span class="bold"><strong>Known GWT Issues</strong></span></p>
+
+    <p>Whilst a number of issues have been resolved in GWT 2.1.1, there
+    are still a few problems you will most likely come across:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>RequestFactory doesn't support is*()/had*() methods for
+        primitive booleans and EditorModel doesn't realise that primitive
+        types are now supported in Proxies, which means that primitives are
+        still not supported in the GWT add-on.</p>
+      </li><li>
+        <p>&#8220;mvn clean gwt:compile&#8221; doesn&#8217;t work and a &#8220;mvn clean compile
+        gwt:compile&#8221; needs to be used.</p>
+      </li><li>
+        <p>The &#8220;Deprecated use of id="boundElementHolder"&#8221; warning will be
+        removed when round-tripping support is added.</p>
+      </li></ul></div>
+  </div>
+</div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="base-cloud-foundry.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="base-json.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;13.&nbsp;Cloud Foundry Add-On&nbsp;</td><td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.springsource.com/" title="SpringSource - Spring from the Source">Sponsored by SpringSource
+                                        </a></span></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;15.&nbsp;JSON Add-On</td></tr></table></div></body></html>

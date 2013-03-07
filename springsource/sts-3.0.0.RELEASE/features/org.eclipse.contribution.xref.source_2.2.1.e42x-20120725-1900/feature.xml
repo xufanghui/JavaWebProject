@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="org.eclipse.contribution.xref.source" version="2.2.1.e42x-20120725-1900" label="%featureName" provider-name="%providerName"     >
+	<description >
+		%description
+	</description>
+	<copyright >
+		%copyright
+	</copyright>
+	<license url="%licenseURL">
+		%license
+	</license>
+	<url>
+		<update url="http://download.eclipse.org/tools/ajdt/34/update" label="%updateLabel"/>
+	</url>
+	<plugin id="org.eclipse.contribution.xref.core.source" version="2.2.1.e42x-20120725-1900"     unpack="false"/>
+	<plugin id="org.eclipse.contribution.xref.ui.source" version="2.2.1.e42x-20120725-1900"     unpack="false"/>
+	<plugin id="org.aspectj.runtime.source" version="1.7.0.20120703164200"     unpack="false"/>
+</feature>

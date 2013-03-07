@@ -1,0 +1,13 @@
+package com.hibernate.user;
+
+import java.io.Serializable;
+
+import javax.persistence.Embeddable;
+
+@Embeddable
+public class UserKey implements Serializable{
+
+	private int id;
+	private String email;
+	
+}

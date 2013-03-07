@@ -1,0 +1,44 @@
+package com.hibernate.costumer;
+
+public class Costumer {
+
+	
+	private int id;
+	private String name;
+	private String adress;
+	private int creditScore;
+	private int rewardPoints;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getAdress() {
+		return adress;
+	}
+	public void setAdress(String adress) {
+		this.adress = adress;
+	}
+	public int getCreditScore() {
+		return creditScore;
+	}
+	public void setCreditScore(int creditScore) {
+		this.creditScore = creditScore;
+	}
+	public int getRewardPoints() {
+		return rewardPoints;
+	}
+	public void setRewardPoints(int rewardPoints) {
+		this.rewardPoints = rewardPoints;
+	}
+	
+	
+	
+}

@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+repositories/http\:__dist.springsource.com_release_TOOLS_update_e4.2/count=1
+repositories/http\:__dist.springsource.com_release_TOOLS_update_e4.2/enabled=true
+repositories/http\:__dist.springsource.com_release_TOOLS_update_e4.2/nickname=SpringSource Update Site for Eclipse 4.2
+repositories/http\:__dist.springsource.com_release_TOOLS_update_e4.2/uri=http\://dist.springsource.com/release/TOOLS/update/e4.2
+repositories/http\:__download.eclipse.org_releases_juno/count=1
+repositories/http\:__download.eclipse.org_releases_juno/enabled=true
+repositories/http\:__download.eclipse.org_releases_juno/nickname=Juno
+repositories/http\:__download.eclipse.org_releases_juno/uri=http\://download.eclipse.org/releases/juno

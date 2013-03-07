@@ -1,0 +1,131 @@
+Manifest-Version: 1.0
+Bundle-DocURL: www.eclipse.org
+Bundle-RequiredExecutionEnvironment: J2SE-1.5,JavaSE-1.6
+Built-By: igor
+Bundle-SymbolicName: org.eclipse.m2e.archetype.common;singleton:=false
+Require-Bundle: org.eclipse.m2e.maven.runtime;bundle-version="[1.1.0,1
+ .2.0)"
+Ignore-Package: org.apache.maven.wagon.events,java.util.jar,javax.swin
+ g.tree,oracle.xml.parser.v2,org.apache.log4j,java.net,com.werken.xpat
+ h,org.apache.maven.artifact.repository.metadata,org.apache.log.format
+ ,org.apache.tools.ant.taskdefs,javax.xml.namespace,org.xml.sax,org.co
+ dehaus.plexus.util,javax.servlet,javax.xml.stream,org.jaxen.saxpath,o
+ rg.xml.sax.ext,java.io,org.apache.maven.wagon.repository,java.util.zi
+ p,oracle.xml.parser,javax.xml.transform.sax,java.lang,org.codehaus.pl
+ exus.logging,javax.naming,org.apache.xerces.parsers,org.xmlpull.v1,ja
+ vax.xml.parsers,org.apache.maven.artifact.repository,org.w3c.dom,org.
+ codehaus.plexus.personality.plexus.lifecycle.phase,org.apache.maven.w
+ agon,java.lang.reflect,javax.swing.table,javax.xml.transform.stream,j
+ ava.sql,java.beans,org.xml.sax.helpers,java.util.logging,org.apache.m
+ aven.artifact.repository.layout,org.jaxen.pattern,org.jaxen.jdom,org.
+ jaxen.dom4j,java.util,org.apache.log.output.io,org.codehaus.plexus.ut
+ il.xml,org.relaxng.datatype,org.apache.maven.artifact.resolver,java.n
+ io.charset,org.apache.maven.settings,java.math,com.sun.msv.datatype.x
+ sd,org.gjt.xpp,org.apache.maven.artifact.manager,org.jaxen,java.lang.
+ ref,java.util.regex,org.apache.maven.model.io.xpp3,org.codehaus.plexu
+ s.util.xml.pull,com.sun.msv.datatype,java.text,org.apache.maven.proje
+ ct,org.apache.tools.ant,javax.xml.stream.events,javax.xml.stream.util
+ ,org.apache.log,org.apache.maven.model,javax.sql,org.apache.maven.art
+ ifact,org.apache.maven.artifact.factory,java.rmi,javax.xml.transform,
+ org.apache.xerces.dom,javax.xml.bind,javax.servlet.http
+Export-Package: org.apache.maven.archetype.metadata.io.xpp3,org.apache
+ .maven.archetype.metadata,org.apache.maven.archetype.old.descriptor,o
+ rg.apache.maven.archetype.catalog,org.apache.maven.archetype.exceptio
+ n,org.apache.maven.archetype.registry.io.xpp3,org.apache.maven.archet
+ ype.common.io.xpp3,org.apache.maven.archetype.registry,org.apache.mav
+ en.archetype.model,org.apache.maven.archetype.catalog.io.xpp3,org.apa
+ che.maven.archetype.common.util,org.apache.maven.archetype.repository
+ crawler,org.apache.maven.archetype.model.io.xpp3,org.apache.maven.arc
+ hetype,org.apache.maven.archetype.downloader,org.apache.maven.archety
+ pe.generator,org.apache.maven.archetype.creator.olddescriptor,org.apa
+ che.maven.archetype.common,org.apache.maven.archetype.source,org.apac
+ he.maven.archetype.old,org.apache.maven.archetype.creator,org.codehau
+ s.plexus.velocity,META-INF.plexus
+Bundle-Version: 1.1.0.20120529-1956
+Build-Jdk: 1.6.0_31
+Bundle-ClassPath: archetype-common-2.0-alpha-4.jar,commons-collections
+ -3.2.jar,commons-io-1.3.2.jar,commons-lang-2.1.jar,dom4j-1.6.1.jar,jc
+ hardet-1.0.jar,jdom-1.0.jar,oro-2.0.8.jar,plexus-velocity-1.1.3.jar,v
+ elocity-1.5.jar
+Bundle-Vendor: %Bundle-Vendor
+Bnd-LastModified: 1338335984888
+Bundle-Name: %Bundle-Name
+Tool: Bnd-1.50.0
+Embed-Transitive: true
+Created-By: Apache Maven Bundle Plugin
+Embedded-Artifacts: archetype-common-2.0-alpha-4.jar;g="org.apache.mav
+ en.archetype";a="archetype-common";v="2.0-alpha-4",commons-collection
+ s-3.2.jar;g="commons-collections";a="commons-collections";v="3.2",com
+ mons-io-1.3.2.jar;g="commons-io";a="commons-io";v="1.3.2",commons-lan
+ g-2.1.jar;g="commons-lang";a="commons-lang";v="2.1",dom4j-1.6.1.jar;g
+ ="dom4j";a="dom4j";v="1.6.1",jchardet-1.0.jar;g="net.sourceforge.jcha
+ rdet";a="jchardet";v="1.0",jdom-1.0.jar;g="jdom";a="jdom";v="1.0",oro
+ -2.0.8.jar;g="oro";a="oro";v="2.0.8",plexus-velocity-1.1.3.jar;g="org
+ .codehaus.plexus";a="plexus-velocity";v="1.1.3",velocity-1.5.jar;g="o
+ rg.apache.velocity";a="velocity";v="1.5"
+Bundle-ManifestVersion: 2
+Embed-Dependency: archetype-common,commons-collections,commons-io,comm
+ ons-lang,dom4j,jchardet,jdom,oro,plexus-velocity,velocity
+
+Name: about_files/LICENSE-1.1.txt
+SHA1-Digest: LU3HxKIxz/SZNMODB4d2mnr6VUk=
+
+Name: about_files/LICENSE-2.0.txt
+SHA1-Digest: K4uBUimqimHkg/tLoFiLi2xJGJA=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: 09gN05tobgS/MdtqyTNQhOhB73M=
+
+Name: about_files/dom4j-LICENSE.txt
+SHA1-Digest: SQRT7//2ftCQvWowK7UDU2B6Uno=
+
+Name: commons-io-1.3.2.jar
+SHA1-Digest: Hlg7dkMTpBvv8U10JLgX7hV2HIw=
+
+Name: jchardet-1.0.jar
+SHA1-Digest: hdN7//OBBEtrwFTPhVyQLbvGPXU=
+
+Name: commons-collections-3.2.jar
+SHA1-Digest: R7bc14SWEtVYU+2L57rpAeHtfJc=
+
+Name: commons-lang-2.1.jar
+SHA1-Digest: LvsBic3exce4hFBUp8Cv6T49dUs=
+
+Name: OSGI-INF/l10n/bundle.properties
+SHA1-Digest: bZ3aSb9EC+r81NMtQCAL11C3/PM=
+
+Name: about_files/MPL-1.1.txt
+SHA1-Digest: q6jXbQr2fVfaPDwyHKpZ89JCOGs=
+
+Name: oro-2.0.8.jar
+SHA1-Digest: zb0fGaHR59yRHua93to8EJqXVNE=
+
+Name: jdom-1.0.jar
+SHA1-Digest: 0bOQBiYM5QxjgN1z7HbrVxMuvR8=
+
+Name: about.html
+SHA1-Digest: PQlHUJKkYLBVPAKmLwI1a3GBxFg=
+
+Name: META-INF/maven/org.eclipse.m2e/org.eclipse.m2e.archetype.common/
+ pom.xml
+SHA1-Digest: U+jn4SoJaVj4Fc0L2wiwc6BF3fQ=
+
+Name: dom4j-1.6.1.jar
+SHA1-Digest: XPvZyxVQmYIgfJRv2FtcygY9Ra4=
+
+Name: velocity-1.5.jar
+SHA1-Digest: kpgeBJ9f7qzzqS/i9XFPsIMoEq8=
+
+Name: plexus-velocity-1.1.3.jar
+SHA1-Digest: xE62i1Byf8r91ao088ZQs5h7Y6w=
+
+Name: about_files/jdom-LICENSE.txt
+SHA1-Digest: ixVITUctA9P+pCXIrF6qe/d1sPw=
+
+Name: META-INF/maven/org.eclipse.m2e/org.eclipse.m2e.archetype.common/
+ pom.properties
+SHA1-Digest: eSIQKtnZv8ZZYvfxz3kr6hZ77wg=
+
+Name: archetype-common-2.0-alpha-4.jar
+SHA1-Digest: U5XX/rvZIky427sQ537Mt8Au3+U=
+

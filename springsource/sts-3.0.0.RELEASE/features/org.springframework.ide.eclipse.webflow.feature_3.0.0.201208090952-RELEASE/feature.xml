@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*******************************************************************************
+ * Copyright (c) 2005, 2009 Spring IDE Developers
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Spring IDE Developers - initial API and implementation
+ *******************************************************************************/
+ -->
+<feature
+      id="org.springframework.ide.eclipse.webflow.feature"
+      label="%featureName"
+      version="3.0.0.201208090952-RELEASE"
+      provider-name="%providerName"
+      plugin="org.springframework.ide.eclipse">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseUrl">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.springframework.ide.eclipse.feature" version="3.0.0" />
+   </requires>
+
+   <plugin
+         id="org.springframework.ide.eclipse.webflow.core"
+         download-size="299"
+         install-size="620"
+         version="3.0.0.201208090952-RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.ide.eclipse.webflow.ui"
+         download-size="84"
+         install-size="183"
+         version="3.0.0.201208090952-RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.ide.eclipse.webflow.ui.editor"
+         download-size="66"
+         install-size="123"
+         version="3.0.0.201208090952-RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.ide.eclipse.webflow.ui.graph"
+         download-size="701"
+         install-size="1346"
+         version="3.0.0.201208090952-RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.web"
+         download-size="559"
+         install-size="1171"
+         version="3.1.1.RELEASE"
+         unpack="false"/>
+         
+   <plugin
+         id="org.springframework.web.servlet"
+         download-size="581"
+         install-size="1400"
+         version="3.1.1.RELEASE"
+         unpack="false"/>
+         
+   <plugin
+         id="com.springsource.javax.el"
+         download-size="33"
+         install-size="61"
+         version="1.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.springsource.org.apache.httpcomponents.httpclient"
+         download-size="365"
+         install-size="706"
+         version="4.1.1"
+         unpack="false"/>
+
+   <plugin
+         id="com.springsource.org.apache.httpcomponents.httpcore"
+         download-size="191"
+         install-size="356"
+         version="4.1.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.springsource.org.apache.commons.codec"
+         download-size="62"
+         install-size="119"
+         version="1.4.0"
+         unpack="false"/>
+         
+</feature>

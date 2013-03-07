@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<add:web-app xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- ======================== Introduction ============================== -->
+  <!-- This document defines default values for *all* web applications      -->
+  <!-- loaded into this instance of Tomcat.  As each application is         -->
+  <!-- deployed, this file is processed, followed by the                    -->
+  <!-- "/WEB-INF/web.xml" deployment descriptor from your own               -->
+  <!-- applications.                                                        -->
+  <!--                                                                      -->
+  <!-- WARNING:  Do not configure application-specific resources here!      -->
+  <!-- They should go in the "/WEB-INF/web.xml" file in your application.   -->
+
+  <!-- ================== Built In Filter Definitions ===================== -->
+
+  <!-- NOTE: An SSI Servlet is also available as an alternative SSI         -->
+  <!-- implementation. Use either the Servlet or the Filter but NOT both.   -->
+  <!--                                                                      -->
+  <!-- Server Side Includes processing filter, which processes SSI          -->
+  <!-- directives in HTML pages consistent with similar support in web      -->
+  <!-- servers like Apache.  Traditionally, this filter is mapped to the    -->
+  <!-- URL pattern "*.shtml", though it can be mapped to "*" as it will     -->
+  <!-- selectively enable/disable SSI processing based on mime types. For   -->
+  <!-- this to work you will need to uncomment the .shtml mime type         -->
+  <!-- definition towards the bottom of this file.                          -->
+  <!-- The contentType init param allows you to apply SSI processing to JSP -->
+  <!-- pages, javascript, or any other content you wish.  This filter       -->
+  <!-- supports the following initialization parameters (default values are -->
+  <!-- in square brackets):                                                 -->
+  <!--                                                                      -->
+  <!--   contentType         A regex pattern that must be matched before    -->
+  <!--                       SSI processing is applied.                     -->
+  <!--                       [text/x-server-parsed-html(;.*)?]              -->
+  <!--                                                                      -->
+  <!--   debug               Debugging detail level for messages logged     -->
+  <!--                       by this servlet.  [0]                          -->
+  <!--                                                                      -->
+  <!--   expires             The number of seconds before a page with SSI   -->
+  <!--                       directives will expire.  [No default]          -->
+  <!--                                                                      -->
+  <!--   isVirtualWebappRelative                                            -->
+  <!--                       Should "virtual" paths be interpreted as       -->
+  <!--                       relative to the context root, instead of       -->
+  <!--                       the server root?  (0=false, 1=true) [0]        -->
+  <!--                                                                      -->
+  <!--   allowExec           Is use of the exec command enabled? [false]    -->
+
+<!--
+    <filter>
+        <filter-name>ssi</filter-name>
+        <filter-class>
+          org.apache.catalina.ssi.SSIFilter
+        </filter-class>
+        <init-param>
+          <param-name>contentType</param-name>
+          <param-value>text/x-server-parsed-html(;.*)?</param-value>
+        </init-param>
+        <init-param>
+          <param-name>debug</param-name>
+          <param-value>0</param-value>
+        </init-param>
+        <init-param>
+          <param-name>expires</param-name>
+          <param-value>666</param-value>
+        </init-param>
+        <init-param>
+          <param-name>isVirtualWebappRelative</param-name>
+          <param-value>0</param-value>
+        </init-param>
+    </filter>
+-->
+
+
+  <!-- ==================== Built In Filter Mappings ====================== -->
+
+  <!-- The mapping for the SSI Filter -->
+<!--
+    <filter-mapping>
+        <filter-name>ssi</filter-name>
+        <url-pattern>*.shtml</url-pattern>
+    </filter-mapping>
+-->
+
+
+  <!-- ==================== Default Session Configuration ================= -->
+  <!-- You can set the default session timeout (in minutes) for all newly   -->
+  <!-- created sessions by modifying the value below.                       -->
+
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+
+
+  <!-- ==================== Default Welcome File List ===================== -->
+  <!-- When a request URI refers to a directory, the default servlet looks  -->
+  <!-- for a "welcome file" within that directory and, if present,          -->
+  <!-- to the corresponding resource URI for display.  If no welcome file   -->
+  <!-- is present, the default servlet either serves a directory listing,   -->
+  <!-- or returns a 404 status, depending on how it is configured.          -->
+  <!--                                                                      -->
+  <!-- If you define welcome files in your own application's web.xml        -->
+  <!-- deployment descriptor, that list *replaces* the list configured      -->
+  <!-- here, so be sure that you include any of the default values that     -->
+  <!-- you wish to include.                                                 -->
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+</add:web-app>

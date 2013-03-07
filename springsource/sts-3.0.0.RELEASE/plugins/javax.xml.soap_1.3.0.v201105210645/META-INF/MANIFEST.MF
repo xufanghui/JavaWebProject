@@ -1,0 +1,113 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: javax.xml.soap
+Eclipse-SourceReferences: scm:cvs:pserver:dev.eclipse.org:/cvsroot/too
+ ls:org.eclipse.orbit/javax.xml.soap;tag=v201105210645
+Require-Bundle: system.bundle
+Export-Package: javax.xml.soap;version="1.3.0"; uses:="javax.activatio
+ n,  javax.xml.namespace,  javax.xml.transform,  org.w3c.dom"
+Bundle-Version: 1.3.0.v201105210645
+Bundle-Classpath: .
+Bundle-Vendor: %Bundle-Vendor.0
+Bundle-Name: %Bundle-Name.0
+Import-Package: javax.activation,javax.xml.namespace,javax.xml.transfo
+ rm,javax.xml.transform.dom,org.w3c.dom
+Bundle-ManifestVersion: 2
+
+Name: javax/xml/soap/MessageFactory.class
+SHA1-Digest: 3inBf09lWmf/qt1z4+7abLTWfP8=
+
+Name: javax/xml/soap/SOAPFaultElement.class
+SHA1-Digest: e5mxbZorfrOi282aDr01eNAUDrA=
+
+Name: javax/xml/soap/SOAPBodyElement.class
+SHA1-Digest: OPUVjyAADZBbLvS7trJ6K7WnWrc=
+
+Name: javax/xml/soap/FactoryFinder.class
+SHA1-Digest: CNnbDU7flQCyaAbbdra/u5nPEi0=
+
+Name: javax/xml/soap/Name.class
+SHA1-Digest: kZtYIqmBaoM0GpQ6uM9cy2r44y0=
+
+Name: javax/xml/soap/SOAPElement.class
+SHA1-Digest: jV89AvJ0ydLdYlGLc96QppGHbxk=
+
+Name: plugin.properties
+SHA1-Digest: yBYbNrVyeMKFXo4Uxymb2nyuzXo=
+
+Name: javax/xml/soap/Detail.class
+SHA1-Digest: h1sl30NF7DJLZSZhhLgi695CCzk=
+
+Name: javax/xml/soap/SAAJResult.class
+SHA1-Digest: iMZJhGrtKskEkhKgHcC0KgDRvm0=
+
+Name: javax/xml/soap/SOAPMessage.class
+SHA1-Digest: 2f5gvyHSWYgoxFyvbHJ4GoWhM9c=
+
+Name: javax/xml/soap/SOAPHeader.class
+SHA1-Digest: nd+1sRuQgNY/zZ0+YxAYsNrPS34=
+
+Name: javax/xml/soap/SOAPFactory.class
+SHA1-Digest: D80uvd6KwBOcFXyAnUJGmsI9YL0=
+
+Name: javax/xml/soap/DetailEntry.class
+SHA1-Digest: NudktAVamTnd++n9b+zilE+WnTw=
+
+Name: javax/xml/soap/SOAPConnectionFactory.class
+SHA1-Digest: tGVCYX06u5Atqr2V81/rHdaPkYE=
+
+Name: javax/xml/soap/SOAPEnvelope.class
+SHA1-Digest: owh/hXDdCwYfhhEjBZGBL1JlFdM=
+
+Name: javax/xml/soap/MimeHeaders$MatchingIterator.class
+SHA1-Digest: o7u63bXkj+oipCPm0kQUETmnXgQ=
+
+Name: javax/xml/soap/SOAPConstants.class
+SHA1-Digest: gZYqKSWLvd4w1inC5eZepfT0pwk=
+
+Name: javax/xml/soap/SOAPException.class
+SHA1-Digest: Ac3k3+012dROG1igrNFAkbVy7L8=
+
+Name: javax/xml/soap/MimeHeader.class
+SHA1-Digest: IBS868Ih9nyx+CGRl8U8n3gd1Oc=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: javax/xml/soap/SAAJMetaFactory.class
+SHA1-Digest: mP5GIbjV/5ZXPZQ7C6H93+FL13A=
+
+Name: javax/xml/soap/SOAPConnection.class
+SHA1-Digest: +P/q72ZKxbjCKXohn6AKHkvh2os=
+
+Name: javax/xml/soap/MimeHeaders.class
+SHA1-Digest: qyb3+/2w5TnjyfwXJrkSoZ8rwVc=
+
+Name: javax/xml/soap/Text.class
+SHA1-Digest: cgKtD1qceVhwrxcAsV8VCzQ19v0=
+
+Name: javax/xml/soap/SOAPBody.class
+SHA1-Digest: B8628y1Zh5bfqOeCJJTroh1VllY=
+
+Name: about.html
+SHA1-Digest: kh7OfIIaXPA8MUgSgmYus5/Akn4=
+
+Name: javax/xml/soap/SOAPFault.class
+SHA1-Digest: 3mjjyDdEM6TMTkjvUyCHHawzCFY=
+
+Name: javax/xml/soap/AttachmentPart.class
+SHA1-Digest: XTXY3i4aZ0hK/KpMogze2zgcfss=
+
+Name: javax/xml/soap/SOAPElementFactory.class
+SHA1-Digest: vnQh7YAA/8iBTob1xESERPWJlhA=
+
+Name: javax/xml/soap/SOAPPart.class
+SHA1-Digest: ntDXHZJewkwht3+/kZ7P51sqMFE=
+
+Name: javax/xml/soap/SOAPHeaderElement.class
+SHA1-Digest: Wu++vDGQCAB38iue0nvzxe1JEqM=
+
+Name: javax/xml/soap/Node.class
+SHA1-Digest: iCJLyuC65RvjCy07jRcLkTQcJO4=
+

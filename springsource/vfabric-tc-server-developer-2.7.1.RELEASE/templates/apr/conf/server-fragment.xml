@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Server>
+	<add:Listener className="org.apache.catalina.core.AprLifecycleListener"/>
+
+	<Service name="Catalina">
+		<add:Connector executor="tomcatThreadPool"
+				port="${http.port:8080}"
+				protocol="org.apache.coyote.http11.Http11AprProtocol"
+				connectionTimeout="20000"
+				redirectPort="${https.port:8443}"
+				acceptCount="100"
+				maxKeepAliveRequests="15"/>
+
+	</Service>
+</Server>

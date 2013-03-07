@@ -1,0 +1,62 @@
+Manifest-Version: 1.0
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: ajdtExamples.jar
+Bundle-Localization: plugin
+Bundle-Name: AspectJ Examples
+Created-By: 1.6.0_33-b04 (Sun Microsystems Inc.)
+Bundle-RequiredExecutionEnvironment: J2SE-1.4
+Require-Bundle: org.eclipse.ui.ide,org.eclipse.core.runtime,org.eclips
+ e.core.resources,org.eclipse.ui,org.eclipse.jdt.core,org.eclipse.ajdt
+ .core
+Ant-Version: Apache Ant 1.8.2
+Bundle-Vendor: %providerName
+Bundle-Version: 2.2.1.e42x-20120725-1900
+Bundle-Activator: org.eclipse.ajdt.examples.AspectJExamplePlugin
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.eclipse.ajdt.examples; singleton:=true
+
+Name: archive/spacewar.jar
+SHA1-Digest: M3rR8b4YegsAdlzYsQ76WfIC2Z4=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: 09gN05tobgS/MdtqyTNQhOhB73M=
+
+Name: archive/bean.jar
+SHA1-Digest: Umdc5pFhcBkysEQZYse65xyXk8s=
+
+Name: archive/introduction.jar
+SHA1-Digest: i3mHyWvnStEGniEq1kB1ADg/vSE=
+
+Name: archive/tjp.jar
+SHA1-Digest: EVrrQ8jN2zyge7aBPr7hYi1DnZ4=
+
+Name: plugin.properties
+SHA1-Digest: aIdvFh2QtAi5J8IKY4RleDjLx+k=
+
+Name: schema/projectsetup.exsd
+SHA1-Digest: VV4kVUXUlWFi0mH+kCkQgh0VFrY=
+
+Name: plugin.xml
+SHA1-Digest: GDnNaxXf7B2Yf6sZ+pt/B1wTY8o=
+
+Name: about.html
+SHA1-Digest: GBCB10F/TFELOqVL2hqV91JsJ3E=
+
+Name: archive/tracing.jar
+SHA1-Digest: WsG5uk0Cu44NaC4d4XmrJSZA79I=
+
+Name: icons/newajprj_wiz.gif
+SHA1-Digest: XIYT9G5ElFiUxjVxnPafKnh2DkI=
+
+Name: ajdtExamples.jar
+SHA1-Digest: +CzJBdxrQVRLE+Wi/A/0IYD271w=
+
+Name: archive/telecom.jar
+SHA1-Digest: g65i/z7N6kejxOMt8GftIDX0Poc=
+
+Name: archive/observer.jar
+SHA1-Digest: +xpZPIxo2ckaQiZl3ANhvXi1fAM=
+
+Name: archive/org.eclipse.ajdt.examples.progressmon.jar
+SHA1-Digest: VPKFTpO13z6DhPvxf4HnRYL7XNY=
+

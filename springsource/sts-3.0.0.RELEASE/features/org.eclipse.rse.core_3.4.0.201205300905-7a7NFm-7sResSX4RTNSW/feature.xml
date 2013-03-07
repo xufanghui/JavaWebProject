@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     Copyright (c) 2005, 2012 IBM Corporation and others.
+     All rights reserved. This program and the accompanying materials
+     are made available under the terms of the Eclipse Public License v1.0
+     which accompanies this distribution, and is available at
+     http://www.eclipse.org/legal/epl-v10.html
+    
+     Contributors:
+         IBM Corporation - initial API and implementation
+ -->
+<feature
+      id="org.eclipse.rse.core"
+      label="%featureName"
+      version="3.4.0.201205300905-7a7NFm-7sResSX4RTNSW"
+      provider-name="%providerName"
+      plugin="org.eclipse.rse.core">
+
+   <description>
+      %description
+   </description>
+
+   <copyright url="http://www.eclipse.org/legal/epl-v10.html">
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <update label="%tmUpdateSiteName" url="http://download.eclipse.org/tm/updates/3.4"/>
+      <discovery label="%tmUpdateSiteName" url="http://download.eclipse.org/tm/updates/3.4"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.compare"/>
+      <import plugin="org.eclipse.core.filesystem"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.debug.core"/>
+      <import plugin="org.eclipse.jface"/>
+      <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.search"/>
+      <import plugin="org.eclipse.swt"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.ui.editors"/>
+      <import plugin="org.eclipse.ui.forms"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.ui.views"/>
+      <import plugin="org.eclipse.ui.workbench.texteditor"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.rse.core"
+         download-size="41"
+         install-size="133"
+         version="3.3.0.201205300905"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rse.doc.user"
+         download-size="159"
+         install-size="193"
+         version="3.4.0.201205300905"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rse.efs"
+         download-size="7"
+         install-size="14"
+         version="2.1.400.201205300905"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rse.efs.ui"
+         download-size="7"
+         install-size="14"
+         version="2.1.400.201205300905"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rse.importexport"
+         download-size="51"
+         install-size="147"
+         version="1.2.300.201205300905"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rse.files.ui"
+         download-size="111"
+         install-size="407"
+         version="3.2.100.201205300905"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rse.processes.ui"
+         download-size="22"
+         install-size="61"
+         version="3.0.400.201205300905"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rse.services"
+         download-size="57"
+         install-size="183"
+         version="3.2.200.201205300905"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rse.shells.ui"
+         download-size="40"
+         install-size="135"
+         version="3.0.400.201205300905"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rse.subsystems.files.core"
+         download-size="32"
+         install-size="98"
+         version="3.3.0.201205300905"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rse.subsystems.processes.core"
+         download-size="7"
+         install-size="21"
+         version="3.1.300.201205300905"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rse.subsystems.processes.shell.linux"
+         download-size="8"
+         install-size="22"
+         version="1.1.400.201205300905"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rse.subsystems.shells.core"
+         download-size="16"
+         install-size="56"
+         version="3.1.300.201205300905"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rse.ui"
+         download-size="548"
+         install-size="1677"
+         version="3.3.0.201205300905"
+         unpack="false"/>
+
+</feature>

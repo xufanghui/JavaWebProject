@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Server>
+	<Service name="Catalina">
+		<add:Connector executor="tomcatThreadPool"
+				port="${http.port:8080}"
+				protocol="org.apache.coyote.http11.Http11NioProtocol"
+				connectionTimeout="20000"
+				redirectPort="${https.port:8443}"
+				acceptCount="100"
+				maxKeepAliveRequests="15"/>
+
+	</Service>
+</Server>

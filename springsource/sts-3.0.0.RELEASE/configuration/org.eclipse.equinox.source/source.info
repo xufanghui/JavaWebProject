@@ -1,0 +1,17 @@
+#encoding=UTF-8
+#version=1
+org.aspectj.runtime.source,1.7.0.20120703164200,plugins/org.aspectj.runtime.source_1.7.0.20120703164200.jar,-1,false
+org.eclipse.ajdt.core.source,2.2.1.e42x-20120725-1900,plugins/org.eclipse.ajdt.core.source_2.2.1.e42x-20120725-1900.jar,-1,false
+org.eclipse.ajdt.examples.source,2.2.1.e42x-20120725-1900,plugins/org.eclipse.ajdt.examples.source_2.2.1.e42x-20120725-1900.jar,-1,false
+org.eclipse.ajdt.mylyn.ui.source,2.2.0.e42x-20120725-1900,plugins/org.eclipse.ajdt.mylyn.ui.source_2.2.0.e42x-20120725-1900.jar,-1,false
+org.eclipse.ajdt.ui.source,2.2.1.e42x-20120725-1900,plugins/org.eclipse.ajdt.ui.source_2.2.1.e42x-20120725-1900.jar,-1,false
+org.eclipse.contribution.visualiser.source,2.2.1.e42x-20120725-1900,plugins/org.eclipse.contribution.visualiser.source_2.2.1.e42x-20120725-1900.jar,-1,false
+org.eclipse.contribution.weaving.jdt.source,2.2.1.e42x-20120725-1900,plugins/org.eclipse.contribution.weaving.jdt.source_2.2.1.e42x-20120725-1900.jar,-1,false
+org.eclipse.contribution.xref.core.source,2.2.1.e42x-20120725-1900,plugins/org.eclipse.contribution.xref.core.source_2.2.1.e42x-20120725-1900.jar,-1,false
+org.eclipse.contribution.xref.ui.source,2.2.1.e42x-20120725-1900,plugins/org.eclipse.contribution.xref.ui.source_2.2.1.e42x-20120725-1900.jar,-1,false
+org.eclipse.equinox.weaving.aspectj.source,1.0.100.I20120427-0800,plugins/org.eclipse.equinox.weaving.aspectj.source_1.0.100.I20120427-0800.jar,-1,false
+org.eclipse.equinox.weaving.caching.j9.source,1.0.100.I20120427-0800,plugins/org.eclipse.equinox.weaving.caching.j9.source_1.0.100.I20120427-0800.jar,-1,false
+org.eclipse.equinox.weaving.caching.source,1.0.100.I20120427-0800,plugins/org.eclipse.equinox.weaving.caching.source_1.0.100.I20120427-0800.jar,-1,false
+org.eclipse.equinox.weaving.hook.source,1.0.200.I20120427-0800,plugins/org.eclipse.equinox.weaving.hook.source_1.0.200.I20120427-0800.jar,-1,false
+org.eclipse.persistence.jpa.jpql.source,2.0.0.v20120608-r11652,plugins/org.eclipse.persistence.jpa.jpql.source_2.0.0.v20120608-r11652.jar,-1,false
+org.eclipse.rse.useractions.source,1.1.400.201205300905,plugins/org.eclipse.rse.useractions.source_1.1.400.201205300905.jar,-1,false

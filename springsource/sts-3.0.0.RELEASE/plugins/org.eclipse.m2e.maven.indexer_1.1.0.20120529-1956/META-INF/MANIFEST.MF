@@ -1,0 +1,258 @@
+Manifest-Version: 1.0
+Bundle-DocURL: www.eclipse.org
+Bundle-RequiredExecutionEnvironment: J2SE-1.5,JavaSE-1.6
+Built-By: igor
+Bundle-SymbolicName: org.eclipse.m2e.maven.indexer;singleton:=false
+Require-Bundle: org.eclipse.m2e.maven.runtime;bundle-version="[1.1.0,1
+ .2.0)",org.eclipse.m2e.archetype.common;bundle-version="[1.1.0,1.2.0)
+ "
+Ignore-Package: org.apache.maven.wagon.events,java.nio.channels,java.u
+ til,org.codehaus.plexus.util.io,java.net,org.codehaus.plexus.classwor
+ lds,org.apache.commons.cli,org.codehaus.plexus.util.xml,org.codehaus.
+ plexus.configuration.xml,java.rmi.server,org.codehaus.plexus.util,org
+ .codehaus.plexus,java.nio.charset,java.io,org.apache.maven.archetype.
+ catalog,org.apache.maven.wagon.repository,org.apache.maven.artifact.v
+ ersioning,java.util.zip,java.util.regex,java.lang.ref,java.lang,org.c
+ odehaus.plexus.logging,java.util.concurrent,org.codehaus.plexus.util.
+ xml.pull,org.codehaus.plexus.component.repository.exception,java.nio,
+ org.apache.maven.wagon.authorization,java.text,org.apache.maven.arche
+ type.source,org.apache.maven.wagon,java.security,java.lang.reflect,or
+ g.codehaus.plexus.configuration,org.codehaus.plexus.component.annotat
+ ions,org.codehaus.plexus.tools.cli,org.apache.maven.model,java.rmi,or
+ g.apache.maven.wagon.proxy,org.apache.maven.wagon.authentication
+Export-Package: org.apache.lucene.util,org.apache.lucene.search.functi
+ on,org.apache.lucene,org.apache.lucene.index,org.apache.lucene.search
+ .highlight,org.apache.lucene.store,org.apache.lucene.search.payloads,
+ org.apache.lucene.queryParser,org.apache.lucene.document,org.apache.l
+ ucene.util.cache,org.apache.lucene.analysis.standard,org.apache.lucen
+ e.search.spans,org.apache.lucene.index.memory,org.apache.lucene.searc
+ h,org.apache.lucene.analysis,org.apache.maven.index.packer,org.apache
+ .maven.index.incremental,org.apache.maven.index.creator,org.apache.ma
+ ven.index.treeview,org.apache.maven.index.artifact,org.apache.maven.i
+ ndex.search.grouping,org.apache.maven.index,org.apache.maven.index.cl
+ i,org.apache.maven.index.archetype,org.apache.maven.index.locator,org
+ .apache.maven.index.updater,org.apache.maven.index.fs,org.apache.mave
+ n.index.context,META-INF.plexus
+Bundle-Version: 1.1.0.20120529-1956
+Build-Jdk: 1.6.0_31
+Bundle-ClassPath: .,indexer-core-3.1.0.jar,indexer-artifact-3.1.0.jar,
+ lucene-core-2.4.1.jar,lucene-highlighter-2.4.1.jar
+Bundle-Vendor: %Bundle-Vendor
+Bnd-LastModified: 1338335999126
+Bundle-Name: %Bundle-Name
+Tool: Bnd-1.50.0
+Embed-Transitive: true
+Created-By: Apache Maven Bundle Plugin
+Embedded-Artifacts: indexer-core-3.1.0.jar;g="org.apache.maven.indexer
+ ";a="indexer-core";v="3.1.0",indexer-artifact-3.1.0.jar;g="org.apache
+ .maven.indexer";a="indexer-artifact";v="3.1.0",lucene-core-2.4.1.jar;
+ g="org.apache.lucene";a="lucene-core";v="2.4.1",lucene-highlighter-2.
+ 4.1.jar;g="org.apache.lucene";a="lucene-highlighter";v="2.4.1"
+Bundle-ManifestVersion: 2
+Embed-Dependency: *;scope=compile|runtime
+
+Name: about_files/LICENSE-2.0.txt
+SHA1-Digest: K4uBUimqimHkg/tLoFiLi2xJGJA=
+
+Name: org/apache/maven/index/NexusIndexer.class
+SHA1-Digest: KmD1h/dFX9I98X/dutp3Ipweu7o=
+
+Name: org/apache/maven/index/ArtifactInfo$RepositoryVersionComparator.
+ class
+SHA1-Digest: CEBwVo7nfM0hl6e1k9K2fEGMyvo=
+
+Name: indexer-core-3.1.0.jar
+SHA1-Digest: 4lXcZEjFJDC4l49Il+hc5TAShRk=
+
+Name: org/apache/maven/index/SearchEngine.class
+SHA1-Digest: pPqJV02nupOf1QQaNwh2LymYXsU=
+
+Name: META-INF/maven/org.eclipse.m2e/org.eclipse.m2e.maven.indexer/pom
+ .xml
+SHA1-Digest: TlxSEFPFzLx7dMqJDMc+gP8YFn0=
+
+Name: org/apache/maven/index/ArtifactAvailablility.class
+SHA1-Digest: 4Z9E4ETvieFQRyyGSTdKZ1wVrIs=
+
+Name: org/apache/maven/index/IndexerFieldVersion.class
+SHA1-Digest: weC9AMLb+jiLPIRCtICQUOzZCMc=
+
+Name: lucene-highlighter-2.4.1.jar
+SHA1-Digest: oyNZ6nY0MESQz67JUYuaDPqf5iE=
+
+Name: org/apache/maven/index/ArtifactInfoRecord.class
+SHA1-Digest: ePlY9i8OI7e/DgcMzqEFNJiuP/Y=
+
+Name: org/apache/maven/index/MatchHighlightRequest.class
+SHA1-Digest: hZGoLpI1cxTxUOWgsMOcvdzdkC4=
+
+Name: org/apache/maven/index/IteratorSearchResponse.class
+SHA1-Digest: d+Ksxd1we3CX0T8DPe9/hsxzdeY=
+
+Name: org/apache/maven/index/DefaultQueryCreator.class
+SHA1-Digest: WxG0rP1PTf6pROKAUk0qm2y6A4o=
+
+Name: org/apache/maven/index/ArtifactInfo.class
+SHA1-Digest: 1eIx/ISMwZ8CkconiUCW6ERrV/g=
+
+Name: org/apache/maven/index/ArtifactContextProducer.class
+SHA1-Digest: Tg9M4JG4yX8A7ycEm93z9hgcQ5g=
+
+Name: org/apache/maven/index/FlatSearchResponse.class
+SHA1-Digest: s+S8WwZNaXxkxNxotNOP1qJhUrc=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: 09gN05tobgS/MdtqyTNQhOhB73M=
+
+Name: org/apache/maven/index/ArtifactInfoPostprocessor.class
+SHA1-Digest: PyeIJVUYHmqbCmSEvIyEB/rcljo=
+
+Name: org/apache/maven/index/IteratorSearchRequest.class
+SHA1-Digest: eENqTO365U8R/Aq3axVasK4nTf0=
+
+Name: org/apache/maven/index/UniqueGAArtifactFilterPostprocessor.class
+SHA1-Digest: lskoHHnEGOpzCjoxSYIkO/g9NWI=
+
+Name: org/apache/maven/index/Scanner.class
+SHA1-Digest: zjw7FLE27uAw/PyjJsLIwUtJV4Y=
+
+Name: org/apache/maven/index/NEXUS.class
+SHA1-Digest: Z+eNU/m2iU3IooROCrICzuiyVww=
+
+Name: org/apache/maven/index/ArtifactScanningListener.class
+SHA1-Digest: mwOdC37BF3GxStz7AZutSHc7qKw=
+
+Name: org/apache/maven/index/GroupedSearchResponse.class
+SHA1-Digest: aSyaq7IVGQazK3mz+KiUqef1rKw=
+
+Name: org/apache/maven/index/AndMultiArtifactInfoFilter.class
+SHA1-Digest: 9rqYoDTrO9qi9sj+QaWowd9eFNw=
+
+Name: org/apache/maven/index/MAVEN.class
+SHA1-Digest: 4ZTqgZhFAyZvf5W1redi5SGRMfs=
+
+Name: META-INF/maven/org.eclipse.m2e/org.eclipse.m2e.maven.indexer/pom
+ .properties
+SHA1-Digest: ApFY6FLzT9JdwLKjCp6H9M4346A=
+
+Name: org/apache/maven/index/FlatSearchRequest.class
+SHA1-Digest: dd57wy5D+labSkTUEr8fJJTBCgE=
+
+Name: org/apache/maven/index/AbstractMultiArtifactInfoFilter.class
+SHA1-Digest: P0coes1lfLgcg85Fz1hpZCzUR54=
+
+Name: org/apache/maven/index/SearchType.class
+SHA1-Digest: I1iDr1oH4Clm+R4OpAhLDrAbYvI=
+
+Name: org/apache/maven/index/Grouping.class
+SHA1-Digest: OcPML0NHzVbNCNjX6wHGRf3qOtw=
+
+Name: org/apache/maven/index/QueryCreator.class
+SHA1-Digest: RwmQJVy0Nw8esabLF+VZ9GuK8tw=
+
+Name: org/apache/maven/index/ArtifactDiscoveryListener.class
+SHA1-Digest: uYeHU/9BUjt+U4QShsTI0F2EQM0=
+
+Name: lucene-core-2.4.1.jar
+SHA1-Digest: xfHqhyo64NhPMmxiBN0Qxt7n9yA=
+
+Name: OSGI-INF/l10n/bundle.properties
+SHA1-Digest: Lots54dgITVnDYNkKQ10QJWZVDo=
+
+Name: org/apache/maven/index/UniqueArtifactFilterPostprocessor.class
+SHA1-Digest: vFkQZ+9tYKN3hPesqxFtlOWxWoM=
+
+Name: org/apache/maven/index/OneLineFragmenter.class
+SHA1-Digest: abCWdLm6zZjd1/PXVfpEsOJt6sw=
+
+Name: org/apache/maven/index/DefaultScanner$ScannerFileComparator.clas
+ s
+SHA1-Digest: 0rAoR2jxNWE67hY+oUbcA9o/62k=
+
+Name: org/apache/maven/index/GroupedSearchRequest.class
+SHA1-Digest: w24Gz+QFZ/WSSmwIxFkxepmu0uU=
+
+Name: org/apache/maven/index/DefaultScanner$1.class
+SHA1-Digest: gkH/dx2WnbEszT4gZZk+Xqun3zc=
+
+Name: org/apache/maven/index/AbstractSearchResponse.class
+SHA1-Digest: +9+LG5BPsucJ1z9/3hJouVOQLoM=
+
+Name: org/apache/maven/index/SearchType$1.class
+SHA1-Digest: IlOmZdPJP38sASjGYTwngSzOvns=
+
+Name: org/apache/maven/index/ScanningRequest.class
+SHA1-Digest: dkw3QtwIwZftkaIBlO9YIPdqzyI=
+
+Name: org/apache/maven/index/DefaultScannerListener.class
+SHA1-Digest: n5fSIz/YDz+MaGZroU8mVlDRUj0=
+
+Name: org/apache/maven/index/DefaultNexusIndexer.class
+SHA1-Digest: XmgrT+wwdT2oSsDV3Thg2IqsjDc=
+
+Name: org/apache/maven/index/IndexerEngine.class
+SHA1-Digest: p4t27yVfOI7+jOvuhcPu6hxAZdw=
+
+Name: org/apache/maven/index/CleaningEncoder.class
+SHA1-Digest: a1nkpDVlMzBDoyox+4Yx5CGG16g=
+
+Name: org/apache/maven/index/DefaultSearchEngine.class
+SHA1-Digest: 8SDiNnUb+nt+rkULQR5sVnAIt0I=
+
+Name: org/apache/maven/index/DefaultIndexerEngine.class
+SHA1-Digest: lLPWZC2HShmKbsevPnT3xynsugE=
+
+Name: org/apache/maven/index/IteratorSearchResponse$1.class
+SHA1-Digest: dVfHQ3byjYbLq1ZEX/BF89dKdk4=
+
+Name: org/apache/maven/index/IteratorResultSet.class
+SHA1-Digest: vgk0/vpMNIAflHHz8o17IhvycYE=
+
+Name: org/apache/maven/index/ArtifactInfo$VersionComparator.class
+SHA1-Digest: ECwpjSzSJ2EWJkDmEZo5RNGw/3g=
+
+Name: about.html
+SHA1-Digest: fkfvLeDRLL7XErW1f+YlEzcsj1A=
+
+Name: org/apache/maven/index/Field.class
+SHA1-Digest: u2R3WdH7b6lN8tfc+nNb83rTIOc=
+
+Name: org/apache/maven/index/ScanningResult.class
+SHA1-Digest: 62lKrIzEgdFl85nxOiRHn1qJR0Y=
+
+Name: org/apache/maven/index/DefaultArtifactContextProducer.class
+SHA1-Digest: vJ0a3Xiklp18I1K4cW+7tI1qLoA=
+
+Name: org/apache/maven/index/MatchHighlight.class
+SHA1-Digest: x04hI/XX5zk+JCUZupDkFR6bUL4=
+
+Name: org/apache/maven/index/ArtifactContext.class
+SHA1-Digest: ad0F5Zzg9uLRSdPCxYsY0zQuLjo=
+
+Name: org/apache/maven/index/ArtifactInfoGroup.class
+SHA1-Digest: 71A5hfzBsNu3VI52nSBPcob0nsc=
+
+Name: org/apache/maven/index/MatchHighlightMode.class
+SHA1-Digest: oS2ZXg/x3jS/gZ98riS4SFvXMBo=
+
+Name: org/apache/maven/index/DefaultIteratorResultSet.class
+SHA1-Digest: f/Kwz3Tze+E0C4ncSe5YYdHcVRE=
+
+Name: org/apache/maven/index/ArtifactContext$ModelReader.class
+SHA1-Digest: TDxs/E+36Va5xPplFUwI0ni3HyI=
+
+Name: indexer-artifact-3.1.0.jar
+SHA1-Digest: aQCiCIwtIT7w0Ude+uaM73p30RQ=
+
+Name: org/apache/maven/index/AbstractSearchRequest.class
+SHA1-Digest: WVyRsaeWHYYKNlpGscltsVHEhDI=
+
+Name: org/apache/maven/index/ArtifactInfoFilter.class
+SHA1-Digest: iUovfvGAg1A+kxA+AFgvTS0tw6k=
+
+Name: org/apache/maven/index/IndexerField.class
+SHA1-Digest: VxkFY3Jj5UvctFRyPbu3J5fmxf4=
+
+Name: org/apache/maven/index/DefaultScanner.class
+SHA1-Digest: 6TxXfjxkvKYgRu4+jMUPMKNy9fw=
+

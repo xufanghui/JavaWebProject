@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Server>
+	<Service name="Catalina">
+		<Engine name="Catalina" defaultHost="localhost" add:jvmRoute="${node.name:tc-runtime-1}">
+			<add:Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster" channelSendOptions="8">
+				<Manager className="org.apache.catalina.ha.session.DeltaManager"
+						expireSessionsOnShutdown="false"
+						notifyListenersOnReplication="true"/>
+
+				<Channel className="org.apache.catalina.tribes.group.GroupChannel">
+					<Membership className="org.apache.catalina.tribes.membership.McastService"
+							address="228.0.0.4"
+							port="45564"
+							frequency="500"
+							dropTime="3000"/>
+					<Receiver className="org.apache.catalina.tribes.transport.nio.NioReceiver"
+							address="auto"
+							port="4000"
+							autoBind="100"
+							selectorTimeout="5000"
+							maxThreads="6"/>
+
+					<Sender className="org.apache.catalina.tribes.transport.ReplicationTransmitter">
+						<Transport className="org.apache.catalina.tribes.transport.nio.PooledParallelSender"/>
+					</Sender>
+					<Interceptor className="org.apache.catalina.tribes.group.interceptors.TcpFailureDetector"/>
+					<Interceptor className="org.apache.catalina.tribes.group.interceptors.MessageDispatch15Interceptor"/>
+				</Channel>
+
+				<Valve className="org.apache.catalina.ha.tcp.ReplicationValve" filter=""/>
+				<Valve className="org.apache.catalina.ha.session.JvmRouteBinderValve"/>
+
+				<ClusterListener className="org.apache.catalina.ha.session.JvmRouteSessionIDBinderListener"/>
+				<ClusterListener className="org.apache.catalina.ha.session.ClusterSessionListener"/>
+			</add:Cluster>
+		</Engine>
+	</Service>
+</Server>

@@ -1,0 +1,20 @@
+package com.hibernate.costumer;
+
+import org.hibernate.cfg.AnnotationConfiguration;
+
+import com.hibernate.employee.Employee;
+
+public class TestCustomer {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		AnnotationConfiguration config = new AnnotationConfiguration();
+		config.addAnnotatedClass(Employee.class);
+		config.configure("hibernate.cfg.xml");
+		
+		new SchemaExport(config).create(true, true);
+	}
+
+}

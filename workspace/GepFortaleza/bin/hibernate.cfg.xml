@@ -1,0 +1,32 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	
+
+	<session-factory>
+	
+		<!-- Database Connection -->
+		<property name="connection.driver_class">org.postgresql.Driver</property>
+		<property name="connection.url">jdbc:postgresql://localhost/postgres</property>
+		<property name="connection.username">postgres</property>
+		<property name="connection.password">123456</property>
+
+		
+		<!-- Enable Hibernate's current session context  -->
+		<property name="current_session_context_class">thread</property>
+				 
+  		<!-- SQL Dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+		<property name="connection.release_mode">on_close</property>
+		<property name="max_fetch_depth">5</property>
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		<property name="cache.provider_class">org.hibernate.cache.HashtableCacheProvider</property>
+		
+		
+	</session-factory>
+</hibernate-configuration>

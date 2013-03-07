@@ -1,0 +1,278 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;15.&nbsp;JSON Add-On</title><link rel="stylesheet" href="css/html.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.73.2"><link rel="start" href="index.html" title="Spring Roo - Reference Documentation"><link rel="up" href="base.html" title="Part&nbsp;II.&nbsp;Base Add-Ons"><link rel="prev" href="base-gwt.html" title="Chapter&nbsp;14.&nbsp;Google Web Toolkit Add-On"><link rel="next" href="base-solr.html" title="Chapter&nbsp;16.&nbsp;Apache Solr Add-On"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div xmlns:fo="http://www.w3.org/1999/XSL/Format" style="background-color:white;border:none;height:73px;border:1px solid black;"><a style="border:none;" href="http://www.springsource.org/roo/" title="The Spring Framework - Spring Roo"><img style="border:none;" src="images/xdev-spring_logo.jpg"></a><a style="border:none;" href="http://www.springsource.com/" title="SpringSource - Spring from the Source"><img style="border:none;position:absolute;padding-top:0px;right:2em;" src="images/banner.png"></a></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="base-json"></a>Chapter&nbsp;15.&nbsp;JSON Add-On</h2></div></div></div>
+  
+
+  <div class="sidebar"><p class="title"><b></b></p>
+      <p>There are a number of ways to work with JSON document
+      serialization and desrialization in Roo projects:</p>
+
+      <p>Option 1: Built-in JSON handling managed in domain layer
+      (discussed in this section)</p>
+
+      <div class="itemizedlist"><ul type="disc"><li>
+          <p>This offers customizable <a class="ulink" href="http://flexjson.sourceforge.net/" target="_top">FlexJson</a>
+          integration</p>
+        </li></ul></div>
+
+      <p>Option 2: Spring MVC detects the <a class="ulink" href="http://jackson.codehaus.org/" target="_top">Jackson</a> library in the
+      application classpath</p>
+
+      <div class="itemizedlist"><ul type="disc"><li>
+          <p>simply use Spring's <a class="ulink" href="http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/mvc.html#mvc-ann-requestbody" target="_top">@RequestBody</a>
+          and <a class="ulink" href="http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/mvc.html#mvc-ann-responsebody" target="_top">@ResponseBody</a>
+          annotations in the controllers, or</p>
+        </li><li>
+          <p>take advantage of Spring's <a class="ulink" href="http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/mvc.html#mvc-multiple-representations" target="_top">ContentNegotiatingViewResolver</a></p>
+        </li></ul></div>
+    </div><p>The JSON add-on offers JSON support in the domain layer as well
+  as the Spring MVC scaffolding. A number of methods are provided to
+  facilitate serialization and deserialization of JSON documents into domain
+  objects. The JSON add-on makes use of the <a class="ulink" href="http://flexjson.sourceforge.net/" target="_top">Flexjson</a>
+  library.</p>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e2742"></a>15.1.&nbsp;Adding JSON Functionality to Domain Types</h2></div></div></div>
+    
+
+    <p>The add-on offers an annotation as well as two commands that support
+    the integration of JSON support into the project's domain layer:</p>
+
+    <div class="orderedlist"><ol type="1"><li>
+        <p>Annotating a target type with the default <span class="bold"><strong>@RooJson</strong></span> annotation will prompt Roo to create
+        an ITD with the following four methods:</p>
+
+        <pre class="programlisting">public String toJson() {
+   return new JSONSerializer().exclude("*.class").serialize(this);
+}
+</pre><p>This method returns a JSON representation of the current
+        object.</p>
+
+        <pre class="programlisting">public static Owner fromJsonToOwner(String json) {
+   return new JSONDeserializer&lt;Owner&gt;().use(null, Owner.class).deserialize(json);
+}
+</pre><p>This method has a String parameter representing the JSON
+        document and returns a domain type instance if the document can be
+        serialized by the underlying deserializer.</p>
+
+        <pre class="programlisting">public static String toJsonArray(Collection&lt;Owner&gt; collection) {
+   return new JSONSerializer().exclude("*.class").serialize(collection);
+}
+</pre><p>This method will convert a collection of the target type,
+        provided as method parameter, into a valid JSON document containing an
+        array.</p>
+
+        <pre class="programlisting">public static Collection&lt;Owner&gt; fromJsonArrayToOwners(String json) {
+   return new JSONDeserializer&lt;List&lt;Owner&gt;&gt;().use(null, 
+                     ArrayList.class).use("values", Owner.class).deserialize(json);
+}
+</pre><p>This method will convert a JSON array document, passed in as
+        a method parameter, into a collection of the target type.</p>
+
+        <p>The @RooJson annotation can be used to customize the names of
+        the methods being introduced to the target type. Furthermore, you can
+        disable the creation of any of the above listed methods by providing
+        an empty String argument for the unwanted method in the @RooJson
+        annotation. Example:</p>
+
+        <pre class="programlisting">@RooJson(toJsonMethod="", fromJsonMethod="myOwnMethodName")</pre>
+      </li><li>
+        <p>The <a class="link" href="command-index.html#command-index-json-add" title="A.20.1.&nbsp;json add">json add</a> Roo
+        shell command will introduce the @RooJson annotation into the
+        specified target type.</p>
+      </li><li>
+        <p>The <a class="link" href="command-index.html#command-index-json-all" title="A.20.2.&nbsp;json all">json all</a>
+        command will detect all domain entities in the project and annotate
+        all of them with the @RooJson annotation.</p>
+      </li></ol></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e2766"></a>15.2.&nbsp;JSON REST Interface in Spring MVC controllers</h2></div></div></div>
+    
+
+    <p>Once your domain types are annotated with the @RooJson annotation,
+    you can create Spring MVC scaffolding for your JSON enabled types.</p>
+
+    <div class="orderedlist"><ol type="1"><li>
+        <p>The <a class="link" href="command-index.html#command-index-web-mvc-json-setup" title="A.43.3.&nbsp;web mvc json setup">web mvc
+        json setup</a> Roo shell command configures the current project to
+        support JSON integration using Spring MVC.</p>
+      </li><li>
+        <p>The <a class="link" href="command-index.html#command-index-web-mvc-json-add" title="A.43.1.&nbsp;web mvc json add">web mvc json
+        add</a> Roo shell command introduces the <span class="bold"><strong>@RooWebJson</strong></span> annotation into the specified
+        target type.</p>
+      </li><li>
+        <p>The <a class="link" href="command-index.html#command-index-web-mvc-json-all" title="A.43.2.&nbsp;web mvc json all">web mvc json
+        all</a> Roo shell command finds all JSON-enabled types (<span class="bold"><strong>@RooJson</strong></span>) in the project and creates Spring MVC
+        controllers for each (if a controller does not already exist), or adds
+        <span class="bold"><strong>@RooWebJson</strong></span> to existing controllers
+        (should they already exist).</p>
+      </li><li>
+        <p>Annotating an existing Spring MVC controller with the
+        @RooWebJson annotation will prompt Roo to create an ITD with a number
+        of methods:</p>
+
+        <div class="itemizedlist"><ul type="disc"><li>
+              <code class="code">listJson</code>
+              <pre class="programlisting">@RequestMapping(headers = "Accept=application/json")
+@ResponseBody
+public ResponseEntity&lt;String&gt; ToppingController.<span class="bold"><strong>listJson</strong></span>() {
+    HttpHeaders headers = new HttpHeaders();
+    headers.add("Content-Type", "application/json; charset=utf-8");
+    List&lt;Topping&gt; result = toppingService.findAllToppings();
+    return new ResponseEntity&lt;String&gt;(Topping.toJsonArray(result), headers, HttpStatus.OK);
+}</pre><p>As you can see this method takes advantage of Spring's
+              request mappings and will respond to HTTP GET requests that
+              contain an 'Accept=application/json' header. The @ResponseBody
+              annotation is used to serialize the JSON document.</p>
+
+              <p>To test the functionality with curl, you can try out the
+              Roo "pizza shop" sample script (run roo&gt; script pizzashop.roo;
+              then quit the Roo shell and start Tomcat 'mvn tomcat:run'):</p>
+
+              <pre class="programlisting">curl -i -H "Accept: application/json" http://localhost:8080/pizzashop/toppings</pre>
+            </li><li>
+              <code class="code">showJson</code>
+              <pre class="programlisting">@RequestMapping(value = "/{id}", headers = "Accept=application/json")
+@ResponseBody
+public ResponseEntity&lt;String&gt; ToppingController.<span class="bold"><strong>showJson</strong></span>(@PathVariable("id") Long id) {
+    Topping topping = toppingService.findTopping(id);
+    HttpHeaders headers = new HttpHeaders();
+    headers.add("Content-Type", "application/json; charset=utf-8");
+    if (topping == null) {
+        return new ResponseEntity&lt;String&gt;(headers, HttpStatus.NOT_FOUND);
+    }
+    return new ResponseEntity&lt;String&gt;(topping.toJson(), headers, HttpStatus.OK);
+}</pre><p>This method accepts an HTTP GET request with a <a class="ulink" href="http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/mvc.html#mvc-ann-requestparam" target="_top">@PathVariable</a>
+              for the requested Topping ID. The entity is serialized and returned
+              as a JSON document if found, otherwise an HTTP 404 (NOT FOUND)
+              status code is returned. The accompanying curl command is as
+              follows:</p>
+
+              <pre class="programlisting">curl -i -H "Accept: application/json" http://localhost:8080/pizzashop/toppings/1</pre>
+            </li><li>
+              <code class="code">createFromJson</code>
+              <pre class="programlisting">@RequestMapping(method = RequestMethod.POST, headers = "Accept=application/json")
+public ResponseEntity&lt;String&gt; ToppingController.<span class="bold"><strong>createFromJson</strong></span>(@RequestBody String json) {
+    Topping topping = Topping.fromJsonToTopping(json);
+    toppingService.saveTopping(topping);
+    HttpHeaders headers = new HttpHeaders();
+    headers.add("Content-Type", "application/json");
+    return new ResponseEntity&lt;String&gt;(headers, HttpStatus.CREATED);
+}</pre><p>This method accepts a JSON document sent via HTTP POST,
+              converts it into a Topping instance, persists that new instance,
+              and returns an HTTP 201 (CREATED) status code. The accompanying
+              curl command is as follows:</p>
+
+              <pre class="programlisting">curl -i -X POST -H "Content-Type: application/json" -H "Accept: application/json"
+     -d '{"name": "Thin Crust"}' http://localhost:8080/pizzashop/bases</pre>
+            </li><li>
+              <code class="code">createFromJsonArray</code>
+              <pre class="programlisting">@RequestMapping(value = "/jsonArray", method = RequestMethod.POST, headers = "Accept=application/json")
+public ResponseEntity&lt;String&gt; ToppingController.<span class="bold"><strong>createFromJsonArray</strong></span>(@RequestBody String json) {
+    for (Topping topping: Topping.fromJsonArrayToToppings(json)) {
+        toppingService.saveTopping(topping);
+    }
+    HttpHeaders headers = new HttpHeaders();
+    headers.add("Content-Type", "application/json");
+    return new ResponseEntity&lt;String&gt;(headers, HttpStatus.CREATED);
+}</pre><p>This method accepts a document containing a JSON array sent
+              via HTTP POST and converts the array into instances that
+              are then persisted. The method returns an HTTP 201 (CREATED)
+              status code. The accompanying curl command is as follows:</p>
+
+              <pre class="programlisting">curl -i -X POST -H "Content-Type: application/json" -H "Accept: application/json"
+     -d '[{"name":"Cheesy Crust"},{"name":"Thick Crust"}]'
+     http://localhost:8080/pizzashop/bases/jsonArray</pre>
+            </li><li>
+              <code class="code">updateFromJson</code>
+              <pre class="programlisting">@RequestMapping(method = RequestMethod.PUT, headers = "Accept=application/json")
+public ResponseEntity&lt;String&gt; ToppingController.<span class="bold"><strong>updateFromJson</strong></span>(@RequestBody String json) {
+    HttpHeaders headers = new HttpHeaders();
+    headers.add("Content-Type", "application/json");
+    Topping topping = Topping.fromJsonToTopping(json);
+    if (toppingService.updateTopping(topping) == null) {
+        return new ResponseEntity&lt;String&gt;(headers, HttpStatus.NOT_FOUND);
+    }
+    return new ResponseEntity&lt;String&gt;(headers, HttpStatus.OK);
+}</pre><p>This method accepts a JSON document sent via HTTP PUT and
+              converts it into a Topping instance before attempting to merge it
+              with an existing record. If no existing record is found, an
+              HTTP 404 (NOT FOUND) status code is sent to the client,
+              otherwise an HTTP 200 (OK) status code is sent. The accompanying
+              curl command is as follows:</p>
+
+              <pre class="programlisting">curl -i -X PUT -H "Content-Type: application/json" -H "Accept: application/json"
+     -d '{id:6,name:"Mozzarella",version:1}'
+     http://localhost:8080/pizzashop/toppings</pre>
+            </li><li>
+              <code class="code">updateFromJsonArray</code>
+              <pre class="programlisting">@RequestMapping(value = "/jsonArray", method = RequestMethod.PUT,
+               headers = "Accept=application/json")
+public ResponseEntity&lt;String&gt; BaseController.<span class="bold"><strong>updateFromJsonArray</strong></span>(@RequestBody String json) {
+    HttpHeaders headers = new HttpHeaders();
+    headers.add("Content-Type", "application/json");
+    for (Base base: Base.fromJsonArrayToBases(json)) {
+        if (baseService.updateBase(base) == null) {
+            return new ResponseEntity&lt;String&gt;(headers, HttpStatus.NOT_FOUND);
+        }
+    }
+    return new ResponseEntity&lt;String&gt;(headers, HttpStatus.OK);
+}</pre><p>This method accepts a document containing a JSON array sent
+              via HTTP PUT and converts the array into transient entities which
+              are then merged. The method returns an HTTP 404 (NOT FOUND) status
+              code if any of the instances to be updated are not found, otherwise
+              it returns an HTTP 200 (OK) status code. The accompanying curl
+              command is as follows:</p>
+
+              <pre class="programlisting">curl -i -X PUT -H "Content-Type: application/json" -H "Accept: application/json"
+     -d '[{id:1,"name":"Cheesy Crust",version:0},{id:2,"name":"Thick Crust",version:0}]'
+     http://localhost:8080/pizzashop/bases/jsonArray</pre>
+            </li><li>
+              <code class="code">deleteFromJson</code>
+              <pre class="programlisting">@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
+public ResponseEntity&lt;String&gt; ToppingController.<span class="bold"><strong>deleteFromJson</strong></span>(@PathVariable("id") Long id) {
+    Topping topping = toppingService.findTopping(id);
+    HttpHeaders headers = new HttpHeaders();
+    headers.add("Content-Type", "application/json");
+    if (topping == null) {
+        return new ResponseEntity&lt;String&gt;(headers, HttpStatus.NOT_FOUND);
+    }
+    toppingService.deleteTopping(topping);
+    return new ResponseEntity&lt;String&gt;(headers, HttpStatus.OK);
+}</pre><p>This method accepts an HTTP DELETE request with an
+              @PathVariable identifying the Topping instance to be deleted.
+              HTTP status code 200 (OK) is returned if a Topping with
+              that ID was found, otherwise HTTP status code 404 (NOT
+              FOUND) is returned. The accompanying curl command is as
+              follows:</p>
+
+              <pre class="programlisting">curl -i -X DELETE -H "Accept: application/json" http://localhost:8080/pizzashop/toppings/1</pre>
+            </li><li>
+              <code class="code">jsonFind...</code>
+              <p>[Optional] Roo will also generate a method to retrieve a
+              document containing a JSON array if the form backing object
+              defines dynamic finders. Here is an example taken from
+              VisitController in the pet clinic sample application, after
+              adding JSON support to it:</p>
+
+              <pre class="programlisting">@RequestMapping(params = "find=ByDescriptionAndVisitDate", method = RequestMethod.GET, 
+                headers = "Accept=application/json")
+public String <span class="bold"><strong>jsonFindVisitsByDescriptionAndVisitDate</strong></span>(@RequestParam("description") String desc, 
+        @RequestParam("visitDate") @DateTimeFormat(style = "M-") Date visitDate, Model model) {
+    return Visit.toJsonArray(Visit.findVisitsByDescriptionAndVisitDate(desc, visitDate).getResultList());
+}</pre><p>This method accepts an HTTP GET request with a number of
+              request parameters which define the finder method as well as the
+              finder method arguments. The accompanying curl command is as
+              follows:</p>
+
+              <pre class="programlisting">curl -i -H Accept:application/json 
+     http://localhost:8080/petclinic/visits?find=ByDescriptionAndVisitDate%26description=test%26visitDate=12/1/10</pre>
+            </li></ul></div>
+      </li></ol></div>
+
+    <p>If you need help configuring how FlexJson serializes or deserializes
+    JSON documents, please refer to their <a class="ulink" href="http://flexjson.sourceforge.net/" target="_top">reference
+    documentation</a>.</p>
+  </div>
+</div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="base-gwt.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="base-solr.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;14.&nbsp;Google Web Toolkit Add-On&nbsp;</td><td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.springsource.com/" title="SpringSource - Spring from the Source">Sponsored by SpringSource
+                                        </a></span></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;16.&nbsp;Apache Solr Add-On</td></tr></table></div></body></html>

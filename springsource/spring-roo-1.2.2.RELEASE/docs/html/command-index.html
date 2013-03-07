@@ -1,0 +1,2232 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Appendix&nbsp;A.&nbsp;Command Index</title><link rel="stylesheet" href="css/html.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.73.2"><link rel="start" href="index.html" title="Spring Roo - Reference Documentation"><link rel="up" href="appendices.html" title="Part&nbsp;V.&nbsp;Appendices"><link rel="prev" href="appendices.html" title="Part&nbsp;V.&nbsp;Appendices"><link rel="next" href="upgrade.html" title="Appendix&nbsp;B.&nbsp;Upgrade Notes and Known Issues"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div xmlns:fo="http://www.w3.org/1999/XSL/Format" style="background-color:white;border:none;height:73px;border:1px solid black;"><a style="border:none;" href="http://www.springsource.org/roo/" title="The Spring Framework - Spring Roo"><img style="border:none;" src="images/xdev-spring_logo.jpg"></a><a style="border:none;" href="http://www.springsource.com/" title="SpringSource - Spring from the Source"><img style="border:none;position:absolute;padding-top:0px;right:2em;" src="images/banner.png"></a></div><div class="appendix" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="command-index"></a>Appendix&nbsp;A.&nbsp;Command Index</h2></div></div></div>
+    
+    <p>This appendix was automatically built from Roo 1.2.2.RELEASE [rev 022477d].</p>
+    <p>Commands are listed in alphabetic order, and are shown in monospaced font with any mandatory options you must specify when using the command. Most commands accept a large number of options, and all of the possible options for each command are presented in this appendix.</p>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-add-on-commands"></a>A.1.&nbsp;Add On Commands</h2></div></div></div>
+        
+        <p>Add On Commands are contained in org.springframework.roo.addon.roobot.client.AddOnCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-addon-feedback-bundle"></a>A.1.1.&nbsp;addon feedback bundle</h3></div></div></div>
+            
+            <p>Provide anonymous ratings and comments on a Spring Roo Add-on (your feedback will be published publicly)</p>
+            <pre class="programlisting">addon feedback bundle --bundleSymbolicName --rating</pre>
+            <div class="variablelist"><dl><dt><span class="term">--bundleSymbolicName</span></dt><dd>
+                        <p>The bundle symbolic name for the add-on of interest; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--rating</span></dt><dd>
+                        <p>How much did you like this add-on?; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--comment</span></dt><dd>
+                        <p>Your comments on this add-on eg "this is my comment!"; limit of 140 characters; no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-addon-info-bundle"></a>A.1.2.&nbsp;addon info bundle</h3></div></div></div>
+            
+            <p>Provide information about a specific Spring Roo Add-on</p>
+            <pre class="programlisting">addon info bundle --bundleSymbolicName</pre>
+            <div class="variablelist"><dl><dt><span class="term">--bundleSymbolicName</span></dt><dd>
+                        <p>The bundle symbolic name for the add-on of interest; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-addon-info-id"></a>A.1.3.&nbsp;addon info id</h3></div></div></div>
+            
+            <p>Provide information about a specific Spring Roo Add-on</p>
+            <pre class="programlisting">addon info id --searchResultId</pre>
+            <div class="variablelist"><dl><dt><span class="term">--searchResultId</span></dt><dd>
+                        <p>The bundle ID as presented via the addon list or addon search command; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-addon-install-bundle"></a>A.1.4.&nbsp;addon install bundle</h3></div></div></div>
+            
+            <p>Install Spring Roo Add-on</p>
+            <pre class="programlisting">addon install bundle --bundleSymbolicName</pre>
+            <div class="variablelist"><dl><dt><span class="term">--bundleSymbolicName</span></dt><dd>
+                        <p>The bundle symbolic name for the add-on of interest; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-addon-install-id"></a>A.1.5.&nbsp;addon install id</h3></div></div></div>
+            
+            <p>Install Spring Roo Add-on</p>
+            <pre class="programlisting">addon install id --searchResultId</pre>
+            <div class="variablelist"><dl><dt><span class="term">--searchResultId</span></dt><dd>
+                        <p>The bundle ID as presented via the addon list or addon search command; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-addon-list"></a>A.1.6.&nbsp;addon list</h3></div></div></div>
+            
+            <p>List all known Spring Roo Add-ons (up to the maximum number displayed on a single page)</p>
+            <pre class="programlisting">addon list</pre>
+            <div class="variablelist"><dl><dt><span class="term">--refresh</span></dt><dd>
+                        <p>Refresh the add-on index from the Internet; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--linesPerResult</span></dt><dd>
+                        <p>The maximum number of lines displayed per add-on; default: '2'</p>
+                    </dd><dt><span class="term">--maxResults</span></dt><dd>
+                        <p>The maximum number of add-ons to list; default: '99'</p>
+                    </dd><dt><span class="term">--trustedOnly</span></dt><dd>
+                        <p>Only display trusted add-ons in search results; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--communityOnly</span></dt><dd>
+                        <p>Only display community provided add-ons in search results; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--compatibleOnly</span></dt><dd>
+                        <p>Only display compatible add-ons in search results; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-addon-remove"></a>A.1.7.&nbsp;addon remove</h3></div></div></div>
+            
+            <p>Remove Spring Roo Add-on</p>
+            <pre class="programlisting">addon remove --bundleSymbolicName</pre>
+            <div class="variablelist"><dl><dt><span class="term">--bundleSymbolicName</span></dt><dd>
+                        <p>The bundle symbolic name for the add-on of interest; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-addon-search"></a>A.1.8.&nbsp;addon search</h3></div></div></div>
+            
+            <p>Search all known Spring Roo Add-ons</p>
+            <pre class="programlisting">addon search</pre>
+            <div class="variablelist"><dl><dt><span class="term">--requiresDescription</span></dt><dd>
+                        <p>A comma separated list of search terms; default: '*'</p>
+                    </dd><dt><span class="term">--refresh</span></dt><dd>
+                        <p>Refresh the add-on index from the Internet; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--linesPerResult</span></dt><dd>
+                        <p>The maximum number of lines displayed per add-on; default: '2'</p>
+                    </dd><dt><span class="term">--maxResults</span></dt><dd>
+                        <p>The maximum number of add-ons to list; default: '20'</p>
+                    </dd><dt><span class="term">--trustedOnly</span></dt><dd>
+                        <p>Only display trusted add-ons in search results; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--compatibleOnly</span></dt><dd>
+                        <p>Only display compatible add-ons in search results; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--communityOnly</span></dt><dd>
+                        <p>Only display community provided add-ons in search results; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--requiresCommand</span></dt><dd>
+                        <p>Only display add-ons in search results that offer this command; no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-addon-upgrade-all"></a>A.1.9.&nbsp;addon upgrade all</h3></div></div></div>
+            
+            <p>Upgrade all relevant Spring Roo Add-ons / Components for the current stability level</p>
+            <pre class="programlisting">addon upgrade all</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-addon-upgrade-available"></a>A.1.10.&nbsp;addon upgrade available</h3></div></div></div>
+            
+            <p>List available Spring Roo Add-on / Component upgrades</p>
+            <pre class="programlisting">addon upgrade available</pre>
+            <div class="variablelist"><dl><dt><span class="term">--addonStabilityLevel</span></dt><dd>
+                        <p>The stability level of add-ons or components which are presented for upgrading (default: ANY); no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-addon-upgrade-bundle"></a>A.1.11.&nbsp;addon upgrade bundle</h3></div></div></div>
+            
+            <p>Upgrade a specific Spring Roo Add-on / Component</p>
+            <pre class="programlisting">addon upgrade bundle --bundleSymbolicName</pre>
+            <div class="variablelist"><dl><dt><span class="term">--bundleSymbolicName</span></dt><dd>
+                        <p>The bundle symbolic name for the add-on to upgrade; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-addon-upgrade-id"></a>A.1.12.&nbsp;addon upgrade id</h3></div></div></div>
+            
+            <p>Upgrade a specific Spring Roo Add-on / Component from a search result ID</p>
+            <pre class="programlisting">addon upgrade id --searchResultId</pre>
+            <div class="variablelist"><dl><dt><span class="term">--searchResultId</span></dt><dd>
+                        <p>The bundle ID as presented via the addon list or addon search command; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-addon-upgrade-settings"></a>A.1.13.&nbsp;addon upgrade settings</h3></div></div></div>
+            
+            <p>Settings for Add-on upgrade operations</p>
+            <pre class="programlisting">addon upgrade settings</pre>
+            <div class="variablelist"><dl><dt><span class="term">--addonStabilityLevel</span></dt><dd>
+                        <p>The stability level of add-ons or components which are presented for upgrading; no default value</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-backup-commands"></a>A.2.&nbsp;Backup Commands</h2></div></div></div>
+        
+        <p>Backup Commands are contained in org.springframework.roo.addon.backup.BackupCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-backup"></a>A.2.1.&nbsp;backup</h3></div></div></div>
+            
+            <p>Backup your project to a zip file</p>
+            <pre class="programlisting">backup</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-classpath-commands"></a>A.3.&nbsp;Classpath Commands</h2></div></div></div>
+        
+        <p>Classpath Commands are contained in org.springframework.roo.classpath.operations.ClasspathCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-class"></a>A.3.1.&nbsp;class</h3></div></div></div>
+            
+            <p>Creates a new Java class source file in any project path</p>
+            <pre class="programlisting">class --class</pre>
+            <div class="variablelist"><dl><dt><span class="term">--class</span></dt><dd>
+                        <p>The name of the class to create; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--rooAnnotations</span></dt><dd>
+                        <p>Whether the generated class should have common Roo annotations; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--path</span></dt><dd>
+                        <p>Source directory to create the class in; default: 'FOCUSED|SRC_MAIN_JAVA'</p>
+                    </dd><dt><span class="term">--extends</span></dt><dd>
+                        <p>The superclass (defaults to java.lang.Object); default if option not present: 'java.lang.Object'</p>
+                    </dd><dt><span class="term">--abstract</span></dt><dd>
+                        <p>Whether the generated class should be marked as abstract; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--permitReservedWords</span></dt><dd>
+                        <p>Indicates whether reserved words are ignored by Roo; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-enum-constant"></a>A.3.2.&nbsp;enum constant</h3></div></div></div>
+            
+            <p>Inserts a new enum constant into an enum</p>
+            <pre class="programlisting">enum constant --name</pre>
+            <div class="variablelist"><dl><dt><span class="term">--class</span></dt><dd>
+                        <p>The name of the enum class to receive this field; default if option not present: '*'</p>
+                    </dd><dt><span class="term">--name</span></dt><dd>
+                        <p>The name of the constant; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--permitReservedWords</span></dt><dd>
+                        <p>Indicates whether reserved words are ignored by Roo; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-enum-type"></a>A.3.3.&nbsp;enum type</h3></div></div></div>
+            
+            <p>Creates a new Java enum source file in any project path</p>
+            <pre class="programlisting">enum type --class</pre>
+            <div class="variablelist"><dl><dt><span class="term">--class</span></dt><dd>
+                        <p>The name of the enum to create; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--path</span></dt><dd>
+                        <p>Source directory to create the enum in; default: 'FOCUSED|SRC_MAIN_JAVA'</p>
+                    </dd><dt><span class="term">--permitReservedWords</span></dt><dd>
+                        <p>Indicates whether reserved words are ignored by Roo; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-focus"></a>A.3.4.&nbsp;focus</h3></div></div></div>
+            
+            <p>Changes focus to a different type</p>
+            <pre class="programlisting">focus --class</pre>
+            <div class="variablelist"><dl><dt><span class="term">--class</span></dt><dd>
+                        <p>The type to focus on; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-interface"></a>A.3.5.&nbsp;interface</h3></div></div></div>
+            
+            <p>Creates a new Java interface source file in any project path</p>
+            <pre class="programlisting">interface --class</pre>
+            <div class="variablelist"><dl><dt><span class="term">--class</span></dt><dd>
+                        <p>The name of the interface to create; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--path</span></dt><dd>
+                        <p>Source directory to create the interface in; default: 'FOCUSED|SRC_MAIN_JAVA'</p>
+                    </dd><dt><span class="term">--permitReservedWords</span></dt><dd>
+                        <p>Indicates whether reserved words are ignored by Roo; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-controller-commands"></a>A.4.&nbsp;Controller Commands</h2></div></div></div>
+        
+        <p>Controller Commands are contained in org.springframework.roo.addon.web.mvc.controller.ControllerCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-controller-all"></a>A.4.1.&nbsp;controller all</h3></div></div></div>
+            
+            <p>Scaffold controllers for all project entities without an existing controller - deprecated, use 'web mvc setup' + 'web mvc all' instead</p>
+            <pre class="programlisting">controller all --package</pre>
+            <div class="variablelist"><dl><dt><span class="term">--package</span></dt><dd>
+                        <p>The package in which new controllers will be placed; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-controller-scaffold"></a>A.4.2.&nbsp;controller scaffold</h3></div></div></div>
+            
+            <p>Create a new scaffold Controller (ie where we maintain CRUD automatically) - deprecated, use 'web mvc scaffold' instead</p>
+            <pre class="programlisting">controller scaffold --class</pre>
+            <div class="variablelist"><dl><dt><span class="term">--class</span></dt><dd>
+                        <p>The path and name of the controller object to be created; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--entity</span></dt><dd>
+                        <p>The name of the entity object which the controller exposes to the web tier; default if option not present: '*'</p>
+                    </dd><dt><span class="term">--path</span></dt><dd>
+                        <p>The base path under which the controller listens for RESTful requests (defaults to the simple name of the form backing object); no default value</p>
+                    </dd><dt><span class="term">--disallowedOperations</span></dt><dd>
+                        <p>A comma separated list of operations (only create, update, delete allowed) that should not be generated in the controller; no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-mvc-all"></a>A.4.3.&nbsp;web mvc all</h3></div></div></div>
+            
+            <p>Scaffold Spring MVC controllers for all project entities without an existing controller</p>
+            <pre class="programlisting">web mvc all --package</pre>
+            <div class="variablelist"><dl><dt><span class="term">--package</span></dt><dd>
+                        <p>The package in which new controllers will be placed; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-mvc-scaffold"></a>A.4.4.&nbsp;web mvc scaffold</h3></div></div></div>
+            
+            <p>Create a new scaffold Controller (ie where Roo maintains CRUD functionality automatically)</p>
+            <pre class="programlisting">web mvc scaffold --class</pre>
+            <div class="variablelist"><dl><dt><span class="term">--class</span></dt><dd>
+                        <p>The path and name of the controller object to be created; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--backingType</span></dt><dd>
+                        <p>The name of the form backing type which the controller exposes to the web tier; default if option not present: '*'</p>
+                    </dd><dt><span class="term">--path</span></dt><dd>
+                        <p>The base path under which the controller listens for RESTful requests (defaults to the simple name of the form backing object); no default value</p>
+                    </dd><dt><span class="term">--disallowedOperations</span></dt><dd>
+                        <p>A comma separated list of operations (only create, update, delete allowed) that should not be generated in the controller; no default value</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-creator-commands"></a>A.5.&nbsp;Creator Commands</h2></div></div></div>
+        
+        <p>Creator Commands are contained in org.springframework.roo.addon.creator.CreatorCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-addon-create-advanced"></a>A.5.1.&nbsp;addon create advanced</h3></div></div></div>
+            
+            <p>Create a new advanced add-on for Spring Roo (commands + operations + metadata + trigger annotation + dependencies)</p>
+            <pre class="programlisting">addon create advanced --topLevelPackage</pre>
+            <div class="variablelist"><dl><dt><span class="term">--topLevelPackage</span></dt><dd>
+                        <p>The top level package of the new addon; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--description</span></dt><dd>
+                        <p>Description of your addon (surround text with double quotes); no default value</p>
+                    </dd><dt><span class="term">--projectName</span></dt><dd>
+                        <p>Provide a custom project name (if not provided the top level package name will be used instead); no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-addon-create-i18n"></a>A.5.2.&nbsp;addon create i18n</h3></div></div></div>
+            
+            <p>Create a new Internationalization add-on for Spring Roo</p>
+            <pre class="programlisting">addon create i18n --topLevelPackage --locale --messageBundle</pre>
+            <div class="variablelist"><dl><dt><span class="term">--topLevelPackage</span></dt><dd>
+                        <p>The top level package of the new addon; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--locale</span></dt><dd>
+                        <p>The locale abbreviation (ie: en, or more specific like en_AU, or de_DE); no default value (mandatory) </p>
+                    </dd><dt><span class="term">--messageBundle</span></dt><dd>
+                        <p>Fully qualified path to the messages_xx.properties file; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--language</span></dt><dd>
+                        <p>The full name of the language (used as a label for the UI); no default value</p>
+                    </dd><dt><span class="term">--flagGraphic</span></dt><dd>
+                        <p>Fully qualified path to flag xx.png file; no default value</p>
+                    </dd><dt><span class="term">--description</span></dt><dd>
+                        <p>Description of your addon (surround text with double quotes); no default value</p>
+                    </dd><dt><span class="term">--projectName</span></dt><dd>
+                        <p>Provide a custom project name (if not provided the top level package name will be used instead); no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-addon-create-simple"></a>A.5.3.&nbsp;addon create simple</h3></div></div></div>
+            
+            <p>Create a new simple add-on for Spring Roo (commands + operations)</p>
+            <pre class="programlisting">addon create simple --topLevelPackage</pre>
+            <div class="variablelist"><dl><dt><span class="term">--topLevelPackage</span></dt><dd>
+                        <p>The top level package of the new addon; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--description</span></dt><dd>
+                        <p>Description of your addon (surround text with double quotes); no default value</p>
+                    </dd><dt><span class="term">--projectName</span></dt><dd>
+                        <p>Provide a custom project name (if not provided the top level package name will be used instead); no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-addon-create-wrapper"></a>A.5.4.&nbsp;addon create wrapper</h3></div></div></div>
+            
+            <p>Create a new add-on for Spring Roo which wraps a maven artifact to create a OSGi compliant bundle</p>
+            <pre class="programlisting">addon create wrapper --topLevelPackage --groupId --artifactId --version --vendorName --licenseUrl</pre>
+            <div class="variablelist"><dl><dt><span class="term">--topLevelPackage</span></dt><dd>
+                        <p>The top level package of the new wrapper bundle; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--groupId</span></dt><dd>
+                        <p>Dependency group id; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--artifactId</span></dt><dd>
+                        <p>Dependency artifact id); no default value (mandatory) </p>
+                    </dd><dt><span class="term">--version</span></dt><dd>
+                        <p>Dependency version; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--vendorName</span></dt><dd>
+                        <p>Dependency vendor name); no default value (mandatory) </p>
+                    </dd><dt><span class="term">--licenseUrl</span></dt><dd>
+                        <p>Dependency license URL; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--docUrl</span></dt><dd>
+                        <p>Dependency documentation URL; no default value</p>
+                    </dd><dt><span class="term">--description</span></dt><dd>
+                        <p>Description of the bundle (use keywords with #-tags for better search integration); no default value</p>
+                    </dd><dt><span class="term">--projectName</span></dt><dd>
+                        <p>Provide a custom project name (if not provided the top level package name will be used instead); no default value</p>
+                    </dd><dt><span class="term">--osgiImports</span></dt><dd>
+                        <p>Contents of Import-Package in OSGi manifest; no default value</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-data-on-demand-commands"></a>A.6.&nbsp;Data On Demand Commands</h2></div></div></div>
+        
+        <p>Data On Demand Commands are contained in org.springframework.roo.addon.dod.DataOnDemandCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-dod"></a>A.6.1.&nbsp;dod</h3></div></div></div>
+            
+            <p>Creates a new data on demand for the specified entity</p>
+            <pre class="programlisting">dod</pre>
+            <div class="variablelist"><dl><dt><span class="term">--entity</span></dt><dd>
+                        <p>The entity which this data on demand class will create and modify as required; default if option not present: '*'</p>
+                    </dd><dt><span class="term">--class</span></dt><dd>
+                        <p>The class which will be created to hold this data on demand provider (defaults to the entity name + 'DataOnDemand'); no default value</p>
+                    </dd><dt><span class="term">--permitReservedWords</span></dt><dd>
+                        <p>Indicates whether reserved words are ignored by Roo; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-dbre-commands"></a>A.7.&nbsp;Dbre Commands</h2></div></div></div>
+        
+        <p>Dbre Commands are contained in org.springframework.roo.addon.dbre.DbreCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-database-introspect"></a>A.7.1.&nbsp;database introspect</h3></div></div></div>
+            
+            <p>Displays database metadata</p>
+            <pre class="programlisting">database introspect --schema</pre>
+            <div class="variablelist"><dl><dt><span class="term">--schema</span></dt><dd>
+                        <p>The database schema names. Multiple schema names must be a double-quoted list separated by spaces; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--file</span></dt><dd>
+                        <p>The file to save the metadata to; no default value</p>
+                    </dd><dt><span class="term">--enableViews</span></dt><dd>
+                        <p>Display database views; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-database-reverse-engineer"></a>A.7.2.&nbsp;database reverse engineer</h3></div></div></div>
+            
+            <p>Create and update entities based on database metadata</p>
+            <pre class="programlisting">database reverse engineer --schema</pre>
+            <div class="variablelist"><dl><dt><span class="term">--schema</span></dt><dd>
+                        <p>The database schema names. Multiple schema names must be a double-quoted list separated by spaces; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--package</span></dt><dd>
+                        <p>The package in which new entities will be placed; no default value</p>
+                    </dd><dt><span class="term">--testAutomatically</span></dt><dd>
+                        <p>Create automatic integration tests for entities; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--enableViews</span></dt><dd>
+                        <p>Reverse engineer database views; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--includeTables</span></dt><dd>
+                        <p>The tables to include in reverse engineering. Multiple table names must be a double-quoted list separated by spaces</p>
+                    </dd><dt><span class="term">--excludeTables</span></dt><dd>
+                        <p>The tables to exclude from reverse engineering. Multiple table names must be a double-quoted list separated by spaces</p>
+                    </dd><dt><span class="term">--includeNonPortableAttributes</span></dt><dd>
+                        <p>Include non-portable JPA @Column attributes such as 'columnDefinition'; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--activeRecord</span></dt><dd>
+                        <p>Generate CRUD active record methods for each entity; default: 'true'</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-embedded-commands"></a>A.8.&nbsp;Embedded Commands</h2></div></div></div>
+        
+        <p>Embedded Commands are contained in org.springframework.roo.addon.web.mvc.embedded.EmbeddedCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-mvc-embed-document"></a>A.8.1.&nbsp;web mvc embed document</h3></div></div></div>
+            
+            <p>Embed a document for your WEB MVC application</p>
+            <pre class="programlisting">web mvc embed document --provider --documentId</pre>
+            <div class="variablelist"><dl><dt><span class="term">--provider</span></dt><dd>
+                        <p>The id of the document; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--documentId</span></dt><dd>
+                        <p>The id of the document; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--viewName</span></dt><dd>
+                        <p>The name of the jspx view; no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-mvc-embed-generic"></a>A.8.2.&nbsp;web mvc embed generic</h3></div></div></div>
+            
+            <p>Embed media by URL into your WEB MVC application</p>
+            <pre class="programlisting">web mvc embed generic --url</pre>
+            <div class="variablelist"><dl><dt><span class="term">--url</span></dt><dd>
+                        <p>The url of the source to be embedded; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--viewName</span></dt><dd>
+                        <p>The name of the jspx view; no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-mvc-embed-map"></a>A.8.3.&nbsp;web mvc embed map</h3></div></div></div>
+            
+            <p>Embed a map for your WEB MVC application</p>
+            <pre class="programlisting">web mvc embed map --location</pre>
+            <div class="variablelist"><dl><dt><span class="term">--location</span></dt><dd>
+                        <p>The location of the map (ie "Sydney, Australia"); no default value (mandatory) </p>
+                    </dd><dt><span class="term">--viewName</span></dt><dd>
+                        <p>The name of the jspx view; no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-mvc-embed-photos"></a>A.8.4.&nbsp;web mvc embed photos</h3></div></div></div>
+            
+            <p>Embed a photo gallery for your WEB MVC application</p>
+            <pre class="programlisting">web mvc embed photos --provider --userId --albumId</pre>
+            <div class="variablelist"><dl><dt><span class="term">--provider</span></dt><dd>
+                        <p>The provider of the photo gallery; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--userId</span></dt><dd>
+                        <p>The user id; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--albumId</span></dt><dd>
+                        <p>The album id; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--viewName</span></dt><dd>
+                        <p>The name of the jspx view; no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-mvc-embed-stream-video"></a>A.8.5.&nbsp;web mvc embed stream video</h3></div></div></div>
+            
+            <p>Embed a video stream into your WEB MVC application</p>
+            <pre class="programlisting">web mvc embed stream video --provider --streamId</pre>
+            <div class="variablelist"><dl><dt><span class="term">--provider</span></dt><dd>
+                        <p>The provider of the video stream; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--streamId</span></dt><dd>
+                        <p>The stream id; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--viewName</span></dt><dd>
+                        <p>The name of the jspx view; no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-mvc-embed-twitter"></a>A.8.6.&nbsp;web mvc embed twitter</h3></div></div></div>
+            
+            <p>Embed twitter messages into your WEB MVC application</p>
+            <pre class="programlisting">web mvc embed twitter --searchTerm</pre>
+            <div class="variablelist"><dl><dt><span class="term">--searchTerm</span></dt><dd>
+                        <p>The search term to display results for; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--viewName</span></dt><dd>
+                        <p>The name of the jspx view; no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-mvc-embed-video"></a>A.8.7.&nbsp;web mvc embed video</h3></div></div></div>
+            
+            <p>Embed a video for your WEB MVC application</p>
+            <pre class="programlisting">web mvc embed video --provider --videoId</pre>
+            <div class="variablelist"><dl><dt><span class="term">--provider</span></dt><dd>
+                        <p>The id of the video; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--videoId</span></dt><dd>
+                        <p>The id of the video; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--viewName</span></dt><dd>
+                        <p>The name of the jspx view; no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-mvc-embed-wave"></a>A.8.8.&nbsp;web mvc embed wave</h3></div></div></div>
+            
+            <p>Embed Google wave integration for your WEB MVC application</p>
+            <pre class="programlisting">web mvc embed wave --waveId</pre>
+            <div class="variablelist"><dl><dt><span class="term">--waveId</span></dt><dd>
+                        <p>The key of the wave; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--viewName</span></dt><dd>
+                        <p>The name of the jspx view; no default value</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-equals-commands"></a>A.9.&nbsp;Equals Commands</h2></div></div></div>
+        
+        <p>Equals Commands are contained in org.springframework.roo.addon.equals.EqualsCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-equals"></a>A.9.1.&nbsp;equals</h3></div></div></div>
+            
+            <p>Add equals and hashCode methods to a class</p>
+            <pre class="programlisting">equals</pre>
+            <div class="variablelist"><dl><dt><span class="term">--class</span></dt><dd>
+                        <p>The name of the class; default if option not present: '*'</p>
+                    </dd><dt><span class="term">--appendSuper</span></dt><dd>
+                        <p>Whether to call the super class equals and hashCode methods; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--excludeFields</span></dt><dd>
+                        <p>The fields to exclude in the equals and hashcode methods. Multiple field names must be a double-quoted list separated by spaces</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-felix-delegator"></a>A.10.&nbsp;Felix Delegator</h2></div></div></div>
+        
+        <p>Felix Delegator are contained in org.springframework.roo.felix.FelixDelegator.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-exit"></a>A.10.1.&nbsp;exit</h3></div></div></div>
+            
+            <p>Exits the shell</p>
+            <pre class="programlisting">exit</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-osgi-find"></a>A.10.2.&nbsp;osgi find</h3></div></div></div>
+            
+            <p>Finds bundles by name</p>
+            <pre class="programlisting">osgi find --bundleSymbolicName</pre>
+            <div class="variablelist"><dl><dt><span class="term">--bundleSymbolicName</span></dt><dd>
+                        <p>A bundle symbolic name to find; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-osgi-framework-command"></a>A.10.3.&nbsp;osgi framework command</h3></div></div></div>
+            
+            <p>Passes a command directly through to the Felix shell infrastructure</p>
+            <pre class="programlisting">osgi framework command</pre>
+            <div class="variablelist"><dl><dt><span class="term">--[default]</span></dt><dd>
+                        <p>The command to pass to Felix (WARNING: no validation or security checks are performed); default: 'help'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-osgi-headers"></a>A.10.4.&nbsp;osgi headers</h3></div></div></div>
+            
+            <p>Display headers for a specific bundle</p>
+            <pre class="programlisting">osgi headers</pre>
+            <div class="variablelist"><dl><dt><span class="term">--bundleSymbolicName</span></dt><dd>
+                        <p>Limit results to a specific bundle symbolic name; no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-osgi-install"></a>A.10.5.&nbsp;osgi install</h3></div></div></div>
+            
+            <p>Installs a bundle JAR from a given URL</p>
+            <pre class="programlisting">osgi install --url</pre>
+            <div class="variablelist"><dl><dt><span class="term">--url</span></dt><dd>
+                        <p>The URL to obtain the bundle from; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-osgi-log"></a>A.10.6.&nbsp;osgi log</h3></div></div></div>
+            
+            <p>Displays the OSGi log information</p>
+            <pre class="programlisting">osgi log</pre>
+            <div class="variablelist"><dl><dt><span class="term">--maximumEntries</span></dt><dd>
+                        <p>The maximum number of log messages to display; no default value</p>
+                    </dd><dt><span class="term">--level</span></dt><dd>
+                        <p>The minimum level of messages to display; no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-osgi-obr-deploy"></a>A.10.7.&nbsp;osgi obr deploy</h3></div></div></div>
+            
+            <p>Deploys a specific OSGi Bundle Repository (OBR) bundle</p>
+            <pre class="programlisting">osgi obr deploy --bundleSymbolicName</pre>
+            <div class="variablelist"><dl><dt><span class="term">--bundleSymbolicName</span></dt><dd>
+                        <p>The specific bundle to deploy; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-osgi-obr-info"></a>A.10.8.&nbsp;osgi obr info</h3></div></div></div>
+            
+            <p>Displays information on a specific OSGi Bundle Repository (OBR) bundle</p>
+            <pre class="programlisting">osgi obr info --bundleSymbolicName</pre>
+            <div class="variablelist"><dl><dt><span class="term">--bundleSymbolicName</span></dt><dd>
+                        <p>The specific bundle to display information for; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-osgi-obr-list"></a>A.10.9.&nbsp;osgi obr list</h3></div></div></div>
+            
+            <p>Lists all available bundles from the OSGi Bundle Repository (OBR) system</p>
+            <pre class="programlisting">osgi obr list</pre>
+            <div class="variablelist"><dl><dt><span class="term">--keywords</span></dt><dd>
+                        <p>Keywords to locate; no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-osgi-obr-start"></a>A.10.10.&nbsp;osgi obr start</h3></div></div></div>
+            
+            <p>Starts a specific OSGi Bundle Repository (OBR) bundle</p>
+            <pre class="programlisting">osgi obr start --bundleSymbolicName</pre>
+            <div class="variablelist"><dl><dt><span class="term">--bundleSymbolicName</span></dt><dd>
+                        <p>The specific bundle to start; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-osgi-obr-url-add"></a>A.10.11.&nbsp;osgi obr url add</h3></div></div></div>
+            
+            <p>Adds a new OSGi Bundle Repository (OBR) repository file URL</p>
+            <pre class="programlisting">osgi obr url add --url</pre>
+            <div class="variablelist"><dl><dt><span class="term">--url</span></dt><dd>
+                        <p>The URL to add (eg http://felix.apache.org/obr/releases.xml); no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-osgi-obr-url-list"></a>A.10.12.&nbsp;osgi obr url list</h3></div></div></div>
+            
+            <p>Lists the currently-configured OSGi Bundle Repository (OBR) repository file URLs</p>
+            <pre class="programlisting">osgi obr url list</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-osgi-obr-url-refresh"></a>A.10.13.&nbsp;osgi obr url refresh</h3></div></div></div>
+            
+            <p>Refreshes an existing OSGi Bundle Repository (OBR) repository file URL</p>
+            <pre class="programlisting">osgi obr url refresh --url</pre>
+            <div class="variablelist"><dl><dt><span class="term">--url</span></dt><dd>
+                        <p>The URL to refresh (list existing URLs via 'osgi obr url list'); no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-osgi-obr-url-remove"></a>A.10.14.&nbsp;osgi obr url remove</h3></div></div></div>
+            
+            <p>Removes an existing OSGi Bundle Repository (OBR) repository file URL</p>
+            <pre class="programlisting">osgi obr url remove --url</pre>
+            <div class="variablelist"><dl><dt><span class="term">--url</span></dt><dd>
+                        <p>The URL to remove (list existing URLs via 'osgi obr url list'); no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-osgi-ps"></a>A.10.15.&nbsp;osgi ps</h3></div></div></div>
+            
+            <p>Displays OSGi bundle information</p>
+            <pre class="programlisting">osgi ps</pre>
+            <div class="variablelist"><dl><dt><span class="term">--format</span></dt><dd>
+                        <p>The format of bundle information; default: 'BUNDLE_NAME'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-osgi-resolve"></a>A.10.16.&nbsp;osgi resolve</h3></div></div></div>
+            
+            <p>Resolves a specific bundle ID</p>
+            <pre class="programlisting">osgi resolve --bundleSymbolicName</pre>
+            <div class="variablelist"><dl><dt><span class="term">--bundleSymbolicName</span></dt><dd>
+                        <p>The specific bundle to resolve; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-osgi-scr-config"></a>A.10.17.&nbsp;osgi scr config</h3></div></div></div>
+            
+            <p>Lists the current SCR configuration</p>
+            <pre class="programlisting">osgi scr config</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-osgi-scr-disable"></a>A.10.18.&nbsp;osgi scr disable</h3></div></div></div>
+            
+            <p>Disables a specific SCR-defined component</p>
+            <pre class="programlisting">osgi scr disable --componentId</pre>
+            <div class="variablelist"><dl><dt><span class="term">--componentId</span></dt><dd>
+                        <p>The specific component identifier (use 'osgi scr list' to list component identifiers); no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-osgi-scr-enable"></a>A.10.19.&nbsp;osgi scr enable</h3></div></div></div>
+            
+            <p>Enables a specific SCR-defined component</p>
+            <pre class="programlisting">osgi scr enable --componentId</pre>
+            <div class="variablelist"><dl><dt><span class="term">--componentId</span></dt><dd>
+                        <p>The specific component identifier (use 'osgi scr list' to list component identifiers); no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-osgi-scr-info"></a>A.10.20.&nbsp;osgi scr info</h3></div></div></div>
+            
+            <p>Lists information about a specific SCR-defined component</p>
+            <pre class="programlisting">osgi scr info --componentId</pre>
+            <div class="variablelist"><dl><dt><span class="term">--componentId</span></dt><dd>
+                        <p>The specific component identifier (use 'osgi scr list' to list component identifiers); no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-osgi-scr-list"></a>A.10.21.&nbsp;osgi scr list</h3></div></div></div>
+            
+            <p>Lists all SCR-defined components</p>
+            <pre class="programlisting">osgi scr list</pre>
+            <div class="variablelist"><dl><dt><span class="term">--bundleId</span></dt><dd>
+                        <p>Limit results to a specific bundle; no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-osgi-start"></a>A.10.22.&nbsp;osgi start</h3></div></div></div>
+            
+            <p>Starts a bundle JAR from a given URL</p>
+            <pre class="programlisting">osgi start --url</pre>
+            <div class="variablelist"><dl><dt><span class="term">--url</span></dt><dd>
+                        <p>The URL to obtain the bundle from; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-osgi-uninstall"></a>A.10.23.&nbsp;osgi uninstall</h3></div></div></div>
+            
+            <p>Uninstalls a specific bundle</p>
+            <pre class="programlisting">osgi uninstall --bundleSymbolicName</pre>
+            <div class="variablelist"><dl><dt><span class="term">--bundleSymbolicName</span></dt><dd>
+                        <p>The specific bundle to uninstall; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-osgi-update"></a>A.10.24.&nbsp;osgi update</h3></div></div></div>
+            
+            <p>Updates a specific bundle</p>
+            <pre class="programlisting">osgi update --bundleSymbolicName</pre>
+            <div class="variablelist"><dl><dt><span class="term">--bundleSymbolicName</span></dt><dd>
+                        <p>The specific bundle to update ; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--url</span></dt><dd>
+                        <p>The URL to obtain the updated bundle from; no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-osgi-version"></a>A.10.25.&nbsp;osgi version</h3></div></div></div>
+            
+            <p>Displays OSGi framework version</p>
+            <pre class="programlisting">osgi version</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-field-commands"></a>A.11.&nbsp;Field Commands</h2></div></div></div>
+        
+        <p>Field Commands are contained in org.springframework.roo.classpath.operations.FieldCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-field-boolean"></a>A.11.1.&nbsp;field boolean</h3></div></div></div>
+            
+            <p>Adds a private boolean field to an existing Java source file</p>
+            <pre class="programlisting">field boolean --fieldName</pre>
+            <div class="variablelist"><dl><dt><span class="term">--fieldName</span></dt><dd>
+                        <p>The name of the field to add; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--class</span></dt><dd>
+                        <p>The name of the class to receive this field; default if option not present: '*'</p>
+                    </dd><dt><span class="term">--notNull</span></dt><dd>
+                        <p>Whether this value cannot be null; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--nullRequired</span></dt><dd>
+                        <p>Whether this value must be null; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--assertFalse</span></dt><dd>
+                        <p>Whether this value must assert false; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--assertTrue</span></dt><dd>
+                        <p>Whether this value must assert true; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--column</span></dt><dd>
+                        <p>The JPA @Column name; no default value</p>
+                    </dd><dt><span class="term">--value</span></dt><dd>
+                        <p>Inserts an optional Spring @Value annotation with the given content; no default value</p>
+                    </dd><dt><span class="term">--comment</span></dt><dd>
+                        <p>An optional comment for JavaDocs; no default value</p>
+                    </dd><dt><span class="term">--primitive</span></dt><dd>
+                        <p>Indicates to use a primitive type; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--transient</span></dt><dd>
+                        <p>Indicates to mark the field as transient; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--permitReservedWords</span></dt><dd>
+                        <p>Indicates whether reserved words are ignored by Roo; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-field-date"></a>A.11.2.&nbsp;field date</h3></div></div></div>
+            
+            <p>Adds a private date field to an existing Java source file</p>
+            <pre class="programlisting">field date --fieldName --type</pre>
+            <div class="variablelist"><dl><dt><span class="term">--fieldName</span></dt><dd>
+                        <p>The name of the field to add; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--type</span></dt><dd>
+                        <p>The Java type of the entity; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--persistenceType</span></dt><dd>
+                        <p>The type of persistent storage to be used; no default value</p>
+                    </dd><dt><span class="term">--class</span></dt><dd>
+                        <p>The name of the class to receive this field; default if option not present: '*'</p>
+                    </dd><dt><span class="term">--notNull</span></dt><dd>
+                        <p>Whether this value cannot be null; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--nullRequired</span></dt><dd>
+                        <p>Whether this value must be null; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--future</span></dt><dd>
+                        <p>Whether this value must be in the future; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--past</span></dt><dd>
+                        <p>Whether this value must be in the past; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--column</span></dt><dd>
+                        <p>The JPA @Column name; no default value</p>
+                    </dd><dt><span class="term">--comment</span></dt><dd>
+                        <p>An optional comment for JavaDocs; no default value</p>
+                    </dd><dt><span class="term">--value</span></dt><dd>
+                        <p>Inserts an optional Spring @Value annotation with the given content; no default value</p>
+                    </dd><dt><span class="term">--transient</span></dt><dd>
+                        <p>Indicates to mark the field as transient; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--permitReservedWords</span></dt><dd>
+                        <p>Indicates whether reserved words are ignored by Roo; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--dateFormat</span></dt><dd>
+                        <p>Indicates the style of the date format (ignored if dateTimeFormatPattern is specified); default: 'MEDIUM'</p>
+                    </dd><dt><span class="term">--timeFormat</span></dt><dd>
+                        <p>Indicates the style of the time format (ignored if dateTimeFormatPattern is specified); default: 'NONE'</p>
+                    </dd><dt><span class="term">--dateTimeFormatPattern</span></dt><dd>
+                        <p>Indicates a DateTime format pattern such as yyyy-MM-dd hh:mm:ss a; no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-field-embedded"></a>A.11.3.&nbsp;field embedded</h3></div></div></div>
+            
+            <p>Adds a private @Embedded field to an existing Java source file </p>
+            <pre class="programlisting">field embedded --fieldName --type</pre>
+            <div class="variablelist"><dl><dt><span class="term">--fieldName</span></dt><dd>
+                        <p>The name of the field to add; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--type</span></dt><dd>
+                        <p>The Java type of the @Embeddable class; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--class</span></dt><dd>
+                        <p>The name of the @Entity class to receive this field; default if option not present: '*'</p>
+                    </dd><dt><span class="term">--permitReservedWords</span></dt><dd>
+                        <p>Indicates whether reserved words are ignored by Roo; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-field-enum"></a>A.11.4.&nbsp;field enum</h3></div></div></div>
+            
+            <p>Adds a private enum field to an existing Java source file</p>
+            <pre class="programlisting">field enum --fieldName --type</pre>
+            <div class="variablelist"><dl><dt><span class="term">--fieldName</span></dt><dd>
+                        <p>The name of the field to add; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--type</span></dt><dd>
+                        <p>The enum type of this field; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--class</span></dt><dd>
+                        <p>The name of the class to receive this field; default if option not present: '*'</p>
+                    </dd><dt><span class="term">--column</span></dt><dd>
+                        <p>The JPA @Column name; no default value</p>
+                    </dd><dt><span class="term">--notNull</span></dt><dd>
+                        <p>Whether this value cannot be null; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--nullRequired</span></dt><dd>
+                        <p>Whether this value must be null; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--enumType</span></dt><dd>
+                        <p>The fetch semantics at a JPA level; no default value</p>
+                    </dd><dt><span class="term">--comment</span></dt><dd>
+                        <p>An optional comment for JavaDocs; no default value</p>
+                    </dd><dt><span class="term">--transient</span></dt><dd>
+                        <p>Indicates to mark the field as transient; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--permitReservedWords</span></dt><dd>
+                        <p>Indicates whether reserved words are ignored by Roo; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-field-file"></a>A.11.5.&nbsp;field file</h3></div></div></div>
+            
+            <p>Adds a byte array field for storing uploaded file contents (JSF-scaffolded UIs only)</p>
+            <pre class="programlisting">field file --fieldName --contentType</pre>
+            <div class="variablelist"><dl><dt><span class="term">--fieldName</span></dt><dd>
+                        <p>The name of the file upload field to add; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--class</span></dt><dd>
+                        <p>The name of the class to receive this field; default if option not present: '*'</p>
+                    </dd><dt><span class="term">--contentType</span></dt><dd>
+                        <p>The content type of the file; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--autoUpload</span></dt><dd>
+                        <p>Whether the file is uploaded automatically when selected; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--column</span></dt><dd>
+                        <p>The JPA @Column name; no default value</p>
+                    </dd><dt><span class="term">--notNull</span></dt><dd>
+                        <p>Whether this value cannot be null; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--permitReservedWords</span></dt><dd>
+                        <p>Indicates whether reserved words are ignored by Roo; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-field-number"></a>A.11.6.&nbsp;field number</h3></div></div></div>
+            
+            <p>Adds a private numeric field to an existing Java source file</p>
+            <pre class="programlisting">field number --fieldName --type</pre>
+            <div class="variablelist"><dl><dt><span class="term">--fieldName</span></dt><dd>
+                        <p>The name of the field to add; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--type</span></dt><dd>
+                        <p>The Java type of the entity; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--class</span></dt><dd>
+                        <p>The name of the class to receive this field; default if option not present: '*'</p>
+                    </dd><dt><span class="term">--notNull</span></dt><dd>
+                        <p>Whether this value cannot be null; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--nullRequired</span></dt><dd>
+                        <p>Whether this value must be null; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--decimalMin</span></dt><dd>
+                        <p>The BigDecimal string-based representation of the minimum value; no default value</p>
+                    </dd><dt><span class="term">--decimalMax</span></dt><dd>
+                        <p>The BigDecimal string based representation of the maximum value; no default value</p>
+                    </dd><dt><span class="term">--digitsInteger</span></dt><dd>
+                        <p>Maximum number of integral digits accepted for this number; no default value</p>
+                    </dd><dt><span class="term">--digitsFraction</span></dt><dd>
+                        <p>Maximum number of fractional digits accepted for this number; no default value</p>
+                    </dd><dt><span class="term">--min</span></dt><dd>
+                        <p>The minimum value; no default value</p>
+                    </dd><dt><span class="term">--max</span></dt><dd>
+                        <p>The maximum value; no default value</p>
+                    </dd><dt><span class="term">--column</span></dt><dd>
+                        <p>The JPA @Column name; no default value</p>
+                    </dd><dt><span class="term">--comment</span></dt><dd>
+                        <p>An optional comment for JavaDocs; no default value</p>
+                    </dd><dt><span class="term">--value</span></dt><dd>
+                        <p>Inserts an optional Spring @Value annotation with the given content; no default value</p>
+                    </dd><dt><span class="term">--transient</span></dt><dd>
+                        <p>Indicates to mark the field as transient; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--primitive</span></dt><dd>
+                        <p>Indicates to use a primitive type if possible; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--unique</span></dt><dd>
+                        <p>Indicates whether to mark the field with a unique constraint; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--permitReservedWords</span></dt><dd>
+                        <p>Indicates whether reserved words are ignored by Roo; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-field-other"></a>A.11.7.&nbsp;field other</h3></div></div></div>
+            
+            <p>Inserts a private field into the specified file</p>
+            <pre class="programlisting">field other --fieldName --type</pre>
+            <div class="variablelist"><dl><dt><span class="term">--fieldName</span></dt><dd>
+                        <p>The name of the field; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--type</span></dt><dd>
+                        <p>The Java type of this field; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--class</span></dt><dd>
+                        <p>The name of the class to receive this field; default if option not present: '*'</p>
+                    </dd><dt><span class="term">--notNull</span></dt><dd>
+                        <p>Whether this value cannot be null; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--nullRequired</span></dt><dd>
+                        <p>Whether this value must be null; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--comment</span></dt><dd>
+                        <p>An optional comment for JavaDocs; no default value</p>
+                    </dd><dt><span class="term">--column</span></dt><dd>
+                        <p>The JPA @Column name; no default value</p>
+                    </dd><dt><span class="term">--value</span></dt><dd>
+                        <p>Inserts an optional Spring @Value annotation with the given content; no default value</p>
+                    </dd><dt><span class="term">--transient</span></dt><dd>
+                        <p>Indicates to mark the field as transient; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--permitReservedWords</span></dt><dd>
+                        <p>Indicates whether reserved words are ignored by Roo; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-field-reference"></a>A.11.8.&nbsp;field reference</h3></div></div></div>
+            
+            <p>Adds a private reference field to an existing Java source file (eg the 'many' side of a many-to-one)</p>
+            <pre class="programlisting">field reference --fieldName --type</pre>
+            <div class="variablelist"><dl><dt><span class="term">--fieldName</span></dt><dd>
+                        <p>The name of the field to add; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--type</span></dt><dd>
+                        <p>The Java type of the entity to reference; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--class</span></dt><dd>
+                        <p>The name of the class to receive this field; default if option not present: '*'</p>
+                    </dd><dt><span class="term">--notNull</span></dt><dd>
+                        <p>Whether this value cannot be null; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--nullRequired</span></dt><dd>
+                        <p>Whether this value must be null; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--joinColumnName</span></dt><dd>
+                        <p>The JPA @JoinColumn name; no default value</p>
+                    </dd><dt><span class="term">--referencedColumnName</span></dt><dd>
+                        <p>The JPA @JoinColumn referencedColumnName; no default value</p>
+                    </dd><dt><span class="term">--cardinality</span></dt><dd>
+                        <p>The relationship cardinality at a JPA level; default: 'MANY_TO_ONE'</p>
+                    </dd><dt><span class="term">--fetch</span></dt><dd>
+                        <p>The fetch semantics at a JPA level; no default value</p>
+                    </dd><dt><span class="term">--comment</span></dt><dd>
+                        <p>An optional comment for JavaDocs; no default value</p>
+                    </dd><dt><span class="term">--transient</span></dt><dd>
+                        <p>Indicates to mark the field as transient; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--permitReservedWords</span></dt><dd>
+                        <p>Indicates whether reserved words are ignored by Roo; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-field-set"></a>A.11.9.&nbsp;field set</h3></div></div></div>
+            
+            <p>Adds a private Set field to an existing Java source file (eg the 'one' side of a many-to-one)</p>
+            <pre class="programlisting">field set --fieldName --type</pre>
+            <div class="variablelist"><dl><dt><span class="term">--fieldName</span></dt><dd>
+                        <p>The name of the field to add; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--type</span></dt><dd>
+                        <p>The entity which will be contained within the Set; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--class</span></dt><dd>
+                        <p>The name of the class to receive this field; default if option not present: '*'</p>
+                    </dd><dt><span class="term">--mappedBy</span></dt><dd>
+                        <p>The field name on the referenced type which owns the relationship; no default value</p>
+                    </dd><dt><span class="term">--notNull</span></dt><dd>
+                        <p>Whether this value cannot be null; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--nullRequired</span></dt><dd>
+                        <p>Whether this value must be null; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--sizeMin</span></dt><dd>
+                        <p>The minimum number of elements in the collection; no default value</p>
+                    </dd><dt><span class="term">--sizeMax</span></dt><dd>
+                        <p>The maximum number of elements in the collection; no default value</p>
+                    </dd><dt><span class="term">--cardinality</span></dt><dd>
+                        <p>The relationship cardinality at a JPA level; default: 'MANY_TO_MANY'</p>
+                    </dd><dt><span class="term">--fetch</span></dt><dd>
+                        <p>The fetch semantics at a JPA level; no default value</p>
+                    </dd><dt><span class="term">--comment</span></dt><dd>
+                        <p>An optional comment for JavaDocs; no default value</p>
+                    </dd><dt><span class="term">--transient</span></dt><dd>
+                        <p>Indicates to mark the field as transient; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--permitReservedWords</span></dt><dd>
+                        <p>Indicates whether reserved words are ignored by Roo; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-field-string"></a>A.11.10.&nbsp;field string</h3></div></div></div>
+            
+            <p>Adds a private string field to an existing Java source file</p>
+            <pre class="programlisting">field string --fieldName</pre>
+            <div class="variablelist"><dl><dt><span class="term">--fieldName</span></dt><dd>
+                        <p>The name of the field to add; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--class</span></dt><dd>
+                        <p>The name of the class to receive this field; default if option not present: '*'</p>
+                    </dd><dt><span class="term">--notNull</span></dt><dd>
+                        <p>Whether this value cannot be null; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--nullRequired</span></dt><dd>
+                        <p>Whether this value must be null; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--decimalMin</span></dt><dd>
+                        <p>The BigDecimal string-based representation of the minimum value; no default value</p>
+                    </dd><dt><span class="term">--decimalMax</span></dt><dd>
+                        <p>The BigDecimal string based representation of the maximum value; no default value</p>
+                    </dd><dt><span class="term">--sizeMin</span></dt><dd>
+                        <p>The minimum string length; no default value</p>
+                    </dd><dt><span class="term">--sizeMax</span></dt><dd>
+                        <p>The maximum string length; no default value</p>
+                    </dd><dt><span class="term">--regexp</span></dt><dd>
+                        <p>The required regular expression pattern; no default value</p>
+                    </dd><dt><span class="term">--column</span></dt><dd>
+                        <p>The JPA @Column name; no default value</p>
+                    </dd><dt><span class="term">--value</span></dt><dd>
+                        <p>Inserts an optional Spring @Value annotation with the given content; no default value</p>
+                    </dd><dt><span class="term">--comment</span></dt><dd>
+                        <p>An optional comment for JavaDocs; no default value</p>
+                    </dd><dt><span class="term">--transient</span></dt><dd>
+                        <p>Indicates to mark the field as transient; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--unique</span></dt><dd>
+                        <p>Indicates whether to mark the field with a unique constraint; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--permitReservedWords</span></dt><dd>
+                        <p>Indicates whether reserved words are ignored by Roo; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-finder-commands"></a>A.12.&nbsp;Finder Commands</h2></div></div></div>
+        
+        <p>Finder Commands are contained in org.springframework.roo.addon.finder.FinderCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-finder-add"></a>A.12.1.&nbsp;finder add</h3></div></div></div>
+            
+            <p>Install finders in the given target (must be an entity)</p>
+            <pre class="programlisting">finder add --finderName</pre>
+            <div class="variablelist"><dl><dt><span class="term">--class</span></dt><dd>
+                        <p>The controller or entity for which the finders are generated; default if option not present: '*'</p>
+                    </dd><dt><span class="term">--finderName</span></dt><dd>
+                        <p>The finder string as generated with the 'finder list' command; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-finder-list"></a>A.12.2.&nbsp;finder list</h3></div></div></div>
+            
+            <p>List all finders for a given target (must be an entity)</p>
+            <pre class="programlisting">finder list</pre>
+            <div class="variablelist"><dl><dt><span class="term">--class</span></dt><dd>
+                        <p>The controller or entity for which the finders are generated; default if option not present: '*'</p>
+                    </dd><dt><span class="term">--depth</span></dt><dd>
+                        <p>The depth of attribute combinations to be generated for the finders; default: '1'</p>
+                    </dd><dt><span class="term">--filter</span></dt><dd>
+                        <p>A comma separated list of strings that must be present in a filter to be included; no default value</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-gwt-commands"></a>A.13.&nbsp;Gwt Commands</h2></div></div></div>
+        
+        <p>Gwt Commands are contained in org.springframework.roo.addon.gwt.GwtCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-gwt-setup"></a>A.13.1.&nbsp;gwt setup</h3></div></div></div>
+            
+            <p>Install Google Web Toolkit (GWT) into your project - deprecated, use 'web gwt setup' instead</p>
+            <pre class="programlisting">gwt setup</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-gwt-all"></a>A.13.2.&nbsp;web gwt all</h3></div></div></div>
+            
+            <p>Locates all entities in the project and creates GWT requests, proxies and creates the scaffold</p>
+            <pre class="programlisting">web gwt all --proxyPackage --requestPackage</pre>
+            <div class="variablelist"><dl><dt><span class="term">--proxyPackage</span></dt><dd>
+                        <p>The package in which created proxies will be placed; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--requestPackage</span></dt><dd>
+                        <p>The package in which created requests will be placed; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-gwt-gae-update"></a>A.13.3.&nbsp;web gwt gae update</h3></div></div></div>
+            
+            <p>Updates the GWT project to support GAE</p>
+            <pre class="programlisting">web gwt gae update</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-gwt-proxy-all"></a>A.13.4.&nbsp;web gwt proxy all</h3></div></div></div>
+            
+            <p>Locates all entities in the project and creates GWT proxies</p>
+            <pre class="programlisting">web gwt proxy all --package</pre>
+            <div class="variablelist"><dl><dt><span class="term">--package</span></dt><dd>
+                        <p>The package in which created proxies will be placed; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-gwt-proxy-request-all"></a>A.13.5.&nbsp;web gwt proxy request all</h3></div></div></div>
+            
+            <p>Locates all entities in the project and creates GWT requests and proxies</p>
+            <pre class="programlisting">web gwt proxy request all --package</pre>
+            <div class="variablelist"><dl><dt><span class="term">--package</span></dt><dd>
+                        <p>The package in which created proxies and requests will be placed; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-gwt-proxy-request-type"></a>A.13.6.&nbsp;web gwt proxy request type</h3></div></div></div>
+            
+            <p>Creates a proxy and request based on the specified type</p>
+            <pre class="programlisting">web gwt proxy request type --package --type</pre>
+            <div class="variablelist"><dl><dt><span class="term">--package</span></dt><dd>
+                        <p>The package in which created proxies and requests will be placed; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--type</span></dt><dd>
+                        <p>The type to base the created proxy and request on; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-gwt-proxy-type"></a>A.13.7.&nbsp;web gwt proxy type</h3></div></div></div>
+            
+            <p>Creates a GWT proxy based on the specified type</p>
+            <pre class="programlisting">web gwt proxy type --package --type</pre>
+            <div class="variablelist"><dl><dt><span class="term">--package</span></dt><dd>
+                        <p>The package in which created proxies will be placed; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--type</span></dt><dd>
+                        <p>The type to base the created request on; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-gwt-request-all"></a>A.13.8.&nbsp;web gwt request all</h3></div></div></div>
+            
+            <p>Locates all entities in the project and creates GWT requests</p>
+            <pre class="programlisting">web gwt request all --package</pre>
+            <div class="variablelist"><dl><dt><span class="term">--package</span></dt><dd>
+                        <p>The package in which created requests will be placed; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-gwt-request-type"></a>A.13.9.&nbsp;web gwt request type</h3></div></div></div>
+            
+            <p>Creates a GWT proxy based on the specified type</p>
+            <pre class="programlisting">web gwt request type --package --type</pre>
+            <div class="variablelist"><dl><dt><span class="term">--package</span></dt><dd>
+                        <p>The package in which created requests will be placed; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--type</span></dt><dd>
+                        <p>The type to base the created request on; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-gwt-scaffold"></a>A.13.10.&nbsp;web gwt scaffold</h3></div></div></div>
+            
+            <p>Creates a GWT request, proxy and scaffold for the specified</p>
+            <pre class="programlisting">web gwt scaffold --proxyPackage --requestPackage --type</pre>
+            <div class="variablelist"><dl><dt><span class="term">--proxyPackage</span></dt><dd>
+                        <p>The package in which created proxies will be placed; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--requestPackage</span></dt><dd>
+                        <p>The package in which created requests will be placed; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--type</span></dt><dd>
+                        <p>The type to base the created scaffold on; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-gwt-setup"></a>A.13.11.&nbsp;web gwt setup</h3></div></div></div>
+            
+            <p>Install Google Web Toolkit (GWT) into your project</p>
+            <pre class="programlisting">web gwt setup</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-hint-commands"></a>A.14.&nbsp;Hint Commands</h2></div></div></div>
+        
+        <p>Hint Commands are contained in org.springframework.roo.classpath.operations.HintCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-hint"></a>A.14.1.&nbsp;hint</h3></div></div></div>
+            
+            <p>Provides step-by-step hints and context-sensitive guidance</p>
+            <pre class="programlisting">hint</pre>
+            <div class="variablelist"><dl><dt><span class="term">--topic</span></dt><dd>
+                        <p>The topic for which advice should be provided</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-integration-test-commands"></a>A.15.&nbsp;Integration Test Commands</h2></div></div></div>
+        
+        <p>Integration Test Commands are contained in org.springframework.roo.addon.test.IntegrationTestCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-test-integration"></a>A.15.1.&nbsp;test integration</h3></div></div></div>
+            
+            <p>Creates a new integration test for the specified entity</p>
+            <pre class="programlisting">test integration</pre>
+            <div class="variablelist"><dl><dt><span class="term">--entity</span></dt><dd>
+                        <p>The name of the entity to create an integration test for; default if option not present: '*'</p>
+                    </dd><dt><span class="term">--permitReservedWords</span></dt><dd>
+                        <p>Indicates whether reserved words are ignored by Roo; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--transactional</span></dt><dd>
+                        <p>Indicates whether the created test cases should be run withing a Spring transaction; default: 'true'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-test-mock"></a>A.15.2.&nbsp;test mock</h3></div></div></div>
+            
+            <p>Creates a mock test for the specified entity</p>
+            <pre class="programlisting">test mock</pre>
+            <div class="variablelist"><dl><dt><span class="term">--entity</span></dt><dd>
+                        <p>The name of the entity this mock test is targeting; default if option not present: '*'</p>
+                    </dd><dt><span class="term">--permitReservedWords</span></dt><dd>
+                        <p>Indicates whether reserved words are ignored by Roo; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-test-stub"></a>A.15.3.&nbsp;test stub</h3></div></div></div>
+            
+            <p>Creates a test stub for the specified class</p>
+            <pre class="programlisting">test stub</pre>
+            <div class="variablelist"><dl><dt><span class="term">--class</span></dt><dd>
+                        <p>The name of the class this mock test is targeting; default if option not present: '*'</p>
+                    </dd><dt><span class="term">--permitReservedWords</span></dt><dd>
+                        <p>Indicates whether reserved words are ignored by Roo; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-j-line-shell-component"></a>A.16.&nbsp;J Line Shell Component</h2></div></div></div>
+        
+        <p>J Line Shell Component are contained in org.springframework.roo.shell.jline.osgi.JLineShellComponent.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-asxfwd"></a>A.16.1.&nbsp;*/</h3></div></div></div>
+            
+            <p>End of block comment</p>
+            <pre class="programlisting">*/</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-fwdasx"></a>A.16.2.&nbsp;/*</h3></div></div></div>
+            
+            <p>Start of block comment</p>
+            <pre class="programlisting">/*</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-fwdfwd"></a>A.16.3.&nbsp;//</h3></div></div></div>
+            
+            <p>Inline comment markers (start of line only)</p>
+            <pre class="programlisting">//</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-date"></a>A.16.4.&nbsp;date</h3></div></div></div>
+            
+            <p>Displays the local date and time</p>
+            <pre class="programlisting">date</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-flash-test"></a>A.16.5.&nbsp;flash test</h3></div></div></div>
+            
+            <p>Tests message flashing</p>
+            <pre class="programlisting">flash test</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-script"></a>A.16.6.&nbsp;script</h3></div></div></div>
+            
+            <p>Parses the specified resource file and executes its commands</p>
+            <pre class="programlisting">script --file</pre>
+            <div class="variablelist"><dl><dt><span class="term">--file</span></dt><dd>
+                        <p>The file to locate and execute; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--lineNumbers</span></dt><dd>
+                        <p>Display line numbers when executing the script; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-system-properties"></a>A.16.7.&nbsp;system properties</h3></div></div></div>
+            
+            <p>Shows the shell's properties</p>
+            <pre class="programlisting">system properties</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-version"></a>A.16.8.&nbsp;version</h3></div></div></div>
+            
+            <p>Displays shell version</p>
+            <pre class="programlisting">version</pre>
+            <div class="variablelist"><dl><dt><span class="term">--[default]</span></dt><dd>
+                        <p>Special version flags; no default value</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-jms-commands"></a>A.17.&nbsp;Jms Commands</h2></div></div></div>
+        
+        <p>Jms Commands are contained in org.springframework.roo.addon.jms.JmsCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-field-jms-template"></a>A.17.1.&nbsp;field jms template</h3></div></div></div>
+            
+            <p>Insert a JmsOperations field into an existing type</p>
+            <pre class="programlisting">field jms template</pre>
+            <div class="variablelist"><dl><dt><span class="term">--fieldName</span></dt><dd>
+                        <p>The name of the field to add; default: 'jmsOperations'</p>
+                    </dd><dt><span class="term">--class</span></dt><dd>
+                        <p>The name of the class to receive this field; default if option not present: '*'</p>
+                    </dd><dt><span class="term">--async</span></dt><dd>
+                        <p>Indicates if the injected method should be executed asynchronously; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-jms-listener-class"></a>A.17.2.&nbsp;jms listener class</h3></div></div></div>
+            
+            <p>Create an asynchronous JMS consumer</p>
+            <pre class="programlisting">jms listener class --class</pre>
+            <div class="variablelist"><dl><dt><span class="term">--class</span></dt><dd>
+                        <p>The name of the class to create; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--destinationName</span></dt><dd>
+                        <p>The name of the destination; default: 'myDestination'</p>
+                    </dd><dt><span class="term">--destinationType</span></dt><dd>
+                        <p>The type of the destination; default: 'QUEUE'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-jms-setup"></a>A.17.3.&nbsp;jms setup</h3></div></div></div>
+            
+            <p>Install a JMS provider into your project</p>
+            <pre class="programlisting">jms setup --provider</pre>
+            <div class="variablelist"><dl><dt><span class="term">--provider</span></dt><dd>
+                        <p>The persistence provider to support; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--destinationName</span></dt><dd>
+                        <p>The name of the destination; default: 'myDestination'</p>
+                    </dd><dt><span class="term">--destinationType</span></dt><dd>
+                        <p>The type of the destination; default: 'QUEUE'</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-jpa-commands"></a>A.18.&nbsp;Jpa Commands</h2></div></div></div>
+        
+        <p>Jpa Commands are contained in org.springframework.roo.addon.jpa.JpaCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-database-properties-list"></a>A.18.1.&nbsp;database properties list</h3></div></div></div>
+            
+            <p>Shows database configuration details</p>
+            <pre class="programlisting">database properties list</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-database-properties-remove"></a>A.18.2.&nbsp;database properties remove</h3></div></div></div>
+            
+            <p>Removes a particular database property</p>
+            <pre class="programlisting">database properties remove --key</pre>
+            <div class="variablelist"><dl><dt><span class="term">--key</span></dt><dd>
+                        <p>The property key that should be removed; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-database-properties-set"></a>A.18.3.&nbsp;database properties set</h3></div></div></div>
+            
+            <p>Changes a particular database property</p>
+            <pre class="programlisting">database properties set --key --value</pre>
+            <div class="variablelist"><dl><dt><span class="term">--key</span></dt><dd>
+                        <p>The property key that should be changed; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--value</span></dt><dd>
+                        <p>The new vale for this property key; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-embeddable"></a>A.18.4.&nbsp;embeddable</h3></div></div></div>
+            
+            <p>Creates a new Java class source file with the JPA @Embeddable annotation in SRC_MAIN_JAVA</p>
+            <pre class="programlisting">embeddable --class</pre>
+            <div class="variablelist"><dl><dt><span class="term">--class</span></dt><dd>
+                        <p>The name of the class to create; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--serializable</span></dt><dd>
+                        <p>Whether the generated class should implement java.io.Serializable; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--permitReservedWords</span></dt><dd>
+                        <p>Indicates whether reserved words are ignored by Roo; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-entity-jpa"></a>A.18.5.&nbsp;entity jpa</h3></div></div></div>
+            
+            <p>Creates a new JPA persistent entity in SRC_MAIN_JAVA</p>
+            <pre class="programlisting">entity jpa --class</pre>
+            <div class="variablelist"><dl><dt><span class="term">--class</span></dt><dd>
+                        <p>Name of the entity to create; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--extends</span></dt><dd>
+                        <p>The superclass (defaults to java.lang.Object); default if option not present: 'java.lang.Object'</p>
+                    </dd><dt><span class="term">--abstract</span></dt><dd>
+                        <p>Whether the generated class should be marked as abstract; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--testAutomatically</span></dt><dd>
+                        <p>Create automatic integration tests for this entity; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--table</span></dt><dd>
+                        <p>The JPA table name to use for this entity; no default value</p>
+                    </dd><dt><span class="term">--schema</span></dt><dd>
+                        <p>The JPA table schema name to use for this entity; no default value</p>
+                    </dd><dt><span class="term">--catalog</span></dt><dd>
+                        <p>The JPA table catalog name to use for this entity; no default value</p>
+                    </dd><dt><span class="term">--identifierField</span></dt><dd>
+                        <p>The JPA identifier field name to use for this entity; no default value</p>
+                    </dd><dt><span class="term">--identifierColumn</span></dt><dd>
+                        <p>The JPA identifier field column to use for this entity; no default value</p>
+                    </dd><dt><span class="term">--identifierType</span></dt><dd>
+                        <p>The data type that will be used for the JPA identifier field (defaults to java.lang.Long); default: 'java.lang.Long'</p>
+                    </dd><dt><span class="term">--versionField</span></dt><dd>
+                        <p>The JPA version field name to use for this entity; no default value</p>
+                    </dd><dt><span class="term">--versionColumn</span></dt><dd>
+                        <p>The JPA version field column to use for this entity; no default value</p>
+                    </dd><dt><span class="term">--versionType</span></dt><dd>
+                        <p>The data type that will be used for the JPA version field (defaults to java.lang.Integer); default if option not present: 'java.lang.Integer'</p>
+                    </dd><dt><span class="term">--inheritanceType</span></dt><dd>
+                        <p>The JPA @Inheritance value (apply to base class); no default value</p>
+                    </dd><dt><span class="term">--mappedSuperclass</span></dt><dd>
+                        <p>Apply @MappedSuperclass for this entity; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--equals</span></dt><dd>
+                        <p>Whether the generated class should implement equals and hashCode methods; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--serializable</span></dt><dd>
+                        <p>Whether the generated class should implement java.io.Serializable; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--persistenceUnit</span></dt><dd>
+                        <p>The persistence unit name to be used in the persistence.xml file; no default value</p>
+                    </dd><dt><span class="term">--transactionManager</span></dt><dd>
+                        <p>The transaction manager name; no default value</p>
+                    </dd><dt><span class="term">--permitReservedWords</span></dt><dd>
+                        <p>Indicates whether reserved words are ignored by Roo; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd><dt><span class="term">--entityName</span></dt><dd>
+                        <p>The name used to refer to the entity in queries; no default value</p>
+                    </dd><dt><span class="term">--sequenceName</span></dt><dd>
+                        <p>The name of the sequence for incrementing sequence-driven primary keys; no default value</p>
+                    </dd><dt><span class="term">--activeRecord</span></dt><dd>
+                        <p>Generate CRUD active record methods for this entity; default: 'true'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-jpa-setup"></a>A.18.6.&nbsp;jpa setup</h3></div></div></div>
+            
+            <p>Install or updates a JPA persistence provider in your project</p>
+            <pre class="programlisting">jpa setup --provider --database</pre>
+            <div class="variablelist"><dl><dt><span class="term">--provider</span></dt><dd>
+                        <p>The persistence provider to support; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--database</span></dt><dd>
+                        <p>The database to support; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--applicationId</span></dt><dd>
+                        <p>The Google App Engine application identifier to use; default if option not present: 'the project's name'</p>
+                    </dd><dt><span class="term">--jndiDataSource</span></dt><dd>
+                        <p>The JNDI datasource to use; no default value</p>
+                    </dd><dt><span class="term">--hostName</span></dt><dd>
+                        <p>The host name to use; no default value</p>
+                    </dd><dt><span class="term">--databaseName</span></dt><dd>
+                        <p>The database name to use; no default value</p>
+                    </dd><dt><span class="term">--userName</span></dt><dd>
+                        <p>The username to use; no default value</p>
+                    </dd><dt><span class="term">--password</span></dt><dd>
+                        <p>The password to use; no default value</p>
+                    </dd><dt><span class="term">--transactionManager</span></dt><dd>
+                        <p>The transaction manager name; no default value</p>
+                    </dd><dt><span class="term">--persistenceUnit</span></dt><dd>
+                        <p>The persistence unit name to be used in the persistence.xml file; no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-persistence-setup"></a>A.18.7.&nbsp;persistence setup</h3></div></div></div>
+            
+            <p>Install or updates a JPA persistence provider in your project - deprecated, use 'jpa setup' instead</p>
+            <pre class="programlisting">persistence setup --provider --database</pre>
+            <div class="variablelist"><dl><dt><span class="term">--provider</span></dt><dd>
+                        <p>The persistence provider to support; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--database</span></dt><dd>
+                        <p>The database to support; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--applicationId</span></dt><dd>
+                        <p>The Google App Engine application identifier to use; default if option not present: 'the project's name'</p>
+                    </dd><dt><span class="term">--jndiDataSource</span></dt><dd>
+                        <p>The JNDI datasource to use; no default value</p>
+                    </dd><dt><span class="term">--hostName</span></dt><dd>
+                        <p>The host name to use; no default value</p>
+                    </dd><dt><span class="term">--databaseName</span></dt><dd>
+                        <p>The database name to use; no default value</p>
+                    </dd><dt><span class="term">--userName</span></dt><dd>
+                        <p>The username to use; no default value</p>
+                    </dd><dt><span class="term">--password</span></dt><dd>
+                        <p>The password to use; no default value</p>
+                    </dd><dt><span class="term">--transactionManager</span></dt><dd>
+                        <p>The transaction manager name; no default value</p>
+                    </dd><dt><span class="term">--persistenceUnit</span></dt><dd>
+                        <p>The persistence unit name to be used in the persistence.xml file; no default value</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-jsf-commands"></a>A.19.&nbsp;Jsf Commands</h2></div></div></div>
+        
+        <p>Jsf Commands are contained in org.springframework.roo.addon.jsf.JsfCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-jsf-all"></a>A.19.1.&nbsp;web jsf all</h3></div></div></div>
+            
+            <p>Create JSF managed beans for all entities</p>
+            <pre class="programlisting">web jsf all --package</pre>
+            <div class="variablelist"><dl><dt><span class="term">--package</span></dt><dd>
+                        <p>The package in which new JSF managed beans will be placed; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-jsf-media"></a>A.19.2.&nbsp;web jsf media</h3></div></div></div>
+            
+            <p>Add a cross-browser generic player to embed multimedia content</p>
+            <pre class="programlisting">web jsf media --url</pre>
+            <div class="variablelist"><dl><dt><span class="term">--url</span></dt><dd>
+                        <p>The url of the media source; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--player</span></dt><dd>
+                        <p>The name of the media player; no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-jsf-scaffold"></a>A.19.3.&nbsp;web jsf scaffold</h3></div></div></div>
+            
+            <p>Create JSF managed bean for an entity</p>
+            <pre class="programlisting">web jsf scaffold --class</pre>
+            <div class="variablelist"><dl><dt><span class="term">--class</span></dt><dd>
+                        <p>The path and name of the JSF managed bean to be created; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--entity</span></dt><dd>
+                        <p>The entity which this JSF managed bean class will create and modify as required; default if option not present: '*'</p>
+                    </dd><dt><span class="term">--beanName</span></dt><dd>
+                        <p>The name of the managed bean to use in the 'name' attribute of the @ManagedBean annotation; no default value</p>
+                    </dd><dt><span class="term">--includeOnMenu</span></dt><dd>
+                        <p>Include this entity on the generated JSF menu; default: 'true'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-jsf-setup"></a>A.19.4.&nbsp;web jsf setup</h3></div></div></div>
+            
+            <p>Set up JSF environment</p>
+            <pre class="programlisting">web jsf setup</pre>
+            <div class="variablelist"><dl><dt><span class="term">--implementation</span></dt><dd>
+                        <p>The JSF implementation to use; no default value</p>
+                    </dd><dt><span class="term">--library</span></dt><dd>
+                        <p>The JSF component library to use; no default value</p>
+                    </dd><dt><span class="term">--theme</span></dt><dd>
+                        <p>The name of the theme; no default value</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-json-commands"></a>A.20.&nbsp;Json Commands</h2></div></div></div>
+        
+        <p>Json Commands are contained in org.springframework.roo.addon.json.JsonCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-json-add"></a>A.20.1.&nbsp;json add</h3></div></div></div>
+            
+            <p>Adds @RooJson annotation to target type</p>
+            <pre class="programlisting">json add</pre>
+            <div class="variablelist"><dl><dt><span class="term">--class</span></dt><dd>
+                        <p>The java type to apply this annotation to; default if option not present: '*'</p>
+                    </dd><dt><span class="term">--rootName</span></dt><dd>
+                        <p>The root name which should be used to wrap the JSON document; no default value</p>
+                    </dd><dt><span class="term">--deepSerialize</span></dt><dd>
+                        <p>Indication if deep serialization should be enabled.; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-json-all"></a>A.20.2.&nbsp;json all</h3></div></div></div>
+            
+            <p>Adds @RooJson annotation to all types annotated with @RooJavaBean</p>
+            <pre class="programlisting">json all</pre>
+            <div class="variablelist"><dl><dt><span class="term">--deepSerialize</span></dt><dd>
+                        <p>Indication if deep serialization should be enabled; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-jsp-commands"></a>A.21.&nbsp;Jsp Commands</h2></div></div></div>
+        
+        <p>Jsp Commands are contained in org.springframework.roo.addon.web.mvc.jsp.JspCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-controller-class"></a>A.21.1.&nbsp;controller class</h3></div></div></div>
+            
+            <p>Create a new manual Controller (ie where you write the methods) - deprecated, use 'web mvc controller' instead</p>
+            <pre class="programlisting">controller class --class</pre>
+            <div class="variablelist"><dl><dt><span class="term">--class</span></dt><dd>
+                        <p>The path and name of the controller object to be created; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--preferredMapping</span></dt><dd>
+                        <p>Indicates a specific request mapping path for this controller (eg /foo/); no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-mvc-controller"></a>A.21.2.&nbsp;web mvc controller</h3></div></div></div>
+            
+            <p>Create a new manual Controller (ie where you write the methods)</p>
+            <pre class="programlisting">web mvc controller --class</pre>
+            <div class="variablelist"><dl><dt><span class="term">--class</span></dt><dd>
+                        <p>The path and name of the controller object to be created; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--preferredMapping</span></dt><dd>
+                        <p>Indicates a specific request mapping path for this controller (eg /foo/); no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-mvc-install-language"></a>A.21.3.&nbsp;web mvc install language</h3></div></div></div>
+            
+            <p>Install new internationalization bundle for MVC scaffolded UI.</p>
+            <pre class="programlisting">web mvc install language --code</pre>
+            <div class="variablelist"><dl><dt><span class="term">--code</span></dt><dd>
+                        <p>The language code for the desired bundle; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-mvc-install-view"></a>A.21.4.&nbsp;web mvc install view</h3></div></div></div>
+            
+            <p>Create a new static view.</p>
+            <pre class="programlisting">web mvc install view --path --viewName --title</pre>
+            <div class="variablelist"><dl><dt><span class="term">--path</span></dt><dd>
+                        <p>The path the static view to create in (required, ie '/foo/blah'); no default value (mandatory) </p>
+                    </dd><dt><span class="term">--viewName</span></dt><dd>
+                        <p>The view name the mapping this view should adopt (required, ie 'index'); no default value (mandatory) </p>
+                    </dd><dt><span class="term">--title</span></dt><dd>
+                        <p>The title of the view; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-mvc-language"></a>A.21.5.&nbsp;web mvc language</h3></div></div></div>
+            
+            <p>Install new internationalization bundle for MVC scaffolded UI.</p>
+            <pre class="programlisting">web mvc language --code</pre>
+            <div class="variablelist"><dl><dt><span class="term">--code</span></dt><dd>
+                        <p>The language code for the desired bundle; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-mvc-setup"></a>A.21.6.&nbsp;web mvc setup</h3></div></div></div>
+            
+            <p>Setup a basic project structure for a Spring MVC / JSP application</p>
+            <pre class="programlisting">web mvc setup</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-mvc-update-tags"></a>A.21.7.&nbsp;web mvc update tags</h3></div></div></div>
+            
+            <p>Replace an existing application tagx library with the latest version (use --backup option to backup your application first)</p>
+            <pre class="programlisting">web mvc update tags</pre>
+            <div class="variablelist"><dl><dt><span class="term">--backup</span></dt><dd>
+                        <p>Backup your application before replacing your existing tag library; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-mvc-view"></a>A.21.8.&nbsp;web mvc view</h3></div></div></div>
+            
+            <p>Create a new static view.</p>
+            <pre class="programlisting">web mvc view --path --viewName --title</pre>
+            <div class="variablelist"><dl><dt><span class="term">--path</span></dt><dd>
+                        <p>The path the static view to create in (required, ie '/foo/blah'); no default value (mandatory) </p>
+                    </dd><dt><span class="term">--viewName</span></dt><dd>
+                        <p>The view name the mapping this view should adopt (required, ie 'index'); no default value (mandatory) </p>
+                    </dd><dt><span class="term">--title</span></dt><dd>
+                        <p>The title of the view; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-logging-commands"></a>A.22.&nbsp;Logging Commands</h2></div></div></div>
+        
+        <p>Logging Commands are contained in org.springframework.roo.addon.logging.LoggingCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-logging-setup"></a>A.22.1.&nbsp;logging setup</h3></div></div></div>
+            
+            <p>Configure logging in your project</p>
+            <pre class="programlisting">logging setup --level</pre>
+            <div class="variablelist"><dl><dt><span class="term">--level</span></dt><dd>
+                        <p>The log level to configure; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--package</span></dt><dd>
+                        <p>The package to append the logging level to (all by default); no default value</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-mail-commands"></a>A.23.&nbsp;Mail Commands</h2></div></div></div>
+        
+        <p>Mail Commands are contained in org.springframework.roo.addon.email.MailCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-email-sender-setup"></a>A.23.1.&nbsp;email sender setup</h3></div></div></div>
+            
+            <p>Install a Spring JavaMailSender in your project</p>
+            <pre class="programlisting">email sender setup --hostServer</pre>
+            <div class="variablelist"><dl><dt><span class="term">--hostServer</span></dt><dd>
+                        <p>The host server; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--protocol</span></dt><dd>
+                        <p>The protocol used by mail server; no default value</p>
+                    </dd><dt><span class="term">--port</span></dt><dd>
+                        <p>The port used by mail server; no default value</p>
+                    </dd><dt><span class="term">--encoding</span></dt><dd>
+                        <p>The encoding used for mail; no default value</p>
+                    </dd><dt><span class="term">--username</span></dt><dd>
+                        <p>The mail account username; no default value</p>
+                    </dd><dt><span class="term">--password</span></dt><dd>
+                        <p>The mail account password; no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-email-template-setup"></a>A.23.2.&nbsp;email template setup</h3></div></div></div>
+            
+            <p>Configures a template for a SimpleMailMessage</p>
+            <pre class="programlisting">email template setup</pre>
+            <div class="variablelist"><dl><dt><span class="term">--from</span></dt><dd>
+                        <p>The 'from' email (optional); no default value</p>
+                    </dd><dt><span class="term">--subject</span></dt><dd>
+                        <p>The message subject (obtional); no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-field-email-template"></a>A.23.3.&nbsp;field email template</h3></div></div></div>
+            
+            <p>Inserts a MailTemplate field into an existing type</p>
+            <pre class="programlisting">field email template</pre>
+            <div class="variablelist"><dl><dt><span class="term">--fieldName</span></dt><dd>
+                        <p>The name of the field to add; default: 'mailTemplate'</p>
+                    </dd><dt><span class="term">--class</span></dt><dd>
+                        <p>The name of the class to receive this field; default if option not present: '*'</p>
+                    </dd><dt><span class="term">--async</span></dt><dd>
+                        <p>Indicates if the injected method should be executed asynchronously; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-maven-commands"></a>A.24.&nbsp;Maven Commands</h2></div></div></div>
+        
+        <p>Maven Commands are contained in org.springframework.roo.project.MavenCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-dependency-add"></a>A.24.1.&nbsp;dependency add</h3></div></div></div>
+            
+            <p>Adds a new dependency to the Maven project object model (POM)</p>
+            <pre class="programlisting">dependency add --groupId --artifactId --version</pre>
+            <div class="variablelist"><dl><dt><span class="term">--groupId</span></dt><dd>
+                        <p>The group ID of the dependency; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--artifactId</span></dt><dd>
+                        <p>The artifact ID of the dependency; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--version</span></dt><dd>
+                        <p>The version of the dependency; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--classifier</span></dt><dd>
+                        <p>The classifier of the dependency; no default value</p>
+                    </dd><dt><span class="term">--scope</span></dt><dd>
+                        <p>The scope of the dependency; no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-dependency-remove"></a>A.24.2.&nbsp;dependency remove</h3></div></div></div>
+            
+            <p>Removes an existing dependency from the Maven project object model (POM)</p>
+            <pre class="programlisting">dependency remove --groupId --artifactId --version</pre>
+            <div class="variablelist"><dl><dt><span class="term">--groupId</span></dt><dd>
+                        <p>The group ID of the dependency; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--artifactId</span></dt><dd>
+                        <p>The artifact ID of the dependency; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--version</span></dt><dd>
+                        <p>The version of the dependency; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--classifier</span></dt><dd>
+                        <p>The classifier of the dependency; no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-maven-repository-add"></a>A.24.3.&nbsp;maven repository add</h3></div></div></div>
+            
+            <p>Adds a new repository to the Maven project object model (POM)</p>
+            <pre class="programlisting">maven repository add --id --url</pre>
+            <div class="variablelist"><dl><dt><span class="term">--id</span></dt><dd>
+                        <p>The ID of the repository; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--name</span></dt><dd>
+                        <p>The name of the repository; no default value</p>
+                    </dd><dt><span class="term">--url</span></dt><dd>
+                        <p>The URL of the repository; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-maven-repository-remove"></a>A.24.4.&nbsp;maven repository remove</h3></div></div></div>
+            
+            <p>Removes an existing repository from the Maven project object model (POM)</p>
+            <pre class="programlisting">maven repository remove --id --url</pre>
+            <div class="variablelist"><dl><dt><span class="term">--id</span></dt><dd>
+                        <p>The ID of the repository; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--url</span></dt><dd>
+                        <p>The URL of the repository; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-module-create"></a>A.24.5.&nbsp;module create</h3></div></div></div>
+            
+            <p>Creates a new Maven module</p>
+            <pre class="programlisting">module create --moduleName --topLevelPackage</pre>
+            <div class="variablelist"><dl><dt><span class="term">--moduleName</span></dt><dd>
+                        <p>The name of the module; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--topLevelPackage</span></dt><dd>
+                        <p>The uppermost package name (this becomes the &lt;groupId&gt; in Maven and also the '~' value when using Roo's shell); no default value (mandatory) </p>
+                    </dd><dt><span class="term">--java</span></dt><dd>
+                        <p>Forces a particular major version of Java to be used (will be auto-detected if unspecified; specify 5 or 6 or 7 only); no default value</p>
+                    </dd><dt><span class="term">--parent</span></dt><dd>
+                        <p>The Maven coordinates of the parent POM, in the form "groupId:artifactId:version"; no default value</p>
+                    </dd><dt><span class="term">--packaging</span></dt><dd>
+                        <p>The Maven packaging of this module; default if option not present: 'jar'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-module-focus"></a>A.24.6.&nbsp;module focus</h3></div></div></div>
+            
+            <p>Changes focus to a different project module</p>
+            <pre class="programlisting">module focus --moduleName</pre>
+            <div class="variablelist"><dl><dt><span class="term">--moduleName</span></dt><dd>
+                        <p>The module to focus on; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-perform-assembly"></a>A.24.7.&nbsp;perform assembly</h3></div></div></div>
+            
+            <p>Executes the assembly goal via Maven</p>
+            <pre class="programlisting">perform assembly</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-perform-clean"></a>A.24.8.&nbsp;perform clean</h3></div></div></div>
+            
+            <p>Executes a full clean (including Eclipse files) via Maven</p>
+            <pre class="programlisting">perform clean</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-perform-command"></a>A.24.9.&nbsp;perform command</h3></div></div></div>
+            
+            <p>Executes a user-specified Maven command</p>
+            <pre class="programlisting">perform command --mavenCommand</pre>
+            <div class="variablelist"><dl><dt><span class="term">--mavenCommand</span></dt><dd>
+                        <p>User-specified Maven command (eg test:test); no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-perform-eclipse"></a>A.24.10.&nbsp;perform eclipse</h3></div></div></div>
+            
+            <p>Sets up Eclipse configuration via Maven (only necessary if you have not installed the m2eclipse plugin in Eclipse)</p>
+            <pre class="programlisting">perform eclipse</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-perform-package"></a>A.24.11.&nbsp;perform package</h3></div></div></div>
+            
+            <p>Packages the application using Maven, but does not execute any tests</p>
+            <pre class="programlisting">perform package</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-perform-tests"></a>A.24.12.&nbsp;perform tests</h3></div></div></div>
+            
+            <p>Executes the tests via Maven</p>
+            <pre class="programlisting">perform tests</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-project"></a>A.24.13.&nbsp;project</h3></div></div></div>
+            
+            <p>Creates a new Maven project</p>
+            <pre class="programlisting">project --topLevelPackage</pre>
+            <div class="variablelist"><dl><dt><span class="term">--topLevelPackage</span></dt><dd>
+                        <p>The uppermost package name (this becomes the &lt;groupId&gt; in Maven and also the '~' value when using Roo's shell); no default value (mandatory) </p>
+                    </dd><dt><span class="term">--projectName</span></dt><dd>
+                        <p>The name of the project (last segment of package name used as default); no default value</p>
+                    </dd><dt><span class="term">--java</span></dt><dd>
+                        <p>Forces a particular major version of Java to be used (will be auto-detected if unspecified; specify 5 or 6 or 7 only); no default value</p>
+                    </dd><dt><span class="term">--parent</span></dt><dd>
+                        <p>The Maven coordinates of the parent POM, in the form "groupId:artifactId:version"; no default value</p>
+                    </dd><dt><span class="term">--packaging</span></dt><dd>
+                        <p>The Maven packaging of this project; default if option not present: 'jar'</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-metadata-commands"></a>A.25.&nbsp;Metadata Commands</h2></div></div></div>
+        
+        <p>Metadata Commands are contained in org.springframework.roo.classpath.MetadataCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-metadata-cache"></a>A.25.1.&nbsp;metadata cache</h3></div></div></div>
+            
+            <p>Shows detailed metadata for the indicated type</p>
+            <pre class="programlisting">metadata cache --maximumCapacity</pre>
+            <div class="variablelist"><dl><dt><span class="term">--maximumCapacity</span></dt><dd>
+                        <p>The maximum number of metadata items to cache; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-metadata-for-id"></a>A.25.2.&nbsp;metadata for id</h3></div></div></div>
+            
+            <p>Shows detailed information about the metadata item</p>
+            <pre class="programlisting">metadata for id --metadataId</pre>
+            <div class="variablelist"><dl><dt><span class="term">--metadataId</span></dt><dd>
+                        <p>The metadata ID (should start with MID:); no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-metadata-for-module"></a>A.25.3.&nbsp;metadata for module</h3></div></div></div>
+            
+            <p>Shows the ProjectMetadata for the indicated project module</p>
+            <pre class="programlisting">metadata for module</pre>
+            <div class="variablelist"><dl><dt><span class="term">--module</span></dt><dd>
+                        <p>The module for which to retrieve the metadata (defaults to the focused module); no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-metadata-for-type"></a>A.25.4.&nbsp;metadata for type</h3></div></div></div>
+            
+            <p>Shows detailed metadata for the indicated type</p>
+            <pre class="programlisting">metadata for type --type</pre>
+            <div class="variablelist"><dl><dt><span class="term">--type</span></dt><dd>
+                        <p>The Java type for which to display metadata; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-metadata-status"></a>A.25.5.&nbsp;metadata status</h3></div></div></div>
+            
+            <p>Shows metadata statistics</p>
+            <pre class="programlisting">metadata status</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-metadata-trace"></a>A.25.6.&nbsp;metadata trace</h3></div></div></div>
+            
+            <p>Traces metadata event delivery notifications</p>
+            <pre class="programlisting">metadata trace --level</pre>
+            <div class="variablelist"><dl><dt><span class="term">--level</span></dt><dd>
+                        <p>The verbosity of notifications (0=none, 1=some, 2=all); no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-mongo-commands"></a>A.26.&nbsp;Mongo Commands</h2></div></div></div>
+        
+        <p>Mongo Commands are contained in org.springframework.roo.addon.layers.repository.mongo.MongoCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-entity-mongo"></a>A.26.1.&nbsp;entity mongo</h3></div></div></div>
+            
+            <p>Creates a domain entity which can be backed by a MongoDB repository</p>
+            <pre class="programlisting">entity mongo --class</pre>
+            <div class="variablelist"><dl><dt><span class="term">--class</span></dt><dd>
+                        <p>Implementation class for the specified interface; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--identifierType</span></dt><dd>
+                        <p>The ID type to be used for this domain type (defaults to BigInteger); no default value</p>
+                    </dd><dt><span class="term">--testAutomatically</span></dt><dd>
+                        <p>Create automatic integration tests for this entity; default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-mongo-setup"></a>A.26.2.&nbsp;mongo setup</h3></div></div></div>
+            
+            <p>Configures the project for MongoDB peristence.</p>
+            <pre class="programlisting">mongo setup</pre>
+            <div class="variablelist"><dl><dt><span class="term">--username</span></dt><dd>
+                        <p>Username for accessing the database (defaults to ''); no default value</p>
+                    </dd><dt><span class="term">--password</span></dt><dd>
+                        <p>Password for accessing the database (defaults to ''); no default value</p>
+                    </dd><dt><span class="term">--databaseName</span></dt><dd>
+                        <p>Name of the database (defaults to project name); no default value</p>
+                    </dd><dt><span class="term">--port</span></dt><dd>
+                        <p>Port for the database (defaults to '27017'); no default value</p>
+                    </dd><dt><span class="term">--host</span></dt><dd>
+                        <p>Host for the database (defaults to '127.0.0.1'); no default value</p>
+                    </dd><dt><span class="term">--cloudFoundry</span></dt><dd>
+                        <p>Deploy to CloudFoundry (defaults to 'false'); default if option present: 'true'; default if option not present: 'false'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-repository-mongo"></a>A.26.3.&nbsp;repository mongo</h3></div></div></div>
+            
+            <p>Adds @RooMongoRepository annotation to target type</p>
+            <pre class="programlisting">repository mongo --interface</pre>
+            <div class="variablelist"><dl><dt><span class="term">--interface</span></dt><dd>
+                        <p>The java interface to apply this annotation to; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--entity</span></dt><dd>
+                        <p>The domain entity this repository should expose; default if option not present: '*'</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-os-commands"></a>A.27.&nbsp;Os Commands</h2></div></div></div>
+        
+        <p>Os Commands are contained in org.springframework.roo.addon.oscommands.OsCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-!"></a>A.27.1.&nbsp;!</h3></div></div></div>
+            
+            <p>Allows execution of operating system (OS) commands.</p>
+            <pre class="programlisting">!</pre>
+            <div class="variablelist"><dl><dt><span class="term">--command</span></dt><dd>
+                        <p>The command to execute; default: ''</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-pgp-commands"></a>A.28.&nbsp;Pgp Commands</h2></div></div></div>
+        
+        <p>Pgp Commands are contained in org.springframework.roo.felix.pgp.PgpCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-pgp-automatic-trust"></a>A.28.1.&nbsp;pgp automatic trust</h3></div></div></div>
+            
+            <p>Indicates to automatically trust all keys encountered until the command is invoked again</p>
+            <pre class="programlisting">pgp automatic trust</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-pgp-key-view"></a>A.28.2.&nbsp;pgp key view</h3></div></div></div>
+            
+            <p>Downloads a remote key and displays it to the user (does not change any trusts)</p>
+            <pre class="programlisting">pgp key view --keyId</pre>
+            <div class="variablelist"><dl><dt><span class="term">--keyId</span></dt><dd>
+                        <p>The key ID to view (eg 00B5050F or 0x00B5050F); no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-pgp-list-trusted-keys"></a>A.28.3.&nbsp;pgp list trusted keys</h3></div></div></div>
+            
+            <p>Lists the keys you currently trust and have not been revoked at the time last downloaded from a public key server</p>
+            <pre class="programlisting">pgp list trusted keys</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-pgp-refresh-all"></a>A.28.4.&nbsp;pgp refresh all</h3></div></div></div>
+            
+            <p>Refreshes all keys from public key servers</p>
+            <pre class="programlisting">pgp refresh all</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-pgp-status"></a>A.28.5.&nbsp;pgp status</h3></div></div></div>
+            
+            <p>Displays the status of the PGP environment</p>
+            <pre class="programlisting">pgp status</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-pgp-trust"></a>A.28.6.&nbsp;pgp trust</h3></div></div></div>
+            
+            <p>Grants trust to a particular key ID</p>
+            <pre class="programlisting">pgp trust --keyId</pre>
+            <div class="variablelist"><dl><dt><span class="term">--keyId</span></dt><dd>
+                        <p>The key ID to trust (eg 00B5050F or 0x00B5050F); no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-pgp-untrust"></a>A.28.7.&nbsp;pgp untrust</h3></div></div></div>
+            
+            <p>Revokes your trust for a particular key ID</p>
+            <pre class="programlisting">pgp untrust --keyId</pre>
+            <div class="variablelist"><dl><dt><span class="term">--keyId</span></dt><dd>
+                        <p>The key ID to remove trust from (eg 00B5050F or 0x00B5050F); no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-process-manager-commands"></a>A.29.&nbsp;Process Manager Commands</h2></div></div></div>
+        
+        <p>Process Manager Commands are contained in org.springframework.roo.process.manager.ProcessManagerCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-development-mode"></a>A.29.1.&nbsp;development mode</h3></div></div></div>
+            
+            <p>Switches the system into development mode (greater diagnostic information)</p>
+            <pre class="programlisting">development mode</pre>
+            <div class="variablelist"><dl><dt><span class="term">--enabled</span></dt><dd>
+                        <p>Activates development mode; default: 'true'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-poll-now"></a>A.29.2.&nbsp;poll now</h3></div></div></div>
+            
+            <p>Perform a manual file system poll</p>
+            <pre class="programlisting">poll now</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-poll-speed"></a>A.29.3.&nbsp;poll speed</h3></div></div></div>
+            
+            <p>Changes the file system polling speed</p>
+            <pre class="programlisting">poll speed --ms</pre>
+            <div class="variablelist"><dl><dt><span class="term">--ms</span></dt><dd>
+                        <p>The number of milliseconds between each poll; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-poll-status"></a>A.29.4.&nbsp;poll status</h3></div></div></div>
+            
+            <p>Display file system polling information</p>
+            <pre class="programlisting">poll status</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-process-manager-diagnostics-listener"></a>A.30.&nbsp;Process Manager Diagnostics Listener</h2></div></div></div>
+        
+        <p>Process Manager Diagnostics Listener are contained in org.springframework.roo.process.manager.internal.ProcessManagerDiagnosticsListener.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-process-manager-debug"></a>A.30.1.&nbsp;process manager debug</h3></div></div></div>
+            
+            <p>Indicates if process manager debugging is desired</p>
+            <pre class="programlisting">process manager debug</pre>
+            <div class="variablelist"><dl><dt><span class="term">--enabled</span></dt><dd>
+                        <p>Activates debug mode; default: 'true'</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-prop-file-commands"></a>A.31.&nbsp;Prop File Commands</h2></div></div></div>
+        
+        <p>Prop File Commands are contained in org.springframework.roo.addon.propfiles.PropFileCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-properties-list"></a>A.31.1.&nbsp;properties list</h3></div></div></div>
+            
+            <p>Shows the details of a particular properties file</p>
+            <pre class="programlisting">properties list --name --path</pre>
+            <div class="variablelist"><dl><dt><span class="term">--name</span></dt><dd>
+                        <p>Property file name (including .properties suffix); no default value (mandatory) </p>
+                    </dd><dt><span class="term">--path</span></dt><dd>
+                        <p>Source path to property file; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-properties-remove"></a>A.31.2.&nbsp;properties remove</h3></div></div></div>
+            
+            <p>Removes a particular properties file property</p>
+            <pre class="programlisting">properties remove --name --path --key</pre>
+            <div class="variablelist"><dl><dt><span class="term">--name</span></dt><dd>
+                        <p>Property file name (including .properties suffix); no default value (mandatory) </p>
+                    </dd><dt><span class="term">--path</span></dt><dd>
+                        <p>Source path to property file; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--key</span></dt><dd>
+                        <p>The property key that should be removed; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-properties-set"></a>A.31.3.&nbsp;properties set</h3></div></div></div>
+            
+            <p>Changes a particular properties file property</p>
+            <pre class="programlisting">properties set --name --path --key --value</pre>
+            <div class="variablelist"><dl><dt><span class="term">--name</span></dt><dd>
+                        <p>Property file name (including .properties suffix); no default value (mandatory) </p>
+                    </dd><dt><span class="term">--path</span></dt><dd>
+                        <p>Source path to property file; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--key</span></dt><dd>
+                        <p>The property key that should be changed; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--value</span></dt><dd>
+                        <p>The new vale for this property key; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-proxy-configuration-commands"></a>A.32.&nbsp;Proxy Configuration Commands</h2></div></div></div>
+        
+        <p>Proxy Configuration Commands are contained in org.springframework.roo.url.stream.jdk.ProxyConfigurationCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-proxy-configuration"></a>A.32.1.&nbsp;proxy configuration</h3></div></div></div>
+            
+            <p>Shows the proxy server configuration</p>
+            <pre class="programlisting">proxy configuration</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-repository-jpa-commands"></a>A.33.&nbsp;Repository Jpa Commands</h2></div></div></div>
+        
+        <p>Repository Jpa Commands are contained in org.springframework.roo.addon.layers.repository.jpa.RepositoryJpaCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-repository-jpa"></a>A.33.1.&nbsp;repository jpa</h3></div></div></div>
+            
+            <p>Adds @RooJpaRepository annotation to target type</p>
+            <pre class="programlisting">repository jpa --interface</pre>
+            <div class="variablelist"><dl><dt><span class="term">--interface</span></dt><dd>
+                        <p>The java interface to apply this annotation to; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--entity</span></dt><dd>
+                        <p>The domain entity this repository should expose; default if option not present: '*'</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-security-commands"></a>A.34.&nbsp;Security Commands</h2></div></div></div>
+        
+        <p>Security Commands are contained in org.springframework.roo.addon.security.SecurityCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-security-setup"></a>A.34.1.&nbsp;security setup</h3></div></div></div>
+            
+            <p>Install Spring Security into your project</p>
+            <pre class="programlisting">security setup</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-selenium-commands"></a>A.35.&nbsp;Selenium Commands</h2></div></div></div>
+        
+        <p>Selenium Commands are contained in org.springframework.roo.addon.web.selenium.SeleniumCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-selenium-test"></a>A.35.1.&nbsp;selenium test</h3></div></div></div>
+            
+            <p>Creates a new Selenium test for a particular controller</p>
+            <pre class="programlisting">selenium test --controller</pre>
+            <div class="variablelist"><dl><dt><span class="term">--controller</span></dt><dd>
+                        <p>Controller to create a Selenium test for; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--name</span></dt><dd>
+                        <p>Name of the test; no default value</p>
+                    </dd><dt><span class="term">--serverUrl</span></dt><dd>
+                        <p>URL of the server where the web application is available, including protocol, port and hostname; default: 'http://localhost:8080/'</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-service-commands"></a>A.36.&nbsp;Service Commands</h2></div></div></div>
+        
+        <p>Service Commands are contained in org.springframework.roo.addon.layers.service.ServiceCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-service"></a>A.36.1.&nbsp;service</h3></div></div></div>
+            
+            <p>Adds @RooService annotation to target type</p>
+            <pre class="programlisting">service --interface</pre>
+            <div class="variablelist"><dl><dt><span class="term">--interface</span></dt><dd>
+                        <p>The java interface to apply this annotation to; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--class</span></dt><dd>
+                        <p>Implementation class for the specified interface; no default value</p>
+                    </dd><dt><span class="term">--entity</span></dt><dd>
+                        <p>The domain entity this service should expose; default if option not present: '*'</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-simple-parser-component"></a>A.37.&nbsp;Simple Parser Component</h2></div></div></div>
+        
+        <p>Simple Parser Component are contained in org.springframework.roo.shell.osgi.SimpleParserComponent.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-help"></a>A.37.1.&nbsp;help</h3></div></div></div>
+            
+            <p>Shows system help</p>
+            <pre class="programlisting">help</pre>
+            <div class="variablelist"><dl><dt><span class="term">--command</span></dt><dd>
+                        <p>Command name to provide help for; no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-reference-guide"></a>A.37.2.&nbsp;reference guide</h3></div></div></div>
+            
+            <p>Writes the reference guide XML fragments (in DocBook format) into the current working directory</p>
+            <pre class="programlisting">reference guide</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-solr-commands"></a>A.38.&nbsp;Solr Commands</h2></div></div></div>
+        
+        <p>Solr Commands are contained in org.springframework.roo.addon.solr.SolrCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-solr-add"></a>A.38.1.&nbsp;solr add</h3></div></div></div>
+            
+            <p>Make target type searchable</p>
+            <pre class="programlisting">solr add</pre>
+            <div class="variablelist"><dl><dt><span class="term">--class</span></dt><dd>
+                        <p>The type to be made searchable; default if option not present: '*'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-solr-all"></a>A.38.2.&nbsp;solr all</h3></div></div></div>
+            
+            <p>Make all eligible project types searchable</p>
+            <pre class="programlisting">solr all</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-solr-setup"></a>A.38.3.&nbsp;solr setup</h3></div></div></div>
+            
+            <p>Install support for Solr search integration</p>
+            <pre class="programlisting">solr setup</pre>
+            <div class="variablelist"><dl><dt><span class="term">--searchServerUrl</span></dt><dd>
+                        <p>The URL of the Solr search server; default: 'http://localhost:8983/solr'</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-tailor-commands"></a>A.39.&nbsp;Tailor Commands</h2></div></div></div>
+        
+        <p>Tailor Commands are contained in org.springframework.roo.addon.tailor.TailorCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-tailor-activate"></a>A.39.1.&nbsp;tailor activate</h3></div></div></div>
+            
+            <p>Activate a tailor configuration.</p>
+            <pre class="programlisting">tailor activate --name</pre>
+            <div class="variablelist"><dl><dt><span class="term">--name</span></dt><dd>
+                        <p>The name of the tailor configuration; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-tailor-deactivate"></a>A.39.2.&nbsp;tailor deactivate</h3></div></div></div>
+            
+            <p>Deactivate the tailor.</p>
+            <pre class="programlisting">tailor deactivate</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-tailor-list"></a>A.39.3.&nbsp;tailor list</h3></div></div></div>
+            
+            <p>List available tailor configurations.</p>
+            <pre class="programlisting">tailor list</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-uaa-commands"></a>A.40.&nbsp;Uaa Commands</h2></div></div></div>
+        
+        <p>Uaa Commands are contained in org.springframework.roo.uaa.UaaCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-download-accept-terms-of-use"></a>A.40.1.&nbsp;download accept terms of use</h3></div></div></div>
+            
+            <p>Accepts the Spring User Agent Analysis (UAA) Terms of Use</p>
+            <pre class="programlisting">download accept terms of use</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-download-privacy-level"></a>A.40.2.&nbsp;download privacy level</h3></div></div></div>
+            
+            <p>Changes the Spring User Agent Analysis (UAA) privacy level</p>
+            <pre class="programlisting">download privacy level --privacyLevel</pre>
+            <div class="variablelist"><dl><dt><span class="term">--privacyLevel</span></dt><dd>
+                        <p>The new UAA privacy level to use; no default value (mandatory) </p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-download-reject-terms-of-use"></a>A.40.3.&nbsp;download reject terms of use</h3></div></div></div>
+            
+            <p>Rejects the Spring User Agent Analysis (UAA) Terms of Use</p>
+            <pre class="programlisting">download reject terms of use</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-download-status"></a>A.40.4.&nbsp;download status</h3></div></div></div>
+            
+            <p>Provides a summary of the Spring User Agent Analysis (UAA) status and commands</p>
+            <pre class="programlisting">download status</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-download-view"></a>A.40.5.&nbsp;download view</h3></div></div></div>
+            
+            <p>Displays the Spring User Agent Analysis (UAA) header content in plain text</p>
+            <pre class="programlisting">download view</pre>
+            <div class="variablelist"><dl><dt><span class="term">--file</span></dt><dd>
+                        <p>The file to save the UAA JSON content to; no default value</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-web-finder-commands"></a>A.41.&nbsp;Web Finder Commands</h2></div></div></div>
+        
+        <p>Web Finder Commands are contained in org.springframework.roo.addon.web.mvc.controller.finder.WebFinderCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-mvc-finder-add"></a>A.41.1.&nbsp;web mvc finder add</h3></div></div></div>
+            
+            <p>Adds @RooWebFinder annotation to MVC controller type</p>
+            <pre class="programlisting">web mvc finder add --formBackingType</pre>
+            <div class="variablelist"><dl><dt><span class="term">--formBackingType</span></dt><dd>
+                        <p>The finder-enabled type; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--class</span></dt><dd>
+                        <p>The controller java type to apply this annotation to; default if option not present: '*'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-mvc-finder-all"></a>A.41.2.&nbsp;web mvc finder all</h3></div></div></div>
+            
+            <p>Adds @RooWebFinder annotation to existing MVC controllers</p>
+            <pre class="programlisting">web mvc finder all</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-web-flow-commands"></a>A.42.&nbsp;Web Flow Commands</h2></div></div></div>
+        
+        <p>Web Flow Commands are contained in org.springframework.roo.addon.web.flow.WebFlowCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-flow"></a>A.42.1.&nbsp;web flow</h3></div></div></div>
+            
+            <p>Install Spring Web Flow configuration artifacts into your project</p>
+            <pre class="programlisting">web flow</pre>
+            <div class="variablelist"><dl><dt><span class="term">--flowName</span></dt><dd>
+                        <p>The name for your web flow; no default value</p>
+                    </dd></dl></div>
+        </div>
+    </div>
+    <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command-index-web-json-commands"></a>A.43.&nbsp;Web Json Commands</h2></div></div></div>
+        
+        <p>Web Json Commands are contained in org.springframework.roo.addon.web.mvc.controller.json.WebJsonCommands.</p>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-mvc-json-add"></a>A.43.1.&nbsp;web mvc json add</h3></div></div></div>
+            
+            <p>Adds @RooJson annotation to target type</p>
+            <pre class="programlisting">web mvc json add --jsonObject</pre>
+            <div class="variablelist"><dl><dt><span class="term">--jsonObject</span></dt><dd>
+                        <p>The JSON-enabled object which backs this Spring MVC controller.; no default value (mandatory) </p>
+                    </dd><dt><span class="term">--class</span></dt><dd>
+                        <p>The java type to apply this annotation to; default if option not present: '*'</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-mvc-json-all"></a>A.43.2.&nbsp;web mvc json all</h3></div></div></div>
+            
+            <p>Adds or creates MVC controllers annotated with @RooWebJson annotation</p>
+            <pre class="programlisting">web mvc json all</pre>
+            <div class="variablelist"><dl><dt><span class="term">--package</span></dt><dd>
+                        <p>The package in which new controllers will be placed; no default value</p>
+                    </dd></dl></div>
+        </div>
+        <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="command-index-web-mvc-json-setup"></a>A.43.3.&nbsp;web mvc json setup</h3></div></div></div>
+            
+            <p>Set up Spring MVC to support JSON</p>
+            <pre class="programlisting">web mvc json setup</pre>
+            <p>This command does not accept any options.</p>
+        </div>
+    </div>
+</div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="appendices.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="upgrade.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Part&nbsp;V.&nbsp;Appendices&nbsp;</td><td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.springsource.com/" title="SpringSource - Spring from the Source">Sponsored by SpringSource
+                                        </a></span></td><td width="40%" align="right" valign="top">&nbsp;Appendix&nbsp;B.&nbsp;Upgrade Notes and Known Issues</td></tr></table></div></body></html>

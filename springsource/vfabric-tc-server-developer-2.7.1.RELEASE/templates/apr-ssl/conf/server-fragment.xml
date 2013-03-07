@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Server>
+	<add:Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on"/>
+
+	<Service name="Catalina">
+		<add:Connector executor="tomcatThreadPool"
+				port="${https.port:8443}"
+				protocol="org.apache.coyote.http11.Http11AprProtocol"
+				connectionTimeout="20000"
+				redirectPort="${https.port:8443}"
+				acceptCount="100"
+				maxKeepAliveRequests="15"
+				SSLCertificateFile="${catalina.base}/${ssl.certificate.location}"
+				SSLCertificateKeyFile="${catalina.base}/${ssl.private.key.location}"
+				SSLEnabled="true"
+				scheme="https"
+				secure="true"
+				ciphers="${cipher.list}"/>
+	</Service>
+</Server>

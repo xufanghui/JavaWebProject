@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Export-Package: org.aspectj.internal.lang.annotation;version="1.6.4",o
+ rg.aspectj.internal.lang.reflect;version="1.6.4",org.aspectj.lang;ver
+ sion="1.6.4",org.aspectj.lang.annotation;version="1.6.4",org.aspectj.
+ lang.internal.lang;version="1.6.4",org.aspectj.lang.reflect;version="
+ 1.6.4",org.aspectj.runtime;version="1.6.4",org.aspectj.runtime.intern
+ al;version="1.6.4",org.aspectj.runtime.internal.cflowstack;version="1
+ .6.4",org.aspectj.runtime.reflect;version="1.6.4"
+Bundle-Vendor: %providerName
+Bundle-ClassPath: aspectjrt.jar
+Bundle-Version: 1.7.0.20120703164200
+Bundle-Localization: plugin
+Bundle-Name: %pluginName
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.aspectj.runtime
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: 09gN05tobgS/MdtqyTNQhOhB73M=
+
+Name: aspectjrt.jar
+SHA1-Digest: gyfvIGFioSf+5cow6G0/DNaoqJU=
+
+Name: about.html
+SHA1-Digest: GBCB10F/TFELOqVL2hqV91JsJ3E=
+
+Name: plugin.properties
+SHA1-Digest: CLdHcrV7p1upRsFmi8B8W9havTQ=
+

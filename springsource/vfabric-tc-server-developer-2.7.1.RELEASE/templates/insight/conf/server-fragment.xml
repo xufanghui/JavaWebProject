@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Server>
+    <Service name="Catalina">
+        <Engine defaultHost="localhost" name="Catalina">
+           <add:Valve className="com.springsource.insight.collection.tcserver.request.HttpRequestOperationCollectionValve" />
+        </Engine>
+    </Service>
+</Server>

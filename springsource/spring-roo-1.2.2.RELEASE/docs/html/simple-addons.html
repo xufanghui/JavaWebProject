@@ -1,0 +1,704 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;18.&nbsp;Simple Add-Ons</title><link rel="stylesheet" href="css/html.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.73.2"><link rel="start" href="index.html" title="Spring Roo - Reference Documentation"><link rel="up" href="internals.html" title="Part&nbsp;III.&nbsp;Internals and Add-On Development"><link rel="prev" href="development.html" title="Chapter&nbsp;17.&nbsp;Development Processes"><link rel="next" href="advanced-addons.html" title="Chapter&nbsp;19.&nbsp;Advanced Add-Ons"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div xmlns:fo="http://www.w3.org/1999/XSL/Format" style="background-color:white;border:none;height:73px;border:1px solid black;"><a style="border:none;" href="http://www.springsource.org/roo/" title="The Spring Framework - Spring Roo"><img style="border:none;" src="images/xdev-spring_logo.jpg"></a><a style="border:none;" href="http://www.springsource.com/" title="SpringSource - Spring from the Source"><img style="border:none;position:absolute;padding-top:0px;right:2em;" src="images/banner.png"></a></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="simple-addons"></a>Chapter&nbsp;18.&nbsp;Simple Add-Ons</h2></div></div></div>
+  
+
+  <div class="sidebar"><p class="title"><b>Pretty Good Privacy in Spring Roo</b></p>
+      
+
+      <p>The introduction of <a class="ulink" href="http://en.wikipedia.org/wiki/Pretty_Good_Privacy" target="_top">PGP</a>
+      with Spring Roo 1.1 allows the Roo user to indicate exactly which
+      developers he trusts to sign software that Roo will download and
+      activate in the Roo Shell. Roo itself is now also <a class="ulink" href="http://en.wikipedia.org/wiki/Pretty_Good_Privacy" target="_top">PGP</a>
+      signed in every release. To support these capabilities, a new protocol
+      handler called <code class="code">httppgp://</code> has been introduced into Roo. This
+      tells Roo that a given HTTP URL also has a PGP armour detached signature
+      available. By requiring PGP signatures for all add-ons, we're able to
+      conveniently and safely host all Roo add-ons for the community. It's up
+      to the user to decide if he trusts a given PGP key, and without trusting
+      that key, Roo will refuse to even spend time downloading the
+      <code class="code">httppgp://</code> resource. Roo's approach also means you can use
+      standalone PGP tools like GnuPG to perform signature-related operations to
+      independently verify Roo's correct operation.</p>
+    </div><p>This chapter will provide an introduction to Spring Roo add-on
+  development. The intention is to provide a step-by-step guide that walks the
+  developer from zero code to a fully deployed and published add-on that
+  is immediately available to all Spring Roo users. With the release of Spring
+  Roo 1.1, a new set of commands is available that are designed to provide a
+  fast introduction to add-on development, as well as easy access to registered
+  add-ons by Spring Roo 1.1 users.</p>
+
+  <div class="sidebar"><p class="title"><b>OSGi in Spring Roo</b></p>
+      
+
+      <p>Spring Roo runs in an <a class="ulink" href="http://en.wikipedia.org/wiki/OSGi" target="_top">OSGi</a> container
+      since version 1.1. This internal change is ideal for Roo&#8217;s add-on model
+      because it allows Roo users to install, uninstall, start, and stop
+      different add-ons dynamically without restarting the Roo shell.
+      Furthermore, <a class="ulink" href="http://en.wikipedia.org/wiki/OSGi" target="_top">OSGi</a> allows
+      automatic provisioning of external add-on repositories and provides very
+      good infrastructure for developing modular, as well as embedded, and
+      service-oriented applications. Under the hood, Spring Roo uses the <a class="ulink" href="http://felix.apache.org/site/index.html" target="_top">Apache Felix</a>
+      OSGi implementation.</p>
+    </div><p>A new add-on named 'Add-On Creator' has been developed that
+  facilitates the creation of a new Spring Roo add-on. Furthermore, it offers
+  out of the box support for the
+  <a class="ulink" href="http://subversion.apache.org/" target="_top">Subversion</a> integration
+  provided by <a class="ulink" href="http://code.google.com/" target="_top">Google Code</a> as
+  well as zero setup for hosting the add-on in a public Maven repository hosted
+  as part of a <a class="ulink" href="http://code.google.com/" target="_top">Google Code</a>
+  project. In order to register the add-on with RooBot - a Spring Roo add-on
+  registration service - the add-on is also required to be <a class="ulink" href="http://en.wikipedia.org/wiki/OSGi" target="_top">OSGi</a> compliant, needs
+  to be signed with PgP keys and the addon bundle needs to be registered
+  through the httppgp protocol. Add-on developers get all these features
+  automatically configured if they use the new 'Add-On Creator' feature that
+  ships with Spring Roo 1.1.</p>
+
+  <p>The following sections will present a complete step-by-step guide
+  demonstrating how to bootstrap a new Spring Roo add-on, publish and release it
+  as your own Google Code project, and register it with the RooBot service.
+  </p>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e3089"></a>18.1.&nbsp;Project Setup</h2></div></div></div>
+    
+
+    <p>In addition to the general installation steps discussed in the
+    development process chapter (section 4), you should also follow the
+    following project specific steps:</p>
+
+    <div class="orderedlist"><ol type="1"><li>
+        <p>Create a new project in <a class="ulink" href="???" target="_top">Google
+        Code</a>: Sign in with your Google Account and navigate to <a class="ulink" href="http://code.google.com/hosting/createProject" target="_top">http://code.google.com/hosting/createProject</a>
+        where you can create your project:</p>
+
+        <div class="itemizedlist"><ul type="disc"><li>
+            <p>Project Name - a meaningful name such as
+            spring-roo-addon-mvc-i18n-french</p>
+          </li><li>
+            <p>Project Summary - a summary of your project such as 'Spring
+            Roo Add-On to provide French translation for Spring MVC
+            scaffolding'</p>
+          </li><li>
+            <p>Project Description - description that could include a
+            version compatibility matrix for your add-on</p>
+          </li><li>
+            <p>Version control system - Subversion</p>
+          </li><li>
+            <p>Source code license - GNU General Public License v3</p>
+          </li><li>
+            <p>Project Labels - Spring Roo, Java, Add-On</p>
+          </li></ul></div>
+      </li><li>
+        <p>By default, SVN hosting in Google Code will give you a trunk,
+        tags, branches and a wiki folder. In order to host a Maven repository
+        in your Google code project, you should also create a repo folder as
+        root for the new repository:</p><pre class="programlisting">$ <span class="bold"><strong>svn mkdir</strong></span> -m "create maven repository" https://&lt;project-name&gt;.googlecode.com/svn/repo --username &lt;username&gt; --password &lt;password&gt;</pre>
+      </li><li>
+        <p>Check out your newly created project from SVN:</p><pre class="programlisting">$ <span class="bold"><strong>svn checkout</strong></span> https://&lt;project-name&gt;.googlecode.com/svn/trunk/ &lt;project-name&gt; --username &lt;username&gt;</pre>
+      </li><li>
+        <p>(optional) Enter your Google Code SVN credentials into your
+        local maven repository settings.xml:</p><pre class="programlisting">&lt;settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd"&gt;
+  &lt;servers&gt;
+    &lt;server&gt;
+      &lt;id&gt;<span class="bold"><strong>Google Code</strong></span>&lt;/id&gt;
+      &lt;username&gt;myusername&lt;/username&gt;
+      &lt;password&gt;mypassword&lt;/password&gt;
+    &lt;/server&gt;
+  &lt;/servers&gt;
+&lt;/settings&gt;</pre>
+      </li></ol></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="simple-addons-fast-creation"></a>18.2.&nbsp;Fast Creation</h2></div></div></div>
+    
+
+    <div class="sidebar"><p class="title"><b>Roo's Add-On Creator Commands</b></p>
+        
+
+        <p>With release 1.1, Spring Roo offers the following commands to help
+        developers quickly create new add-ons:</p>
+
+        <div class="itemizedlist"><ul type="disc"><li>
+            <p><span class="bold"><strong>addon create simple</strong></span></p>
+
+            <div class="itemizedlist"><ul type="circle"><li>
+                <p><span class="emphasis"><em>What</em></span>: Command &amp; Operations
+                support</p>
+              </li><li>
+                <p><span class="emphasis"><em>When</em></span>: Simple add-ons that want to
+                add dependencies and/or configuration artifacts to a project
+                </p>
+              </li></ul></div>
+          </li><li>
+            <p><span class="bold"><strong>addon create
+            advanced</strong></span></p>
+
+            <div class="itemizedlist"><ul type="circle"><li>
+                <p><span class="emphasis"><em>What</em></span>: Command, Operations &amp; ITD
+                support</p>
+              </li><li>
+                <p><span class="emphasis"><em>When</em></span>: Full-fledged add-ons that
+                offer new functionality to project enhancements to existing
+                Java types in project introduction of new Java types (+
+                ITDs)</p>
+              </li></ul></div>
+          </li><li>
+            <p><span class="bold"><strong>addon create i18n</strong></span></p>
+
+            <div class="itemizedlist"><ul type="circle"><li>
+                <p><span class="emphasis"><em>What</em></span>: Extension to the existing
+                &#8216;web mvc install language&#8217; command</p>
+              </li><li>
+                <p><span class="emphasis"><em>When</em></span>: A new translation is added to
+                the Spring MVC admin UI scaffolding</p>
+              </li></ul></div>
+          </li><li>
+            <p><span class="bold"><strong>addon create
+            wrapper</strong></span></p><div class="itemizedlist"><ul type="circle"><li>
+                  <p><span class="emphasis"><em>What</em></span>: Wrapping of a Maven
+                  artifact with an OSGi compliant manifest</p>
+                </li><li>
+                  <p><span class="emphasis"><em>When</em></span>: A dependency is needed to
+                  complete other functionality offered by a Roo add-on (for
+                  example a JDBC driver for the DBRE add-on)</p>
+                </li></ul></div>
+          </li></ul></div>
+      </div><p>Once you have installed Java, Maven, PGP, and SVN tools, and have
+    created and checked out your Google Code project, you can change into the
+    &lt;project-name&gt; directory, which at this stage should contain only the
+    .svn directory. In the &lt;project-name&gt; directory, you can
+    start the Spring Roo shell and use one of the new commands for add-on
+    creation:</p><pre class="programlisting">roo&gt; addon create simple --topLevelPackage com.foo --projectName &lt;project-name&gt;</pre>
+
+    <p>The <a class="link" href="command-index.html#command-index-addon-create-simple" title="A.5.3.&nbsp;addon create simple">addon create
+    simple</a> command will scaffold a number of artefacts:</p>
+
+    <pre class="programlisting">[1] pom.xml
+[2] readme.txt
+[3] legal/LICENSE.TXT
+[4] src/main/java/com/foo/batch/BatchCommands.java
+[5] src/main/java/com/foo/batch/BatchOperations.java
+[5] src/main/java/com/foo/batch/BatchOperationsImpl.java
+[6] src/main/java/com/foo/batch/BatchPropertyName.java
+[7] src/main/assembly/assembly.xml</pre><p>This newly created add-on
+    project can be imported into the SpringSource Tool Suite via File &gt;
+    Import &gt; Maven &gt; Existing Maven projects. Let's discuss some of these
+    artefacts in more detail:</p>
+
+    <div class="orderedlist"><ol type="1"><li>
+        <p><span class="bold"><strong>pom.xml</strong></span> - This is the Maven
+        project configuration. This configuration ships with a number of
+        preinstalled Maven plugins that facilitate the PGP artefact
+        signing process as well as the project release process (including
+        tagging etc). It also adds the OSGi and Felix dependencies needed
+        for the addon to run in the Roo Shell. Furthermore,
+        several commonly used Spring Roo modules are preinstalled. These
+        modules provide functionalities such as file system monitoring, Roo
+        shell command registration, etc. More information about these
+        functionalities is provided in the following sections.</p>
+
+        <p>The add-on developer should open up the pom.xml file and modify
+        some project specific references and documentation (marked in bold
+        font):</p>
+
+        <pre class="programlisting">&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
+&lt;project [...]&gt;
+  [...]
+  &lt;name&gt;<span class="bold"><strong>com-foo-batch</strong></span>&lt;/name&gt;
+  &lt;organization&gt;
+    &lt;name&gt;<span class="bold"><strong>Your project/company name goes here (used in copyright and vendor information in the manifest)</strong></span>&lt;/name&gt;
+  &lt;/organization&gt;
+  [...]
+  &lt;description&gt;<span class="bold"><strong>An add-on created by Spring Roo's addon creator feature.</strong></span>&lt;/description&gt;
+  &lt;url&gt;<span class="bold"><strong>http://www.some.company</strong></span>&lt;/url&gt;
+  &lt;properties&gt;</pre><p>Some of these properties can also be
+        provided when issuing the <a class="link" href="command-index.html#command-index-creator-commands" title="A.5.&nbsp;Creator Commands">addon create</a>
+        command.</p>
+      </li><li>
+        <p><span class="bold"><strong>readme.txt</strong></span> - You can provide
+        any setup or installation information about your add-on in this file.
+        This file is used by other developers who checkout your add-on source
+        code from the SVN repository.</p>
+      </li><li>
+        <p><span class="bold"><strong>legal/LICENSE.TXT</strong></span> - Copy the
+        appropriate license text for your add-on into this file.</p>
+      </li><li>
+        <p><span class="bold"><strong>src/main/java/com/foo/batch/BatchCommands.java</strong></span>
+        - This is a fully working code example demonstrating how to register
+        commands offered by your addon into the Spring Roo Shell (more detailed
+        information in the next section).</p>
+      </li><li>
+        <p><span class="bold"><strong>src/main/java/com/foo/batch/BatchOperations.java &amp;
+        BatchOperationsImpl.java</strong></span> - These artefacts are used to
+        perform operations triggered by a command (more information in the
+        next sections).</p>
+      </li><li>
+        <p><span class="bold"><strong>src/main/java/com/foo/batch/BatchPropertyName.java</strong></span>
+        - This type provides a simple example demonstrating the use of static
+        command completion options for the Spring Roo Shell. An example of
+        static command completion options are for example the database selection
+        options as part of the <a class="link" href="command-index.html#command-index-jpa-setup" title="A.18.6.&nbsp;jpa setup">jpa setup</a>
+        command.</p>
+      </li><li>
+        <p><span class="bold"><strong>src/main/assembly/assembly.xml</strong></span>
+        - This artefact defines configurations used for the packaging of the
+        add-on.</p>
+      </li></ol></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="simple-addons-shell-interaction"></a>18.3.&nbsp;Shell Interaction</h2></div></div></div>
+    
+
+    <p>Spring Roo provides an easy way for external add-ons to contribute
+    new commands to the Roo Shell. Looking at the code extract below, there
+    are really only two artefacts needed in your command type to register a
+    new command in the Roo Shell; your type needs to implement the <span class="bold"><strong>CommandMarker</strong></span> interface, and you need to create a
+    method annotated with <span class="bold"><strong>@CliCommand</strong></span>. Let us
+    review some details:</p>
+
+    <pre class="programlisting">[1] <span class="bold"><strong>@Component</strong></span>
+[1] <span class="bold"><strong>@Service</strong></span>
+[2] public class BatchCommands implements <span class="bold"><strong>CommandMarker</strong></span> {
+
+[3]    <span class="bold"><strong>@Reference</strong></span> private BatchOperations operations;
+       <span class="bold"><strong>@Reference</strong></span> private StaticFieldConverter staticFieldConverter;
+
+[4]    protected void <span class="bold"><strong>activate</strong></span>(ComponentContext context) {
+          staticFieldConverter.add(BatchPropertyName.class);
+       }
+
+[4]    protected void <span class="bold"><strong>deactivate</strong></span>(ComponentContext context) {
+          staticFieldConverter.remove(BatchPropertyName.class);
+       }
+
+[5]   <span class="bold"><strong> @CliAvailabilityIndicator</strong></span>("welcome property")
+       public boolean isPropertyAvailable() {
+          return operations.isProjectAvailable();  
+       }
+
+[6]   <span class="bold"><strong> @CliCommand</strong></span>(value="welcome property", help="Obtains a pre-defined system property")
+[7]    public String property(<span class="bold"><strong>@CliOption</strong></span>(key="name", mandatory=false, specifiedDefaultValue="USERNAME", unspecifiedDefaultValue="USERNAME", help="The property name you'd like to display") BatchPropertyName propertyName) {
+          return operations.getProperty(propertyName);
+       }</pre><p>There are a few artefacts of interest when developing
+    Spring Roo add-ons:</p>
+
+    <div class="orderedlist"><ol type="1"><li>
+        <p>To register components and services in the Roo shell, the type
+        needs to be annotated with the <span class="bold"><strong>@Component</strong></span> &amp; <span class="bold"><strong>@Service</strong></span> annotations provided by Felix. These
+        components can be injected into other add-ons (more interesting for
+        functionalities exposed by operations types).</p>
+      </li><li>
+        <p>The command type needs to implement the <span class="bold"><strong>CommandMarker</strong></span> interface, which Spring Roo scans
+        for in order to detect classes that contribute commands to the Roo
+        Shell.</p>
+      </li><li>
+        <p>The Felix <span class="bold"><strong>@Reference</strong></span>
+        annotations are used to inject services and components offered by
+        other Spring Roo core components or even other add-ons. In this
+        example, we are injecting a reference to the add-on's own
+        BatchOperations interface and the StaticFieldConverter component offered
+        by the Roo Shell OSGi bundle. The Felix <span class="bold"><strong>@Reference</strong></span> annotation is similar in purpose to
+        Spring's @Autowired and @Inject annotations.</p>
+      </li><li>
+        <p>The <span class="bold"><strong>activate</strong></span> and <span class="bold"><strong>deactivate</strong></span> methods can optionally be
+        implemented to get access to the lifecycle of the addon's bundle as
+        managed by the underlying OSGi container. Roo add-on developers can use
+        these lifecycle hooks for registration and deregistration of converters
+        (typically in command types) or for the registration of metadata
+        dependencies (typically in ITD-providing add-ons) or any other component
+        initialization activities.</p>
+      </li><li>
+        <p>The optional <span class="bold"><strong>@CliAvailabilityIndicator</strong></span>
+        annotation allows you to limit when a command is available in the
+        Spring Roo Shell. Methods thus annotated should return a boolean to
+        indicate whether a command should be visible to the Roo Shell. For
+        example, many commands are hidden before a project has been created.</p>
+      </li><li>
+        <p>The <span class="bold"><strong>@CliCommand</strong></span> annotation
+        plays a central role for Roo add-on developers. It allows the
+        registration of new commands for the Roo Shell. Methods annotated with
+        <span class="bold"><strong>@CliCommand</strong></span> can optionally return a
+        String value to contribute a log statement to the Spring Roo Shell.
+        Another, more flexible, option to provide log statements in the Roo
+        Shell is to register a standard JDK logger, which allows the developer
+        to present color-coded messages to the user in the Roo shell, with the
+        color coding being dependent on the log level (warning, info, error,
+        etc).</p>
+      </li><li>
+        <p>The optional <span class="bold"><strong>@CliOption</strong></span>
+        annotation can be used to annotate method parameters. These parameters
+        define command attributes that are presented as part of a command.
+        Roo will attempt to automatically convert user-entered values into the
+        Java type of the annotated method parameter. In the example above,
+        Roo will convert the user-entered String to a BatchPropertyName. By
+        default, Roo offers converters for common number types, String, Date,
+        Enum, Locale, boolean and Character. See the
+        <span class="emphasis"><em>org.springframework.roo.shell.converters</em></span> package
+        for examples if you need to implement a custom converter.</p>
+      </li></ol></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="simple-addons-operations"></a>18.4.&nbsp;Operations</h2></div></div></div>
+    
+
+    <p>Almost all Spring Roo add-ons provide operations types. These types
+    do most of the work behind Roo's passive generation principle (active
+    generation is taken care of by AspectJ Intertype declarations (ITDs) -
+    more about that later). Methods offered by the operations types provided
+    by the add-on are typically invoked by the accompanying "command" type.
+    Alternatively, operations types can also be invoked by other add-ons (this
+    is a rather unusual case).</p>
+
+    <p>Implementations of the Operations interface need to be annotated
+    with the Felix <span class="bold"><strong>@Component</strong></span> and <span class="bold"><strong>@Service</strong></span> annotations to make their functionality
+    available within Roo's OSGi container. Dependencies can be injected into
+    operations types via the Felix <span class="bold"><strong>@Reference</strong></span>
+    annotation. If the dependency exists in a package that is not yet
+    registered in the add-on's pom.xml, you need to add the dependency there
+    to add the relevant bundle to the add-on's classpath.</p>
+
+    <p>The Add-On Creator generated project includes example code which
+    uses Roo's source path abstractions, file manager and various Util classes
+    that take care of project file management.</p>
+
+    <p>Typical functionality offered by operations types include:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>Adding new dependencies, plugins, &amp; repositories to the
+        Maven project pom.xml.</p>
+      </li><li>
+        <p>Copying static artefacts from the add-on jar into the user
+        project (i.e. CSS, images, tagx, configuration files, etc).</p>
+      </li><li>
+        <p>Configuring application contexts, web.xml, and other config
+        artefacts.</p>
+      </li><li>
+        <p>Managing properties files in the user project.</p>
+      </li><li>
+        <p>Creating new Java source types in the user project.</p>
+      </li><li>
+        <p>Adding trigger (or other) annotations to target types (most
+        common), fields or methods.</p>
+      </li></ul></div>
+
+    <p>Spring Roo offers a wide range of abstractions and metadata types
+    that support these use cases. For example, the following services are
+    offered:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>org.springframework.roo.process.manager.<span class="bold"><strong>FileManager</strong></span></p>
+
+        <div class="itemizedlist"><ul type="circle"><li>
+            <p>use file manager for all file system operations in project
+            (offers automatic undo on exception)</p>
+          </li></ul></div>
+      </li><li>
+        <p>org.springframework.roo.project.<span class="bold"><strong>PathResolver</strong></span></p>
+
+        <div class="itemizedlist"><ul type="circle"><li>
+            <p>offers abstraction over common project paths</p>
+          </li></ul></div>
+      </li><li>
+        <p>org.springframework.roo.metadata.<span class="bold"><strong>MetadataService</strong></span></p>
+
+        <div class="itemizedlist"><ul type="circle"><li>
+            <p>offers access to Roo metadata bean info metadata for
+            mutators/accessors of target type</p>
+          </li></ul></div>
+      </li><li>
+        <p>org.springframework.roo.project.<span class="bold"><strong>ProjectMetadata</strong></span></p>
+
+        <div class="itemizedlist"><ul type="circle"><li>
+            <p>project name, top level package read access to project
+            dependencies, repositories, etc</p>
+          </li></ul></div>
+      </li><li>
+        <p>org.springframework.roo.project.<span class="bold"><strong>ProjectOperations</strong></span></p>
+
+        <div class="itemizedlist"><ul type="circle"><li>
+            <p>add, remove project Maven dependencies, plugins,
+            repositories, filters, properties, etc</p>
+          </li></ul></div>
+      </li></ul></div>
+
+    <p></p>
+
+    <p>In addition the org.springframework.roo.support bundle provides a
+    number of useful utils classes:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>org.springframework.roo.support.util.<span class="bold"><strong>Assert </strong></span></p>
+
+        <div class="itemizedlist"><ul type="circle"><li>
+            <p>similar to Spring&#8217;s Assert, exceptions thrown by Assert will
+            cause Roo's File manager abstraction to roll back.</p>
+          </li></ul></div>
+      </li><li>
+        <p>org.springframework.roo.support.util.<span class="bold"><strong>FileCopyUtils</strong></span></p>
+
+        <div class="itemizedlist"><ul type="circle"><li>
+            <p>useful for copying resources from add-on into project</p>
+          </li></ul></div>
+      </li><li>
+        <p>org.springframework.roo.support.util.<span class="bold"><strong>TemplateUtils</strong></span></p>
+
+        <div class="itemizedlist"><ul type="circle"><li>
+            <p>useful for obtaining InputStream of resources in
+            bundle</p>
+          </li></ul></div>
+      </li><li>
+        <p>org.springframework.roo.support.util.<span class="bold"><strong>XmlUtils</strong></span></p>
+
+        <div class="itemizedlist"><ul type="circle"><li>
+            <p>hides XML ugliness</p>
+
+            <div class="itemizedlist"><ul type="square"><li>
+                <p>writeXml methods</p>
+              </li><li>
+                <p>Xpath abstraction &amp; cache</p>
+              </li><li>
+                <p>XML Transformer setup</p>
+              </li></ul></div>
+          </li></ul></div>
+      </li></ul></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="simple-addons-packaging"></a>18.5.&nbsp;Packaging &amp; Distribution</h2></div></div></div>
+    
+
+    <p>Once your add-on is complete, you can test its functionality locally
+    by generating an OSGi-compliant jar bundle and installing it in the Spring
+    Roo Shell:</p>
+
+    <pre class="programlisting">&lt;project-name&gt;$ <span class="bold"><strong>mvn clean install</strong></span></pre><p>This
+    will generate your add-on OSGi bundle in the project's
+    <span class="emphasis"><em>target</em></span> directory. In a separate directory, you can
+    start the Spring Roo Shell and use the following command to test your new
+    add-on:</p>
+
+    <pre class="programlisting">roo&gt; <span class="bold"><strong>osgi start</strong></span> --url file:///&lt;path-to-addon-project/target/&lt;addon-bundle-name&gt;.&lt;version&gt;.jar</pre><p>This
+    should install and activate your new Spring Roo Add-On. For troubleshooting,
+    Roo offers the following OSGi commands:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p><span class="bold"><strong><a class="link" href="command-index.html#command-index-osgi-ps" title="A.10.15.&nbsp;osgi ps">osgi
+        ps</a> </strong></span>- Displays OSGi bundle information &amp; status.
+        This should list your add-on as active.</p>
+      </li><li>
+        <p><span class="bold"><strong><a class="link" href="command-index.html#command-index-osgi-log" title="A.10.6.&nbsp;osgi log">osgi log</a></strong></span> - Access
+        OSGi container logs. This could identify possible issues occurring
+        during add-on activation.</p>
+      </li><li>
+        <p><span class="bold"><strong><a class="link" href="command-index.html#command-index-osgi-scr-list" title="A.10.21.&nbsp;osgi scr list">osgi scr list</a>
+        </strong></span>- Lists all currently registered services and components.
+        This should list your add-on's command, metadata provider, and
+        operations types.</p>
+      </li><li>
+        <p><a class="link" href="command-index.html#command-index-osgi-scr-info" title="A.10.20.&nbsp;osgi scr info"><span class="bold"><strong>osgi scr info</strong></span></a> - Info about a specific
+        component. This can be used to identify possible unresolved
+        dependencies.</p>
+      </li><li>
+        <p><span class="bold"><strong><a class="link" href="command-index.html#command-index-osgi-start" title="A.10.22.&nbsp;osgi start">osgi start</a></strong></span> -
+        install a new add-on directly from a local or remote location.</p>
+      </li><li>
+        <p><span class="bold"><strong>help osgi</strong></span> - Help on Roo's ~20
+        osgi commands.</p>
+      </li></ul></div>
+
+    <p>Once you have tested the add-on successfully in your development
+    environment, you can release the add-on source code to your Google Code
+    project, create a tag, and install all relevant artifacts in the project's
+    Maven repository:</p>
+
+    <pre class="programlisting">&lt;project-name&gt;$ <span class="bold"><strong>svn add pom.xml src/ legal/ readme.txt</strong></span>
+
+&lt;project-name&gt;$ <span class="bold"><strong>svn commit</strong></span> -m "initial commit"
+
+&lt;project-name&gt;$ <span class="bold"><strong>mvn release:prepare release:perform </strong></span></pre><p>The
+    Maven release plugin will ask for tag and release artefact names. Roo
+    follows the OSGi convention of using the major, minor and micro version
+    numbers followed by a textual identifier, e.g. 0.1.1.RELEASE,
+    0.1.2.BUILD-SNAPSHOT, etc.</p>
+
+    <p>Deployment for bundles created with Roo's "wrapping" command can be
+    deployed rather than released. For example, to create a wrapped bundle of
+    the PostgreSQL JDBC driver, use this command:</p><pre class="programlisting">roo&gt; <span class="bold"><strong>addon create wrapper</strong></span> --topLevelPackage com.foo.wrapper --projectName spring-roo-postgres-wrapper --artifactId postgresql \
+--groupId postgresql --version 9.0-801.jdbc3 --description "Postgres #jdbcdriver driverclass:org.postgresql.Driver." \
+--licenseUrl http://jdbc.postgresql.org/license.html --docUrl http://jdbc.postgresql.org/ --vendorName "The PostgreSQL Global Development Group"</pre>
+
+    <p>This can then be deployed to a Google code project (set up in the
+    same way as described above) with a simple deploy command:</p>
+
+    <pre class="programlisting">&lt;project-name&gt;$ <span class="bold"><strong>mvn deploy</strong></span></pre>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e3384"></a>18.6.&nbsp;Publishing to RooBot</h2></div></div></div>
+    
+
+    <p>Once the release is complete, check your Google Code project to see
+    that your add-on's pom.xml has been updated to the new version (e.g.
+    0.1.2.BUILD-SNAPSHOT), that a new tag has been committed to the
+    <span class="emphasis"><em>tags</em></span> directory, and that the <span class="emphasis"><em>repo</em></span>
+    directory has been populated with all the artifacts seen in a typical
+    Maven repository. All artefacts have been signed with your private PGP key,
+    and your public key is available in the relevant <span class="emphasis"><em>.asc</em></span>
+    files. In the repo directory, you should also find the
+    <span class="emphasis"><em>repository.xml</em></span> file which contains all relevant
+    information for an OSGi OBR repository.</p>
+
+    <div class="sidebar"><p class="title"><b>Raw URLs in Google Code Source Browser</b></p>
+        
+
+        <p>When reviewing file contents via the HTTP interface provided by
+        Google Code, the reader is presented with HTML documents (which
+        provide syntax highlighting, etc). To get access to the real (raw) URL
+        of a document (e.g. repo/repository.xml) you need to click the 'View raw
+        file' link found in the 'File info' section in the right-hand menu.
+        Example of a raw URL:
+        http://&lt;project-name&gt;.googlecode.com/svn/repo/repository.xml.
+        Make sure the version appendix is <span class="bold"><strong>removed</strong></span> from the URL before clicking the
+        'View raw file' link (i.e.
+        http://&lt;project-name&gt;.googlecode.com/svn/repo/repository.xml<span class="bold"><strong>?r=25)</strong></span></p>
+      </div><p>The URL to the raw (see sidebar) repository.xml artefact can
+    then be registered with <a class="ulink" href="mailto:s2-roobot@vmware.com" target="_top">RooBot</a>:</p>
+
+    <p>Register your new add-on repository by sending an email to <a class="ulink" href="mailto:s2-roobot@vmware.com" target="_top">s2-roobot@vmware.com</a> where
+    the subject line MUST be the raw URL to OSGi repository.xml. The email
+    body is not currently used (but you can send greetings to the Roo team
+    ;-). Other registration methods are being considered (web front-end, Roo
+    shell command, etc).</p>
+
+    <p>RooBot verifies a few aspects before publishing your new add-on to
+    the community:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>The provided repository.xml must be a valid OSGi
+        repository</p>
+      </li><li>
+        <p>The resource URI must use the httppgp prefix i.e.: &lt;resource
+        uri="httppgp://fr-test.googlecode.com/svn/&#8230;/&gt;</p>
+      </li><li>
+        <p>The bundle referenced in the repository has a corresponding .asc
+        file containing the PgP public key</p>
+      </li><li>
+        <p>The public PGP key of the add-on signer needs to be available at
+        <a class="ulink" href="http://keyserver.ubuntu.com/" target="_top">http://keyserver.ubuntu.com/</a>
+        A guide to PGP key management can be found <a class="ulink" href="https://help.ubuntu.com/community/GnuPrivacyGuardHowto" target="_top">here</a>.
+        Make sure to publish your key with this command:</p>
+
+        <pre class="programlisting">gpg --send-keys --keyserver keyserver.ubuntu.com &lt;your-key-id&gt;</pre>
+      </li><li>
+        <p>RooBot will retrieve publicly accessible key information (key
+        owner name, email) from public key server</p>
+      </li><li>
+        <p>The referenced bundle contains an OSGi-compliant manifest.mf
+        file. For example, it will verify that the add-on version defined in
+        your repository.xml matches the version defined in the manifest of
+        your add-on.</p>
+      </li><li>
+        <p>[Important] To ensure your repository is valid, RooBot will
+        download all defined resources in the repository. To do that, it will
+        read the uri attribute and perform an HTTP GET request against the
+        defined URL (after replacing the httppgp:// protocol handler with
+        http://). Should the download or verification of any of the defined
+        resources in the respository fail, RooBot will abort the processing of
+        the entire repository and try again later.</p>
+      </li></ul></div>
+
+    <p>If all tests pass, RooBot will publish your add-on in a publicly
+    accessible XML registry <a class="ulink" href="http://spring-roo-repository.springsource.org/roobot/roobot.xml" target="_top">http://spring-roo-repository.springsource.org/roobot/roobot.xml</a>.
+    This registry is available to the RooBot client integrated into the Spring
+    Roo Shell.</p>
+
+    <p>Once you have sent your email to <a class="ulink" href="mailto:s2-roobot@vmware.com" target="_top">s2-roobot@vmware.com</a>, you
+    should receive a response from RooBot indicating that the processing of
+    your repository has started. If successful, you will see your add-on
+    listed at <a class="ulink" href="http://spring-roo-repository.springsource.org/roobot/roobot.xml" target="_top">http://spring-roo-repository.springsource.org/roobot/roobot.xml</a>
+    within a few hours. If this does not happen, you can visit the RooBot
+    error log at <a class="ulink" href="http://spring-roo-repository.springsource.org/roobot/roobot-log.txt" target="_top">http://spring-roo-repository.springsource.org/roobot/roobot-log.txt</a>,
+    which is refreshed every 5 minutes.</p>
+
+    <p>Once RooBot has published your add-on sucessfully, it will
+    periodically process your repository to verify its ongoing validity. As
+    part of this periodic processing, it will also automatically pick up new
+    versions (add-on releases) in your repository.xml. Therefore it should not
+    be necessary to explicitly notify RooBot of any changes in your
+    repository.</p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e3426"></a>18.7.&nbsp;Upgrading Spring Roo Add-Ons from 1.0.x to 1.1.0</h2></div></div></div>
+    
+
+    <p>As OSGi is the runtime platform for Roo 1.1.0 onwards, porting addons
+    from a previous version will require some small tweaks to your code. Here's
+    a step-by-step guide on what you need to do:</p>
+
+    <div class="orderedlist"><ol type="1"><li>
+        <p>Change packaging of your project to bundle</p>
+
+        <p>As your plugin will result in an OSGi bundle, you need to change
+        the packaging from <code class="code">jar</code> to <code class="code">bundle</code>. This will
+        cause the Maven bundle plugin to create the necessary metadata for you
+        out of the box.</p>
+      </li><li>
+        <p>Change the type of the dependencies to bundle</p>
+
+        <p>Similar to the point above, you need to reference dependencies as
+        bundles. Again, let the Maven bundle plugin do its job.</p>
+      </li><li>
+        <p>Sync the build section of your pom with the one provided in the
+        addon template</p>
+
+        <p>Compare your add-on's original <code class="filename">pom.xml</code> with a
+        pom.xml generated by the <a class="link" href="command-index.html#command-index-addon-create-simple" title="A.5.3.&nbsp;addon create simple">addon create</a>
+        command (see below). This is mostly related to the Maven bundle plugin
+        as well as the Maven SCR plugin (see next point for details).</p>
+
+        <div class="example"><a name="d4e3443"></a><p class="title"><b>Example&nbsp;18.1.&nbsp;Creating a Roo addon project</b></p><div class="example-contents">
+          
+
+          <pre class="programlisting">addon create simple --topLevelPackage com.mycompany.myproject.roo.addon</pre>
+
+          <p>The easiest way to do so is simply creating a dummy addon
+          project using the template and copying the plugin configuration into
+          your pom.</p>
+        </div></div><br class="example-break">
+      </li><li>
+        <p>Replace @ScopeDevelopment annotations with @Component and
+        @Service</p>
+
+        <p>Roo uses Apache Felix as OSGi runtime and thus uses
+        <code class="interfacename">@Component</code> and
+        <code class="interfacename">@Service</code> annotations in combination
+        with the Maven SCR plugin<sup>[<a name="d4e3452" href="#ftn.d4e3452" class="footnote">1</a>]</sup> to create descriptors for the OSGi declarative services
+        infrastructure.</p>
+
+        <div class="example"><a name="d4e3455"></a><p class="title"><b>Example&nbsp;18.2.&nbsp;Component declaration with Apache Felix annotations</b></p><div class="example-contents">
+          
+
+          <pre class="programlisting"><span class="bold"><strong>@Service
+</strong></span><span class="bold"><strong>@Component</strong></span>
+public class MyCommands implements <span class="bold"><strong>CommandMarker</strong></span> {
+
+  <span class="bold"><strong>@Reference </strong></span>MyOperations operations;
+
+  // Your code goes here
+}</pre>
+
+          <p>So every <code class="interfacename">@ScopeDevelopment</code>
+          annotation you used in your command and operations classes has to be
+          replaced by <code class="interfacename">@Service</code> and
+          <code class="interfacename">@Component</code>. If you had injected other
+          services into your command or operations class, you can use
+          <code class="interfacename">@Reference</code> to wire them into your
+          component instance. Note that your class will have to implement at
+          least one interface under which Felix can publish the component
+          instance. Check the output of the Maven SCR plugin for errors to see
+          whether any further tweaks are necessary.</p>
+        </div></div><br class="example-break">
+      </li></ol></div>
+  </div>
+<div class="footnotes"><br><hr width="100" align="left"><div class="footnote">
+            <p><sup>[<a name="ftn.d4e3452" href="#d4e3452" class="para">1</a>] </sup>for details see <a class="ulink" href="http://felix.apache.org/site/apache-felix-maven-scr-plugin.html" target="_top">http://felix.apache.org/site/apache-felix-maven-scr-plugin.html</a></p>
+          </div></div></div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="development.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="advanced-addons.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;17.&nbsp;Development Processes&nbsp;</td><td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.springsource.com/" title="SpringSource - Spring from the Source">Sponsored by SpringSource
+                                        </a></span></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;19.&nbsp;Advanced Add-Ons</td></tr></table></div></body></html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.springsource.sts"
+      label="%featureName"
+      version="3.0.0.201208091018-RELEASE"
+      provider-name="%providerName"
+      plugin="org.springsource.sts">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseUrl">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.springframework.ide.eclipse.feature" version="3.0.0" match="compatible"/>
+      <import feature="org.springframework.ide.eclipse.aop.feature" version="3.0.0" match="compatible"/>
+      <import feature="org.springframework.ide.eclipse.mylyn.feature" version="3.0.0" match="compatible"/>
+      <import feature="org.springframework.ide.eclipse.osgi.feature" version="3.0.0" match="compatible"/>
+      <import feature="org.springframework.ide.eclipse.webflow.feature" version="3.0.0" match="compatible"/>
+      <import feature="org.eclipse.mylyn_feature" version="3.4.0.v20100601" match="compatible"/>
+      <import feature="org.eclipse.mylyn.context_feature" version="3.4.0.v20100601" match="compatible"/>
+      <import feature="org.springsource.ide.eclipse.commons" version="3.0.0.qualifier"/>
+      <import feature="org.springsource.ide.eclipse.dashboard" version="3.0.0.qualifier"/>
+   </requires>
+
+   <plugin
+         id="org.springsource.sts"
+         download-size="333"
+         install-size="2163"
+         version="3.0.0.201208091018-RELEASE"/>
+
+   <plugin
+         id="com.sun.syndication"
+         download-size="222"
+         install-size="457"
+         version="0.9.0.v200803061811"
+         unpack="false"/>
+
+   <plugin
+         id="org.jdom"
+         download-size="180"
+         install-size="377"
+         version="1.1.1.v201101151400"
+         unpack="false"/>
+
+</feature>

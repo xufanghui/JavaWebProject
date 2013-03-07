@@ -1,0 +1,101 @@
+Signature-Version: 1.0
+SHA1-Digest-Manifest: zseOzbU2SvveCjVfWv0KSeLTLH0=
+Created-By: 1.6.0 (IBM Corporation)
+SHA1-Digest-Manifest-Main-Attributes: 6lIXOV2lBgp+PVBhAObGvvlg35M=
+
+Name: javax/xml/soap/MessageFactory.class
+SHA1-Digest: loYXGm+ral66M/y+EFq6Oj8o82w=
+
+Name: javax/xml/soap/SOAPFaultElement.class
+SHA1-Digest: G1S6lDrNdH2FxHdd+iVtNqIkccI=
+
+Name: javax/xml/soap/SOAPBodyElement.class
+SHA1-Digest: fpvjESzrFF5eHv/Zo2L2DpwlfcE=
+
+Name: javax/xml/soap/FactoryFinder.class
+SHA1-Digest: 42AxCVAF1tVD0Ah8sinhZabW9wo=
+
+Name: javax/xml/soap/SOAPElement.class
+SHA1-Digest: kt9vbbRR9fk5nU8i9sPVtG+ABoM=
+
+Name: javax/xml/soap/Name.class
+SHA1-Digest: WyI8+Sgj9gNHmFCcGADw4fWJHkw=
+
+Name: javax/xml/soap/Detail.class
+SHA1-Digest: FdT7SCcIyVkEycftOw1Ef6eFHhM=
+
+Name: plugin.properties
+SHA1-Digest: 9r5ed8reLJFBwx2HX1XnUDGihKM=
+
+Name: javax/xml/soap/SAAJResult.class
+SHA1-Digest: DD4YN+GTl2e0SHxyHQhlDIr0W6Q=
+
+Name: javax/xml/soap/SOAPMessage.class
+SHA1-Digest: oc5aES7DS+9ERhNWHaAuDcWF93M=
+
+Name: javax/xml/soap/SOAPHeader.class
+SHA1-Digest: gaVmdi1r6RzcwVF0oFmVjQrtqhw=
+
+Name: javax/xml/soap/SOAPFactory.class
+SHA1-Digest: GqBYOp78AM3DFRrKVzjdFibOI+w=
+
+Name: javax/xml/soap/DetailEntry.class
+SHA1-Digest: korFHAbA2Mmslg2OHBT+9Ko7Sck=
+
+Name: javax/xml/soap/SOAPConnectionFactory.class
+SHA1-Digest: oPlsYgOvYEi84X3kZcda1vVYJ0o=
+
+Name: javax/xml/soap/SOAPEnvelope.class
+SHA1-Digest: JhY3wbBAVKHUjH/71NxsnIdIbGo=
+
+Name: javax/xml/soap/MimeHeaders$MatchingIterator.class
+SHA1-Digest: mvupQmYp7Bhl56BbZ2/7j4aaXUA=
+
+Name: javax/xml/soap/SOAPConstants.class
+SHA1-Digest: 4iRkfAqclTUrhZb8C+9PUIk8OLc=
+
+Name: javax/xml/soap/SOAPException.class
+SHA1-Digest: P9QuGHziDwn7irSlvbfBBxR0+7w=
+
+Name: javax/xml/soap/MimeHeader.class
+SHA1-Digest: eokwJPZ7YxltgMANCrhh4a5+9FA=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: SAqY+5ITAL0mkdYeijlSRhyIaZk=
+
+Name: javax/xml/soap/SAAJMetaFactory.class
+SHA1-Digest: 5kCfOZY1auWon9TusAXXrellxwM=
+
+Name: javax/xml/soap/SOAPConnection.class
+SHA1-Digest: PMYHBJGjEAgZsxnLaGgnpUcHahM=
+
+Name: javax/xml/soap/MimeHeaders.class
+SHA1-Digest: qr8Zdevb7dXtML5dHA5lmBH9Gxc=
+
+Name: javax/xml/soap/SOAPBody.class
+SHA1-Digest: 4weTNYzZk5rx2yDowWP44ozFi3A=
+
+Name: javax/xml/soap/Text.class
+SHA1-Digest: RtU5IMkHqaFXF/nH60jScVldtOA=
+
+Name: about.html
+SHA1-Digest: +RhuNtAtyN+IW80EplfhvmQ67D4=
+
+Name: javax/xml/soap/SOAPFault.class
+SHA1-Digest: MCu6QuKRHx97cr5kbgt46114pvc=
+
+Name: javax/xml/soap/AttachmentPart.class
+SHA1-Digest: qGxrgzxU95DWwI+NqZH8D9a6HWg=
+
+Name: javax/xml/soap/SOAPElementFactory.class
+SHA1-Digest: XfM48PLqMKOK/CwpBI4CshcMqn0=
+
+Name: javax/xml/soap/SOAPHeaderElement.class
+SHA1-Digest: KE2uZUHCxHRynq3UxDoc3EWXT5c=
+
+Name: javax/xml/soap/SOAPPart.class
+SHA1-Digest: Ipu8TYxRU+YIRw04T/bchpS/jWs=
+
+Name: javax/xml/soap/Node.class
+SHA1-Digest: XBwS60BF12lRXM1RrEjlybs09KY=
+

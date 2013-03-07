@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Server>
+	<Service name="Catalina">
+		<add:Connector executor="tomcatThreadPool"
+				port="${https.port:8443}"
+				protocol="org.apache.coyote.http11.Http11NioProtocol"
+				connectionTimeout="20000"
+				redirectPort="${https.port:8443}"
+				acceptCount="100"
+				maxKeepAliveRequests="15"
+				keystoreFile="${catalina.base}/${ssl.keystore.location}"
+				keystorePass="${ssl.keystore.password}"
+				keyAlias="${ssl.key.alias}"
+				keyPass="${ssl.key.password}"
+				SSLEnabled="true"
+				scheme="https"
+				secure="true"
+				ciphers="${cipher.list}"/>
+	</Service>
+</Server>

@@ -1,0 +1,5 @@
+package com.hibernate.user;
+
+public class UserKey {
+
+}

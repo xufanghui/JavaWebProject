@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     Copyright (c) 2005, 2012 IBM Corporation and others.
+     All rights reserved. This program and the accompanying materials
+     are made available under the terms of the Eclipse Public License v1.0
+     which accompanies this distribution, and is available at
+     http://www.eclipse.org/legal/epl-v10.html
+    
+     Contributors:
+         IBM Corporation - initial API and implementation
+ -->
+<feature
+      id="org.eclipse.rse"
+      label="%featureName"
+      version="3.4.0.201205300905-7L7IFBV83omxZWwIDyHWipb2Sz-f"
+      provider-name="%providerName"
+      plugin="org.eclipse.rse"
+      image="eclipse_update_120.jpg">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <update label="%tmUpdateSiteName" url="http://download.eclipse.org/tm/updates/3.4"/>
+      <discovery label="%tmUpdateSiteName" url="http://download.eclipse.org/tm/updates/3.4"/>
+   </url>
+
+   <includes
+         id="org.eclipse.rse.core"
+         version="3.4.0.201205300905-7a7NFm-7sResSX4RTNSW"
+         search-location="both"/>
+
+   <includes
+         id="org.eclipse.rse.dstore"
+         version="3.4.0.201205300905-7L79FYw7VFNVFscFGMFs"
+         search-location="both"/>
+
+   <includes
+         id="org.eclipse.rse.ftp"
+         version="3.1.0.201205300905-782FBV8377A6FC79ODI4"
+         search-location="both"/>
+
+   <includes
+         id="org.eclipse.rse.local"
+         version="2.1.400.201205300905-7B4FSg7J9EJ9YO99r9Y"
+         search-location="both"/>
+
+   <includes
+         id="org.eclipse.rse.ssh"
+         version="3.0.400.201205300905-7A4FEc7F7BF7RJ77g7R"
+         search-location="both"/>
+
+   <includes
+         id="org.eclipse.rse.telnet"
+         version="2.3.0.201205300905-775FD3879AE8MH9BZFP4"
+         search-location="both"/>
+
+   <includes
+         id="org.eclipse.rse.terminals"
+         version="1.2.0.201205300905-773Eo7H89G8OJ8Db8NB27"
+         search-location="both"/>
+
+   <plugin
+         id="org.eclipse.rse"
+         download-size="7"
+         install-size="8"
+         version="3.4.0.201205300905"
+         unpack="false"/>
+
+</feature>

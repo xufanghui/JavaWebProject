@@ -1,0 +1,254 @@
+# Copyright (c) 2011 VMware, Inc.  All rights reserved.
+
+_comp_word_contains() {
+	CANDIDATES=($1)
+
+	for (( i = 0; i < ${#COMP_WORDS[@]}; i++ )); do
+		for (( j = 0; j < ${#CANDIDATES[@]}; j++ )); do
+			if [[ "$COMP_CWORD" != "$i" && "${CANDIDATES[j]}" == "${COMP_WORDS[i]}" ]]; then
+				return 0
+			fi
+		done
+	done
+	return 1
+}
+
+_collection_contains() {
+	COLLECTION=($1)
+	CANDIDATE="$2"
+
+	for (( i = 0; i < ${#COLLECTION[@]}; i++ )); do
+		if [[ "${COLLECTION[i]}" == "$CANDIDATE" ]]; then
+			return 0
+		fi
+	done
+	return 1
+}
+
+_template_names() {
+	find `dirname "${COMP_WORDS[0]}"`/templates -depth 1 -type d | grep -v ".*-tomcat-[67].*\|.*base.*" | xargs -n 1 basename
+}
+
+_version_names() {
+	find `dirname "${COMP_WORDS[0]}"` -depth 1 -type d -name "tomcat-*" | xargs -n 1 basename | sed "s|tomcat-||"
+}
+
+_instance_names() {
+	INSTANCE_DIR="."
+
+	for (( i = 0; i < ${#COMP_WORDS[@]}; i++ )); do
+		if [[ "${COMP_WORDS[i]}" == "-i" || "${COMP_WORDS[i]}" == "--instance-directory" ]]; then
+			INSTANCE_DIR=${COMP_WORDS[i + 1]}
+			break
+		fi
+	done
+
+	if [[ -e "$INSTANCE_DIR" && -d "$INSTANCE_DIR" ]]; then
+		find "$INSTANCE_DIR" -depth 2 -type f -name ".tc-runtime-instance" | xargs -n 1 dirname | xargs -n 1 basename
+	fi
+}
+
+_create() {
+	local cur prev
+	_get_comp_words_by_ref -n : cur prev
+
+	if [[ "-f" == $prev || "--properties-file" == $prev ]]; then
+		COMPREPLY=( $(compgen -f $cur) )
+	elif [[ "-i" == $prev || "--instance-directory" == $prev || "--java-home" == $prev ]]; then
+		COMPREPLY=( $(compgen -d $cur) )
+	elif [[ "--layout" == $prev ]]; then
+		COMPREPLY=( $(compgen -W "separate combined" -- $cur) )
+	elif [[ "-p" == $prev || "--property" == $prev ]]; then
+		COMPREPLY=( $(compgen $cur) )
+	elif [[ "-t" == $prev || "--template" == $prev ]]; then
+		TEMPLATE_NAMES=`_template_names`
+		COMPREPLY=( $(compgen -W "$TEMPLATE_NAMES" -- $cur) )
+	elif [[ "-v" == $prev || "--version" == $prev ]]; then
+		VERSION_NAMES=`_version_names`
+		COMPREPLY=( $(compgen -W "$VERSION_NAMES" -- $cur) )
+	elif [[ $COMP_CWORD -gt 2 && -f ${COMP_WORDS[2]} ]]; then
+		COMPREPLY=()
+	else
+		OPTS=""
+
+		_comp_word_contains "-f --properties-file"
+		if [[ "$?" -eq 1 ]]; then
+			OPTS="--properties-file $OPTS"
+		fi
+
+		_comp_word_contains "--force"
+		if [[ "$?" -eq 1 ]]; then
+			OPTS="--force $OPTS"
+		fi
+
+		_comp_word_contains "-h --help"
+		if [[ "$?" -eq 1 ]]; then
+			OPTS="--help $OPTS"
+		fi
+
+		_comp_word_contains "-i --instance-directory"
+		if [[ "$?" -eq 1 ]]; then
+			OPTS="--instance-directory $OPTS"
+		fi
+
+		_comp_word_contains "--interactive"
+		if [[ "$?" -eq 1 ]]; then
+			OPTS="--interactive $OPTS"
+		fi
+
+		_comp_word_contains "--java-home"
+		if [[ "$?" -eq 1 ]]; then
+			OPTS="--java-home $OPTS"
+		fi
+
+		_comp_word_contains "--layout"
+		if [[ "$?" -eq 1 ]]; then
+			OPTS="--layout $OPTS"
+		fi
+
+		OPTS="--property $OPTS"
+
+		OPTS="--template $OPTS"
+
+		_comp_word_contains "-v --version"
+		if [[ "$?" -eq 1 ]]; then
+			OPTS="--version $OPTS"
+		fi
+		
+		if [[ $COMP_CWORD -eq 2 ]]; then
+			COMPREPLY=( $(compgen -f -W "$OPTS" -- $cur) )
+		else
+			COMPREPLY=( $(compgen -W "$OPTS" -- $cur) )
+		fi
+	fi
+}
+
+_help() {
+	local cur prev
+	_get_comp_words_by_ref -n : cur prev
+
+	HELP_ARGS=" \
+		create \
+		list \
+		modify-version \
+		upgrade"
+
+	_collection_contains "$HELP_ARGS" "$prev"
+	if [[ "$?" -eq 1 ]]; then
+		COMPREPLY=( $(compgen -W "$HELP_ARGS" -- $cur) )
+	fi
+}
+
+_list() {
+	local cur prev
+	_get_comp_words_by_ref -n : cur prev
+
+	if [[ "-i" == $prev || "--instance-directory" == $prev ]]; then
+		COMPREPLY=( $(compgen -d $cur) )
+	else
+		OPTS=""
+
+		_comp_word_contains "-i --instance-directory"
+		if [[ "$?" -eq 1 ]]; then
+			OPTS="--instance-directory $OPTS"
+		fi
+
+		_comp_word_contains "-h --help"
+		if [[ "$?" -eq 1 ]]; then
+			OPTS="--help $OPTS"
+		fi
+
+		COMPREPLY=( $(compgen -W "$OPTS" -- $cur) )
+	fi
+}
+
+_modify-version() {
+	local cur prev
+	_get_comp_words_by_ref -n : cur prev
+
+	INSTANCE_NAMES=`_instance_names`
+
+	if [[ "-i" == $prev || "--instance-directory" == $prev ]]; then
+		COMPREPLY=( $(compgen -d $cur) )
+	elif [[ "-v" == $prev || "--version" == $prev ]]; then
+		VERSION_NAMES=`_version_names`
+		COMPREPLY=( $(compgen -W "$VERSION_NAMES" -- $cur) )
+	else
+		OPTS=""
+
+		_comp_word_contains "-h --help"
+		if [[ "$?" -eq 1 ]]; then
+			OPTS="--help $OPTS"
+		fi
+
+		_comp_word_contains "-i --instance-directory"
+		if [[ "$?" -eq 1 ]]; then
+			OPTS="--instance-directory $OPTS"
+		fi
+
+		_comp_word_contains "-v --version"
+		if [[ "$?" -eq 1 ]]; then
+			OPTS="--version $OPTS"
+		fi
+
+		_comp_word_contains "$INSTANCE_NAMES"
+		if [[ "$?" -eq 1 ]]; then
+			OPTS="$INSTANCE_NAMES $OPTS"
+		fi
+
+		COMPREPLY=( $(compgen -W "$OPTS" -- $cur) )
+	fi
+}
+
+_upgrade() {
+	local cur prev
+	_get_comp_words_by_ref -n : cur prev
+
+	if [[ -z "${COMP_WORDS[2]}" || "$COMP_CWORD" == "2" || "-i" == $prev || "--instance-directory" == $prev ]]; then
+		COMPREPLY=( $(compgen -d $cur) )
+	elif [[ "-v" == $prev || "--version" == $prev ]]; then
+		VERSION_NAMES=`_version_names`
+		COMPREPLY=( $(compgen -W "$VERSION_NAMES" -- $cur) )
+	else
+		OPTS=""
+
+		_comp_word_contains "-h --help"
+		if [[ "$?" -eq 1 ]]; then
+			OPTS="--help $OPTS"
+		fi
+
+		_comp_word_contains "-i --instance-directory"
+		if [[ "$?" -eq 1 ]]; then
+			OPTS="--instance-directory $OPTS"
+		fi
+
+		_comp_word_contains "-v --version"
+		if [[ "$?" -eq 1 ]]; then
+			OPTS="--version $OPTS"
+		fi
+
+		COMPREPLY=( $(compgen -W "$OPTS" -- $cur) )
+	fi
+}
+
+_tcruntime_instance() {
+	local cur
+	_get_comp_words_by_ref -n : cur
+
+	COMMAND=${COMP_WORDS[1]}
+
+	if [[ "create" == $COMMAND ]]; then
+		_create
+	elif [[ "help" == $COMMAND ]]; then
+		_help
+	elif [[ "list" == $COMMAND ]]; then
+		_list
+	elif [[ "modify-version" == $COMMAND ]]; then
+		_modify-version
+	elif [[ "upgrade" == $COMMAND ]]; then
+		_upgrade
+	else
+		COMPREPLY=( $(compgen -W "create help list modify-version upgrade" -- $cur) )
+	fi
+}
+complete -o filenames -F _tcruntime_instance tcruntime-instance.sh

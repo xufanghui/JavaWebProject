@@ -1,0 +1,160 @@
+Signature-Version: 1.0
+SHA1-Digest-Manifest: FKSqFvsT88TxNpXQqviny7sPf5U=
+Created-By: 1.6.0 (IBM Corporation)
+SHA1-Digest-Manifest-Main-Attributes: 86Qg84F7kgL4vmgAnc7RDWHPUy8=
+
+Name: about_files/LICENSE-2.0.txt
+SHA1-Digest: DMnZPrY7w/ZEOj0YI/l8KoozuvM=
+
+Name: jars/guice-plexus-metadata-2.3.0.jar
+SHA1-Digest: yUmQdSkBU5sIrmjYjYV7Z6FfQmc=
+
+Name: jars/maven-settings-builder-3.0.4.jar
+SHA1-Digest: 8FErosIM/HkuoaFoAtbbUOEOuFk=
+
+Name: jars/guice-plexus-scanners-2.3.0.jar
+SHA1-Digest: Zopg3bGSkC71Q3SFvmPEYHjoZlk=
+
+Name: jars/aether-util-1.13.1.jar
+SHA1-Digest: lLACDUDs2yYB61DOinABYcH5wY0=
+
+Name: jars/guice-plexus-shim-2.3.0.jar
+SHA1-Digest: DT53Ue3wg4D2lAsIiK0MowhKQK0=
+
+Name: jars/wagon-ahc-1.2.1.jar
+SHA1-Digest: pUgA8CbRjatES3G6w8nvVdAFmCY=
+
+Name: jars/aether-connector-wagon-1.13.1.jar
+SHA1-Digest: /TNA3r/yUsJk3Iyqs+/4uiD5EMs=
+
+Name: jars/maven-plugin-api-3.0.4.jar
+SHA1-Digest: +wqLtF/3aeWUo2fiNPa7hLIYGHo=
+
+Name: jars/maven-repository-metadata-3.0.4.jar
+SHA1-Digest: xqMFdFUJM7dbTEGJrn718zoDa9A=
+
+Name: jars/maven-compat-3.0.4.jar
+SHA1-Digest: W83y8CWMIyhX8jmHY7wN5Up3C/E=
+
+Name: jars/aether-connector-asynchttpclient-1.13.1.jar
+SHA1-Digest: +cadcLBEOZ/J+9Ekj26DUbCSSas=
+
+Name: jars/guice-bean-inject-2.3.0.jar
+SHA1-Digest: Xn2bK8m3kCSoRd2vs1ial3RKf94=
+
+Name: jars/guice-bean-reflect-2.3.0.jar
+SHA1-Digest: 2hknaI2TJ0RUSVfovb7CKiDS4uQ=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: QdryQvJlVywlE0MGLuwYCkmkyWk=
+
+Name: jars/maven-artifact-3.0.4.jar
+SHA1-Digest: RnygzU1MNrZ2LxVok8ARhpcvrlE=
+
+Name: jars/aether-impl-1.13.1.jar
+SHA1-Digest: Hh4z8hCbN6hrH4lX2YR3YvK7Z00=
+
+Name: jars/guice-bean-locators-2.3.0.jar
+SHA1-Digest: 26eHHPvPGfPw1b4Q7EQQ6lDivaM=
+
+Name: jars/javax.inject-1.jar
+SHA1-Digest: kN3PU/gglXWTDrjZ0J2SoP4D9b0=
+
+Name: jars/maven-core-3.0.4.jar
+SHA1-Digest: qQryisrehT5cX+RQOqFI5MIp/0Y=
+
+Name: jars/aether-api-1.13.1.jar
+SHA1-Digest: PaZL69ffdWSpH6xaZJmqAM4rrQk=
+
+Name: jars/maven-settings-3.0.4.jar
+SHA1-Digest: tRM/GOANSS+VtNDQpL7CfAHcvMk=
+
+Name: jars/maven-model-builder-3.0.4.jar
+SHA1-Digest: TxepBxUoZmvGxRmMBgK6VjpXVEA=
+
+Name: jars/wagon-file-2.2.jar
+SHA1-Digest: ms3v0F9CaAXBvDg1PrecPMdsjtg=
+
+Name: jars/guice-bean-scanners-2.3.0.jar
+SHA1-Digest: CjVm+3+k6ZDro5EamNeGIfuzmDU=
+
+Name: jars/plexus-utils-2.0.6.jar
+SHA1-Digest: G9KRpVqTFsaalxiC+QekSifICcU=
+
+Name: META-INF/maven/org.eclipse.m2e/org.eclipse.m2e.maven.runtime/pom
+ .properties
+SHA1-Digest: ibBPhUBMD7gTAa1DoR14O5rDN4o=
+
+Name: OSGI-INF/l10n/bundle.properties
+SHA1-Digest: AXaJEuXzaK7v4r0laq8DmuovzYs=
+
+Name: jars/guice-plexus-binders-2.3.0.jar
+SHA1-Digest: z096IH1sMAhrK0E/Cp32uY/zx3I=
+
+Name: jars/plexus-build-api-0.0.7.jar
+SHA1-Digest: F4Zd23pppCv2s/dmbWDeq2oebdE=
+
+Name: jars/plexus-cipher-1.7.jar
+SHA1-Digest: DlRg2wtNZFYCyOPZtFk0wKc1Jxg=
+
+Name: jars/guava-10.0.1.jar
+SHA1-Digest: ghusOKxSIDhNXYambD25s7MlnmY=
+
+Name: jars/guice-plexus-lifecycles-2.3.0.jar
+SHA1-Digest: VirS3U284+jiH2M8BfxTjrQcxK4=
+
+Name: jars/plexus-interpolation-1.14.jar
+SHA1-Digest: CHChzgh+Ce941VtmaDqdyCyKMTw=
+
+Name: jars/aether-spi-1.13.1.jar
+SHA1-Digest: 3rgGIVTTUQ2Atm9rcAXDrxKP1hQ=
+
+Name: jars/guice-bean-converters-2.3.0.jar
+SHA1-Digest: Z5Y94MYGZvSlyTDhblpfFASHv+Y=
+
+Name: jars/plexus-sec-dispatcher-1.3.jar
+SHA1-Digest: 9m8mPkJpdRByHx27BDjtPSoD3xM=
+
+Name: META-INF/maven/org.eclipse.m2e/org.eclipse.m2e.maven.runtime/pom
+ .xml
+SHA1-Digest: D8ONZCQXA23ilAesc9m3r0GJHSc=
+
+Name: jars/guice-plexus-converters-2.3.0.jar
+SHA1-Digest: pgFhzoyZ+BEQ0laml95VdafWp2E=
+
+Name: jars/jsr305-1.3.9.jar
+SHA1-Digest: CBfzauYCcgJqROOxif/bMLjDYiM=
+
+Name: jars/plexus-classworlds-2.4.jar
+SHA1-Digest: KTkMYKwiYXqSM7xEJVa3rOuAUd8=
+
+Name: jars/plexus-component-annotations-1.5.5.jar
+SHA1-Digest: Jg7RE1zc83DWZtp87EWVsybtrzI=
+
+Name: jars/maven-model-3.0.4.jar
+SHA1-Digest: 6l9VA0ti66BWXZkoMiOvp0b75T0=
+
+Name: jars/guice-bean-binders-2.3.0.jar
+SHA1-Digest: JNEjYjE8Tb1G+GNbYxqvJSgH1WE=
+
+Name: about.html
+SHA1-Digest: uH5S3b+PQXmuMO1o1yNSNzzNK5Y=
+
+Name: jars/maven-embedder-3.0.4.jar
+SHA1-Digest: z5AN3qQ5KtranLKP8PIWX1inqzs=
+
+Name: jars/guice-plexus-locators-2.3.0.jar
+SHA1-Digest: dzvZaqfOJfoCH0RcsPSjKvQIgfU=
+
+Name: jars/sisu-guice-3.1.0-no_aop.jar
+SHA1-Digest: yZ6YyR3YuqKM5449OoZZwCBMGEU=
+
+Name: jars/commons-cli-1.2.jar
+SHA1-Digest: PU8xpeY0KPcehKyjsutwSuXLwCM=
+
+Name: jars/maven-aether-provider-3.0.4.jar
+SHA1-Digest: BkRX6pDfCA0y8JRkur0SxO9W5TY=
+
+Name: jars/wagon-provider-api-2.2.jar
+SHA1-Digest: 4gURdIsgLhCgNqLM/HaeSLiUzV8=
+

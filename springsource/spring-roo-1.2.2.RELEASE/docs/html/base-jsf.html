@@ -1,0 +1,178 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;12.&nbsp;JavaServer Faces (JSF) Add-On</title><link rel="stylesheet" href="css/html.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.73.2"><link rel="start" href="index.html" title="Spring Roo - Reference Documentation"><link rel="up" href="base.html" title="Part&nbsp;II.&nbsp;Base Add-Ons"><link rel="prev" href="base-web.html" title="Chapter&nbsp;11.&nbsp;Web MVC Add-On"><link rel="next" href="base-cloud-foundry.html" title="Chapter&nbsp;13.&nbsp;Cloud Foundry Add-On"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div xmlns:fo="http://www.w3.org/1999/XSL/Format" style="background-color:white;border:none;height:73px;border:1px solid black;"><a style="border:none;" href="http://www.springsource.org/roo/" title="The Spring Framework - Spring Roo"><img style="border:none;" src="images/xdev-spring_logo.jpg"></a><a style="border:none;" href="http://www.springsource.com/" title="SpringSource - Spring from the Source"><img style="border:none;position:absolute;padding-top:0px;right:2em;" src="images/banner.png"></a></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="base-jsf"></a>Chapter&nbsp;12.&nbsp;JavaServer Faces (JSF) Add-On</h2></div></div></div>
+  
+
+  <p>The JSF add-on allows you to conveniently scaffold JSF managed beans
+  and XHTML views for an existing domain model. Currently this domain model is
+  derived from the Roo supported JPA integration through the entity jpa and
+  related field commands. The following features are included:</p>
+
+  <div class="itemizedlist"><ul type="disc"><li>
+      <p>Automatic update of JSF managed beans and converters reflecting
+      changes in the domain model</p>
+    </li><li>
+      <p>Choice of either Oracle Mojarra or Apache MyFaces JSF 2
+      implementations</p>
+    </li><li>
+      <p>Server-side validation based on JSR 303 constraints defined in the
+      domain layer</p>
+    </li><li>
+      <p>Integration of <a class="ulink" href="http://primefaces.org/" target="_top">PrimeFaces</a> JSF Component
+      Suite, including automatic scaffolding of PrimeFaces controls such
+      as:</p>
+
+      <div class="itemizedlist"><ul type="circle"><li>
+          <p>AutoComplete</p>
+        </li><li>
+          <p>Calendar</p>
+        </li><li>
+          <p>FileUpload</p>
+        </li><li>
+          <p>InputText</p>
+        </li><li>
+          <p>InputTextarea</p>
+        </li><li>
+          <p>Media</p>
+        </li><li>
+          <p>SelectManyMenu</p>
+        </li><li>
+          <p>Spinner</p>
+        </li></ul></div>
+    </li><li>
+      <p>User-selectable PrimeFaces themes</p>
+    </li></ul></div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="jsf-commands"></a>12.1.&nbsp;JSF commands</h2></div></div></div>
+    
+
+    <p>The JSF add-on contains four commands:</p>
+
+    <div class="orderedlist"><ol type="1"><li>
+        <pre class="programlisting">roo&gt; <span class="bold"><strong>web jsf setup</strong></span> --implementation --library --theme</pre>
+
+        <p>When this command is run for the first time in a single-module
+        project or an empty module, the necessary JSF artifacts are copied to
+        the project or module such as the pom dependencies and repositories
+        and the web.xml file. A default PrimeFaces theme called "south-street"
+        is configured as well in the web.xml.</p>
+
+        <p>The web jsf setup command can be run as many times as you like
+        to change the JSF implementation and the theme.</p>
+
+        <p>The --implementation option when specifed allows you to chouse
+        either the Oracle Mojarra or Apache MyFaces JSF
+        implementations.</p>
+
+        <p>The --library option has only one selectable value, being
+        PRIMEFACES.</p>
+
+        <p>The --theme option lets you select one of 30 PrimeFaces themes
+        for your UI.</p>
+      </li><li>
+        <pre class="programlisting">roo&gt; <span class="bold"><strong>web jsf all --package</strong></span></pre>
+
+        <p>The web jsf all command creates JSF managed beans and converters
+        for all entities in the specified package. A JSF XHTML page is also
+        created in the src/main/webapp/pages directory for each entity.</p>
+      </li><li>
+        <pre class="programlisting">roo&gt; <span class="bold"><strong>web jsf scaffold --class</strong></span> --entity --beanName --includeOnMenu</pre>
+
+        <p>The web jsf scaffold command lets you create a managed bean for
+        a particular entity in your project.</p>
+
+        <p>The --class option is where you specify the name of the managed
+        bean class.</p>
+
+        <p>The --entity option lets you specify the entity for the managed
+        bean and is only required if the focus is not on the entity you want
+        to create the managed bean for.</p>
+
+        <p>If you do not wish the 'create' and 'list' menu selections to
+        appear for the entity in the menu on the generated UI, specify false
+        in the --includeOnMenu option.</p>
+      </li><li>
+        <pre class="programlisting">roo&gt; <span class="bold"><strong>web jsf media --url</strong></span> --player</pre>
+
+        <p>The web jsf media command is used for embedding multimedia
+        content such as videos and music on your JSF home page.</p>
+
+        <p>The --url option is where you specify the url of the the media
+        content, such as a YouTube video.</p>
+
+        <p>The media player used is automaticallly selected based on the
+        url or file extension of the media file in the url if applicable,
+        however, where this cannot be determined you can use the --player
+        option to select a suitable player.</p>
+      </li></ol></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e2395"></a>12.2.&nbsp;The @RooJsfManagedBean annotation</h2></div></div></div>
+    
+
+    <p>The @RooJsfManagedBean annotation is added to all new classes
+    created by the web jsf all and web jsf scaffold commands. The annotation
+    causes the introduction of the javax.faces.bean.ManagedBean and
+    javax.faces.bean.SessionScoped annotations in the *_Roo_ManagedBean.aj
+    ITD. Note that if you specify a scope other than @SessionScoped in the
+    managed bean .java file, the scope annotation is removed from the ITD. For
+    example, if you want your bean to be @RequestScoped, simply annotate your
+    managed bean with the @RequestScoped annotation.</p>
+
+    <p>Use the beanName attribute to force the naming of the managed bean
+    referred to by other beans and in XHTML pages.</p>
+
+    <p>As mentioned before, the includeOnMenu attribute when set to false
+    prevents the 'Create' and 'List all' menu selections for the entity from
+    showing in the UI's menu.</p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e2400"></a>12.3.&nbsp;The @RooJsfConverter annotation</h2></div></div></div>
+    
+
+    <p>When a new managed bean is created, a converter class is also
+    created containing the @RooJsfConverter annotation. The JSF converter
+    class implements the javax.faces.convert.Converter interface and has
+    implementations of the getAsObject and getAsString methods (introduced in
+    an ITD) to perform Object-to-String and String-to-Object conversions
+    between model data objects and a String representation of those objects
+    that is suitable for rendering.</p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e2403"></a>12.4.&nbsp;The @RooJsfApplicationBean annotation</h2></div></div></div>
+    
+
+    <p>Whenever a managed bean is created for the first time, Roo will
+    install a class containing the @RooJsfApplicationBean annotation. The ITD
+    generated from this annotation contains the PrimeFaces menu with the
+    'Create' and 'List all' operations for each entity. Whenever a managed
+    bean is created, provding the @RooJsfManagedBean includeOnMenu attribute
+    is either not specifed or set to 'true', new menu selections are
+    automatically added to the *__Roo_ApplicationBean.aj ITD. Similarly, when
+    a managaed bean is deleted or the includeOnMenu attribute is set to false,
+    the menu selections are removed.</p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e2406"></a>12.5.&nbsp;The bikeshop example</h2></div></div></div>
+    
+
+    <p>The Roo distribution contains a script called bikeshop.roo that
+    demonstrates the JSF add-on capability. Please note that the --equals
+    attribute should be specified as true on the entity jpa command for all
+    entities intended to be scaffolded with JSF. Alternatively, add the
+    @RooEquals annotation to existing entities. </p>
+
+    <p>In the Roo shell, type:</p>
+
+    <pre class="programlisting">roo&gt; script bikeshop.roo</pre>
+
+    <p>When complete, exit the shell and run Jetty as follows:</p>
+
+    <pre class="programlisting">mvn jetty:run-exploded</pre>
+
+    <p>View the application at http://localhost:8080/bikeshop:</p>
+
+    <div class="mediaobject"><img src="images/jsf-bikeshop.png"></div>
+  </div>
+</div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="base-web.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="base-cloud-foundry.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;11.&nbsp;Web MVC Add-On&nbsp;</td><td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.springsource.com/" title="SpringSource - Spring from the Source">Sponsored by SpringSource
+                                        </a></span></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;13.&nbsp;Cloud Foundry Add-On</td></tr></table></div></body></html>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.springsource.ide.eclipse.commons"
+      label="%featureName"
+      version="3.0.0.201208090942-RELEASE"
+      provider-name="%providerName">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseUrl">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.mylyn_feature" version="3.4.0.v20100601" match="compatible"/>
+      <import feature="org.eclipse.mylyn.context_feature" version="3.4.0.v20100601" match="compatible"/>
+   </requires>
+
+   <plugin
+         id="org.springsource.ide.eclipse.commons.content.core"
+         download-size="36"
+         install-size="75"
+         version="3.0.0.201208090942-RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springsource.ide.eclipse.commons.core"
+         download-size="77"
+         install-size="154"
+         version="3.0.0.201208090942-RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springsource.ide.eclipse.commons.frameworks.core"
+         download-size="51"
+         install-size="104"
+         version="3.0.0.201208090942-RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springsource.ide.eclipse.commons.frameworks.ui"
+         download-size="217"
+         install-size="480"
+         version="3.0.0.201208090942-RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springsource.ide.eclipse.commons.configurator"
+         download-size="109"
+         install-size="221"
+         version="3.0.0.201208090942-RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springsource.ide.eclipse.commons.ui"
+         download-size="117"
+         install-size="163"
+         version="3.0.0.201208090942-RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.core"
+         download-size="462"
+         install-size="936"
+         version="3.1.1.RELEASE"
+         unpack="false"/>
+
+</feature>

@@ -1,0 +1,226 @@
+what,kind,bundleId,bundleVersion,description,time
+error,log,,,"Failed to update callback: org.eclipse.ui.newWizard",1362663101100
+error,log,,,"Failed to update callback: org.eclipse.ui.newWizard",1362663101100
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.workbench"".",1362663101101
+error,log,,,"Failed to update callback: org.eclipse.ui.newWizard",1362663101101
+error,log,,,"Failed to update callback: org.eclipse.ui.newWizard",1362663101101
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.workbench"".",1362663101102
+error,log,,,"Failed to update callback: org.eclipse.ui.newWizard",1362663101102
+error,log,,,"Failed to update callback: org.eclipse.ui.newWizard",1362663101102
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.workbench"".",1362663101103
+error,log,,,"Failed to update callback: org.eclipse.ui.newWizard",1362663101103
+error,log,,,"Failed to update callback: org.eclipse.ui.newWizard",1362663101103
+error,log,,,"Unhandled event loop exception",1362663101115
+error,log,,,"Unhandled event loop exception",1362663101143
+error,log,,,"Unhandled event loop exception",1362663101258
+error,log,,,"Unhandled event loop exception",1362663101374
+error,log,,,"Unhandled event loop exception",1362663101526
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663101630
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663101630
+error,log,,,"Unhandled event loop exception",1362663101670
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663101673
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663101674
+error,log,,,"Unhandled event loop exception",1362663101753
+error,log,,,"Unhandled event loop exception",1362663102112
+error,log,,,"Unhandled event loop exception",1362663102185
+error,log,,,"Unhandled event loop exception",1362663102433
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663102833
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663102834
+error,log,,,"Unhandled event loop exception",1362663102902
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663102938
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663102938
+error,log,,,"Unhandled event loop exception",1362663102988
+error,log,,,"Unhandled event loop exception",1362663103059
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663103065
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663103066
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663103108
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663103108
+error,log,,,"Unhandled event loop exception",1362663103167
+error,log,,,"Unhandled event loop exception",1362663103234
+error,log,,,"Unhandled event loop exception",1362663103957
+error,log,,,"Unhandled event loop exception",1362663104026
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663104177
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663104178
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663104186
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663104186
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663104187
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663104187
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663104188
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663104188
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663104194
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663104194
+error,log,,,"Unable to find Action Set: org.eclipse.wst.ws.explorer.explorer",1362663104251
+error,log,,,"Unable to find Action Set: org.jboss.tools.cdi.ui.actionSet",1362663104251
+opened,view,org.eclipse.ui.ide,3.7.0.v20110928-1505,"org.eclipse.ui.views.AllMarkersView",1362663104427
+activated,perspective,org.eclipse.jst.j2ee.ui,1.1.503.v201201190400,"org.eclipse.jst.j2ee.J2EEPerspective",1362663104449
+closed,view,org.eclipse.ui.ide,3.7.0.v20110928-1505,"org.eclipse.ui.views.ProgressView",1362663104456
+error,log,,,"Unhandled event loop exception",1362663104614
+error,log,,,"Unhandled event loop exception",1362663104737
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663105092
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663105092
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.workbench"".",1362663105133
+error,log,,,"Unhandled event loop exception",1362663105136
+error,log,,,"Unhandled event loop exception",1362663105235
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663105242
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663105243
+error,log,,,"Unhandled event loop exception",1362663105337
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663105366
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663105367
+error,log,,,"Unhandled event loop exception",1362663105443
+error,log,,,"Unhandled event loop exception",1362663105489
+error,log,,,"Unhandled event loop exception",1362663105550
+error,log,,,"Unhandled event loop exception",1362663105812
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663105971
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663105971
+error,log,,,"Unhandled event loop exception",1362663106021
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663106157
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663106158
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663106286
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663106286
+error,log,,,"Unhandled event loop exception",1362663106428
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663106440
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663106441
+error,log,,,"Unhandled event loop exception",1362663106917
+error,log,,,"Unhandled event loop exception",1362663107043
+error,log,,,"Unhandled event loop exception",1362663107191
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663107358
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663107358
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663107432
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663107434
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663107438
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663107439
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663107441
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663107442
+error,log,,,"Unhandled event loop exception",1362663107516
+error,log,,,"Unhandled event loop exception",1362663107769
+error,log,,,"Unable to find Action Set: org.eclipse.wst.ws.explorer.explorer",1362663107826
+error,log,,,"Unable to find Action Set: org.jboss.tools.cdi.ui.actionSet",1362663107826
+activated,perspective,org.eclipse.jst.j2ee.ui,1.1.503.v201201190400,"org.eclipse.jst.j2ee.J2EEPerspective",1362663107897
+error,log,,,"Unhandled event loop exception",1362663108054
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663108556
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663108556
+error,log,,,"Unhandled event loop exception",1362663108649
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663108868
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663108868
+error,log,,,"Unhandled event loop exception",1362663109079
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663109502
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663109503
+error,log,,,"Unhandled event loop exception",1362663109548
+error,log,,,"Unhandled event loop exception",1362663109704
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663109712
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663109713
+error,log,,,"Unhandled event loop exception",1362663109758
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663109768
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663109768
+error,log,,,"Unhandled event loop exception",1362663109814
+opened,editor,org.jboss.tools.central,1.0.1.v20130112-0624-H128-Final,"org.jboss.tools.central.editors.JBossCentralEditor",1362663115668
+error,log,,,"Invalid registry object",1362663115671
+error,log,,,"Invalid registry object",1362663115672
+error,log,,,"Invalid registry object",1362663115673
+error,log,,,"Invalid registry object",1362663115674
+error,log,,,"Invalid registry object",1362663115675
+error,log,,,"Invalid registry object",1362663115676
+error,log,,,"Invalid registry object",1362663115677
+error,log,,,"Invalid registry object",1362663115677
+activated,editor,org.jboss.tools.central,1.0.1.v20130112-0624-H128-Final,"org.jboss.tools.central.editors.JBossCentralEditor",1362663115677
+error,log,,,"Unable to find Action Set: org.eclipse.wst.ws.explorer.explorer",1362663115882
+activated,perspective,org.eclipse.jst.j2ee.ui,1.1.503.v201201190400,"org.eclipse.jst.j2ee.J2EEPerspective",1362663115923
+error,log,,,"Unhandled event loop exception",1362663117855
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663118669
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663118670
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663118671
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663118671
+error,log,,,"Unhandled event loop exception",1362663118895
+error,log,,,"Unhandled event loop exception",1362663119004
+error,log,,,"Unhandled event loop exception",1362663119088
+error,log,,,"Unhandled event loop exception",1362663119309
+error,log,,,"Unhandled event loop exception",1362663119612
+error,log,,,"Unhandled event loop exception",1362663119899
+error,log,,,"Unhandled event loop exception",1362663120008
+error,log,,,"Unhandled event loop exception",1362663120079
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663120382
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663120383
+error,log,,,"Unhandled event loop exception",1362663120469
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663120738
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663120739
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663120777
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663120777
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663120819
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663120820
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663121034
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663121034
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663121037
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663121037
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663121126
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663121126
+error,log,,,"Unhandled event loop exception",1362663121177
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663121226
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663121227
+error,log,,,"Unhandled event loop exception",1362663121286
+error,log,,,"Unhandled event loop exception",1362663121373
+error,log,,,"Unhandled event loop exception",1362663121564
+error,log,,,"Unhandled event loop exception",1362663121681
+error,log,,,"Unhandled event loop exception",1362663121857
+error,log,,,"Unhandled event loop exception",1362663121970
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663122015
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663122015
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663122029
+error,log,,,"Exception in org.eclipse.ui.internal.registry.UIExtensionTracker$2.doAdd: org.eclipse.core.runtime.InvalidRegistryObjectException: Invalid registry object",1362663122030
+error,log,,,"Unhandled event loop exception",1362663122039
+started,bundle,org.springframework.ide.eclipse.ui,2.7.2.201109122348-RELEASE,"org.springframework.ide.eclipse.ui",1362663122093
+error,log,,,"Unhandled event loop exception",1362663122094
+started,bundle,org.springframework.ide.eclipse.beans.ui,2.7.2.201109122348-RELEASE,"org.springframework.ide.eclipse.beans.ui",1362663122096
+error,log,,,"Unhandled event loop exception",1362663122097
+started,bundle,org.springframework.ide.eclipse.core,2.7.2.201109122348-RELEASE,"org.springframework.ide.eclipse.core",1362663122183
+started,bundle,org.springframework.ide.eclipse.aop.core,2.7.2.201109122348-RELEASE,"org.springframework.ide.eclipse.aop.core",1362663122189
+error,log,,,"Unhandled event loop exception",1362663122190
+started,bundle,org.springframework.ide.eclipse.aop.ui,2.7.2.201109122348-RELEASE,"org.springframework.ide.eclipse.aop.ui",1362663122191
+error,log,,,"Unhandled event loop exception",1362663122191
+started,bundle,org.springframework.ide.eclipse.beans.core,2.7.2.201109122348-RELEASE,"org.springframework.ide.eclipse.beans.core",1362663122210
+error,log,,,"Unhandled event loop exception",1362663122211
+activated,perspective,org.eclipse.jst.j2ee.ui,1.1.503.v201201190400,"org.eclipse.jst.j2ee.J2EEPerspective",1362663122889
+error,log,,,"Unhandled event loop exception",1362663124767
+activated,perspective,org.eclipse.jst.j2ee.ui,1.1.503.v201201190400,"org.eclipse.jst.j2ee.J2EEPerspective",1362663124933
+error,log,,,"An internal error has occurred.",1362663126813
+error,log,,,"Error occurred during status handling",1362663126814
+error,log,,,"An internal error has occurred.",1362663126814
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1362663130527
+started,bundle,org.eclipse.mylyn.ide.ui,3.6.0.v20110608-1400,"org.eclipse.mylyn.ide.ui",1362663155218
+error,log,,,"Unhandled event loop exception during blocked modal context.",1362663155378
+started,bundle,org.hibernate.eclipse.jdt.ui,3.5.1.v20130102-1835-H100-Final,"org.hibernate.eclipse.jdt.ui",1362663155956
+error,log,,,"Unhandled event loop exception during blocked modal context.",1362663155957
+started,bundle,org.hibernate.eclipse.libs,3.5.1.v20130102-1835-H100-Final,"org.hibernate.eclipse.libs",1362663156448
+started,bundle,org.hibernate.eclipse,3.5.1.v20130102-1835-H100-Final,"org.hibernate.eclipse",1362663156641
+stopped,bundle,org.hibernate.eclipse.console,3.5.1.v20130102-1835-H100-Final,"org.hibernate.eclipse.console",1362663156785
+error,log,,,"An error occurred while automatically activating bundle org.hibernate.eclipse.console (784).",1362663156785
+error,log,,,"Internal Error",1362663156873
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.core.resources"".",1362663157023
+error,log,,,"Errors occurred during the build.",1362663157030
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161679
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161680
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161680
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161680
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161681
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161681
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161681
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161681
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161682
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161682
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161682
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161683
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161683
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161683
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161684
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161684
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161684
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161685
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161685
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161685
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161685
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161686
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161686
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161686
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161687
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161687
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161687
+error,log,,,"Undefined context while filtering dialog/window contexts",1362663161688

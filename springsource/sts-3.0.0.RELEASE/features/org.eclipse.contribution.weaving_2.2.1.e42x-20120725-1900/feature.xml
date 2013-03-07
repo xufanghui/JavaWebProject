@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.contribution.weaving"
+      label="%featureName"
+      version="2.2.1.e42x-20120725-1900"
+      provider-name="%providerName">
+
+   <description url="http://eclipse.org/ajdt">
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <update label="%updateLabel" url="http://download.eclipse.org/tools/ajdt/34/update"/>
+   </url>
+
+   <includes
+         id="org.eclipse.contribution.weaving.source"
+         version="2.2.1.e42x-20120725-1900"
+         name=""
+         optional="true"/>
+
+   <includes
+         id="org.eclipse.equinox.weaving.sdk"
+         version="1.0.200.I20120427-0800"
+         name="Equinox Aspects"
+         optional="true"/>
+         
+   <requires>
+      <import plugin="org.eclipse.osgi" />
+      <import plugin="org.eclipse.core.runtime"  />
+      <import plugin="org.eclipse.jdt.core" />
+      <import plugin="org.eclipse.jdt.ui" />
+      <import plugin="org.eclipse.jface"  />
+      <import plugin="org.eclipse.ui"  />
+      <import plugin="org.eclipse.ui.browser"/>
+      <import plugin="org.eclipse.ui.forms" />
+   </requires>
+
+   <plugin
+         id="org.eclipse.contribution.weaving.jdt"
+         download-size="0"
+         install-size="0"
+         version="2.2.1.e42x-20120725-1900"
+         unpack="false"/>
+
+   <plugin
+         id="org.aspectj.runtime"
+         download-size="0"
+         install-size="0"
+         version="1.7.0.20120703164200"/>
+
+</feature>

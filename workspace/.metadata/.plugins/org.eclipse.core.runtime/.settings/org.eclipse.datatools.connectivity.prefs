@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+org.eclipse.datatools.connectivity.db.derby.genericDriverTemplate=true
+org.eclipse.datatools.connectivity.db.derby101.genericDriverTemplate=true

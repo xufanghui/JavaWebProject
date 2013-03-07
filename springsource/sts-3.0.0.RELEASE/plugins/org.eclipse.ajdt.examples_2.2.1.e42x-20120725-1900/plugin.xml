@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+     <extension-point id="projectsetup" name="Project setup" schema="schema/projectsetup.exsd"/>
+
+<!-- Each example needs two extensions (with the same "id" for each):
+     1. org.eclipse.ui.newWizards, to appear in the New wizard
+     2. org.eclipse.ajdt.examples.projectsetup, to configure the example wizard appropriately
+-->
+
+ <extension 
+	point="org.eclipse.ui.newWizards">
+	<category
+	   id = "org.eclipse.ajdt.examples"
+	   parentCategory="org.eclipse.ajdt.wizards"
+	   name="%AspectJExamplesCreationWizard.categoryName">
+	</category>
+	<category
+	   id = "org.eclipse.ajdt.pluginExamples"
+	   parentCategory="org.eclipse.ajdt.wizards"
+	   name="%AspectJExamplesCreationWizard.pluginCategoryName">
+	</category>
+
+	<wizard 
+		id="org.eclipse.ajdt.examples.AspectJExamplesTJP"
+		name="%AspectJExamplesTJP.title"
+		class="org.eclipse.ajdt.examples.AspectJExampleCreationWizard"
+		category="org.eclipse.ajdt.wizards/org.eclipse.ajdt.examples"
+		project="true"
+		finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
+		icon="icons/newajprj_wiz.gif">
+		<description>%AspectJExamplesTJP.description</description>
+      </wizard>	     
+     <wizard 
+		id="org.eclipse.ajdt.examples.AspectJExamplesIntroduction"
+		name="%AspectJExamplesIntroduction.title"
+		class="org.eclipse.ajdt.examples.AspectJExampleCreationWizard"
+		category="org.eclipse.ajdt.wizards/org.eclipse.ajdt.examples"
+		project="true"
+		finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
+		icon="icons/newajprj_wiz.gif">
+		<description>%AspectJExamplesIntroduction.description</description>
+      </wizard>	     
+      <wizard 
+		id="org.eclipse.ajdt.examples.AspectJExamplesTracing"
+		name="%AspectJExamplesTracing.title"
+		class="org.eclipse.ajdt.examples.AspectJExampleCreationWizard"
+		category="org.eclipse.ajdt.wizards/org.eclipse.ajdt.examples"
+		project="true"
+		finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
+		icon="icons/newajprj_wiz.gif">
+		<description>%AspectJExamplesTracing.description</description>
+      </wizard>	    
+      <wizard 
+		id="org.eclipse.ajdt.examples.AspectJExamplesBean"
+		name="%AspectJExamplesBean.title"
+		class="org.eclipse.ajdt.examples.AspectJExampleCreationWizard"
+		category="org.eclipse.ajdt.wizards/org.eclipse.ajdt.examples"
+		project="true"
+		finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
+		icon="icons/newajprj_wiz.gif">
+		<description>%AspectJExamplesBean.description</description>
+      </wizard>	    
+      <wizard 
+		id="org.eclipse.ajdt.examples.AspectJExamplesObserver"
+		name="%AspectJExamplesObserver.title"
+		class="org.eclipse.ajdt.examples.AspectJExampleCreationWizard"
+		category="org.eclipse.ajdt.wizards/org.eclipse.ajdt.examples"
+		project="true"
+		finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
+		icon="icons/newajprj_wiz.gif">
+		<description>%AspectJExamplesObserver.description</description>
+      </wizard>	     
+      <wizard 
+		id="org.eclipse.ajdt.examples.AspectJExamplesTelecom"
+		name="%AspectJExamplesTelecom.title"
+		class="org.eclipse.ajdt.examples.AspectJExampleCreationWizard"
+		category="org.eclipse.ajdt.wizards/org.eclipse.ajdt.examples"
+		project="true"
+		finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
+		icon="icons/newajprj_wiz.gif">
+		<description>%AspectJExamplesTelecom.description</description>
+      </wizard>	
+      <wizard 
+		id="org.eclipse.ajdt.examples.AspectJExamplesSpacewar"
+		name="%AspectJExamplesSpacewar.title"
+		class="org.eclipse.ajdt.examples.AspectJExampleCreationWizard"
+		category="org.eclipse.ajdt.wizards/org.eclipse.ajdt.examples"
+		project="true"
+		finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
+		icon="icons/newajprj_wiz.gif">
+		<description>%AspectJExamplesSpacewar.description</description>
+      </wizard>	
+      <wizard 
+		id="org.eclipse.ajdt.examples.AspectJPluginExamplesProgressMon"
+		name="%AspectJPluginExamplesProgressMon.title"
+		class="org.eclipse.ajdt.examples.AspectJExampleCreationWizard"
+		category="org.eclipse.ajdt.wizards/org.eclipse.ajdt.pluginExamples"
+		project="true"
+		finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
+		icon="icons/newajprj_wiz.gif">
+		<description>%AspectJPluginExamplesProgressMon.description</description>
+      </wizard>	
+ </extension>  
+
+<extension point="org.eclipse.ajdt.examples.projectsetup">
+	    <projectsetup
+	        id="org.eclipse.ajdt.examples.AspectJExamplesTJP"
+        	pagetitle="%AspectJExamplesTJP.pagetitle"
+        	pagedescription="%AspectJExamplesTJP.pagedescription"
+         	label="%AspectJExamplesCreationWizard.label"
+        	name="%AspectJExamplesTJP.title">
+           <nature id="org.eclipse.ajdt.ui.ajnature"/>
+           <nature id="org.eclipse.jdt.core.javanature"/>           
+           <import src="archive/tjp.jar"/>
+        </projectsetup>
+	    <projectsetup
+	        id="org.eclipse.ajdt.examples.AspectJExamplesBean"
+        	pagetitle="%AspectJExamplesBean.pagetitle"
+        	pagedescription="%AspectJExamplesBean.pagedescription"
+         	label="%AspectJExamplesCreationWizard.label"
+        	name="%AspectJExamplesBean.title">
+           <nature id="org.eclipse.ajdt.ui.ajnature"/>
+           <nature id="org.eclipse.jdt.core.javanature"/>
+           <import src="archive/bean.jar"/>
+        </projectsetup>
+        <projectsetup
+            id="org.eclipse.ajdt.examples.AspectJExamplesIntroduction"
+        	pagetitle="%AspectJExamplesIntroduction.pagetitle"
+        	pagedescription="%AspectJExamplesIntroduction.pagedescription"
+         	label="%AspectJExamplesCreationWizard.label"
+        	name="%AspectJExamplesIntroduction.title">
+           <nature id="org.eclipse.ajdt.ui.ajnature"/>
+           <nature id="org.eclipse.jdt.core.javanature"/>
+           <import src="archive/introduction.jar"/>
+        </projectsetup>
+        <projectsetup
+            id="org.eclipse.ajdt.examples.AspectJExamplesTracing"
+        	pagetitle="%AspectJExamplesTracing.pagetitle"
+        	pagedescription="%AspectJExamplesTracing.pagedescription"
+         	label="%AspectJExamplesCreationWizard.label"
+        	name="%AspectJExamplesTracing.title"
+        	build="notrace.ajproperties">
+           <nature id="org.eclipse.ajdt.ui.ajnature"/>
+           <nature id="org.eclipse.jdt.core.javanature"/>
+           <import src="archive/tracing.jar"/>
+        </projectsetup>
+        <projectsetup
+            id="org.eclipse.ajdt.examples.AspectJExamplesObserver"
+        	pagetitle="%AspectJExamplesObserver.pagetitle"
+        	pagedescription="%AspectJExamplesObserver.pagedescription"
+         	label="%AspectJExamplesCreationWizard.label"
+        	name="%AspectJExamplesObserver.title">
+           <nature id="org.eclipse.ajdt.ui.ajnature"/>
+           <nature id="org.eclipse.jdt.core.javanature"/>
+           <import src="archive/observer.jar"/>
+        </projectsetup>
+        <projectsetup
+            id="org.eclipse.ajdt.examples.AspectJExamplesTelecom"
+        	pagetitle="%AspectJExamplesTelecom.pagetitle"
+        	pagedescription="%AspectJExamplesTelecom.pagedescription"
+         	label="%AspectJExamplesCreationWizard.label"
+        	name="%AspectJExamplesTelecom.title"
+        	build="basic.ajproperties">
+           <nature id="org.eclipse.ajdt.ui.ajnature"/>
+           <nature id="org.eclipse.jdt.core.javanature"/>
+           <import src="archive/telecom.jar"/>
+        </projectsetup>
+        <projectsetup
+            id="org.eclipse.ajdt.examples.AspectJExamplesSpacewar"
+        	pagetitle="%AspectJExamplesSpacewar.pagetitle"
+        	pagedescription="%AspectJExamplesSpacewar.pagedescription"
+         	label="%AspectJExamplesCreationWizard.label"
+        	name="%AspectJExamplesSpacewar.title"
+        	build="demo.ajproperties">
+           <nature id="org.eclipse.ajdt.ui.ajnature"/>
+           <nature id="org.eclipse.jdt.core.javanature"/>
+           <import src="archive/spacewar.jar"/>
+        </projectsetup>
+        <projectsetup
+            id="org.eclipse.ajdt.examples.AspectJPluginExamplesProgressMon"
+        	pagetitle="%AspectJPluginExamplesProgressMon.pagetitle"
+        	pagedescription="%AspectJPluginExamplesProgressMon.pagedescription"
+         	label="%AspectJExamplesCreationWizard.label"
+         	open="README.html"
+        	name="org.eclipse.ajdt.examples.progressmon">
+           <nature id="org.eclipse.ajdt.ui.ajnature"/>
+           <nature id="org.eclipse.jdt.core.javanature"/>
+           <import src="archive/org.eclipse.ajdt.examples.progressmon.jar"/>
+        </projectsetup>
+</extension>
+
+</plugin>

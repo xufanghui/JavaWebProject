@@ -1,0 +1,13 @@
+package com.hibernate.costumer;
+
+public class TestCustomer {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

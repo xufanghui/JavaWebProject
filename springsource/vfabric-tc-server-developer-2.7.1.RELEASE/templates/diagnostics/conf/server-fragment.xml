@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Server>
+	<GlobalNamingResources>
+		<add:Resource name="${jdbc.resource.name}"
+				factory="com.springsource.tcserver.serviceability.request.DataSourceFactory"
+				auth="Container"
+				type="javax.sql.DataSource"
+				username="${jdbc.username}"
+				password="${jdbc.password}"
+				driverClassName="${jdbc.driverClassName}"
+				url="${jdbc.url}"
+				testWhileIdle="true"
+				testOnBorrow="true"
+				testOnReturn="false"
+				validationQuery="SELECT 1"
+				validationInterval="30000"
+				timeBetweenEvictionRunsMillis="5000"
+				maxActive="100"
+				minIdle="10"
+				maxWait="10000"
+				initialSize="10"
+				removeAbandonedTimeout="60"
+				removeAbandoned="true"
+				logAbandoned="true"
+				minEvictableIdleTimeMillis="30000"
+				jmxEnabled="true"
+				jdbcInterceptors="ConnectionState;StatementFinalizer;SlowQueryReportJmx(threshold=10000)"/>
+	</GlobalNamingResources>
+
+	<Service name="Catalina">
+		<Engine name="Catalina">
+			<add:Valve className="com.springsource.tcserver.serviceability.request.ThreadDiagnosticsValve"
+					threshold="10000"
+					notificationInterval="60000"
+					loggingInterval="10000"/>
+		</Engine>
+	</Service>
+</Server>

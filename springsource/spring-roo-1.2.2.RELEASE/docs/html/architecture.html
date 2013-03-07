@@ -1,0 +1,884 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;3.&nbsp;Application Architecture</title><link rel="stylesheet" href="css/html.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.73.2"><link rel="start" href="index.html" title="Spring Roo - Reference Documentation"><link rel="up" href="welcome.html" title="Part&nbsp;I.&nbsp;Welcome to Spring Roo"><link rel="prev" href="beginning.html" title="Chapter&nbsp;2.&nbsp;Beginning With Roo: The Tutorial"><link rel="next" href="usage.html" title="Chapter&nbsp;4.&nbsp;Usage and Conventions"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div xmlns:fo="http://www.w3.org/1999/XSL/Format" style="background-color:white;border:none;height:73px;border:1px solid black;"><a style="border:none;" href="http://www.springsource.org/roo/" title="The Spring Framework - Spring Roo"><img style="border:none;" src="images/xdev-spring_logo.jpg"></a><a style="border:none;" href="http://www.springsource.com/" title="SpringSource - Spring from the Source"><img style="border:none;position:absolute;padding-top:0px;right:2em;" src="images/banner.png"></a></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="architecture"></a>Chapter&nbsp;3.&nbsp;Application Architecture</h2></div></div></div>
+  
+
+  <p>In this chapter we'll introduce the architecture of Roo-created
+  projects. In later chapters we'll cover the architecture of Roo
+  itself.</p>
+
+  <p>This chapter focuses on web applications created by Roo, as opposed to
+  add-on projects.</p>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="architecture-overview"></a>3.1.&nbsp;Architectural Overview</h2></div></div></div>
+    
+
+    <p>Spring Roo focuses on the development of enterprise applications
+    written in Java. In the current version of Roo these applications
+    typically will have a relational database backend, Java Persistence API
+    (JPA) persistence approach, Spring Framework dependency injection and
+    transactional management, JUnit tests, a Maven build configuration and
+    usually a Spring MVC-based front-end that uses JSP for its views. As such
+    a Roo-based application is like most modern Java-based enterprise
+    applications.</p>
+
+    <p>While most people will be focusing on developing these Spring
+    MVC-based web applications, it's important to recognise that Roo does not
+    impose any restrictions on the sort of Java applications that can be built
+    with it. Even with Roo 1.0.0 it was easy to build any type of
+    self-contained application. Some examples of the types of requirements you
+    can easily address with the current version of Roo include (but are not
+    limited to):</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>Listening for messages on a JMS queue and sending replies over
+        JMS or SMTP (Roo can easily <a class="link" href="command-index.html#command-index-jms-setup" title="A.17.3.&nbsp;jms setup">set up JMS</a> message producers,
+        consumers and <a class="link" href="command-index.html#command-index-email-sender-setup" title="A.23.1.&nbsp;email sender setup">SMTP</a>)</p>
+      </li><li>
+        <p>Writing a services layer (perhaps annotated with Spring's
+        @Service <a class="ulink" href="http://static.springsource.org/spring/docs/3.0.0.RELEASE/spring-framework-reference/html/beans.html#beans-stereotype-annotations" target="_top">stereotype
+        annotation</a>) and exposing it using a remoting protocol to a rich
+        client (Spring's <a class="ulink" href="http://static.springsource.org/spring/docs/3.0.0.RELEASE/spring-framework-reference/html/remoting.html" target="_top">remoting
+        services</a> will help here)</p>
+      </li><li>
+        <p>Executing a series of predefined actions against the database,
+        perhaps in conjunction with Spring's new @Scheduled or @Async <a class="ulink" href="http://static.springsource.org/spring/docs/3.0.0.RELEASE/spring-framework-reference/html/scheduling.html#scheduling-annotation-support" target="_top">timer
+        annotations</a></p>
+      </li><li>
+        <p>Experimentation with the latest <a class="link" href="architecture.html#architecture-critical-technologies-spring" title="3.2.2.&nbsp;Spring">Spring</a> and
+        <a class="link" href="architecture.html#architecture-critical-technologies-aspectj" title="3.2.1.&nbsp;AspectJ">AspectJ</a>
+        features with minimal time investment</p>
+      </li></ul></div>
+
+    <p>One of the major differences between Roo and traditional,
+    hand-written applications is we don't add layers of abstraction
+    unnecessarily. Most traditional Java enterprise applications will have a
+    DAO layer, services layer, domain layer and controller layer. In a typical
+    Roo application you'll only use an <a class="link" href="architecture.html#architecture-entities" title="3.3.&nbsp;Entity Layer">entity layer</a> (which is similar to a
+    domain layer) and a <a class="link" href="architecture.html#architecture-web" title="3.4.&nbsp;Web Layer">web layer</a>. As
+    indicated by the list above, a <a class="link" href="architecture.html#architecture-services" title="3.5.&nbsp;Optional Services Layer">services layer</a> might be added if
+    your application requires it, although a <a class="link" href="architecture.html#architecture-dao" title="3.6.&nbsp;Goodbye DAOs">DAO layer</a> is extremely rarely added.
+    We'll look at some of these layering conventions (and the rationale for
+    them) as we go through the rest of this chapter.</p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="architecture-critical-technologies"></a>3.2.&nbsp;Critical Technologies</h2></div></div></div>
+    
+
+    <p>Two technologies are very important in all Roo projects, those being
+    AspectJ and Spring. We'll have a look at how Roo-based applications use
+    these technologies in this section.</p>
+
+    <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="architecture-critical-technologies-aspectj"></a>3.2.1.&nbsp;AspectJ</h3></div></div></div>
+      
+
+      <p>AspectJ is a powerful and mature aspect oriented programming (AOP)
+      framework that underpins many large-scale systems. Spring Framework has
+      offered extensive support for AspectJ since 2004, with Spring 2.0
+      adopting AspectJ's pointcut definition language even for expressing
+      Spring AOP pointcuts. Many of the official Spring projects offer support
+      for AspectJ or are themselves heavily dependent on it, with several
+      examples including Spring Security (formerly Acegi Security System for
+      Spring), Spring Insight, SpringSource tc Server, SpringSource dm Server,
+      Spring Enterprise and Spring Roo.</p>
+
+      <p>While AspectJ is most commonly known for its aspect oriented
+      programming (AOP) features such as applying advice at defined pointcuts,
+      Roo projects use AspectJ's powerful inter-type declaration (ITD)
+      features. This is where the real magic of Roo comes from, as it allows
+      us to code generate members (artifacts like methods, fields etc) in a
+      different compilation unit (i.e. source file) from the normal .java code
+      you'd write as a developer. Because the generated code is in a separate
+      file, we can maintain that file's lifecycle and contents completely
+      independently of whatever you are doing to the .java files. Your .java
+      files do not need to do anything unnatural like reference the generated
+      ITD file and the whole process is completely transparent.</p>
+
+      <p>Let's have a look at how ITDs work. In a new directory, type the
+      following commands and note the console output:</p>
+
+      <pre class="programlisting">roo&gt; <span class="bold"><strong>project --topLevelPackage com.aspectj.rocks</strong></span>
+roo&gt; <span class="bold"><strong>jpa setup --database HYPERSONIC_IN_MEMORY --provider HIBERNATE</strong></span>
+roo&gt; <span class="bold"><strong>entity jpa --class ~.Hello</strong></span>
+Created SRC_MAIN_JAVA/com/aspectj/rocks
+Created SRC_MAIN_JAVA/com/aspectj/rocks/Hello.java
+Created SRC_MAIN_JAVA/com/aspectj/rocks/Hello_Roo_JpaActiveRecord.aj
+Created SRC_MAIN_JAVA/com/aspectj/rocks/Hello_Roo_JpaEntity.aj
+Created SRC_MAIN_JAVA/com/aspectj/rocks/Hello_Roo_ToString.aj
+Created SRC_MAIN_JAVA/com/aspectj/rocks/Hello_Roo_Configurable.aj
+roo&gt; <span class="bold"><strong>field string --fieldName comment</strong></span>
+Managed SRC_MAIN_JAVA/com/aspectj/rocks/Hello.java
+Managed SRC_MAIN_JAVA/com/aspectj/rocks/Hello_Roo_JavaBean.aj
+Managed SRC_MAIN_JAVA/com/aspectj/rocks/Hello_Roo_ToString.aj</pre>
+
+      <p>Notice how there is a standard <code class="code">Hello.java</code> file, as
+      well as a series of <code class="code">Hello_Roo_*.aj</code> files. Any file ending
+      in <code class="code">*_Roo_*.aj</code> is an AspectJ ITD and will be managed by Roo.
+      You should not edit these files directly, as Roo will automatically
+      maintain them (this includes even deleting files that aren't required,
+      as we'll see shortly).</p>
+
+      <p>The <code class="code">Hello.java</code> is just a normal Java file. It looks
+      like this:</p>
+
+      <pre class="programlisting">package com.aspectj.rocks;
+
+import org.springframework.roo.addon.javabean.RooJavaBean;
+import org.springframework.roo.addon.tostring.RooToString;
+import org.springframework.roo.addon.entity.RooJpaActiveRecord;
+
+@RooJavaBean
+@RooToString
+@RooJpaActiveRecord
+public class Hello {
+
+    private String comment;
+}</pre>
+
+      <p>As shown, there's very little in the <code class="code">.java</code> file.
+      There are some annotations, plus of course the field we added. Note that
+      Roo annotations are always source-level retention, meaning they're not
+      compiled into your <code class="code">.class</code> file. Also, as per our usability
+      goals you'll note that Roo annotations also always start with
+      <code class="code">@Roo*</code> to help you find them with code assist.</p>
+
+      <p>By this stage you're probably wondering what the ITD files look
+      like. Let's have a look at one of them,
+      <code class="code">Hello_Roo_ToString.aj</code>:</p>
+
+      <pre class="programlisting">package com.aspectj.rocks;
+
+import java.lang.String;
+
+privileged aspect Hello_Roo_ToString {
+    
+    public String Hello.toString() {    
+        StringBuilder sb = new StringBuilder();        
+        sb.append("Id: ").append(getId()).append(", ");        
+        sb.append("Version: ").append(getVersion()).append(", ");        
+        sb.append("Comment: ").append(getComment());        
+        return sb.toString();        
+    }    
+    
+}</pre>
+
+      <p>Notice how the ITD is very similar to Java code. The main
+      differences are that it is declared with "<code class="code">privileged
+      aspect</code>", plus each member identifies the target type (in this
+      case it is "<code class="code">Hello.toString</code>", which means add the
+      "<code class="code">toString</code>" method to the "<code class="code">Hello</code>" type). The
+      compiler will automatically recognize these ITD files and cause the
+      correct members to be compiled into <code class="code">Hello.class</code>. We can see
+      that quite easily by using Java's <code class="code">javap</code> command. All we
+      need to do is run the compiler and view the resulting class. From the
+      same directory as you created the project in, enter the following
+      commands and observe the final output:</p>
+
+      <pre class="programlisting">$ <span class="bold"><strong>mvn compile</strong></span>
+$ <span class="bold"><strong>javap -classpath target/classes/.:target/test-classes/. com.aspectj.rocks.Hello</strong></span>
+Compiled from "Hello.java"
+public class com.aspectj.rocks.Hello extends java.lang.Object implements org.springframework.beans.factory.aspectj.ConfigurableObject{
+    transient javax.persistence.EntityManager entityManager;
+    public com.aspectj.rocks.Hello();
+    public static java.lang.String ajc$get$comment(com.aspectj.rocks.Hello);
+    public static void ajc$set$comment(com.aspectj.rocks.Hello, java.lang.String);
+    public static java.lang.Long ajc$get$id(com.aspectj.rocks.Hello);
+    public static void ajc$set$id(com.aspectj.rocks.Hello, java.lang.Long);
+    public static java.lang.Integer ajc$get$version(com.aspectj.rocks.Hello);
+    public static void ajc$set$version(com.aspectj.rocks.Hello, java.lang.Integer);
+    static {};
+    public static long countHelloes();
+    public static final javax.persistence.EntityManager entityManager();
+    public static java.util.List findAllHelloes();
+    public static com.aspectj.rocks.Hello findHello(java.lang.Long);
+    public static java.util.List findHelloEntries(int, int);
+    public void flush();
+    public java.lang.String getComment();
+    public java.lang.Long getId();
+    public java.lang.Integer getVersion();
+    public com.aspectj.rocks.Hello merge();
+    public void persist();
+    public void remove();
+    public void setComment(java.lang.String);
+    public void setId(java.lang.Long);
+    public void setVersion(java.lang.Integer);
+    public java.lang.String toString();
+}</pre>
+
+      <p>While the <code class="code">javap</code> output might look a little daunting
+      at first, it represents all the members that Roo has added (via AspectJ
+      ITDs) to the original <code class="code">Hello.java</code> file. Notice there isn't
+      just the <code class="code">toString</code> method we saw in the earlier ITD, but
+      we've also made the <code class="code">Hello</code> class implement Spring's
+      <code class="code">ConfigurableObject</code> interface, provided access to a JPA
+      <code class="code">EntityManager</code>, included a range of convenient persistence
+      methods plus even getters and setters. All of these useful features are
+      automatically maintained in a round-trip compatible manner via the
+      ITDs.</p>
+
+      <p>A careful reader might be wondering about the long field names
+      seen for introduced fields. You can see that these field names start
+      with "<code class="code">ajc$</code>" in the output above. The reason for this is to
+      avoid name collisions with fields you might have in the
+      <code class="code">.java</code> file. The good news is that you won't ever need to
+      deal with this unless you're trying to do something clever with
+      reflection. It's just something to be aware of for introduced fields in
+      particular. Note that the names of methods and constructors are never
+      modified.</p>
+
+      <p>Naturally as a normal Roo user you won't need to worry about the
+      internals of ITD source code and the resulting <code class="code">.class</code>
+      files. Roo automatically manages all ITDs for you and you never need
+      deal with them directly. It's just nice to know how it all works under
+      the hood (Roo doesn't believe in magic!). The benefit of this ITD
+      approach is how easily and gracefully Roo can handle code generation for
+      you.</p>
+
+      <p>To see this in action, go and edit the <code class="code">Hello.java</code> in
+      your favourite text editor with Roo running. Do something simple like
+      add a new field. You'll notice the <code class="code">Hello_Roo_ToString.aj</code>
+      and <code class="code">Hello_Roo_JavaBean.aj</code> files are instantly and
+      automatically updated by Roo to include your new field. Now go and write
+      your own <code class="code">toString</code> method in the <code class="code">.java</code> file.
+      Notice Roo deletes the <code class="code">Hello_Roo_ToString.aj</code> file, as it
+      detects your <code class="code">toString </code>method should take priority over a
+      generated <code class="code">toString</code> method. But let's say you want a
+      generated <code class="code">toString</code> as well, so change the
+      <code class="code">Hello.java</code>'s <code class="code">@RooToString</code> annotation to read
+      <code class="code">@RooToString(toStringMethod="generatedToString")</code>. Now
+      you'll notice the <code class="code">Hello_Roo_ToString.aj</code> file is immediately
+      re-created, but this time it introduces a <code class="code">generatedToString</code>
+      method instead of the original <code class="code">toString</code>. If you comment out
+      both fields in <code class="code">Hello.java</code> you'll also see that Roo deletes
+      both ITDs. You can also see the same effect by quitting the Roo shell,
+      making any changes you like, then restarting the Roo shell. Upon restart
+      Roo will automatically perform a scan and discover if it needs to make
+      any changes.</p>
+
+      <p>Despite the admittedly impressive nature of ITDs, AspectJ is also
+      pretty good at aspect oriented programming features like pointcuts and
+      advice! To this end Roo applications also use AspectJ for all other AOP
+      requirements. It is AspectJ that provides the AOP so that classes are
+      dependency injected with singletons when instantiated and transactional
+      services are called as part of method invocations. All Roo applications
+      are preconfigured to use the Spring Aspects project, which ships as part
+      of Spring Framework and represents a comprehensive "aspect library" for
+      AspectJ.</p>
+    </div>
+
+    <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="architecture-critical-technologies-spring"></a>3.2.2.&nbsp;Spring</h3></div></div></div>
+      
+
+      <p>Spring Roo applications all use Spring. By "Spring" we not only
+      mean Spring Framework, but also the other Spring projects like Spring
+      Security and Spring Web Flow. Of course, only Spring Framework is
+      installed into a user project by default and there are fine-grained
+      commands provided to install each additional Spring project beyond
+      Spring Framework.</p>
+
+      <p>All Roo applications use Spring Aspects, which was mentioned in
+      the <a class="link" href="architecture.html#architecture-critical-technologies-aspectj" title="3.2.1.&nbsp;AspectJ">AspectJ
+      section</a> and ensures Spring Framework's <code class="code">@Configurable</code>
+      dependency injection and transactional advice is applied. Furthermore,
+      Roo applications use Spring's annotation-driven component scanning by
+      default and also rely on Spring Framework for instantiation and
+      dependency injection of features such as JPA providers and access to
+      database connection pools. Many of the optional features that can be
+      used in Roo applications (like JMS and SMTP messaging) are also built
+      upon the corresponding Spring Framework dependency injection support and
+      portable service abstractions.</p>
+
+      <p>Those Roo applications that include a web controller will also
+      receive Spring Framework 3's MVC features such as its conversion API,
+      web content negotiation view resolution and REST support. It is possible
+      (and indeed encouraged) to write your own web Spring MVC controllers in
+      Roo applications, and you are also free to use alternate page rendering
+      technologies if you wish (i.e. not just JSP).</p>
+
+      <p>Generally speaking Roo will not modify any Spring-related
+      configuration or setting file (e.g. properties) unless specifically
+      requested via a shell command. Roo also ensures that whenever it
+      creates, modifies or deletes a file it explicitly tells you about this
+      via a shell message. What this means is you can safely edit your Spring
+      application context files at any time and without telling Roo. This is
+      very useful if the default configuration offered by Roo is unsuitable
+      for your particular application's needs.</p>
+
+      <p>Because Spring projects are so extensively documented, and Roo
+      just uses Spring features in the normal manner, we'll refrain from
+      duplicating Spring's documentation in this section. Instead please refer
+      to the excellent Spring documentation for guidance, which can be found
+      in the downloadable distribution files and also on the <a class="ulink" href="http://www.springsource.org/documentation" target="_top">Spring web
+      site</a>.</p>
+    </div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="architecture-entities"></a>3.3.&nbsp;Entity Layer</h2></div></div></div>
+    
+
+    <p>When people use Roo, they will typically start a new project using
+    the steps detailed in the <a class="link" href="beginning.html" title="Chapter&nbsp;2.&nbsp;Beginning With Roo: The Tutorial">Beginning With Roo:
+    The Tutorial</a> chapter. That is, they'll start by creating the
+    project, installing some sort of persistence system, and then beginning to
+    create entities and add fields to them. As such, entities and fields
+    represent the first point in a Roo project that you will be expressing
+    your problem domain.</p>
+
+    <p>The role of an entity in your Roo-based application is to model the
+    persistent "domain layer" of your system. As such, a domain object is
+    specific to your problem domain but an entity is a special form of a
+    domain object that is stored in the database. By default a single entity
+    will map to a single table in your database, and a single field within
+    your entity class will map to a single column within the corresponding
+    table. However, like most things in Roo this is easily customised using
+    the relevant standard (in this case, JPA annotations). Indeed most of the
+    common customisation options (like specifying a custom column or table
+    name etc) can be expressed directly in the relevant Roo command, freeing
+    you from even needing to know which annotation(s) should be used.</p>
+
+    <p>Let's consider a simple entity that has been created using the <a class="link" href="command-index.html#command-index-entity-jpa" title="A.18.5.&nbsp;entity jpa"></a><a class="link" href="">entity</a><a class="link" href="command-index.html#command-index-entity-jpa" title="A.18.5.&nbsp;entity jpa"> jpa</a> command and
+    following it with a single <a class="link" href="command-index.html#command-index-field-commands" title="A.11.&nbsp;Field Commands">field</a> command:</p>
+
+    <pre class="programlisting">package com.springsource.vote.domain;
+
+import org.springframework.roo.addon.javabean.RooJavaBean;
+import org.springframework.roo.addon.tostring.RooToString;
+import org.springframework.roo.addon.entity.RooJpaActiveRecord;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+@RooJavaBean
+@RooToString
+@RooJpaActiveRecord
+public class Choice {
+
+    @NotNull
+    @Size(min = 1, max = 30)
+    private String namingChoice;
+
+    @Size(max = 80)
+    private String description;
+}</pre>
+
+    <p>The above entity is simply a JPA entity that contains two fields.
+    The two fields are annotated with JavaBean Validation API (JSR 303)
+    annotations, which are useful if your JPA provider supports this standard
+    (as is the case if you nominate Hibernate as your JPA provider) or you are
+    using a Roo-scaffolded web application front end (in which case Roo will
+    use Spring Framework 3's JSR 303 support). Of course you do not need to
+    use the JavaBean Validation API annotations at all, but if you would like
+    to use them the relevant Roo field commands provide tab-completion
+    compatible options for each. The first time you use one of these Roo field
+    commands, Roo will add required JavaBean Validation API libraries to your
+    project (i.e. these libraries will not be in your project until you decide
+    to first use JavaBean Validation).</p>
+
+    <p>What's interesting about the above entity is what you can actually
+    do with it. There are a series of methods automatically added into the
+    <code class="code">Choice.class</code> courtesy of Roo code-generated and maintained
+    AspectJ ITDs. These include static methods for retrieving instances of
+    Choice, JPA facade methods for persisting, removing, merging and flushing
+    the entity, plus accessors and mutators for both the identifier and
+    version properties. You can fine-tune these settings by modifying
+    attributes on the <code class="code">@RooJpaActiveRecord</code> annotation. You can
+    also have Roo remove these services by simply removing the
+    <code class="code">@RooJpaActiveRecord</code> annotation from the class, in which case
+    you'll be left with a normal JPA @Entity that you'll need to manage by
+    hand (e.g. provide your own persistence methods, identifier, version
+    etc).</p>
+
+    <p>The <code class="code">@RooJavaBean</code> annotation causes an accessor and
+    mutator (getter and setter) to automatically be generated for each field
+    in the class. These accessors and mutators are automatically maintained in
+    an AspectJ ITD by Roo. If you write your own accessor or mutator in the
+    normal .java file, Roo will automatically remove the corresponding
+    generated method from the ITD. You can also remove the
+    <code class="code">@RooJavaBean</code> annotation if you don't want any generated
+    accessors or mutators (although those related to the version and
+    identifier fields will remain, as they are associated with
+    <code class="code">@RooJpaActiveRecord</code> instead of
+    <code class="code">@RooJavaBean</code>).</p>
+
+    <p>Finally, the <code class="code">@RooToString</code> annotation causes Roo to
+    create and maintain a <code class="code">public String toString()</code> method in a
+    separate ITD. This method currently is used by any scaffolded web
+    controllers if they need to display a related entity. The generated method
+    takes care to avoid circular references that are commonly seen in
+    bidirectional relationships involving collections. The method also formats
+    Java <code class="code">Calendar</code> objects in an attractive manner. As always, you
+    can write your own <code class="code">toString()</code> method by hand and Roo will
+    automatically remove its generated <code class="code">toString()</code> method, even if
+    you still have the <code class="code">@RooToString</code> annotation present. You can
+    of course also remove the <code class="code">@RooToString </code>annotation if you no
+    longer wish to have a generated <code class="code">toString()</code> method.</p>
+
+    <p>Before leaving this discussion on entities, it's worth mentioning
+    that you are free to create your own entity <code class="code">.java</code> classes by
+    hand. You do not need to use the Roo shell commands to create entities or
+    maintain their fields - just use any IDE. Also, you are free to use the
+    <code class="code">@RooToString</code> or <code class="code">@RooJavaBean</code> (or both)
+    annotations on any class you like. This is especially useful if you have a
+    number of domain objects that are not persisted and are therefore not
+    entities. Roo can still help you with those objects.</p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="architecture-web"></a>3.4.&nbsp;Web Layer</h2></div></div></div>
+    
+
+    <p>Roo 1.0 can optionally provide a scaffolded Spring MVC web layer.
+    The scaffolded MVC web layer features are explored in some depth in the
+    <a class="link" href="beginning.html" title="Chapter&nbsp;2.&nbsp;Beginning With Roo: The Tutorial">Beginning With Roo: The Tutorial</a> chapter,
+    including how to customise the appearance. From an architectural
+    perspective, the scaffolded layer includes a number of URL rewriting rules
+    to ensure requests can be made in accordance with REST conventions. Roo's
+    scaffolding model also includes Apache Tiles, Spring JavaScript, plus
+    ensures easy setup of Spring Security with a single command.</p>
+
+    <p>In Spring Roo 1.1 we also added comprehensive support for Google Web
+    Toolkit (GWT). This allows you to build Generation IV web HTML5-based web
+    front-ends. These front-ends access the Spring backend using highly
+    optimized remoting protocols, and the GWT application represents the GWT
+    team's recommended best practice architecture. In fact, the GWT team at
+    Google wrote most of the Roo GWT add-on, so you can be sure it uses the
+    best GWT 2.1 features.</p>
+
+    <p>Scaffolded web controllers always delegate directly to methods
+    provided on an <code class="code">@RooJpaActiveRecord</code> class. For maximum
+    compatibility with scaffolded controllers, it is recommended to observe
+    the default identifier and version conventions provided by
+    <code class="code">@RooJpaActiveRecord</code> implementations. If you write a web
+    controller by hand (perhaps with the assistance of the <a class="link" href="command-index.html#command-index-web-mvc-controller" title="A.21.2.&nbsp;web mvc controller">web mvc controller</a>
+    command), it is recommended you also use the methods directly exposed on
+    entities. Most Roo applications will place their business logic between
+    the entities and web controllers, with only occasional use of services
+    layers. Please refer to the <a class="link" href="architecture.html#architecture-services" title="3.5.&nbsp;Optional Services Layer">services
+    layer</a> section for a more complete treatment of when you'd use a
+    services layer.</p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="architecture-services"></a>3.5.&nbsp;Optional Services Layer</h2></div></div></div>
+    
+
+    <p>As discussed at the start of this chapter, web applications are the
+    most common type of application created with Roo 1.0.0. A web application
+    will rarely <span class="emphasis"><em>require</em></span> a services layer, as most logic
+    can be placed in the web controller handle methods and the remainder in
+    entity methods. Still, a services layer makes sense in specific scenarios
+    such as:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>There is business logic that spans multiple entities and that
+        logic does not naturally belong in a specific entity</p>
+      </li><li>
+        <p>You need to invoke business logic outside the scope of a natural
+        web request (e.g. a timer task)</p>
+      </li><li>
+        <p>Remote client access is required and it is therefore more
+        convenient to simply expose the methods via a remoting protocol</p>
+      </li><li>
+        <p>An architectural policy requires the use of a services
+        layer</p>
+      </li><li>
+        <p>A higher level of cohesion is sought in the web layer, with the
+        web layer solely responsible for HTTP-related management and the
+        services layer solely responsible for business logic</p>
+      </li><li>
+        <p>A greater level of testing is desired, which is generally easier
+        to mock than simulating web requests</p>
+      </li><li>
+        <p>it is preferred to place transactional boundaries and security
+        authorization metadata on the services layer (as opposed to a web
+        controller)</p>
+      </li></ul></div>
+
+    <p>As shown, there are a large number of reasons why services layers
+    remain valuable. However, Roo does not code generate services layers
+    because they are not strictly essential to building a normal web
+    application and Roo achieves separation of concern via its AspectJ
+    ITD-based architecture.</p>
+
+    <p>If you would like to use a services layer, since release 1.2.0 Roo
+    offers automatic service layer integration for your application. Please
+    refer to the <a class="link" href="base-layers.html#service-layer" title="10.3.&nbsp;Service Layer">service layer</a> section in
+    the <a class="link" href="base-layers.html" title="Chapter&nbsp;10.&nbsp;Application Layering">application layering</a> chapter for
+    further details.</p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="architecture-dao"></a>3.6.&nbsp;Goodbye DAOs</h2></div></div></div>
+    
+
+    <p>One change many existing JEE developers will notice when using
+    Roo-based applications is that there is no DAO layer (or "Repository"
+    layer). As with the <a class="link" href="architecture.html#architecture-services" title="3.5.&nbsp;Optional Services Layer">services
+    layer</a>, we have removed the DAO layer because it is not strictly
+    essential to creating the typical web applications that most people are
+    trying to build.</p>
+
+    <p>If we reflect for a moment on the main motivations for DAOs, it is
+    easy to see why these are not applicable in Roo applications:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+          <p><span class="emphasis"><em>Testing</em></span>: In a normal application a DAO
+          provides an interface that could be easily stubbed as part of unit
+          testing. The interesting point about testing is that most people use
+          mocking instead of stubbing in modern applications, making it
+          attractive to simply mock the persistence method or two that you
+          actually require for a test (rather than the crudeness of stubbing
+          an entire DAO interface). In Roo-based applications you simply mock
+          the persistence-related methods that have been introduced to the
+          entity. You can use normal mocking approaches for the instance
+          methods on the Roo entity, and use Spring Aspect's
+          <code class="code">@MockStaticEntityMethods</code> support for the static finder
+          methods.</p>
+        </li><li>
+          <p><span class="emphasis"><em>Separation of concern</em></span>: One reason for
+          having a DAO layer is that it allows a higher cohesion
+          object-oriented design to be pursued. The high cohesion equates to a
+          separation of concern that reduces the conceptual weight of
+          implementing the system. In a Roo-based application separation of
+          concern is achieved via the separate ITDs. The conceptual weight is
+          also reduced because Roo handles the persistence methods rather than
+          force the programmer to deal with them. Therefore separation of
+          concern still exists in a Roo application without the requirement
+          for a DAO layer.</p>
+        </li><li>
+          <p><span class="emphasis"><em>Pluggable implementations</em></span>: A further
+          benefit of DAOs is they simplify the switching from one persistence
+          library to another. In modern applications this level of API
+          abstraction is provided via JPA. As Roo uses JPA in its generated
+          methods, the ability to plug in an alternate implementation is
+          already fully supported despite there being no formal DAO layer. You
+          can see this yourself by issuing the <a class="link" href="command-index.html#command-index-jpa-setup" title="A.18.6.&nbsp;jpa setup">jpa setup </a>command and
+          specifying alternate implementations.</p>
+        </li><li>
+          <p><span class="emphasis"><em>Non-JPA persistence</em></span>: It is possible that
+          certain entities are stored using a technology that does not have a
+          JPA provider. In this case Roo does not support those entities out
+          of the box. However, if only a small number of entities are affected
+          by this consideration there is no reason one or more hand-written
+          ITDs could not be provided by the user in order to maintain
+          conceptual parity with the remainder of the Roo application (which
+          probably does have some JPA). If a large number of entities are
+          affected, the project would probably benefit from the user writing a
+          Roo add-on which will automatically manage the ITDs just as Roo does
+          for JPA.</p>
+        </li><li>
+          <p><span class="emphasis"><em>Security authorisation</em></span>: Sometimes DAOs
+          are used to apply security authorisation rules. It is possible to
+          protect persistence methods on the DAOs and therefore go relatively
+          low in the control flow to protecting the accessibility of entities.
+          In practice this rarely works well, though, as most authorisation
+          workflows will target a use case as opposed to the entities required
+          to implement a use case. Further, the approach is unsafe as it is
+          possible to transitively acquire one entity from another without
+          observing the authorisation rules (e.g.
+          <code class="code">person.getPartner().getChildren().get(1).setFirstName("Ben")</code>).
+          It is also quite crude in that it does not support transparent
+          persistence correctly, in that the example modification of the first
+          name would flush to the database without any authorisation check
+          (assuming this mutative operation occurred within the context of a
+          standard transactional unit of work). While it's possible to work
+          around many of these issues, authorisation is far better tackled
+          using other techniques than the DAO layer.</p>
+        </li><li>
+          <p><span class="emphasis"><em>Security auditing</em></span>: In a similar argument
+          to authorisation, sometimes DAOs are advocated for auditing
+          purposes. For the same types of reasons expressed for authorisation,
+          this is a suboptimal approach. A better way is to use AOP (e.g.
+          AspectJ field set pointcuts), a JPA flush event handle, or a
+          trigger-like model within the database.</p>
+        </li><li>
+          <p><span class="emphasis"><em>Finders</em></span>: If you review existing DAOs,
+          you'll find the main difference from one to another is the finder
+          methods they expose. Dynamic finders are automatically supported by
+          Roo and introduced directly to the entity, relieving the user from
+          needing DAOs for this reason. Furthermore, it is quite easy to
+          hand-write a finder within the entity (or an ITD that adds the
+          finder to the entity if a separate compilation unit is
+          desired).</p>
+        </li><li>
+          <p><span class="emphasis"><em>Architectural reasons</em></span>: Often people
+          express a preference for a DAO because they've always done it that
+          way. While maintaining a proven existing approach is generally
+          desirable, adopting Roo for an application diminishes the value of a
+          DAO layer to such an extent that it leaves little (if any)
+          engineering-related reasons to preserve it.</p>
+        </li></ul></div>
+
+    <p>It's also worth observing that most modern RAD frameworks avoid DAO
+    layers and add persistence methods directly to entities. If you compare
+    similar technologies to Roo, you will see this avoidance of a DAO layer is
+    commonplace, mainstream and does not cause problems.</p>
+
+    <p>Naturally you can still write DAOs by hand if you want to, but the
+    majority of Roo add-ons will not be compatible with such DAOs. As such you
+    will not receive automated testing or MVC controllers that understand your
+    hand-written DAOs. Our advice is therefore not to hand write DAOs. Simply
+    use the entity methods provided by <code class="code">@RooJpaActiveRecord</code>, as
+    it's engineering-wise desirable and it's also far less effort for you to
+    write and maintain.</p>
+
+    <p>If you are interested in DAO support despite the above Roo offers
+    support for different repository layers as of release 1.2.0. Please refer
+    to the <a class="link" href="base-layers.html" title="Chapter&nbsp;10.&nbsp;Application Layering">application layering chapter</a> for
+    details.</p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="architecture-maven"></a>3.7.&nbsp;Maven</h2></div></div></div>
+    
+
+    <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="architecture-maven-packaging"></a>3.7.1.&nbsp;Packaging</h3></div></div></div>
+      
+
+      <p>Roo supports a number of Maven packaging types out of the box,
+      such as <code class="code">jar</code>, <code class="code">war</code>, <code class="code">pom</code>, and
+      <code class="code">bundle</code>. These are provided via Roo's
+      <code class="code">PackagingProvider</code> interface. If you wish to customise the
+      POMs or other artifacts that Roo generates for a given packaging type
+      when creating a project or module, either for one of the above packaging
+      types or a completely different one, you can implement your own
+      <code class="code">PackagingProvider</code> that creates exactly the files you want
+      with the contents you want. The procedure for doing this is as follows:
+      </p><div class="itemizedlist"><ul type="disc"><li>
+            <p>In a new directory, start Roo and run "addon create simple"
+            to create a simple addon.</p>
+          </li><li>
+            <p>Delete:</p>
+
+            <div class="itemizedlist"><ul type="circle"><li>
+                <p>the four .java files created in
+                <code class="code">src/main/java</code></p>
+              </li><li>
+                <p>the two .tagx files created in
+                <code class="code">src/main/resources</code></p>
+              </li></ul></div>
+          </li><li>
+            <p>Create your custom packaging class (e.g.
+            <code class="code">MyPackaging.java</code>) in your preferred package.</p>
+          </li><li>
+            <p>Pick a unique ID for the Roo shell to use when referring to
+            your PackagingProvider (e.g. "custom-jar"). Do not use any of the
+            core Maven packaging type names, as these are reserved for use by
+            Roo.</p>
+          </li><li>
+            <p>Make your packaging class implement the
+            <code class="code">o.s.r.project.packaging.PackagingProvider</code> interface,
+            either by:</p>
+
+            <div class="itemizedlist"><ul type="circle"><li>
+                <p>Implementing <code class="code">PackagingProvider</code> directly,
+                with full control over (but no assistance with) artifact
+                generation, or</p>
+              </li><li>
+                <p>Extending
+                <code class="code">o.s.r.project.packaging.AbstractPackagingProvider</code>
+                to have Roo create the POM from a template you specify, with
+                various substitutions made automatically (e.g. groupId and
+                artifactId). This approach requires you to:</p>
+
+                <div class="itemizedlist"><ul type="square"><li>
+                    <p>Create your custom POM template in
+                    <code class="code">src/main/resources</code> plus whatever package you
+                    chose above.</p>
+                  </li><li>
+                    <p>Create a public no-arg constructor that calls the
+                    <code class="code">AbstractPackagingProvider</code> constructor with
+                    the following arguments:</p>
+
+                    <div class="itemizedlist"><ul type="disc"><li>
+                        <p>The unique ID of your custom packaging type (see
+                        above).</p>
+                      </li><li>
+                        <p>The Maven name of your packaging type (typically
+                        jar/war/ear/etc, but could be something else if you've
+                        extended Maven to support custom packaging
+                        types).</p>
+                      </li><li>
+                        <p>The path to your POM template relative to your
+                        concrete <code class="code">PackagingProvider</code> (e.g.
+                        "my-pom-template.xml" if it's in the same package).
+                        Note that this POM can contain as much or as little
+                        content as you like, with the following
+                        caveats:</p>
+
+                        <div class="itemizedlist"><ul type="circle"><li>
+                            <p>It must have the standard Maven "project" root
+                            element with all the usual namespace details.</p>
+                          </li><li>
+                            <p>If you extend
+                            <code class="code">AbstractPackagingProvider</code>, that class
+                            will ensure that the POM's coordinates can be
+                            resolved either from a "parent" element or from
+                            explicit "groupId", "artifactId", and "version"
+                            elements.</p>
+                          </li></ul></div>
+                      </li></ul></div>
+                  </li></ul></div>
+              </li></ul></div>
+          </li><li>
+            <p>Add the Felix annotations @Component and @Service to your
+            concrete PackagingProvider, so that it's detected by Roo's
+            <code class="code">PackagingProviderRegistry</code>.</p>
+          </li><li>
+            <p>Build and install the addon in the usual way, i.e.:</p>
+
+            <div class="itemizedlist"><ul type="circle"><li>
+                <p>Run "<code class="code">mvn install</code>" in the addon directory to
+                create the OSGi bundle.</p>
+              </li><li>
+                <p>Change to the directory of the project that will be
+                using the custom packaging provider.</p>
+              </li><li>
+                <p>Run "<code class="code">osgi start --url
+                file:///path/to/addon/project/target/com.example.foo-0.1.0.BUILD-SNAPSHOT.jar</code>"</p>
+              </li><li>
+                <p>Run "<code class="code">osgi scr list</code>"; your custom
+                PackagingProvider component should appear somewhere in the
+                list.</p>
+              </li></ul></div>
+          </li><li>
+            <p>Whenever you run the "project" or "module create" commands,
+            your custom PackagingProvider's ID should appear in the list of
+            possible completions for the "--packaging" option</p>
+          </li></ul></div>
+    </div>
+
+    <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="architecture-maven-multi-module"></a>3.7.2.&nbsp;Multi-Module Support</h3></div></div></div>
+      
+
+      <p>Since version 1.2.0, Roo supports <a class="ulink" href="http://www.sonatype.com/books/mvnref-book/reference/pom-relationships-sect-pom-best-practice.html" target="_top">multi-module
+      Maven projects</a>, i.e. those containing multiple projects in a
+      nested directory structure, each with their own POM. The non-leaf POMs
+      have "pom" packaging and the leaf POMs usually have an artifact creation
+      packaging (jar, war, etc). If you're not familiar with multi-module
+      projects and want to see how they're structured, there's an embedded
+      <code class="code">multimodule.roo</code> script that generates a simple multi-module
+      project; used as follows:</p>
+
+      <div class="itemizedlist"><ul type="disc"><li>
+          <p>At your operating system prompt, type "<code class="code">roo script
+          multimodule.roo</code>".</p>
+        </li><li>
+          <p>Change into the "ui/mvc"" directory.</p>
+        </li><li>
+          <p>Run "<code class="code">mvn tomcat:run</code>" or "<code class="code">mvn
+          jetty:run</code>".</p>
+        </li><li>
+          <p>Point your browser to
+          <code class="code">http://localhost:8080/mvc</code>.</p>
+        </li></ul></div>
+
+      <p>The rest of this section assumes that you are familiar with
+      multi-module projects, in particular the difference between POM
+      inheritance (one POM has another as its parent) and project nesting (one
+      project is in a sub-directory of another, i.e. is a module of that
+      parent project).</p>
+
+      <div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="architecture-maven-multi-module-features"></a>3.7.2.1.&nbsp;Features</h4></div></div></div>
+        
+
+        <p>Roo's multi-module support has the following features (a formal
+        list of Roo's Maven-related commands appears in <a class="link" href="command-index.html#command-index-maven-commands" title="A.24.&nbsp;Maven Commands">Appendix C</a>):
+        </p><div class="itemizedlist"><ul type="disc"><li>
+              <p>Roo now has the concept of a module, which in practice
+              means a directory tree whose root contains a Maven POM. A
+              project consists of zero or more modules. When you run Roo from
+              the operating system prompt, you do so from the directory of the
+              root module.</p>
+
+              <p>Once any modules exist, one of them always has the
+              "focus", in other words will be used as the context for any
+              shell commands that interact with the user project (as opposed
+              to housekeeping commands such as "<code class="code">osgi ps</code>"). For
+              example, running the "<code class="code">web flow</code>" command will add
+              Spring Web Flow support to the currently focused module.</p>
+            </li><li>
+              <p>The "<code class="code">module focus</code>" command, available once
+              the project contains more than one module, changes the currently
+              focused module. Tab completion is available, with the module
+              name "~" signifying the root module.</p>
+            </li><li>
+              <p>The "<code class="code">module create</code>" command creates a new
+              module as a sub-directory of the currently focused module. The
+              latter module's POM will be updated to ensure it has "pom"
+              packaging, allowing the Maven reactor to properly recurse the
+              module tree at build time. Note that the newly created POM will
+              by default <span class="emphasis"><em>not</em></span> inherit from the parent
+              module's POM. If the new module's POM should have a parent,
+              specify it via the "<code class="code">module create</code>" command's
+              optional "<code class="code">parent</code>" parameter. The parent POM need
+              not be located within the user project. A typical use case is
+              that a development team might have a standard base POM from
+              which all their projects inherit, or a standard web POM from
+              which all their web modules inherit. As with the
+              "<code class="code">project</code>" command, the new module's Maven packaging
+              can be specified via the optional "<code class="code">packaging</code>"
+              parameter. Custom packaging behaviour is supported, as described
+              <a class="link" href="architecture.html#architecture-maven-packaging" title="3.7.1.&nbsp;Packaging">above</a>.</p>
+            </li></ul></div>
+      </div>
+
+      <div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="architecture-maven-multi-module-limitations"></a>3.7.2.2.&nbsp;Limitations</h4></div></div></div>
+        
+
+        <p>Roo's multi-module support has the following limitations:
+        </p><div class="itemizedlist"><ul type="disc"><li>
+              <p>Limited automatic creation of dependencies between
+              modules. If your project needs any inter-module dependencies
+              beyond those added by Roo, simply create them using the "<a class="link" href="command-index.html#command-index-dependency-add" title="A.24.1.&nbsp;dependency add"><code class="code">dependency
+              add</code></a>" command.</p>
+            </li><li>
+              <p>No command for removing a module; this is in line with the
+              absence of commands for removing other project artifacts such as
+              classes, enums, JSPs, and POMs. In any event, it's simple enough
+              to do manually; just delete the directory, delete the relevant
+              "<code class="code">&lt;module&gt;</code>" element from the parent module's
+              POM, and delete the module as a dependency from any other
+              modules' POMs.</p>
+            </li><li>
+              <p>One area where there's considerable scope for improvement
+              is in the management of dependencies in general. In an ideal
+              Maven project, dependency information in the form of both
+              "<code class="code">dependencyManagement</code>" entries and live
+              "<code class="code">dependency</code>" elements themselves would be pushed as
+              far up the POM inheritance hierarchy as possible, in order to
+              minimise duplication and reduce the incidence of version
+              conflicts. As it stands, Roo adds and removes dependencies to
+              and from the currently focused module in response to shell
+              commands, regardless of what dependencies are in effect for
+              other modules in the project.</p>
+            </li><li>
+              <p>Likewise, plugin management is currently quite basic. Roo
+              adds/removes plugins to the POM of the currently focused module
+              with no attempt to rationalise them in concert with the POMs of
+              other modules (for example, two Spring MVC modules will
+              independently have the Jetty plugin declared in their own POMs
+              rather than having this plugin declared in the lowest common
+              ancestor POM). As with dependencies (see above), this is an area
+              in which Roo could conceivably take some of the load off
+              developers.</p>
+            </li><li>
+              <p>There's no Roo command for changing a module&#8217;s packaging
+              between two arbitrary values, as this could require too many
+              other changes to the user&#8217;s project. However, Roo does change a
+              module's packaging in two specific circumstances:</p>
+
+              <div class="itemizedlist"><ul type="circle"><li>
+                  <p>Adding a module to the currently focused module
+                  changes the latter's packaging to "pom", as described above
+                  under the "<code class="code">module create</code>" command.</p>
+                </li><li>
+                  <p>Adding web support to a module changes its packaging
+                  to "war".</p>
+                </li></ul></div>
+            </li><li>
+              <p>Roo does not create any parent-child relationships between
+              different modules&#8217; Spring application contexts; the user can
+              always create these relationships manually, and Roo will not
+              remove them.</p>
+            </li></ul></div>
+      </div>
+    </div>
+  </div>
+</div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="beginning.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="usage.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;2.&nbsp;Beginning With Roo: The Tutorial&nbsp;</td><td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.springsource.com/" title="SpringSource - Spring from the Source">Sponsored by SpringSource
+                                        </a></span></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;4.&nbsp;Usage and Conventions</td></tr></table></div></body></html>

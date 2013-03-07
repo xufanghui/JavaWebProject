@@ -1,0 +1,407 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;20.&nbsp;Tailor Add-On</title><link rel="stylesheet" href="css/html.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.73.2"><link rel="start" href="index.html" title="Spring Roo - Reference Documentation"><link rel="up" href="external-addons.html" title="Part&nbsp;IV.&nbsp;External Add-Ons"><link rel="prev" href="external-addons.html" title="Part&nbsp;IV.&nbsp;External Add-Ons"><link rel="next" href="appendices.html" title="Part&nbsp;V.&nbsp;Appendices"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div xmlns:fo="http://www.w3.org/1999/XSL/Format" style="background-color:white;border:none;height:73px;border:1px solid black;"><a style="border:none;" href="http://www.springsource.org/roo/" title="The Spring Framework - Spring Roo"><img style="border:none;" src="images/xdev-spring_logo.jpg"></a><a style="border:none;" href="http://www.springsource.com/" title="SpringSource - Spring from the Source"><img style="border:none;position:absolute;padding-top:0px;right:2em;" src="images/banner.png"></a></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="base-tailor"></a>Chapter&nbsp;20.&nbsp;Tailor Add-On</h2></div></div></div>
+  
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e3488"></a>20.1.&nbsp;Introduction</h2></div></div></div>
+    
+
+    <p>Roo has been become more and more powerful and offers more options
+    for users on how to use Roo. This in turn makes it more challenging in
+    some scenarios to use Roo in a consistent way throughout a project.</p>
+
+    <p>The tailor addon enables:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>Teams working on large projects to ensure streamlined Roo usage
+        according to their project's standards and guidelines</p>
+      </li></ul></div>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>Single users to define the approach they usually take in one
+        file to reuse it over multiple projects</p>
+      </li></ul></div>
+
+    <p><span class="bold"><strong>Examples of use cases: </strong></span></p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>A team does not want to use the Active Record pattern for
+        entities, but always wants developers to specify "--activeRecord
+        false", and create a JPA repository based on every new entity.</p>
+      </li></ul></div>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>A developer always uses a certain project structure to create
+        web projects, for exmple a Maven project with 2 modules called
+        "domain" and "web". The developer wants to be able to reuse this
+        structure with the project command, and make sure that the shell
+        automatically focuses on the correct module for certain commands (e.g.
+        entity &gt; domain, web mvc &gt; web).</p>
+      </li></ul></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e3506"></a>20.2.&nbsp;How it works</h2></div></div></div>
+    
+
+    <p>When tailoring is activated, Roo commands are intercepted by the
+    shell and transformed to a new set of commands according to user
+    specifications obtained from configuration file, if any exist for that
+    particular command. The shell then executes this transformed set of
+    commands instead of the initial command. A user can define one or multiple
+    tailor configurations and activate and deactivate them while working with
+    the shell.</p>
+
+    <p><span class="bold"><strong>With the tailor add-on, you can
+    define:</strong></span></p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>Reusable project structures to use with the "project"
+        command</p>
+      </li></ul></div>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>Default target modules for commands.</p>
+      </li></ul></div>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>Default values for command arguments.</p>
+      </li></ul></div>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>Chains of commands, either triggered by an existing command or
+        composed by an alias</p>
+      </li></ul></div>
+
+    <p>Note that although a tailor configuration can save you a lot of time
+    and effort, it cancels out some of the shell's command completion benefits
+    at the same time. For example, some commands are only available in certain
+    modules (e.g. JPA commands are only available in modules with JPA setup).
+    Tailoring a default module for JPA commands like "entity jpa" means that
+    you can execute those commands while focused on modules without JPA setup.
+    But the tailoring only kicks in at execution time, so the shell won't know
+    about it while you are typing. Thus, the shell won't offer command
+    completion for these commands because it thinks they are not
+    available.</p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e3524"></a>20.3.&nbsp;Tailor Add-On Commands</h2></div></div></div>
+    
+
+    <p><span class="bold"><strong>tailor list</strong></span> - Shows the list of
+    available tailor configurations. A tailor configuration defines the set of
+    transformation you want executed for certain commands (see next section
+    "Tailor Configuration").</p>
+
+    <pre class="programlisting">roo&gt; tailor list
+Available tailor configurations:
+     o webstyle - Web project with 2 modules, DOMAIN and PRESENTATION</pre>
+
+    <p><span class="bold"><strong>tailor activate</strong></span> &#8211; Activate one of
+    the available configurations.</p>
+
+    <pre class="programlisting">roo&gt; tailor activate --name webstyle</pre>
+
+    <p>"tailor list" indicates which configuration is currently
+    activated:</p>
+
+    <pre class="programlisting">roo&gt; tailor list
+Available tailor configurations:
+    o webstyle <span class="bold"><strong>[ ACTIVE ]</strong></span> - Web project with 2 modules, DOMAIN and PRESENTATION
+</pre>
+
+    <p><span class="bold"><strong>tailor deactivate</strong></span> &#8211; Deactivate the
+    tailor mode. There is no active configuration after this command</p>
+
+    <pre class="programlisting">roo&gt; tailor deactivate</pre>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="tailor-configuration"></a>20.4.&nbsp;Tailor Configuration</h2></div></div></div>
+    
+
+    <p>A tailor configuration can be created in two ways:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>XML configuration file (no add-on development required)</p>
+      </li></ul></div>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p>Directly in Java (requires creation and installation of a new
+        add-on)</p>
+      </li></ul></div>
+
+    <p>Each tailor configuration has one or more command configurations. A
+    command configuration defines a set of Actions that are triggered whenever
+    a certain command is executed. Execution of those actions results in a new
+    list of output commands that will eventually be executed by the shell. A
+    command configuration is triggered whenever a command that starts with a
+    defined string is executed. E.g., if a command configuration defines "web
+    mvc" as a trigger, then it will be used by the tailor every time a "web
+    mvc" subcommand is executed. The order in which you define the command
+    configurations might matter, the tailor will always take the first command
+    configuration that matches a command.</p>
+
+    <p>An <span class="bold"><strong>action</strong></span> is a transformation step
+    to be applied to the command defined in a command configuration. Each
+    action type defines a set of parameters that can be set in a tailor
+    definition. The tailor addon can be extended with more action types by the
+    community.</p>
+
+    <p>Actions are executed sequentially by the tailor, so the order in
+    which they are declared matters.</p>
+
+    <p>The following actions are currently available:</p>
+
+    <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d4e3552"></a>20.4.1.&nbsp;Actions</h3></div></div></div>
+      
+
+      <div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="d4e3554"></a>20.4.1.1.&nbsp;execute</h4></div></div></div>
+        
+
+        <p>Adds a command to the list of commands to be executed. Note that
+        each command configuration should have at least one execute action,
+        otherwise the tailor will not lead to any command executions.</p>
+
+        <div class="variablelist"><dl><dt><span class="term">command</span></dt><dd>
+              <p>Command line to be executed. If empty, this action will
+              add the original command to the list of output commands at this
+              point. (optional)</p>
+            </dd><dt><span class="term">exclude</span></dt><dd>
+              <p>A comma separated list of arguments that should be removed
+              from the command before execution. This can be useful if the
+              original command is executed ("command" argument not set), and
+              it was enhanced with additional arguments for the benefit of the
+              tailoring. (optional)</p>
+            </dd></dl></div>
+      </div>
+
+      <div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="d4e3566"></a>20.4.1.2.&nbsp;defaultvalue</h4></div></div></div>
+        
+
+        <p>If the Roo user does not provide a value for an argument with
+        the given name on the shell, this default value will be chosen.</p>
+
+        <div class="variablelist"><dl><dt><span class="term">argument</span></dt><dd>
+              <p>Name of the Roo command's argument that will get a default
+              value. (mandatory)</p>
+            </dd><dt><span class="term">value</span></dt><dd>
+              <p>Default value for the argument. (mandatory)</p>
+            </dd><dt><span class="term">force</span></dt><dd>
+              <p>If "true", the default value will be chosen even if the
+              user specified an alternative value in the command. (optional,
+              defaults to "false")</p>
+            </dd></dl></div>
+      </div>
+
+      <div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="d4e3582"></a>20.4.1.3.&nbsp;focus</h4></div></div></div>
+        
+
+        <div class="variablelist"><dl><dt><span class="term">module</span></dt><dd>
+              <p>Focus on a module, in form of a simple pattern to match
+              against the module names. Does not support regular expressions,
+              just a simple "contains" match. Use this instead of an "execute
+              command 'module focus...'" if you do not want to hard code your
+              module names into the reusable tailor configuration.
+              (mandatory)</p>
+
+              <p><span class="emphasis"><em>Advanced usage</em></span>: Use a comma-separated
+              list of strings to look for in module names. The comma will be
+              interpreted as "AND" by the search for a module. Use a slash "/"
+              before a string in the list to indicate that this next string
+              must "NOT" be contained in the module name.</p>
+            </dd></dl></div>
+      </div>
+    </div>
+
+    <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d4e3591"></a>20.4.2.&nbsp;XML Configuration</h3></div></div></div>
+      
+
+      <p>This section describes how to create a tailor configuration with
+      XML by examples.</p>
+
+      <p>The XML configuration file &#8220;tailor.xml&#8221; must be placed into the
+      root project folder. Alternatively, you can put a "tailor.xml" into your
+      system's user folder, to maintain tailor configurations that you want to
+      reuse over several projects. The tailor addon will only look for this
+      file if it does not find a tailor.xml file in the project root.</p>
+
+      <div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="d4e3595"></a>20.4.2.1.&nbsp;Example 1: Tailor the "project" command</h4></div></div></div>
+        
+
+        <p>The following configuration defines a chain of commands that
+        will be triggered by the project command, to create a parent project
+        with packaging &#8220;pom&#8221; with two modules named &#8220;projectname-domain&#8221; and
+        &#8220;projectname-data&#8221;.</p>
+
+        <p>Note how you can use argument values from the input command as
+        placeholders by using &#8220;<span class="bold"><strong>${argumentname}</strong></span>&#8221;.</p>
+
+        <p><span class="bold"><strong>tailor.xml:</strong></span></p>
+
+        <pre class="programlisting">&lt;tailor name="mywebstyle" description="Standards for web projects with 2 modules"&gt;
+   &lt;config command="project"&gt;
+      &lt;action type="defaultvalue" argument="packaging" value="pom" /&gt;
+      &lt;action type="execute" /&gt;
+      &lt;action type="execute" command="module create <span class="bold"><strong>--moduleName </strong></span><span class="bold"><strong>${projectName}</strong></span><span class="bold"><strong>-domain</strong></span> --topLevelPackage ${topLevelPackage}"/&gt;
+      &lt;action type="focus" module="~"/&gt;
+      &lt;action type="execute" command="module create --moduleName ${projectName}-web --topLevelPackage ${topLevelPackage} --packaging war"/&gt;
+      &lt;action type="focus" module="${projectName}-domain"/&gt;
+   &lt;/config&gt;
+&lt;/tailor&gt;
+</pre>
+
+        <p><span class="bold"><strong>Shell:</strong></span></p>
+
+        <pre class="programlisting">tailor activate --name mywebstyle
+project --topLevelPackage com.foo.sample <span class="bold"><strong>--projectName</strong></span> myapp
+</pre>
+
+        <p><span class="bold"><strong>Will result in:</strong></span></p>
+
+        <pre class="programlisting">project --topLevelPackage com.foo.sample --projectName mywebapp --packaging pom
+module create <span class="bold"><strong>--moduleName myapp-domain</strong></span> --topLevelPackage com.foo.sample
+module focus --moduleName ~
+module create --moduleName myapp-web --topLevelPackage com.foo.sample --packaging war
+module focus --moduleName myapp-domain
+</pre>
+      </div>
+
+      <div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="d4e3614"></a>20.4.2.2.&nbsp;Example 2: Default target modules and default values</h4></div></div></div>
+        
+
+        <p>The following example shows how to tailor the &#8220;entity jpa&#8221;
+        command with a default value for the "activeRecord" argument, and a
+        default module to put all entities in.</p>
+
+        <p>Note that the module name value for the "focus" action is
+        interpreted as "module name <span class="emphasis"><em>contains</em></span> x". That is
+        why this example works with the project setup described in the
+        previous example, which sets up a module named
+        "${projectName]-domain".</p>
+
+        <p><span class="bold"><strong>tailor.xml:</strong></span></p>
+
+        <pre class="programlisting">&lt;config command="entity jpa"&gt;
+   &lt;action type="focus" module="<span class="bold"><strong>domain</strong></span>"/&gt;
+   &lt;action type="defaultvalue" argument="--activeRecord" value="false"/&gt;
+   &lt;action type="execute"/&gt;
+&lt;/config&gt;
+</pre>
+
+        <p><span class="bold"><strong>Shell:</strong></span></p>
+
+        <pre class="programlisting">entity jpa --class ~.Customer</pre>
+
+        <p><span class="bold"><strong>Results in:</strong></span></p>
+
+        <pre class="programlisting">module focus --moduleName <span class="bold"><strong>webapp-domain</strong></span>
+entity jpa --class ~.Customer <span class="bold"><strong>--activeRecord false</strong></span></pre>
+      </div>
+
+      <div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="d4e3631"></a>20.4.2.3.&nbsp;Example 3: Alias command to create layers</h4></div></div></div>
+        
+
+        <p>In this example, the tailor configuration defines a new alias
+        command that will trigger a set of other commands to scaffold
+        repository, service and web layer for an entity. Note that this
+        configuration does not define the "execute" action to execute the
+        original "layer" command.</p>
+
+        <p>Although "layer" is not a command known to the shell, it won&#8217;t
+        produce an error, because the tailor will transform it into a set of
+        different commands, excluding the original. The downside is that you
+        won&#8217;t get command completion support for this alias from the
+        shell.<span class="keycap"><strong></strong></span></p>
+
+        <p><span class="bold"><strong>tailor.xml:</strong></span></p>
+
+        <pre class="programlisting">&lt;config command="layer"&gt;
+   &lt;action type="focus" module="domain"/&gt;
+   &lt;!-- Create spring data JPA repository --&gt;
+   &lt;action type="execute" command="repository jpa --interface ${entity}Repository --entity ${entity}"/&gt;
+   &lt;!-- Create service interface and implementation class--&gt;
+   &lt;action type="execute" command="service --interface ${entity}Service --class ${entity}ServiceImpl --entity ${entity}"/&gt;
+   &lt;action type="focus" module="web"/&gt;
+   &lt;action type="execute" command="web mvc scaffold --class ${entity}Controller --backingType ${entity}"/&gt;
+&lt;/config&gt;
+</pre>
+
+        <p><span class="bold"><strong>Shell:</strong></span></p>
+
+        <pre class="programlisting">layer --entity ~.Customer</pre>
+
+        <p><span class="bold"><strong>Results in:</strong></span></p>
+
+        <pre class="programlisting">module focus --moduleName webapp-domain
+repository jpa --interface ~.CustomerRepository --entity ~.Customer
+service --interface ~.CustomerService --class ~.CustomerServiceImpl --entity ~.Customer
+module focus --moduleName webapp-web
+web mvc scaffold --class ~.CustomerController --backingType ~.Customer
+</pre>
+      </div>
+    </div>
+
+    <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d4e3645"></a>20.4.3.&nbsp;Configuration Addon</h3></div></div></div>
+      
+
+      <p>A new tailor configuration can also be defined in Java, instead of
+      XML. This requires the creation of a new simple addon that you would
+      need to build and install as a bundle in your Roo installation. Once
+      your tailor extension bundle is running, the &#8220;tailor&#8221; commands will
+      recognize all tailor configurations you implemented in that
+      addon.</p>
+
+      <p>This is a more static and elaborate way of creating tailor
+      configurations. However, it might be useful if you want to distribute a
+      configuration to a large group of users.</p>
+
+      <p>After you created a new (simple) addon, you need to do the
+      following:</p>
+
+      <div class="variablelist"><dl><dt><span class="term">Add dependency to addon-tailor</span></dt><dd>
+            <pre class="programlisting">&lt;dependency&gt;
+     &lt;groupId&gt;org.springframework.roo&lt;/groupId&gt;
+     &lt;artifactId&gt;org.springframework.roo.addon.tailor&lt;/artifactId&gt;
+  &lt;/dependency&gt;
+</pre>
+          </dd><dt><span class="term">Create a class that implements
+          TailorConfigurationFactory</span></dt><dd>
+            <pre class="programlisting"><span class="bold"><strong>@Component
+@Service</strong></span>
+public class TailorWebSimpleConfiguration <span class="bold"><strong>implements TailorConfigurationFactory</strong></span> {
+   ...
+}</pre>
+          </dd><dt><span class="term">Override createTailorConfiguration()</span></dt><dd>
+            <pre class="programlisting">@Override
+public TailorConfiguration createTailorConfiguration() {
+      String description = "Web project with 2 modules DOMAIN-PRESENTATION";
+      TailorConfiguration configuration = new TailorConfiguration("webstyle-simple", description);
+      configuration.addCommandConfig(createCommandConfigProject());
+      configuration.addCommandConfig(createCommandConfigJpaSetup());
+      return configuration;
+}
+</pre>
+          </dd><dt><span class="term">Implement and add the CommandConfiguration objects you want to
+          support.</span></dt><dd>
+            <p>Add a chain of actions similar to how you would do in an XML
+            configuration file, as described above.</p>
+
+            <pre class="programlisting">private CommandConfiguration createCommandConfigJpaSetup() {
+      CommandConfiguration config = new CommandConfiguration();
+      config.setCommandName("jpa setup");
+      config.addAction(ActionConfigFactory.focusAction(
+           "domain"));
+      config.addAction(ActionConfigFactory.defaultArgumentAction(
+           "database", "HYPERSONIC_IN_MEMORY"));
+      config.addAction(ActionConfigFactory.defaultArgumentAction(
+                  "provider", "HIBERNATE"));
+      config.addAction(ActionConfigFactory.executeAction());
+      return config;
+}
+</pre>
+          </dd></dl></div>
+
+      <p></p>
+    </div>
+  </div>
+</div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="external-addons.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="appendices.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Part&nbsp;IV.&nbsp;External Add-Ons&nbsp;</td><td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.springsource.com/" title="SpringSource - Spring from the Source">Sponsored by SpringSource
+                                        </a></span></td><td width="40%" align="right" valign="top">&nbsp;Part&nbsp;V.&nbsp;Appendices</td></tr></table></div></body></html>

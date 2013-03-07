@@ -1,0 +1,104 @@
+# Copyright (c) 2011 VMware, Inc.  All rights reserved.
+
+COMMANDS=" \
+	restart \
+	run \
+	start \
+	status \
+	stop"
+
+
+_comp_word_contains() {
+	CANDIDATES=($1)
+
+	for (( i = 0; i < ${#COMP_WORDS[@]}; i++ )); do
+		for (( j = 0; j < ${#CANDIDATES[@]}; j++ )); do
+			if [[ "$COMP_CWORD" != "$i" && "${CANDIDATES[j]}" == "${COMP_WORDS[i]}" ]]; then
+				return 0
+			fi
+		done
+	done
+	return 1
+}
+
+_collection_contains() {
+	COLLECTION=($1)
+	CANDIDATE="$2"
+
+	for (( i = 0; i < ${#COLLECTION[@]}; i++ )); do
+		if [[ "${COLLECTION[i]}" == "$CANDIDATE" ]]; then
+			return 0
+		fi
+	done
+	return 1
+}
+
+_instance_names() {
+	INSTANCE_DIR="."
+
+	for (( i = 0; i < ${#COMP_WORDS[@]}; i++ )); do
+		if [[ "${COMP_WORDS[i]}" == "-n" ]]; then
+			INSTANCE_DIR=${COMP_WORDS[i + 1]}
+			break
+		fi
+	done
+
+	if [[ -e "$INSTANCE_DIR" && -d "$INSTANCE_DIR" ]]; then
+		find "$INSTANCE_DIR" -depth 2 -type f -name ".tc-runtime-instance" | xargs -n 1 dirname | xargs -n 1 basename
+	fi
+}
+
+_installation() {
+	local cur prev
+	_get_comp_words_by_ref -n : cur prev
+
+	INSTANCE_NAMES=`_instance_names`
+
+	_collection_contains "$INSTANCE_NAMES" "$prev"
+	INSTANCE_NAME_PREVIOUS="$?"
+
+	if [[ "-n" == $prev ||  "-d" == $prev ]]; then
+		COMPREPLY=( $(compgen -d $cur) )
+	elif [[ "$INSTANCE_NAME_PREVIOUS" -eq 0 ]]; then
+		COMPREPLY=( $(compgen -W "$COMMANDS" -- $cur) )
+	else
+		OPTS=""
+
+		_comp_word_contains "-d"
+		if [[ "$?" -eq 1 ]]; then
+			OPTS="-d $OPTS"
+		fi
+
+		_comp_word_contains "-n"
+		if [[ "$?" -eq 1 ]]; then
+			OPTS="-n $OPTS"
+		fi
+
+		_comp_word_contains "$INSTANCE_NAMES"
+		if [[ "$?" -eq 1 ]]; then
+			OPTS="$INSTANCE_NAMES $OPTS"
+		fi
+
+		COMPREPLY=( $(compgen -W "$OPTS" -- $cur) )
+	fi
+}
+
+_instance() {
+	local cur
+	_get_comp_words_by_ref -n : cur
+
+	_comp_word_contains "$COMMANDS"
+	if [[ "$?" -eq 1 ]]; then
+		COMPREPLY=( $(compgen -W "$COMMANDS" -- $cur) )
+	fi
+}
+
+_tcruntime_ctl() {
+	grep -q 'tcserver.pid' ${COMP_WORDS[0]}
+	if [[ "$?" -eq "0" ]]; then
+		_installation
+	else
+		_instance
+	fi
+}
+complete -o filenames -F _tcruntime_ctl tcruntime-ctl.sh

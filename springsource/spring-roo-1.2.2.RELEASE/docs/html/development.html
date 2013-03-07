@@ -1,0 +1,243 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;17.&nbsp;Development Processes</title><link rel="stylesheet" href="css/html.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.73.2"><link rel="start" href="index.html" title="Spring Roo - Reference Documentation"><link rel="up" href="internals.html" title="Part&nbsp;III.&nbsp;Internals and Add-On Development"><link rel="prev" href="internals.html" title="Part&nbsp;III.&nbsp;Internals and Add-On Development"><link rel="next" href="simple-addons.html" title="Chapter&nbsp;18.&nbsp;Simple Add-Ons"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div xmlns:fo="http://www.w3.org/1999/XSL/Format" style="background-color:white;border:none;height:73px;border:1px solid black;"><a style="border:none;" href="http://www.springsource.org/roo/" title="The Spring Framework - Spring Roo"><img style="border:none;" src="images/xdev-spring_logo.jpg"></a><a style="border:none;" href="http://www.springsource.com/" title="SpringSource - Spring from the Source"><img style="border:none;position:absolute;padding-top:0px;right:2em;" src="images/banner.png"></a></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="development"></a>Chapter&nbsp;17.&nbsp;Development Processes</h2></div></div></div>
+  
+
+  <p>In this chapter we'll cover how we develop Roo, and how you can check
+  it out and get involved.</p>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="development-guidelines-we-follow"></a>17.1.&nbsp;Guidelines We Follow</h2></div></div></div>
+    
+
+    <p>Whether you are part of the Roo core development team, you want to
+    contribute patches, or you want to develop add-ons there are a few
+    guidelines we would like to bring to your attention.</p>
+
+    <div class="orderedlist"><ol type="1"><li>
+        <p>Design Goals</p>
+
+        <div class="itemizedlist"><ul type="disc"><li>
+            <p>High productivity for Java developers</p>
+
+            <div class="itemizedlist"><ul type="circle"><li>
+                <p>Encourage reuse of existing knowledge, skills and
+                experience</p>
+              </li></ul></div>
+          </li><li>
+            <p>Eliminate barriers to adoption, no runtime component,
+            minimal size, best possible development experience</p>
+
+            <div class="itemizedlist"><ul type="circle"><li>
+                <p>Avoid lock-in</p>
+              </li><li>
+                <p>No runtime component</p>
+              </li><li>
+                <p>Minimal download size</p>
+              </li><li>
+                <p>Best possible development experience</p>
+              </li></ul></div>
+          </li><li>
+            <p>Embrace the strengths of Java</p>
+
+            <div class="itemizedlist"><ul type="circle"><li>
+                <p>Development-time: tooling, popularity, API quality,
+                static typing</p>
+              </li></ul></div>
+
+            <div class="itemizedlist"><ul type="circle"><li>
+                <p>Deploy-time: performance, memory use, footprint</p>
+              </li></ul></div>
+          </li></ul></div>
+      </li><li>
+        <p>Embrace the advantages of AspectJ</p>
+
+        <div class="itemizedlist"><ul type="disc"><li>
+            <p>Use AspectJ inter-type declarations (ITDs) for &#8220;active&#8221;
+            generation</p>
+
+            <div class="itemizedlist"><ul type="circle"><li>
+                <p>Active generation automatically maintains output</p>
+              </li></ul></div>
+          </li><li>
+            <p>Delivers compilation unit separation of concerns</p>
+
+            <div class="itemizedlist"><ul type="circle"><li>
+                <p>Easier for users, and easier for us as developers</p>
+              </li></ul></div>
+          </li><li>
+            <p>Instant IDE support</p>
+
+            <div class="itemizedlist"><ul type="circle"><li>
+                <p>Reduce time to market and adoption barriers</p>
+              </li></ul></div>
+          </li><li>
+            <p>Other good reasons</p>
+
+            <div class="itemizedlist"><ul type="circle"><li>
+                <p>Mature, &#8220;push in&#8221; refactor, compile-time is
+                welcome</p>
+              </li></ul></div>
+          </li></ul></div>
+      </li><li>
+        <p>ITD Model</p>
+
+        <div class="itemizedlist"><ul type="disc"><li>
+            <p>Roo owns *_Roo_*.aj files</p>
+
+            <div class="itemizedlist"><ul type="circle"><li>
+                <p>Will delete them if necessary</p>
+              </li></ul></div>
+          </li></ul></div>
+
+        <div class="itemizedlist"><ul type="disc"><li>
+            <p>Every ITD-providing add-on registers a 'suffix'
+            (namespace)</p>
+
+            <div class="itemizedlist"><ul type="circle"><li>
+                <p>E.g. the 'Entity' add-on provides *_ROO_JPA_ACTIVE_RECORD.aj</p>
+              </li><li>
+                <p>A missing ITD provider causes AJ file removal</p>
+              </li></ul></div>
+          </li></ul></div>
+
+        <div class="itemizedlist"><ul type="disc"><li>
+            <p>ITDs have proper import management</p>
+
+            <div class="itemizedlist"><ul type="circle"><li>
+                <p>So they look and feel normal to developers</p>
+              </li></ul></div>
+
+            <div class="itemizedlist"><ul type="circle"><li>
+                <p>So they 'push-in refactor' in a natural form</p>
+              </li></ul></div>
+          </li></ul></div>
+      </li><li>
+        <p>Usability = Highest Priority</p>
+
+        <div class="itemizedlist"><ul type="disc"><li>
+            <p>Interactivity of Roo Shell</p>
+          </li><li>
+            <p>Tab completion, context awareness, command hiding, hint
+            support, etc</p>
+          </li><li>
+            <p>Background monitoring of externally made changes (allows
+            integration with any development style)</p>
+          </li><li>
+            <p>Background monitoring to avoid crude 'generation'
+            steps</p>
+          </li></ul></div>
+      </li><li>
+        <p>Immutability of Metadata Types</p>
+
+        <div class="itemizedlist"><ul type="disc"><li>
+            <p>Immutability as a first step to manage concurrency</p>
+          </li><li>
+            <p>String-based keys (start with 'MID:')</p>
+          </li><li>
+            <p>Metadata and keys built on demand only (never
+            persisted)</p>
+          </li><li>
+            <p>Metadata can depend on other metadata</p>
+
+            <div class="itemizedlist"><ul type="circle"><li>
+                <p>if 'upstream' metadata changes, 'downstream' metadata is
+                notified</p>
+              </li><li>
+                <p>Some metadata will want to monitor the file
+                system</p>
+              </li></ul></div>
+          </li><li>
+            <p>Central metadata service available and cache is provided to
+            enhance performance</p>
+          </li></ul></div>
+      </li><li>
+        <p>Conventions we follow</p>
+
+        <div class="itemizedlist"><ul type="disc"><li>
+            <p>Ensure usability is first-class</p>
+          </li><li>
+            <p>Minimize the JAR footprint that Roo requires</p>
+          </li><li>
+            <p>Relocate runtime needs to sister Spring projects</p>
+          </li><li>
+            <p>Embrace immutability as much as possible</p>
+          </li><li>
+            <p>Maximize performance in generated code</p>
+          </li><li>
+            <p>Minimize memory consumption in generated code</p>
+          </li><li>
+            <p>Use long artifact IDs to facilitate identification</p>
+          </li><li>
+            <p>Don't put into @Roo* what you could calculate</p>
+          </li><li>
+            <p>Don't violate generator predictability conventions</p>
+          </li></ul></div>
+      </li></ol></div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="development-source-repository"></a>17.2.&nbsp;Source Repository</h2></div></div></div>
+    
+
+    <p>We develop against a public Git repository from which you can
+    anonymously checkout the code:</p>
+
+    <pre class="programlisting">git clone git://git.springsource.org/roo/roo.git spring-roo</pre>
+
+    <p>Review source code without Git <a class="ulink" href="http://git.springsource.org/roo/roo/trees/master" target="_top">http://git.springsource.org/roo/roo/trees/master</a>
+    or <a class="ulink" href="https://fisheye.springsource.org/changelog/spring-roo" target="_top">https://fisheye.springsource.org/changelog/spring-roo</a>.</p>
+
+    <p>Roo itself uses Maven, so it's very easy to build the standard package,
+    install, assembly and site goals. PGP should be installed, see the 'Setting Up
+    for Development' section below for details.</p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="development-setup"></a>17.3.&nbsp;Setting Up for Development</h2></div></div></div>
+    
+
+    <p>We maintain up-to-date documentation in the <code class="code">readme.txt</code>
+    in the root of the checkout location. Please follow these instructions
+    carefully. </p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="development-patches"></a>17.4.&nbsp;Submitting Patches</h2></div></div></div>
+    
+
+    <p>Submitting a patch for a bug, improvement or even a new feature
+    which you always wanted addressed can be of great help to the Spring Roo
+    project.</p>
+
+    <p>To get started, you could build Roo from sources (as described
+    above), and locally start changing source code as you see fit. Then test
+    your changes and if all works well, you can create a git patch and attach
+    it to a ticket in our bug tracker. To create a patch with Git you can
+    simply use the following command in Roo's source code root
+    directory:</p>
+
+    <pre class="programlisting">&lt;spring-roo&gt;$ git status
+&lt;spring-roo&gt;$ git add (files)
+&lt;spring-roo&gt;$ git commit -m 'Explain what I changed'
+&lt;spring-roo&gt;$ <span class="bold"><strong>git format-patch origin/master --stdout &gt; ROO-XXXX.patch</strong></span></pre><p>The
+    resulting .patch file can then be attached to the ROO-XXXX ticket in our
+    bug tracker.</p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="development-committer-path"></a>17.5.&nbsp;Path to Committer Status</h2></div></div></div>
+    
+
+    <p>Essentially if you submit a patch and we think it is useful to
+    commit to the code base, we will ask you to complete our contributor
+    agreement. This is just a simple web form that deals with issues like
+    patents and copyrights. Once this is done, we can apply your patch to the
+    source code repository. </p>
+
+    <p>If you're working on a large module that is part of the Roo Git
+    repository, and you have a history of providing quality patches and
+    "looking after" the code you've previously written, we will likely invite
+    you to join us as a committer. We have certain commit policies which are
+    more fully detailed in the <code class="code">readme.txt</code> that is in the root of
+    the checkout location. We have numerous committers external to VMware, so
+    Roo is very much a welcoming project in terms of committers. We look
+    forward to you joining us.</p>
+  </div>
+</div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="internals.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="simple-addons.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Part&nbsp;III.&nbsp;Internals and Add-On Development&nbsp;</td><td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.springsource.com/" title="SpringSource - Spring from the Source">Sponsored by SpringSource
+                                        </a></span></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;18.&nbsp;Simple Add-Ons</td></tr></table></div></body></html>

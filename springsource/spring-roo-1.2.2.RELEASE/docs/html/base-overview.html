@@ -1,0 +1,90 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;7.&nbsp;Base Add-On Overview</title><link rel="stylesheet" href="css/html.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.73.2"><link rel="start" href="index.html" title="Spring Roo - Reference Documentation"><link rel="up" href="base.html" title="Part&nbsp;II.&nbsp;Base Add-Ons"><link rel="prev" href="base.html" title="Part&nbsp;II.&nbsp;Base Add-Ons"><link rel="next" href="base-persistence.html" title="Chapter&nbsp;8.&nbsp;Persistence Add-On"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div xmlns:fo="http://www.w3.org/1999/XSL/Format" style="background-color:white;border:none;height:73px;border:1px solid black;"><a style="border:none;" href="http://www.springsource.org/roo/" title="The Spring Framework - Spring Roo"><img style="border:none;" src="images/xdev-spring_logo.jpg"></a><a style="border:none;" href="http://www.springsource.com/" title="SpringSource - Spring from the Source"><img style="border:none;position:absolute;padding-top:0px;right:2em;" src="images/banner.png"></a></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="base-overview"></a>Chapter&nbsp;7.&nbsp;Base Add-On Overview</h2></div></div></div>
+  
+
+  <p>When you download the Spring Roo distribution ZIP, there are actually
+  two major logical components in use. The first of these is the
+  "<span class="emphasis"><em>Roo core</em></span>", which provides an environment in which to
+  host add-ons and provide services to them. The other component is what we
+  call "<span class="emphasis"><em>base add-ons</em></span>". A base add-on is different from a
+  third party add-on only in that it is included in the Roo distribution by
+  default and does not require you to separately install it. In addition, you
+  cannot remove a base add-on using normal Roo commands.</p>
+
+  <p>Base add-ons always adopt the package name prefix
+  <code class="code">org.springframework.roo.addon</code>. We also have a part of Roo known
+  as "Roo core". This relates to the core modules, and these always have
+  package names that start with <code class="code">org.springframework.roo</code> (but
+  excluding those with "<code class="code">addon</code>" as the next package name segment,
+  as in that case they'd be a "base add-on"). Roo core provides very few
+  commands, and whatever commands it provides are generally internal
+  infrastructure-related features (like "<a class="link" href="command-index.html#command-index-poll-status" title="A.29.4.&nbsp;poll status">poll status</a>" or "<a class="link" href="command-index.html#command-index-metadata-for-id" title="A.25.2.&nbsp;metadata for id">metadata for id</a>") or
+  sometimes aggregate the features provided by several individual base add-ons
+  (e.g. "<a class="link" href="command-index.html#command-index-entity-jpa" title="A.18.5.&nbsp;entity jpa"></a><a class="link" href="">entity</a><a class="link" href="command-index.html#command-index-entity-jpa" title="A.18.5.&nbsp;entity jpa"> jpa</a>
+  --testAutomatically").</p>
+
+  <p>Add-ons that do not ship with Spring Roo but are nevertheless about to
+  be used with it are known as "installable add-ons" (these were previously
+  called "third-party add-ons", but we decided to change the name in Roo 1.1
+  in view that SpringSource itself was publishing add-ons that were not
+  shipping as part of Roo and the use of the term "third-party" was
+  confusing). Such add-ons do not appear under the
+  <code class="code">org.springframework.roo</code> package name space. A large number of
+  individuals and organizations publish installable add-ons, and indeed even
+  within the SpringSource division of VMware we have teams publishing
+  installable add-ons. The decision as to whether an add-on becomes a base
+  add-on or an installable add-on depends on a large number of factors, but in
+  general we prefer installable add-ons over base add-ons. This offers
+  flexibility around release cycles, licenses, deployment footprint, code
+  maintenance and so on.</p>
+
+  <p>Of course as a user of Roo you do not need to be aware of whether a
+  particular component is part of Roo core, a base add-on or an installable
+  add-on. It's just useful for us to formally define these commonly-used terms
+  and explain the impact on whether you need to install or uninstall a
+  component or not.</p>
+
+  <p>The individual base add-ons provided by Roo provide capabilities in
+  the following key functional areas:</p>
+
+  <div class="itemizedlist"><ul type="disc"><li>
+      <p>Project management (like project creation, dependency management,
+      "perform" commands)</p>
+    </li><li>
+      <p>General type management (like creation of types, toString method,
+      JavaBean methods)</p>
+    </li><li>
+      <p>Persistence (like JPA setup, entities)</p>
+    </li><li>
+      <p>Field management (like JSR 303 and field creation with JPA
+      compliance)</p>
+    </li><li>
+      <p>Database introspection and reverse engineering</p>
+    </li><li>
+      <p>Dynamic finders (creation of finders without needing to write the
+      JPA-QL for them)</p>
+    </li><li>
+      <p>JUnit testing (with integration and mock testing)</p>
+    </li><li>
+      <p>Spring MVC (including URL rewriting, JSP services, controller
+      management)</p>
+    </li><li>
+      <p>Spring Web Flow</p>
+    </li><li>
+      <p>Spring Security</p>
+    </li><li>
+      <p>Selenium testing</p>
+    </li><li>
+      <p>Java Message Service (JMS)</p>
+    </li><li>
+      <p>Simple Mail Transfer Service (SMTP)</p>
+    </li><li>
+      <p>Log4J configuration</p>
+    </li></ul></div>
+
+  <p>We have added dedicated chapters for many of these functional areas in
+  this, <a class="link" href="base.html" title="Part&nbsp;II.&nbsp;Base Add-Ons">Part II</a> of our documentation. You can also
+  find more introductory material concerning these areas in <a class="link" href="welcome.html" title="Part&nbsp;I.&nbsp;Welcome to Spring Roo">Part I</a>, along with our <a class="link" href="intro.html#intro-exploring-sample" title="1.6.&nbsp;Exploring the Roo Samples">samples</a>, the <a class="link" href="command-index.html" title="Appendix&nbsp;A.&nbsp;Command Index">command reference</a> and <a class="link" href="resources.html" title="Appendix&nbsp;D.&nbsp;Roo Resources">project resources</a>.</p>
+</div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="base.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="base-persistence.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Part&nbsp;II.&nbsp;Base Add-Ons&nbsp;</td><td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.springsource.com/" title="SpringSource - Spring from the Source">Sponsored by SpringSource
+                                        </a></span></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;8.&nbsp;Persistence Add-On</td></tr></table></div></body></html>

@@ -1,0 +1,300 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;6.&nbsp;Removing Roo</title><link rel="stylesheet" href="css/html.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.73.2"><link rel="start" href="index.html" title="Spring Roo - Reference Documentation"><link rel="up" href="welcome.html" title="Part&nbsp;I.&nbsp;Welcome to Spring Roo"><link rel="prev" href="existing.html" title="Chapter&nbsp;5.&nbsp;Existing Building Blocks"><link rel="next" href="base.html" title="Part&nbsp;II.&nbsp;Base Add-Ons"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div xmlns:fo="http://www.w3.org/1999/XSL/Format" style="background-color:white;border:none;height:73px;border:1px solid black;"><a style="border:none;" href="http://www.springsource.org/roo/" title="The Spring Framework - Spring Roo"><img style="border:none;" src="images/xdev-spring_logo.jpg"></a><a style="border:none;" href="http://www.springsource.com/" title="SpringSource - Spring from the Source"><img style="border:none;position:absolute;padding-top:0px;right:2em;" src="images/banner.png"></a></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="removing"></a>Chapter&nbsp;6.&nbsp;Removing Roo</h2></div></div></div>
+  
+
+  <p>While we'll be sad to see you go, we're happy that Roo was able to
+  help you in some way with your Spring-based projects. We also know that most
+  people reading this chapter aren't actually likely to remove Roo at all, and
+  are simply wondering how they'd go about it in the unlikely event they ever
+  actually wanted to. If you have a source control system, it's actually a
+  good idea to complete these instructions (without checking in the result!)
+  just to satisfy yourself that it's very easy and reliable to remove
+  Roo.</p>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="removing-how-avoids"></a>6.1.&nbsp;How Roo Avoids Lock-In</h2></div></div></div>
+    
+
+    <p>At the time we created the <a class="link" href="background.html#background-mission" title="C.2.&nbsp;Mission Statement">mission statement</a> for Roo, a key
+    dimension was "<span class="emphasis"><em>without compromising engineering integrity or
+    flexibility</em></span>". To us that meant not imposing an unacceptable
+    burden on projects like forcing them to use the Roo API or runtime or
+    locking them in. While it complicated our design to achieve this, we're
+    very proud of the fact Roo's approach has no downside at runtime or
+    lock-in or future flexibility. You really can have your cake and eat it
+    too, to reflect on the common English expression.</p>
+
+    <p>Roo avoids locking you in by adopting an active code generation
+    approach, but unlike other code generators, we place Roo generated code in
+    separate compilation units that use AspectJ inter-type declarations. This
+    is vastly better than traditional active code generation alternatives like
+    forcing you to extend a particular class, having the code generator extend
+    one of your classes, or forcing you to program a model in an unnatural
+    diagrammatic abstraction. With Roo you just get on with writing Java code
+    and let Roo take care of writing and maintaining the code you don't want
+    to bother writing.</p>
+
+    <p>The other aspect of how Roo avoids lock-in is using annotations with
+    <a class="ulink" href="http://www.j2ee.me/j2se/1.5.0/docs/api/java/lang/annotation/RetentionPolicy.html#SOURCE" target="_top">source-level
+    retention</a>. What this means is the annotations are not preserved in
+    your <code class="code">.class</code> files by the time they are compiled. This in turn
+    means you do not need the Roo annotation library in your runtime
+    classpath. If you look at your <code class="code">WEB-INF/lib </code>directory (if
+    you're building a web project), you will find absolutely no Roo-related
+    JARs. They simply don't exist. In fact if you look at your
+    development-time classpath, only the Roo annotation JAR library will be
+    present - and that JAR doesn't contain a single executable line of code.
+    The entire behaviour of Roo is accomplished at development time when you
+    load the Roo shell. If you also think about the absence of executable code
+    anywhere in your project classpath, there is no scope for possible Roo
+    bugs to affect your project, and there is no risk of upgrading to a later
+    version of Roo.</p>
+
+    <p>Because we recommend people check their Roo-generated
+    <code class="code">*_Roo_*.aj</code> files into source control, you don't even need to
+    load Roo to perform a build of your project. The source-level annotation
+    library referred to in the previous paragraph is in a public Maven
+    repository and will automatically be downloaded to your computer if it's
+    not already present. This means Roo is not part of your build process and
+    your normal source control system branching and tagging processes will
+    work.</p>
+
+    <p>This also means that a project can "stop using Roo" by simply never
+    loading the Roo shell again. Because the <code class="code">*_Roo_*.aj</code> files are
+    written to disk by the Roo shell when it last ran, even if it's never
+    loaded again those files will still be present. The removal procedures in
+    this chapter therefore focus on a more complete removal, in that you no
+    longer even want the <code class="code">*_Roo_*.aj</code> files any more. That said,
+    there's nothing wrong with just never loading Roo again and keeping the
+    <code class="code">*_Roo_*.aj</code> files. The only possible problem of adopting the
+    "never load Roo again" approach is that someone might load Roo again and
+    those files will be updated to reflect the latest optimisations that Roo
+    can provide for you.</p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="removing-pros-cons"></a>6.2.&nbsp;Pros and Cons of Removing Roo</h2></div></div></div>
+    
+
+    <p>By removing Roo, you eliminate the Roo-generated source files from
+    your project. These are inter-type declarations stored in
+    <code class="code">*_Roo_*.aj</code> files. You also remove the Roo annotation library
+    from your project. This might be attractive if you've made a decision to
+    no longer use Roo for some reason, or you'd like to ship the finished
+    project to your client and they'd prefer a simple Java project where every
+    piece of code is in standard <code class="code">.java</code> files. Another reason you
+    might like to remove Roo is to simply satisfy yourself it's easy to do so
+    and therefore eliminate a barrier to adopting Roo for real projects in the
+    first place.</p>
+
+    <p>Even though it's easy to do so, there are downsides of removing Roo
+    from your project:</p>
+
+    <div class="itemizedlist"><ul type="disc"><li>
+        <p><span class="emphasis"><em>Cluttered Java classes</em></span>: If the
+        <code class="code">*_Roo_*.aj</code> files are removed, their contents need to go
+        somewhere. That somewhere is into your <code class="code">.java</code> source
+        files. This means your <code class="code">.java</code> source files will be
+        considerably longer and contain code that no developer actually wrote.
+        When developers open your <code class="code">.java</code> source files, they'll
+        need to figure out what was written by hand and is unique to the
+        class, what was automatically generated and then modified, and what
+        was automatically generated and never modified. If using Roo this
+        problem is eliminated, as anything automatically generated is in a
+        separate, easily-identified source file.</p>
+      </li><li>
+        <p><span class="emphasis"><em>No round-trip support</em></span>: Let's imagine for a
+        moment that you've written (either by hand or via your IDE's code
+        generation feature) a <code class="code">toString()</code> method and getter/setter
+        pairs for all your fields. You then decide to rename a field. Suddenly
+        the getter, setter and <code class="code">toString()</code> methods are all in
+        error. If you use Roo, it automatically detects your change and
+        appropriately updates the generated code. If you remove Roo, you'll
+        lose this valuable round-trip support and be doing a lot more tedious
+        work by hand.</p>
+      </li><li>
+        <p><span class="emphasis"><em>No optimisations to generated files</em></span>: With
+        each version of Roo we make improvements to the automatically-created
+        <code class="code">*_Roo_*.aj</code> files. These improvements are automatically
+        made to your <code class="code">*_Roo_*.aj</code> files when you load a new version
+        of Roo. These improvements occasionally fix bugs, but more often
+        provide new features and implement existing features more efficiently
+        (remember eliminating engineering trade-offs and therefore maximising
+        efficiency is a major objective in our <a class="link" href="background.html#background-mission" title="C.2.&nbsp;Mission Statement">mission statement</a>). If you remove
+        the <code class="code">*_Roo_*.aj</code> files, you'll receive the code as of that
+        date and you'll miss out on further improvements we make.</p>
+      </li><li>
+        <p><span class="emphasis"><em>Loss of Roo commands</em></span>: There are dozens of
+        Roo commands available to assist you adapt to evolving project
+        requirements. Next month you might be asked to add JMS services to
+        your project. With Roo you just "<a class="link" href="command-index.html#command-index-jms-setup" title="A.17.3.&nbsp;jms setup">jms setup</a>". The month after
+        you're asked about SMTP, so you just "<a class="link" href="command-index.html#command-index-email-sender-setup" title="A.23.1.&nbsp;email sender setup">email sender setup</a>".
+        If you've eliminated Roo, you'll need to resort to much more
+        time-consuming manual configuration (with its associated trial and
+        error).</p>
+      </li><li>
+        <p><span class="emphasis"><em>Deprecated library versions</em></span>: Because Roo
+        automatically updates your code and has a good knowledge of your
+        project, it's easy to always use the latest released versions of
+        important runtime technologies like Spring and JPA. If you stop using
+        Roo, you'll need to manually do all of the work involved in upgrading
+        your project to newer versions. This will mean you're likely to end up
+        on older runtime library versions that have bugs, fewer features and
+        are not maintained or supported. With Roo you significantly mitigate
+        this risk.</p>
+      </li><li>
+        <p><span class="emphasis"><em>Undesirable architectural outcomes</em></span>: With
+        Roo you achieve team-wide consistency and a solution with a high level
+        of engineering integrity. If developers are forced to write
+        repetitious code themselves and no longer enjoy optimised Roo
+        commands, you'll likely find that over time you lose some of the
+        consistency and engineering advantages of having used Roo in the first
+        place.</p>
+      </li><li>
+        <p><span class="emphasis"><em>Higher cost</em></span>: With the above in mind, you'll
+        probably find development takes longer, maintenance takes longer and
+        your runtime solution will be less efficient than if you'd stayed with
+        Roo.</p>
+      </li></ul></div>
+
+    <p>As such we believe using Roo and continuing to use Roo makes a lot
+    of sense. But if you're willing to accept the trade-offs of removing Roo
+    (which basically means you switch to writing your project the unproductive
+    "old fashioned way"), you can remove Roo very easily. Don't forget when in
+    doubt you can always defer the decision. It's not as if Roo won't let you
+    remove it just as easily in six months or two years from now!</p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="removing-step-by-step"></a>6.3.&nbsp;Step-by-Step Removal Instructions</h2></div></div></div>
+    
+
+    <p>The following instructions explain how to remove Spring Roo from one
+    of your projects that has to date been using Roo. Naturally if you'd
+    simply like to remove Roo from your computer (as opposed to from an
+    existing project), the process is as simple as removing the Roo
+    installation directory and symbolic link. This section instead focuses on
+    the removal from your projects.</p>
+
+    <p>As mentioned above, a simple way of stopping to use Roo is to simply
+    never load it again. The <code class="code">*_Roo_*.aj</code> files will still be on
+    disk and your project will continue to work regardless of whether the Roo
+    shell is never launched again. You can even uninstall the Roo system from
+    your computer and your project will still work. The advantage of this
+    approach is you haven't lost most of the benefits of using Roo and it's
+    very easy to simply reload the Roo shell again in the future. This section
+    covers the more complete removal option should you not even want the
+    <code class="code">*_Roo_*.aj</code> files any more.</p>
+
+    <p>Please be aware that enhancement request <a class="ulink" href="https://jira.springsource.org/browse/ROO-222" target="_top">ROO-222</a>
+    exists to replace step 1 with a Roo command, and <a class="ulink" href="https://jira.springsource.org/browse/ROO-330" target="_top">ROO-330</a>
+    similarly focuses on steps 2 and 3. Please vote for these enhancement
+    requests if you'd like them actioned, although the instructions below
+    still provide a fast and usable removal procedure.</p>
+
+    <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="removing-step-by-step-1"></a>6.3.1.&nbsp;Step 1: Push-In Refactor</h3></div></div></div>
+      
+
+      <p>Before proceeding, ensure you have quit any running Roo shell. We
+      also recommend you run any tests and load your web application interface
+      (if there is one) to verify your project works correctly before starting
+      this procedure. We also recommend that you create a branch or tag in
+      your source control repository that represents the present
+      "Roo-inclusive" version, as it will help you should you ever wish to
+      <a class="link" href="removing.html#removing-reversal" title="6.4.&nbsp;Reenabling Roo After A Removal">reenable Roo after a
+      removal</a>.</p>
+
+      <p>To remove Roo from a project, you need to import the project into
+      Eclipse or SpringSource Tool Suite. Once the project has been imported
+      into Eclipse, right-click the project name in Package Explorer and
+      select Refactor &gt; Push-In Refactor. If this option is missing, ensure
+      that you have a recent version of AJDT installed. After selecting the
+      push-in refactor menu option, a list of all Roo inter-type declarations
+      will be displayed. Simply click OK. AJDT will have now moved all of the
+      Roo inter-type declarations into your standard <code class="code">.java</code> files.
+      The old <code class="code">*_Roo_*.aj</code> files will have automatically been
+      deleted.</p>
+    </div>
+
+    <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="removing-step-by-step-2"></a>6.3.2.&nbsp;Step 2: Annotation Source Code Removal</h3></div></div></div>
+      
+
+      <p>While your project is now free of inter-type declarations, your
+      <code class="code">.java</code> files will still have <code class="code">@Roo</code> annotations
+      within them. In addition, there will be <code class="code">import</code> directives
+      at the top of your <code class="code">.java</code> files to import those
+      <code class="code">@Roo</code> annotations. You can easily remove these unwanted
+      members by clicking Search &gt; Search &gt; File Search, containing text
+      "<code class="code">\n.*[@\.]Roo[^t_]+?.*$</code>" (without the quotes), file name
+      pattern "<code class="code">*.java</code>" (without the quotes), ticking the "Regular
+      expression" and "Case sensitive" check-boxes and clicking "Replace". When
+      the following window appears and asks you for a replacement pattern, leave
+      it blank and continue. All of the Roo statements will have now been
+      removed. We have noticed for an unknown reason that sometimes this
+      operation needs to be repeated twice in Eclipse.</p>
+    </div>
+
+    <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="removing-step-by-step-3"></a>6.3.3.&nbsp;Step 3: Annotation JAR Removal</h3></div></div></div>
+      
+
+      <p>By now your <code class="code">.java</code> files do not contain any Roo
+      references at all. You therefore don't require the
+      <code class="code">org.springframework.roo.annotations-*.jar</code> library in your
+      development-time classpath. Simply open your <code class="code">pom.xml</code> and
+      locate the <code class="code">&lt;dependency&gt;</code> element which contains
+      <code class="code">&lt;artifactId&gt;org.springframework.roo.annotations&lt;/artifactId&gt;</code>.
+      Delete (or comment out) the entire <code class="code">&lt;dependency&gt;</code>
+      element. If you're running m2Eclipse, there is no need to do anything
+      further. If you used the command-line <code class="code">mvn</code> command to create
+      your Eclipse <code class="code">.classpath</code> file, you'll need to execute
+      <code class="code">mvn eclipse:clean eclipse:eclipse</code> to rebuild the
+      <code class="code">.classpath</code> file.</p>
+
+      <p>Roo has now been entirely removed from your project and you should
+      re-run your tests and user interface for verification of expected
+      operation. It's probably a good idea to perform another branch or tag in
+      your source control repository so the change set is documented.</p>
+    </div>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="removing-reversal"></a>6.4.&nbsp;Reenabling Roo After A Removal</h2></div></div></div>
+    
+
+    <p>If you decide to change your mind and start using Roo again, the
+    good news is that it's relatively easy. This is because your project
+    already uses the correct directory layout and has AspectJ etc properly
+    configured. To re-enable Roo, simply open your pom.xml and re-add the
+    <code class="code">org.springframework.roo.annotations</code>
+    <code class="code">&lt;dependency&gt;</code> element. You can obtain the correct syntax
+    by simply making a new directory, changing into that directory, executing
+    <code class="code">roo script vote.roo</code>, and inspecting the resulting
+    <code class="code">pom.xml</code>.</p>
+
+    <p>Once you've added the dependency, you're free to load Roo from
+    within your project's directory and start using the Roo commands again.
+    You're also free to add <code class="code">@Roo</code> annotations to any
+    <code class="code">.java</code> file that would benefit from them, but remember that
+    Roo is "hands off by default". What that means is if you used the <a class="link" href="removing.html#removing-step-by-step-1" title="6.3.1.&nbsp;Step 1: Push-In Refactor">push-in refactor</a> command to move
+    members (e.g. fields, methods, annotations etc) into the <code class="code">.java</code>
+    file, Roo has no way of knowing that they originated from a push-in
+    refactor as opposed to you having written them by hand. Roo therefore
+    won't delete any members from your <code class="code">.java</code> file or override
+    them in an inter-type declaration. </p>
+
+    <p>Our advice is therefore (a) don't remove Roo in the first place or
+    (b) if you have removed Roo and go back to using Roo again, delete the
+    members from your <code class="code">.java</code> files that Roo is able to
+    automatically manage for you. By deleting the members that Roo can manage
+    for you from the <code class="code">.java</code> files, you'll gain the maximum benefit
+    of your decision to resume using Roo. If you're unsure which members Roo
+    can automatically manage, simply comment them out and see if Roo provides
+    them automatically for you. Naturally you'll need the relevant
+    <code class="code">@Roo</code> annotation(s) in your <code class="code">.java</code> files before
+    Roo will create any members automatically for you.</p>
+
+    <p>A final tip if you'd like to return to having ITDs again is that
+    AJDT 2.0 and above offers a Refactor &gt; Push Out command. This may
+    assist you in moving back to ITDs. The Edit &gt; Undo command also
+    generally works if you decide to revert immediately after a Refactor &gt;
+    Push In operation.</p>
+  </div>
+</div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="existing.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="base.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;5.&nbsp;Existing Building Blocks&nbsp;</td><td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.springsource.com/" title="SpringSource - Spring from the Source">Sponsored by SpringSource
+                                        </a></span></td><td width="40%" align="right" valign="top">&nbsp;Part&nbsp;II.&nbsp;Base Add-Ons</td></tr></table></div></body></html>

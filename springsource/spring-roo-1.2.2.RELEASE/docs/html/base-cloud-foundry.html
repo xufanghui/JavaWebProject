@@ -1,0 +1,204 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;13.&nbsp;Cloud Foundry Add-On</title><link rel="stylesheet" href="css/html.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.73.2"><link rel="start" href="index.html" title="Spring Roo - Reference Documentation"><link rel="up" href="base.html" title="Part&nbsp;II.&nbsp;Base Add-Ons"><link rel="prev" href="base-jsf.html" title="Chapter&nbsp;12.&nbsp;JavaServer Faces (JSF) Add-On"><link rel="next" href="base-gwt.html" title="Chapter&nbsp;14.&nbsp;Google Web Toolkit Add-On"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div xmlns:fo="http://www.w3.org/1999/XSL/Format" style="background-color:white;border:none;height:73px;border:1px solid black;"><a style="border:none;" href="http://www.springsource.org/roo/" title="The Spring Framework - Spring Roo"><img style="border:none;" src="images/xdev-spring_logo.jpg"></a><a style="border:none;" href="http://www.springsource.com/" title="SpringSource - Spring from the Source"><img style="border:none;position:absolute;padding-top:0px;right:2em;" src="images/banner.png"></a></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="base-cloud-foundry"></a>Chapter&nbsp;13.&nbsp;Cloud Foundry Add-On</h2></div></div></div>
+  
+
+  <p>VMware <a class="ulink" href="www.cloudfoundry.org" target="_top">Cloud Foundry</a> is
+  a recently-released platform as a service (PaaS) offering for developers on
+  many popular programming languages, including Java.</p>
+
+  <p>Spring Roo provides comprehensive integration with Cloud Foundry. With
+  Roo you can easily login to Cloud Foundry, view your applications, bind to
+  services, deploy applications and gather statistics. In fact there are more
+  than 30 unique Cloud Foundry commands added to the Spring Roo shell to help
+  you explore and benefit from Cloud Foundry.</p>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e2424"></a>13.1.&nbsp;Installing the Cloud Foundry Add-On</h2></div></div></div>
+    
+
+    <p>The Cloud Foundry add-on provides the mechanism through which Cloud
+    Foundry features are available in Spring Roo. To install this add-on, you
+    simply load Spring Roo 1.1.3 and type (most of which can be completed
+    using the TAB key, or CTRL + SPACE if using STS):</p>
+
+    <pre class="programlisting">pgp automatic trust 
+addon install bundle --bundleSymbolicName org.springframework.roo.addon.cloud.foundry </pre>
+
+    <div class="mediaobject" align="center"><img src="images/cloud-foundry/ManuallyInstallingTheCloudFoundryAddOn.png" align="middle"></div>
+
+    <p>The &#8220;pgp&#8221; command simply ensures the signed bundles needed by the
+    Cloud Foundry add-on can be installed. The &#8220;addon install&#8221; command
+    instructs Roo to download and install the Cloud Foundry support. The
+    add-on is successfully installed once you see the &#8220;Successfully installed
+    add-on: Spring Roo - Addon - Cloud Foundry [version: a.b.c.d]&#8221; message on
+    your screen.</p>
+
+    <p>As with all Roo add-ons, you could also install the Cloud Foundry
+    add-on by simply attempting to use it. To follow this alternate
+    installation path, enter the &#8220;pgp automatic trust&#8221; command, then &#8220;cloud
+    foundry&#8221; and press enter. A list of matching add-ons will be displayed.
+    You&#8217;ll probably want to install the first (and currently only match), so
+    use the &#8220;addon install id --searchResultId 1&#8221; command.</p>
+
+    <p>Alternatively you can just executing the following command which
+    will prompt you to install the Cloud Foundry add-on, it is still required
+    that you enable automatic trust prior to installation.</p>
+
+    <pre class="programlisting">pgp automatic trust 
+cloud foundry login</pre>
+
+    <div class="mediaobject" align="center"><img src="images/cloud-foundry/AutoInstallingTheCloudFoundryAddOn.png" align="middle"></div>
+
+    <p></p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e2439"></a>13.2.&nbsp;Getting Started</h2></div></div></div>
+    
+
+    <p>The integration of Cloud Foundry into Roo has added a lot of new
+    functionality and commands to the Roo shell, in this chapter we will
+    explore these new commands and deploy a sample application to the cloud.
+    After installing the Cloud Foundry add-on you will first need to login. To
+    do this, use the following command:</p>
+
+	<div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d4e2442"></a>13.2.1.&nbsp;Logging In</h3></div></div></div>
+    
+    
+    <pre class="programlisting">cloud foundry login</pre>
+
+    <p>This command takes in three options: email, password, and
+    cloudControllerUrl. The cloudControllerUrl is optional, but the when
+    logging into Cloud Foundry for the first login the email and password are
+    mandatory. You aren't required to enter the email and password everytime
+    you login, Roo will store these locally for you. The cloudControllerUrl
+    defaults the Cloud service provided by VMware, api.cloudfoundry.com, but
+    can be changed to point to private Cloud Foundry instances.</p>
+    
+    </div>
+
+	 <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d4e2446"></a>13.2.2.&nbsp;The Commands</h3></div></div></div>
+    
+    <p>After logging in a many new Cloud Foundry comands will be presented
+    to you. You can see these by typing "cloud foundry" in the shell and then
+    pressing TAB.</p>
+
+    <div class="mediaobject"><img src="images/cloud-foundry/CloudFoundryFromTheRooShell.png"></div>
+    
+     </div>
+
+	<div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d4e2452"></a>13.2.3.&nbsp;Deploying Your Application</h3></div></div></div>
+    
+    <p>As the creation of sample application that will be used in this
+    chapter has already been covered in the <a class="link" href="base-gwt.html" title="Chapter&nbsp;14.&nbsp;Google Web Toolkit Add-On">GWT
+    chapter</a> we will skip to the deploying it.</p>
+
+    <p>The first command that is likely to be of use is "cloud foundry
+    deploy". With this command you are are able to deploy an application to
+    Cloud Foundry. The deploy command has a number of options: appName
+    (mandatory), path (mandatory), urls, instances, and memory. Roo will
+    automatically present you with existing deployed applications to enable
+    you to choose a unique name, and will also present any WARs found in the
+    project. If a WAR isn't found the "CREATE" option presented. By selecting
+    create you will trigger a Maven package, which will create a deployable
+    application. Onece the application has been successfully deployed when you
+    see "The application 'new-expenses' was successfully pushed".</p>
+
+    <div class="mediaobject" align="center"><img src="images/cloud-foundry/CloudFoundryDeploy.png" align="middle"></div>
+    
+    </div>
+    
+    <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d4e2460"></a>13.2.4.&nbsp;Viewing Your Applications</h3></div></div></div>
+    
+
+    <p>After running the above command, and assuming that you had created a
+    project in the first place your application will be deployed to Cloud
+    Foundry. To verify this you can run the command "cloud foundry list apps",
+    which will display all applications currently deployed.</p>
+
+    <div class="mediaobject" align="center"><img src="images/cloud-foundry/CloudFoundryApps.png" align="middle"></div>
+    
+
+    <p>There are two other application deployed, both of which are started
+    and bound to services. You will also notice that a URL has been mapped to
+    the each application and that the application that was just deployed
+    "new-expenses" is currently stopped and no services have been bound to it.
+    The URL has been created and mapped based on the application name, which
+    is what Roo defaults to if a URL is not provided.</p>
+    
+    </div>
+
+	<div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d4e2467"></a>13.2.5.&nbsp;Binding Services</h3></div></div></div>
+    
+    <div class="mediaobject" align="center"><img src="images/cloud-foundry/CloudFoundryListServices.png" align="middle"></div>
+
+    <p>The next step is to bind the application "new-expenses" to a
+    service, before we do this though we need to check that we have a service
+    to bind to. To this we use the "cloud foundry list services" command which
+    will display a list of possible services we can create instances of and
+    currently provisioned services. As can be seen above Cloud Foundry
+    currently provides 4 services: Redis, MongoDB, RabbitMQ, and MySQL. There
+    is currently one provisioned service, that is an instance of MySQL called
+    "misql". As there is already a MySQL service present we are going to bind
+    this to our "new-expenses" application.</p>
+
+    <p>To bind "new-expenses" to a service we use the "cloud foundry bind
+    service --serviceName misql --appName new-expenses" command. Roo's
+    auto-completion makes navigating the options a breeze.</p>
+
+    <div class="mediaobject" align="center"><img src="images/cloud-foundry/CloudFoundryServiceBinding.png" align="middle"></div>
+
+    <p>If you were to run "cloud foundry list apps" at this point you would
+    see that the application "new-expenses" is now bound to the MySQL service
+    instance "misql". We should now be ready to start the application, but
+    before we do lets take a look at how much memory has been assigned to the
+    application. To do this we run "cloud foundry view app memory". When we
+    first deployed the application no memory value was specified so, as you
+    can see below, the default value provisioned is 256 megabytes.</p>
+    
+    </div>
+
+	<div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d4e2478"></a>13.2.6.&nbsp;Provisioning Memory</h3></div></div></div>
+    
+    <div class="mediaobject" align="center"><img src="images/cloud-foundry/CloudFoundryViewMemory.png" align="middle"></div>
+
+    <p>To change the alotted memory we could run "cloud foundry update app
+    memory --appName new-expenses" but as GWT allows state to be stored client
+    side the default should be enough.</p>
+    </div>
+    
+    <div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d4e2484"></a>13.2.7.&nbsp;Starting Your Application</h3></div></div></div>
+    
+    <p>Now that we have verified that we
+    should have enough memory to start we simple run "cloud foundry start app
+    --appName new-expenses".</p>
+
+    <div class="mediaobject" align="center"><img src="images/cloud-foundry/CloudFoundryStartApp.png" align="middle"></div>
+    
+
+    <p>To verify that the application has actually started simply navigate
+    to the URL you previously mapped to the application, in this case it is
+    "new-expenses.cloudfoundry.com", and you should see your
+    application.</p>
+
+    <div class="mediaobject" align="center"><img src="images/cloud-foundry/CloudFoundryNewExpenses.png" align="middle"></div>
+	</div>
+    <p></p>
+  </div>
+
+  <div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e2495"></a>13.3.&nbsp;Conclusion</h2></div></div></div>
+    
+
+    <p>Cloud Foundry is a ground breaking service and open source platform
+    that allows developers to maximise there productivity by not having to
+    manage the platform to which they deploy. The initial integration with Roo
+    allows developers to deploy and manage their applications with very little
+    effort from with in the shell. In this chapter we have installed the Cloud
+    Foundry Add-On in Roo which enabled applications to be deployed to and
+    managed on Cloud Foundry. We have shown how easy Cloud Foundry makes it
+    for the developer to take advantage of the cloud from with Roo, by going
+    the deployment process step-by-step. There are other commands that haven't
+    been explicity covered by this guide and may be expanded on in the
+    future.</p>
+  </div>
+</div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="base-jsf.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="base-gwt.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;12.&nbsp;JavaServer Faces (JSF) Add-On&nbsp;</td><td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.springsource.com/" title="SpringSource - Spring from the Source">Sponsored by SpringSource
+                                        </a></span></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;14.&nbsp;Google Web Toolkit Add-On</td></tr></table></div></body></html>
